@@ -1,5 +1,16 @@
-.Wrapper {
-  max-width: 1200px;
-  margin: auto;
-  border: 5px dashed black;
+body {
+  background-color: $orange;
+  color: $navy;
+  height: 100%;
+  overflow-x: hidden;
+  a {
+    color: $navy;
+    text-decoration: none;
+  }
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1248px;
+  min-height: 850px;
+  text-align: center;
 }

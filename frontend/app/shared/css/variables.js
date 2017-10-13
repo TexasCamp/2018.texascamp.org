@@ -1,3 +1,4 @@
 module.exports = {
-  // Add your css variables here.
+  orange: '#ef5a47',
+  navy: '#10363f',
 };

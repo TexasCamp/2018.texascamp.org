@@ -1,0 +1,42 @@
+
+.info {
+  composes: calderLC from '../../shared/css/fonts.css';
+  font-size: 13px;
+  line-height: 1.7rem;
+  .social {
+    img {
+      height: 14px;
+      width: auto;
+    }
+  }
+  .separator {
+    display: none;
+  }
+  .location,
+  .venue {
+    display: block;
+  }
+  .social {
+    + .separator {
+      display: inline;
+    }
+  }
+  @media (min-width: 360px) {
+    .date {
+      + .separator {
+        display: inline;
+      }
+    }
+    .location {
+      display: inline;
+    }
+  }
+  @media (min-width: 667px) {
+    .separator {
+      display: inline;
+    }
+    .venue {
+      display: inline;
+    }
+  }
+}

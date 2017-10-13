@@ -1,0 +1,72 @@
+.newsletter {
+  composes: calderLC from '../../shared/css/fonts.css';
+  margin: 340px auto 0;
+  width: 214px;
+  @media (min-width: 501px) {
+    margin-top: 440px;
+  }
+  @media (min-width: 1000px) {
+    float: right;
+    margin-top: 340px;
+    position: relative;
+  }
+  @media (min-width: 1200px) {
+    margin-top: 386px;
+  }
+  img {
+    margin-bottom: 20px;
+    width: 165px;
+  }
+  .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  input[type=email], input[type=text], textarea {
+    font-size: 12px;
+    font-family: "calder-lc", sans-serif;
+    background: $orange;
+    border: 1px solid $navy;
+    box-sizing: border-box;
+    color: $navy;
+    padding: 15px;
+    margin: 0 0 16px;
+    width: 100%;
+    &::placeholder {
+      color: $navy;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .submit {
+    input {
+      background-color: $navy;
+      border: 0;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-block;
+      color: $orange;
+      font-family: "calder-lc", sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      margin-top: 4px;
+      padding: 9px 27px 5px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.3s ease-out;
+    }
+  }
+  .imperfectOne {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+  .imperfectTwo {
+    border-radius: 15px 15px 15px 225px/225px 255px 225px 15px;
+  }
+}
