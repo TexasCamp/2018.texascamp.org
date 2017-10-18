@@ -5,10 +5,9 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import Logo from 'Logo';
 import NewsletterForm from 'NewsletterForm';
-// import pdf from 'react-pdf-js';
 import backgroundImage from '../../shared/images/texas-camper.png';
 import download from '../../shared/images/download.png';
-// import prospectus from '../../shared/documents/prospectus.pdf';
+import prospectus from '../../shared/documents/prospectus.pdf';
 import styles from './styles.css';
 
 const Home = (): React.Element<any> => (
@@ -21,7 +20,7 @@ const Home = (): React.Element<any> => (
     <Logo />
     <NewsletterForm />
     <div className={styles.prospectus}>
-      <a href="/">
+      <a href={prospectus}>
         <img src={download} alt="Download the Sponsor Prospectus" />
         Sponsor Prospectus
       </a>
