@@ -21,7 +21,8 @@
       display: inline;
     }
     a:hover {
-      border-bottom: 1px solid;
+      border-top: 1px solid;
+      padding-top: 8px;
     }
   }
   @media (min-width: 360px) {
