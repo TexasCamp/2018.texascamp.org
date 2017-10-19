@@ -20,6 +20,9 @@
     + .separator {
       display: inline;
     }
+    a:hover {
+      border-bottom: 1px solid;
+    }
   }
   @media (min-width: 360px) {
     .date {
@@ -37,6 +40,14 @@
     }
     .venue {
       display: inline;
+    }
+  }
+  @media (min-width: 1000px) and (max-width: 1200px) {
+    .venue {
+      display: block;
+      + .separator {
+        display: none;
+      }
     }
   }
 }

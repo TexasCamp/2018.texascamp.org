@@ -7,7 +7,7 @@
   }
   @media (min-width: 1000px) {
     float: right;
-    margin-top: 340px;
+    margin-top: 290px;
     position: relative;
   }
   @media (min-width: 1200px) {
@@ -41,14 +41,13 @@
       color: $navy;
     }
     &:focus {
-      border-color: $almostWhite;
       outline: none;
     }
   }
   .submit {
     input {
       background-color: $navy;
-      border: 0;
+      border: 1px solid $navy;
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
@@ -63,7 +62,8 @@
       text-transform: uppercase;
       transition: background 0.3s ease-out;
       &:hover {
-        color: $almostWhite;
+        background: $orange;
+        color: $navy;
       }
     }
   }

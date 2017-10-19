@@ -44,7 +44,7 @@
   margin: 2em auto 0;
   width: 200px;
   @media (min-width: 1000px) {
-    margin-top: 516px;
+    margin-top: 444px;
   }
   @media (min-width: 1200px) {
     margin-top: 560px;
@@ -53,5 +53,12 @@
     display: block;
     margin: 0 auto 10px;
     width: 22px;
+  }
+  a:hover {
+    .border {
+      border-bottom: 2px solid;
+      margin: 5px auto 0;
+      width: 90px;
+    }
   }
 }

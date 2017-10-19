@@ -16,11 +16,11 @@
       margin-top: 26px;
     }
     @media (min-width: 1000px) {
-      margin-top: 1em;
+      margin-top: -78px;
+      width: 272px;
     }
     @media (min-width: 1200px) {
       margin-top: -24px;
-      width: 272px;
     }
   }
 }

@@ -6,16 +6,6 @@ body {
   a {
     color: $navy;
     text-decoration: none;
-    &:hover {
-      color: $almostWhite;
-      -webkit-font-smoothing: antialiased;
-      -moz-font-smoothing: antialiased;
-      -o-font-smoothing: antialiased;
-      img {
-        filter: brightness(100);
-        -webkit-filter: brightness(100);
-      }
-    }
   }
 }
 .wrapper {
