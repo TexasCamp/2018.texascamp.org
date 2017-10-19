@@ -1,0 +1,39 @@
+.backgroundWrapper {
+  left: 50%;
+  margin-top: 320px;
+  position: absolute;
+  @media (min-width: 360px) {
+    margin-top: 300px;
+  }
+  @media (min-width: 501px) {
+    margin-top: 320px;
+  }
+  @media (min-width: 667px) {
+    margin-top: 276px;
+  }
+  @media (min-width: 1000px) {
+    margin-top: 94px;
+  }
+  .backgroundImage {
+    left: -50%;
+    position: relative;
+    @media (max-width: 500px) {
+      width: 600px;
+    }
+    @media (min-width: 501px) {
+      width: 800px;
+    }
+    @media (min-width: 1200px) {
+      width: 918px;
+    }
+  }
+  .van, .cow {
+    margin-top: -284px;
+    @media (min-width: 501px) {
+      margin-top: -378px;
+    }
+    @media (min-width: 1200px) {
+      margin-top: -433px;
+    }
+  }
+}
