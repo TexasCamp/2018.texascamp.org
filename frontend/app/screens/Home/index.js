@@ -5,21 +5,41 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import Logo from 'Logo';
 import NewsletterForm from 'NewsletterForm';
-import backgroundImage from '../../shared/images/texas-camper.png';
+import BackgroundImage from 'BackgroundImage';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
+import download from '../../shared/images/download.png';
 import styles from './styles.css';
+import appleTouchIcon from '../../shared/favicons/apple-touch-icon.png';
+import favicon32x32 from '../../shared/favicons/favicon-32x32.png';
+import favicon16x16 from '../../shared/favicons/favicon-16x16.png';
+import safariPinnedTab from '../../shared/favicons/safari-pinned-tab.svg';
+import favicon from '../../shared/favicons/favicon.ico';
 
-const Home = (): React.Element<any> =>
-  (<div className={styles.wrapper}>
-    <Helmet title="Texas Camp 2018" />
-    <div className={styles.backgroundWrapper}>
-      <img className={styles.backgroundImage} src={backgroundImage} alt="" />
-    </div>
+const Home = (): React.Element<any> => (
+  <div className={styles.wrapper}>
+    <Helmet>
+      <title>Texas Camp 2018</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+      <link rel="icon" type="image/png" sizes="32x32" href={favicon32x32} />
+      <link rel="icon" type="image/png" sizes="16x16" href={favicon16x16} />
+      <link rel="mask-icon" href={safariPinnedTab} color="#5bbad5" />
+      <link rel="shortcut icon" href={favicon} />
+    </Helmet>
+    <BackgroundImage />
     <Header />
     <Logo />
     <NewsletterForm />
     <div className={styles.prospectus}>
-      <a href="/">Sponsor Prospectus</a>
+      <a href={prospectus}>
+        <img src={download} alt="Download the Sponsor Prospectus" />
+        Sponsor Prospectus
+        <div className={styles.border} />
+      </a>
     </div>
-  </div>);
+  </div>
+);
 
 export default Home;

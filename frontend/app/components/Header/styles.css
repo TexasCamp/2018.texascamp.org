@@ -20,8 +20,12 @@
     + .separator {
       display: inline;
     }
+    a:hover {
+      border-top: 1px solid;
+      padding-top: 8px;
+    }
   }
-  @media (min-width: 360px) {
+  @media all and (min-width: 360px) {
     .date {
       + .separator {
         display: inline;
@@ -31,12 +35,20 @@
       display: inline;
     }
   }
-  @media (min-width: 667px) {
+  @media all and (min-width: 667px) {
     .separator {
       display: inline;
     }
     .venue {
       display: inline;
+    }
+  }
+  @media all and (min-width: 1000px) and (max-width: 1200px) {
+    .venue {
+      display: block;
+      + .separator {
+        display: none;
+      }
     }
   }
 }

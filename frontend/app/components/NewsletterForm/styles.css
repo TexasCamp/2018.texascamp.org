@@ -2,15 +2,15 @@
   composes: calderLC from '../../shared/css/fonts.css';
   margin: 340px auto 0;
   width: 214px;
-  @media (min-width: 501px) {
+  @media all and (min-width: 501px) {
     margin-top: 440px;
   }
-  @media (min-width: 1000px) {
+  @media all and (min-width: 1000px) {
     float: right;
-    margin-top: 340px;
+    margin-top: 290px;
     position: relative;
   }
-  @media (min-width: 1200px) {
+  @media all and (min-width: 1200px) {
     margin-top: 386px;
   }
   img {
@@ -47,7 +47,7 @@
   .submit {
     input {
       background-color: $navy;
-      border: 0;
+      border: 1px solid $navy;
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
@@ -60,7 +60,11 @@
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      transition: background 0.3s ease-out;
+      transition: background 0.1s ease-out;
+      &:hover {
+        background: $orange;
+        color: $navy;
+      }
     }
   }
   .imperfectOne {
