@@ -11,6 +11,7 @@ body {
 .wrapper {
   margin: 0 auto;
   max-width: 1248px;
-  min-height: 850px;
+  overflow-x: hidden;
+  position: relative;
   text-align: center;
 }
