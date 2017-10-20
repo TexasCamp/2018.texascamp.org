@@ -8,7 +8,7 @@ COPY . /app/
 
 ENV NODE_ENV production
 
-RUN yarn run build && yarn run storybook:build
+RUN yarn run build
 RUN fix-permissions /app
 
 EXPOSE 3000
