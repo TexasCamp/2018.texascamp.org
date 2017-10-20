@@ -1,0 +1,14 @@
+sitegroup: '2018-txcamp'
+
+shared:
+  production:
+    - src: files
+      dst: web/sites/default/files
+services:
+  node:
+    amazeeio:
+      type: node:8
+      template: frontend/.amazeeio.node.yml
+    build:
+      context: frontend
+      dockerfile: Dockerfile
