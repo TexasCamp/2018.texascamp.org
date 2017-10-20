@@ -13,7 +13,11 @@ import styles from './styles.css';
 
 const Home = (): React.Element<any> => (
   <div className={styles.wrapper}>
-    <Helmet title="Texas Camp 2018" />
+    <Helmet>
+      <title>Texas Camp 2018</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Helmet>
     <BackgroundImage />
     <Header />
     <Logo />

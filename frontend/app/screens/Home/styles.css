@@ -1,9 +1,9 @@
 .wrapper {
   padding: 2em;
-  @media (min-width: 1000px) {
+  @media all and (min-width: 1000px) {
     padding: 72px 2em;
   }
-  @media (min-width: 1350px) {
+  @media all and (min-width: 1350px) {
     padding: 72px 0;
   }  
 }
@@ -13,10 +13,10 @@
   line-height: 1.5rem;
   margin: 2em auto 0;
   width: 200px;
-  @media (min-width: 1000px) {
+  @media all and (min-width: 1000px) {
     margin-top: 444px;
   }
-  @media (min-width: 1200px) {
+  @media all and (min-width: 1200px) {
     margin-top: 560px;
   }
   img {
