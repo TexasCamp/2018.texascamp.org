@@ -8,16 +8,17 @@ import NewsletterForm from 'NewsletterForm';
 import BackgroundImage from 'BackgroundImage';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
-import download from '../../shared/images/download.png';
-import styles from './styles.css';
-import appleTouchIcon from '../../shared/favicons/apple-touch-icon.png';
-import favicon32x32 from '../../shared/favicons/favicon-32x32.png';
-import favicon16x16 from '../../shared/favicons/favicon-16x16.png';
-import safariPinnedTab from '../../shared/favicons/safari-pinned-tab.svg';
-import favicon from '../../shared/favicons/favicon.ico';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import favicon from '!file-loader?name=favicon.ico!favicons/favicon.ico';
+import download from 'images/download.png';
+import styles from 'Home/styles.css';
+import appleTouchIcon from 'favicons/apple-touch-icon.png';
+import favicon32x32 from 'favicons/favicon-32x32.png';
+import favicon16x16 from 'favicons/favicon-16x16.png';
+import safariPinnedTab from 'favicons/safari-pinned-tab.svg';
 
-const Home = (): React.Element<any> => (
-  <div className={styles.wrapper}>
+const Home = (): React.Element<any> =>
+  (<div className={styles.wrapper}>
     <Helmet>
       <title>Texas Camp 2018</title>
       <meta charSet="utf-8" />
@@ -40,7 +41,6 @@ const Home = (): React.Element<any> => (
         <div className={styles.border} />
       </a>
     </div>
-  </div>
-);
+  </div>);
 
 export default Home;
