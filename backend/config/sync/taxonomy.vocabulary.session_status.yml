@@ -1,0 +1,9 @@
+uuid: 4c0632c8-9f25-4ce1-a31a-659066a88318
+langcode: en
+status: true
+dependencies: {  }
+name: 'Session Status'
+vid: session_status
+description: 'Selected or not selected'
+hierarchy: 0
+weight: 0

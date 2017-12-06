@@ -1,0 +1,9 @@
+uuid: 065092f9-9015-4413-b148-e67c6c4e66ec
+langcode: en
+status: true
+dependencies: {  }
+name: Track
+vid: track
+description: 'Use tracks to categorize submitted sessions into similar topics.'
+hierarchy: 0
+weight: 0

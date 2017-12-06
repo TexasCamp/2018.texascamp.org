@@ -1,0 +1,9 @@
+uuid: f3686d0c-fe44-44f1-bd1b-0a87bb7c283a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Skill Level'
+vid: skill_level
+description: 'Beginner, intermediate, or advanced'
+hierarchy: 0
+weight: 0

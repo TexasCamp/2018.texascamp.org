@@ -1,0 +1,19 @@
+uuid: 6004a6f6-f486-463e-9182-a558935fe11e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_room
+    - node.type.session
+id: node.session.field_session_room
+field_name: field_session_room
+entity_type: node
+bundle: session
+label: Room
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

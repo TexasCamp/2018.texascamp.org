@@ -1,0 +1,17 @@
+uuid: 2c80f0df-5499-4164-bb6b-193c49afa1e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Session
+type: session
+description: '<em>Sessions</em> are submitted by community members and later reviewed and selected by a selection committee.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

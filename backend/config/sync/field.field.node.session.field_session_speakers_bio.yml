@@ -1,0 +1,21 @@
+uuid: a2ca2f35-f762-4ef6-ad1c-65ad6181ea92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_speakers_bio
+    - node.type.session
+  module:
+    - text
+id: node.session.field_session_speakers_bio
+field_name: field_session_speakers_bio
+entity_type: node
+bundle: session
+label: 'Speaker(s) Bio'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

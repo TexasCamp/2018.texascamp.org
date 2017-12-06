@@ -1,0 +1,21 @@
+uuid: bc575ba3-f27c-4ba0-8577-0f9f021a9588
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_notes
+    - node.type.session
+  module:
+    - text
+id: node.session.field_session_notes
+field_name: field_session_notes
+entity_type: node
+bundle: session
+label: 'Notes for Selection Committee'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

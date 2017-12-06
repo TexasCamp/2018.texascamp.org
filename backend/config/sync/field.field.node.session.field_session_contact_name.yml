@@ -1,0 +1,19 @@
+uuid: 5d30948a-c1cb-4429-8ade-4dc4da79e9c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_contact_name
+    - node.type.session
+id: node.session.field_session_contact_name
+field_name: field_session_contact_name
+entity_type: node
+bundle: session
+label: 'Contact Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
