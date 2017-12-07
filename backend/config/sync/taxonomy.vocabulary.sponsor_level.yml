@@ -1,0 +1,9 @@
+uuid: 2cb0a503-0433-4ff7-8e0c-6836e2e0997b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sponsor Level'
+vid: sponsor_level
+description: 'Bronze, Silver, Gold, or Platinum'
+hierarchy: 0
+weight: 0
