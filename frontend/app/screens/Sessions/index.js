@@ -3,28 +3,32 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Header from 'Header';
-import type { SessionT } from 'types';
 import styles from 'Sessions/styles.css';
-import withSessionQuery from './withSessionsQuery';
+import withSessionQuery from 'Sessions/withSessionsQuery';
+import type { SessionT } from 'types';
+import { cleanHtml } from 'utils';
 
 type SessionsListProps = {
   sessions: Array<SessionT>,
 };
-const SessionsList = ({ sessions }: SessionsListProps) => (
-  <div className={styles.sessionsContainer}>
+const SessionsList = ({ sessions }: SessionsListProps) =>
+  (<div className={styles.sessionsContainer}>
     {sessions.map(eachSession =>
-        (<ul>
+      (<div>
+        <ul>
           <li>
-            {`Description: ${eachSession.body}`}
+            {'Description'}
+            {cleanHtml(eachSession.body)}
           </li>
           <li>
             {`Experience Level: ${eachSession.skillLevel}`}
           </li>
           <li>
+            <span>Speakers:</span>
             {eachSession.speakers.map(eachName =>
-              (<div>
-                {eachName}
-              </div>),
+              (<span>
+                {` ${eachName} `}
+              </span>),
             )}
           </li>
           <li>
@@ -36,13 +40,11 @@ const SessionsList = ({ sessions }: SessionsListProps) => (
           <li>
             {`Track: ${eachSession.track}`}
           </li>
-        </ul>),
-      )}
-    <ul className={styles.session}>
-      {'hello'}
-    </ul>
-  </div>
-  );
+        </ul>
+        <hr />
+      </div>),
+    )}
+  </div>);
 
 type SessionPageProps = {
   sessions: Array<SessionT>,
