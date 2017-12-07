@@ -14,10 +14,10 @@ type SessionsListProps = {
 const SessionsList = ({ sessions }: SessionsListProps) =>
   (<div className={styles.sessionsContainer}>
     {sessions.map(eachSession =>
-      (<div>
+      (<div key={eachSession.title}>
         <ul>
-          <li>
-            {'Description'}
+          <li className={styles.descriptionContainer}>
+            {'Description:'}
             {cleanHtml(eachSession.body)}
           </li>
           <li>
@@ -26,7 +26,7 @@ const SessionsList = ({ sessions }: SessionsListProps) =>
           <li>
             <span>Speakers:</span>
             {eachSession.speakers.map(eachName =>
-              (<span>
+              (<span key={eachName}>
                 {` ${eachName} `}
               </span>),
             )}
