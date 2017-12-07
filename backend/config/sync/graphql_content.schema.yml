@@ -10,7 +10,7 @@ types:
         view_mode: node.default
       session:
         exposed: true
-        view_mode: __none__
+        view_mode: node.default
       news:
         exposed: false
         view_mode: '0'
