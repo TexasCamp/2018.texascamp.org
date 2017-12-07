@@ -25,4 +25,7 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_sponsor_image: true
+  field_sponsor_level: true
+  field_sponsor_url: true

@@ -25,4 +25,15 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_session_contact_company: true
+  field_session_contact_email: true
+  field_session_contact_name: true
+  field_session_notes: true
+  field_session_room: true
+  field_session_skill_level: true
+  field_session_speakers: true
+  field_session_speakers_bio: true
+  field_session_status: true
+  field_session_timeslot: true
+  field_session_track: true
