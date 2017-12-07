@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: Sponsor
 type: sponsor
-description: 'Create <em>Sponsors</em> to recognize companies that contribute financially to Texas Camp.'
+description: 'Add a <em>Sponsor</em> to recognize a company/organization that has contributed financially to Texas Camp.'
 help: ''
 new_revision: false
 preview_mode: 1
