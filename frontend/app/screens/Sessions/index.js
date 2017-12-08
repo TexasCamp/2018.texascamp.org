@@ -6,12 +6,13 @@ import Header from 'Header';
 import styles from 'Sessions/styles.css';
 import withSessionQuery from 'Sessions/withSessionsQuery';
 import type { SessionT, SkillLevelT, TrackT } from 'types';
-import { cleanHtml, searchArr } from 'utils';
+import { cleanHtml, searchArr, titleToLink } from 'utils';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import lifecycle from 'recompose/lifecycle';
 import withProps from 'recompose/withProps';
+import Link from 'AsyncLink';
 
 type SessionExtendedT = SessionT & {
   visibility: boolean,
@@ -68,10 +69,12 @@ const withLogic = compose(
       setSessions,
       setSkillLevel,
       setTrack,
+      setSearchText,
     }) => () => {
       setSessions(sessions.map(el => ({ ...el, visibility: true })));
       setSkillLevel(null);
       setTrack(null);
+      setSearchText('');
     },
   }),
   withProps(() => ({
@@ -97,16 +100,13 @@ const withLogic = compose(
 
 type SessionsListProps = {
   sessions: Array<SessionExtendedT>,
-  // filteredSkillLevel: string,
   filterBySkillLevel: Function,
-  // filteredText: string,
-  // filterByText: Function,
-  // filteredTrack: string,
   resetAllFilters: Function,
   filterByText: Function,
   filterByTrack: Function,
   tracks: Array<TrackT>,
   skillLevels: Array<SkillLevelT>,
+  textSearchInput: string,
 };
 
 const SessionsList = withLogic((props: SessionsListProps) => {
@@ -118,6 +118,7 @@ const SessionsList = withLogic((props: SessionsListProps) => {
     filterByTrack,
     resetAllFilters,
     filterByText,
+    textSearchInput,
   } = props;
   return (
     <div className={styles.sessionsContainer}>
@@ -135,7 +136,7 @@ const SessionsList = withLogic((props: SessionsListProps) => {
       )}
       <div>
         <h2>Session Search</h2>
-        <input type="text" onChange={filterByText} />
+        <input type="text" value={textSearchInput} onChange={filterByText} />
       </div>
       <h2>Reset All:</h2>
       <button onClick={() => resetAllFilters()}>Reset All Filters</button>
@@ -147,6 +148,13 @@ const SessionsList = withLogic((props: SessionsListProps) => {
             <ul>
               <li>
                 {`Title: ${eachSession.title}`}
+              </li>
+              <li>
+                <u>
+                  <Link to={`sessions/${titleToLink(eachSession.title)}`}>
+                    Link to session page
+                  </Link>
+                </u>
               </li>
               <li className={styles.descriptionContainer}>
                 {'Description:'}
