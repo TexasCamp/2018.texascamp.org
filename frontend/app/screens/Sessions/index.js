@@ -54,10 +54,7 @@ const withLogic = compose(
         setSessions(sessions.map(el => ({ ...el, visibility: true })));
       }
       const sessionsFilteredBySearchResults = searchArr(value, sessions) // returns an array of indexes
-        .map((matchInd, eachInd) => {
-          const isMatch = typeof matchInd === 'number';
-          return { ...sessions[eachInd], visibility: isMatch };
-        });
+        .map((isMatch, eachInd) => ({ ...sessions[eachInd], visibility: isMatch }));
       setSessions(sessionsFilteredBySearchResults);
     },
     resetAllFilters: ({
