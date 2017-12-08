@@ -145,6 +145,9 @@ const SessionsList = withLogic((props: SessionsListProps) => {
         .map(eachSession =>
           (<div key={eachSession.title}>
             <ul>
+              <li>
+                {`Title: ${eachSession.title}`}
+              </li>
               <li className={styles.descriptionContainer}>
                 {'Description:'}
                 {cleanHtml(eachSession.body)}
@@ -162,9 +165,6 @@ const SessionsList = withLogic((props: SessionsListProps) => {
               </li>
               <li>
                 {`Timeslot: ${eachSession.timeslot}`}
-              </li>
-              <li>
-                {`Title: ${eachSession.title}`}
               </li>
               <li>
                 {`Track: ${eachSession.track}`}
