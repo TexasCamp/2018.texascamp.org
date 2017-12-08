@@ -19,10 +19,10 @@ type SessionExtendedT = SessionT & {
 };
 
 const withLogic = compose(
-  withState('sessions', 'setSessions', ({ sessions }) => sessions), // beginner, intermediate, advanced
-  withState('skillLevel', 'setSkillLevel', null), // beginner, intermediate, advanced
-  withState('track', 'setTrack', null), // options are on the thing
-  withState('textSearchInput', 'setSearchText', ''), // search
+  withState('sessions', 'setSessions', ({ sessions }) => sessions),
+  withState('skillLevel', 'setSkillLevel', null),
+  withState('track', 'setTrack', null),
+  withState('textSearchInput', 'setSearchText', ''),
   withHandlers({
     filterBySkillLevel: ({
       setSessions,
