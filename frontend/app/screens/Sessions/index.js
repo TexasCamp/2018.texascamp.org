@@ -5,13 +5,13 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import styles from 'Sessions/styles.css';
 import withSessionQuery from 'Sessions/withSessionsQuery';
-import type { SessionT } from 'types';
+import type { SessionT, SkillLevelT, TrackT } from 'types';
 import { cleanHtml } from 'utils';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import lifecycle from 'recompose/lifecycle';
-
+import withProps from 'recompose/withProps';
 // filter by track, skill level, search
 
 const withLogic = compose(
@@ -28,14 +28,48 @@ const withLogic = compose(
       setSkillLevel(skillLevel);
       setSessions(
         sessions.map(el => {
-          if (el.skillLevel === skillLevel || skillLevel === null) {
+          if (el.skillLevel === skillLevel) {
             return { ...el, visibility: true };
           }
           return { ...el, visibility: false };
         }),
       );
     },
+    filterByTrack: ({ setSessions, sessions, setTrack }) => track => {
+      setTrack(track);
+      setSessions(
+        sessions.map(el => {
+          if (el.track === track) {
+            return { ...el, visibility: true };
+          }
+          return { ...el, visibility: false };
+        }),
+      );
+    },
+    resetAllFilters: ({
+      sessions,
+      setSessions,
+      setSkillLevel,
+      setTrack,
+    }) => () => {
+      setSessions(sessions.map(el => ({ ...el, visibility: true })));
+      setSkillLevel(null);
+      setTrack(null);
+    },
   }),
+  withProps(() => ({
+    tracks: [
+      'Coding and Development',
+      'Devops',
+      'Frontend',
+      'Horizons',
+      'PHP',
+      'Project Management',
+      'Site Building',
+      'UX and Content Strategy',
+    ],
+    skillLevels: ['Beginner', 'Intermediate', 'Advanced'],
+  })),
   lifecycle({
     componentWillMount() {
       const { sessions, setSessions } = this.props;
@@ -51,25 +85,37 @@ type SessionsListProps = {
   // filteredText: string,
   // filterByText: Function,
   // filteredTrack: string,
-  // filterByTrack: Function,
+  resetAllFilters: Function,
+  filterByTrack: Function,
+  tracks: Array<TrackT>,
+  skillLevels: Array<SkillLevelT>,
 };
-const SessionsList = (props: SessionsListProps) => {
-  const { sessions, filterBySkillLevel } = props;
-  console.log(props);
+const SessionsList = withLogic((props: SessionsListProps) => {
+  const {
+    sessions,
+    filterBySkillLevel,
+    skillLevels,
+    tracks,
+    filterByTrack,
+    resetAllFilters,
+  } = props;
   return (
     <div className={styles.sessionsContainer}>
-      <button onClick={() => filterBySkillLevel('Beginner')}>
-        {'Filter by Beginner'}
-      </button>
-      <button onClick={() => filterBySkillLevel('Intermediate')}>
-        {'Filter by Intermediate'}
-      </button>
-      <button onClick={() => filterBySkillLevel('Advanced')}>
-        {'Filter by Advanced'}
-      </button>
-      <button onClick={() => filterBySkillLevel(null)}>
-        {'Remove filters'}
-      </button>
+      <h2>Skill Level Filters:</h2>
+      {skillLevels.map(eachLevel =>
+        (<button key={eachLevel} onClick={() => filterBySkillLevel(eachLevel)}>
+          {`${eachLevel}`}
+        </button>),
+      )}
+      <h2>Track Filters:</h2>
+      {tracks.map(eachTrack =>
+        (<button key={eachTrack} onClick={() => filterByTrack(eachTrack)}>
+          {`${eachTrack}`}
+        </button>),
+      )}
+      <h2>Reset All:</h2>
+      <button onClick={() => resetAllFilters()}>Reset All Filters</button>
+      <hr />
       {sessions
         .filter(({ visibility }) => visibility === true)
         .map(eachSession =>
@@ -105,22 +151,16 @@ const SessionsList = (props: SessionsListProps) => {
         )}
     </div>
   );
-};
+});
 
 type SessionPageProps = {
   sessions: Array<SessionT>,
-  filteredSkillLevel: string,
-  filterBySkillLevel: Function,
-  filteredText: string,
-  filterByText: Function,
-  filteredTrack: string,
-  filterByTrack: Function,
 };
-const SessionPage = ({ sessions, ...props }: SessionPageProps) =>
+const SessionPage = ({ sessions }: SessionPageProps) =>
   (<div>
     <Helmet title="Sessions" />
     <Header heading="Sessions" />
-    <SessionsList sessions={sessions} {...props} />
+    <SessionsList sessions={sessions} />
   </div>);
 
-export default compose(withSessionQuery, withLogic)(SessionPage);
+export default compose(withSessionQuery)(SessionPage);
