@@ -6,7 +6,7 @@ import Header from 'Header';
 import styles from 'Sessions/styles.css';
 import withSessionQuery from 'Sessions/withSessionsQuery';
 import type { SessionT, SkillLevelT, TrackT } from 'types';
-import { cleanHtml } from 'utils';
+import { cleanHtml, searchArr } from 'utils';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
@@ -45,6 +45,20 @@ const withLogic = compose(
           return { ...el, visibility: false };
         }),
       );
+    },
+    filterByText: ({ setSessions, sessions, setSearchText }) => ({
+      target: { value },
+    }) => {
+      setSearchText(value);
+      if (!value) {
+        setSessions(sessions.map(el => ({ ...el, visibility: true })));
+      }
+      const sessionsFilteredBySearchResults = searchArr(value, sessions) // returns an array of indexes
+        .map((matchInd, eachInd) => {
+          const isMatch = typeof matchInd === 'number';
+          return { ...sessions[eachInd], visibility: isMatch };
+        });
+      setSessions(sessionsFilteredBySearchResults);
     },
     resetAllFilters: ({
       sessions,
@@ -86,6 +100,7 @@ type SessionsListProps = {
   // filterByText: Function,
   // filteredTrack: string,
   resetAllFilters: Function,
+  filterByText: Function,
   filterByTrack: Function,
   tracks: Array<TrackT>,
   skillLevels: Array<SkillLevelT>,
@@ -98,6 +113,7 @@ const SessionsList = withLogic((props: SessionsListProps) => {
     tracks,
     filterByTrack,
     resetAllFilters,
+    filterByText,
   } = props;
   return (
     <div className={styles.sessionsContainer}>
@@ -113,6 +129,10 @@ const SessionsList = withLogic((props: SessionsListProps) => {
           {`${eachTrack}`}
         </button>),
       )}
+      <div>
+        <h2>Session Search</h2>
+        <input type="text" onChange={filterByText} />
+      </div>
       <h2>Reset All:</h2>
       <button onClick={() => resetAllFilters()}>Reset All Filters</button>
       <hr />
