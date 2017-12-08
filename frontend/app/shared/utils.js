@@ -23,16 +23,15 @@ export const searchArr = (term: string, arr: Array<any>): Array<boolean> => {
   // term should modify the regex.
   // gotcha: need to (double) escape the backslash since it's in a string.
   const re = new RegExp(`\\b${term}`, 'i');
-  const indexMatches = arr.map(el => {
+  const boolMatches = arr.map(el => {
     const str = typeof el === 'object' ? JSON.stringify(el) : el.toString();
-    if (str.match(re)) return true;
-    return false;
+    return re.test(str);
   });
-  return indexMatches;
+  return boolMatches;
 };
 
 // e.g "Hello World: How are you" -> 'hello-world-how-are-you'
-export const titleToLink = titleStr =>
+export const titleToLink = (titleStr: string): string =>
   titleStr
     .toLowerCase()
     .replace(/[^a-zA-Z ]/g, '')
