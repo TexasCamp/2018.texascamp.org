@@ -12,7 +12,10 @@ import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import lifecycle from 'recompose/lifecycle';
 import withProps from 'recompose/withProps';
-// filter by track, skill level, search
+
+type SessionExtendedT = SessionT & {
+  visibility: boolean,
+};
 
 const withLogic = compose(
   withState('sessions', 'setSessions', ({ sessions }) => sessions), // beginner, intermediate, advanced
@@ -54,7 +57,10 @@ const withLogic = compose(
         setSessions(sessions.map(el => ({ ...el, visibility: true })));
       }
       const sessionsFilteredBySearchResults = searchArr(value, sessions) // returns an array of indexes
-        .map((isMatch, eachInd) => ({ ...sessions[eachInd], visibility: isMatch }));
+        .map((isMatch, eachInd) => ({
+          ...sessions[eachInd],
+          visibility: isMatch,
+        }));
       setSessions(sessionsFilteredBySearchResults);
     },
     resetAllFilters: ({
@@ -90,7 +96,7 @@ const withLogic = compose(
 );
 
 type SessionsListProps = {
-  sessions: Array<SessionT>,
+  sessions: Array<SessionExtendedT>,
   // filteredSkillLevel: string,
   filterBySkillLevel: Function,
   // filteredText: string,
@@ -102,6 +108,7 @@ type SessionsListProps = {
   tracks: Array<TrackT>,
   skillLevels: Array<SkillLevelT>,
 };
+
 const SessionsList = withLogic((props: SessionsListProps) => {
   const {
     sessions,
