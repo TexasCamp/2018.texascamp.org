@@ -1,0 +1,21 @@
+uuid: b6240ce3-cde7-4e17-8d48-04899faecb97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_timeslot
+    - node.type.session
+id: node.session.field_session_timeslot
+field_name: field_session_timeslot
+entity_type: node
+bundle: session
+label: Timeslot
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1512599957
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -2,12 +2,21 @@ types:
   node:
     exposed: true
     bundles:
-      article:
+      news:
         exposed: true
         view_mode: node.default
       page:
         exposed: true
         view_mode: node.default
+      session:
+        exposed: true
+        view_mode: node.default
+      article:
+        exposed: false
+        view_mode: node.default
+      sponsor:
+        exposed: false
+        view_mode: '0'
   block_content:
     exposed: false
     bundles:
@@ -29,7 +38,19 @@ types:
   taxonomy_term:
     exposed: false
     bundles:
+      session_status:
+        exposed: false
+        view_mode: '0'
+      skill_level:
+        exposed: false
+        view_mode: '0'
+      sponsor_level:
+        exposed: false
+        view_mode: '0'
       tags:
+        exposed: false
+        view_mode: '0'
+      track:
         exposed: false
         view_mode: '0'
   user:

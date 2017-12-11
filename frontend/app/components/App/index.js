@@ -6,6 +6,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Switch, Route } from 'react-router';
 import Home from 'Home';
+import NewsOverview from 'NewsOverview';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
 
@@ -18,6 +19,7 @@ const App = (): React.Element<any> =>
     <Typekit kitId="yde7xbz" />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/news/:page?/" component={NewsOverview} />
     </Switch>
   </div>);
 

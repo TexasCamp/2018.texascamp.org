@@ -1,0 +1,17 @@
+uuid: 46919ee4-5609-4fc5-96bd-73f22cc0185f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: News
+type: news
+description: 'Use <em>News</em> for announcements related to Texas Camp.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

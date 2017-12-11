@@ -1,0 +1,20 @@
+uuid: f8481acc-0dfb-40c1-bf6a-658240f13dbb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_session_track
+field_name: field_session_track
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

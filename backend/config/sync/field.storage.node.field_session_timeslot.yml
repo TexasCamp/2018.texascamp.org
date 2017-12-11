@@ -1,0 +1,18 @@
+uuid: f2c05331-e88f-4f41-aaa0-bafdcd370398
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_session_timeslot
+field_name: field_session_timeslot
+entity_type: node
+type: timestamp
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

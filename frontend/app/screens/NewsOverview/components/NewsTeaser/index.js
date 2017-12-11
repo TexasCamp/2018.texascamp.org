@@ -6,41 +6,48 @@ import gql from 'graphql-tag';
 import Html from 'Html';
 
 /* eslint-disable react/no-unused-prop-types */
-export type ArticleTeaserProps = {
+export type NewsTeaserProps = {
   title: string,
   url: {
     alias: string,
   },
+  fieldNewsDate: Date,
   body: string,
 };
 /* eslint-enable react/no-unused-prop-types */
 
-const ArticleTeaser = ({
+const NewsTeaser = ({
   title,
   url,
   body,
-}: ArticleTeaserProps): React.Element<any> =>
-  (<div>
+  fieldNewsDate,
+}: NewsTeaserProps): React.Element<any> => (
+  <div>
     <h2>
       <Link to={url && url.alias}>
         {title}
       </Link>
     </h2>
+    <h4>
+      {fieldNewsDate}
+    </h4>
     <Html>
-      {body}
+      {body.length > 600 ? `${body.substr(0, 600)}...` : body}
     </Html>
-  </div>);
+  </div>
+  );
 
-ArticleTeaser.fragments = {
-  articleTeaserFragment: gql`
-    fragment ArticleTeaserFragment on NodeArticle {
+NewsTeaser.fragments = {
+  NewsTeaserFragment: gql`
+    fragment NewsTeaserFragment on NodeNews {
       url: entityUrl {
         alias
       }
       title
       body
+      fieldNewsDate
     }
   `,
 };
 
-export default ArticleTeaser;
+export default NewsTeaser;

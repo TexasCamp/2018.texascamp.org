@@ -1,0 +1,19 @@
+uuid: 7519aa22-c97d-4ebb-9dd2-3825ea06b518
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_session_speakers_bio
+field_name: field_session_speakers_bio
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
