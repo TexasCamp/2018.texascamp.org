@@ -1,12 +1,11 @@
 // @flow
-
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import type { TrackT, SkillLevelT } from 'types';
 
 const TAXONOMY_TERM_QUERY = gql`
   {
-    taxonomyTermQuery(offset: 0, limit: 999) {
+    taxonomyTermQuery(offset: 0) {
       entities {
         entityLabel
         entityBundle
