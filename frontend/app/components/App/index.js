@@ -7,6 +7,8 @@ import Helmet from 'react-helmet';
 import { Switch, Route } from 'react-router';
 import Home from 'Home';
 import Sessions from 'Sessions';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
 
@@ -20,6 +22,7 @@ const App = (): React.Element<any> =>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/sessions" component={Sessions} />
+      <Route exact path={Humans} />
     </Switch>
   </div>);
 

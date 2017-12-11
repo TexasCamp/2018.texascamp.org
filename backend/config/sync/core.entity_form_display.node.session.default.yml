@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.session.field_session_track
     - node.type.session
   module:
+    - datetime
     - path
     - text
 id: node.session.default
@@ -72,7 +73,7 @@ content:
     type: text_textarea
     region: content
   field_session_room:
-    weight: 27
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -108,10 +109,10 @@ content:
     type: options_buttons
     region: content
   field_session_timeslot:
-    weight: 26
+    weight: 16
     settings: {  }
     third_party_settings: {  }
-    type: datetime_timestamp
+    type: datetime_default
     region: content
   field_session_track:
     weight: 6
