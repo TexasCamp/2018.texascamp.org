@@ -9,6 +9,7 @@ import Home from 'Home';
 import Sessions from 'Sessions';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
+import NewsOverview from 'NewsOverview';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
 
@@ -23,6 +24,7 @@ const App = (): React.Element<any> =>
       <Route exact path="/" component={Home} />
       <Route exact path="/sessions" component={Sessions} />
       <Route exact path={Humans} />
+      <Route exact path="/news/:page?/" component={NewsOverview} />
     </Switch>
   </div>);
 

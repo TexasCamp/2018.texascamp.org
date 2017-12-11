@@ -9,19 +9,19 @@ import gql from 'graphql-tag';
 import Link from 'AsyncLink';
 import { graphql } from 'react-apollo';
 import { filter } from 'graphql-anywhere';
-import ArticleTeaser from 'ArticleTeaser';
-import type { ArticleTeaserProps } from 'ArticleTeaser';
+import NewsTeaser from 'NewsTeaser';
+import type { NewsTeaserProps } from 'NewsTeaser';
 import styles from './styles.css';
 
-type ArticleOverviewItem = ArticleTeaserProps & {
+type NewsOverviewItem = NewsTeaserProps & {
   id: number,
 };
 
-type ArticleOverviewProps = {
+type NewsOverviewProps = {
   loading: boolean,
   page: number,
   count: number,
-  articles: Array<ArticleOverviewItem>,
+  newsList: Array<NewsOverviewItem>,
   pageSize: number,
   hasPreviousPage?: boolean,
   hasNextPage?: boolean,
@@ -29,23 +29,23 @@ type ArticleOverviewProps = {
   nextPagePath?: string,
 };
 
-const ArticleOverview = ({
+const NewsOverview = ({
   loading,
-  articles,
+  newsList,
   hasPreviousPage,
   hasNextPage,
   previousPagePath,
   nextPagePath,
-}: ArticleOverviewProps): React.Element<any> | null =>
+}: NewsOverviewProps): React.Element<any> | null =>
   (!loading &&
     <div className={styles.Wrapper}>
-      <Helmet title="Article overview" />
-      <h1>Article overview</h1>
+      <Helmet title="News" />
+      <h1>News</h1>
       <ul>
-        {articles.map(article =>
-          (<ArticleTeaser
-            key={article.id}
-            {...filter(ArticleTeaser.fragments.articleTeaserFragment, article)}
+        {newsList.map(newsItem =>
+          (<NewsTeaser
+            key={newsItem.id}
+            {...filter(NewsTeaser.fragments.NewsTeaserFragment, newsItem)}
           />),
         )}
       </ul>
@@ -57,17 +57,17 @@ const ArticleOverview = ({
   null;
 
 const query = gql`
-  query ArticleOverviewQuery($offset: Int, $limit: Int) {
-    nodeQuery(offset: $offset, limit: $limit, filter: {type: "article" }) {
+  query NewsOverviewQuery($offset: Int, $limit: Int) {
+    nodeQuery(offset: $offset, limit: $limit, filter: {type: "news" }) {
       count,
       entities {
         id:entityId
-        ...ArticleTeaserFragment
+        ...NewsTeaserFragment
       }
     }
   }
 
-  ${ArticleTeaser.fragments.articleTeaserFragment}
+  ${NewsTeaser.fragments.NewsTeaserFragment}
 `;
 
 const withQuery = graphql(query, {
@@ -84,7 +84,7 @@ const withQuery = graphql(query, {
     loading,
     page: parseInt(page, 10),
     count,
-    articles: entities,
+    newsList: entities,
   }),
 });
 
@@ -94,15 +94,14 @@ const withDefaultProps = defaultProps({
 
 const withPagination = withPropsOnChange(
   ['count', 'page'],
-  (props: ArticleOverviewProps) => ({
+  (props: NewsOverviewProps) => ({
     hasPreviousPage: props.page > 0,
     hasNextPage: props.page + 1 < props.count / props.pageSize,
-    previousPagePath:
-      props.page - 1 > 0 ? `/articles/${props.page - 1}` : '/articles',
-    nextPagePath: `/articles/${props.page + 1}`,
+    previousPagePath: props.page - 1 > 0 ? `/news/${props.page - 1}` : '/news',
+    nextPagePath: `/news/${props.page + 1}`,
   }),
 );
 
 export default compose(withDefaultProps, withQuery, withPagination)(
-  ArticleOverview,
+  NewsOverview,
 );

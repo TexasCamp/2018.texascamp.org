@@ -2,7 +2,7 @@ types:
   node:
     exposed: true
     bundles:
-      article:
+      news:
         exposed: true
         view_mode: node.default
       page:
@@ -13,7 +13,7 @@ types:
         view_mode: node.default
       news:
         exposed: false
-        view_mode: '0'
+        view_mode: node.default
       sponsor:
         exposed: false
         view_mode: '0'

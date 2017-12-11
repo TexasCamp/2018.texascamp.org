@@ -24,12 +24,11 @@ content:
     region: content
   field_news_date:
     weight: 102
-    label: above
+    label: hidden 
     settings:
-      format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_plain
     region: content
   links:
     weight: 100
