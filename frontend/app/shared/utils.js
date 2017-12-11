@@ -32,9 +32,4 @@ export const searchArr = (term: string, arr: Array<any>): Array<boolean> => {
 
 // e.g "Hello World: How are you" -> 'hello-world-how-are-you'
 export const titleToLink = (titleStr: string): string =>
-  titleStr
-    .toLowerCase()
-    .replace(/[^a-zA-Z ]/g, '')
-    .split(' ')
-    .slice(0, 10) // 10 words max.
-    .join('-');
+  titleStr.toLowerCase().replace(/[^a-zA-Z ]/g, '').split(' ').join('-');
