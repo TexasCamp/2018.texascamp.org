@@ -5,13 +5,14 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import styles from 'Sessions/styles.css';
 import withSessionQuery from 'Sessions/withSessionsQuery';
+import withTaxonomyQuery from 'Sessions/withTaxonomyQuery';
+
 import type { SessionT, SkillLevelT, TrackT } from 'types';
 import { cleanHtml, searchArr, titleToLink } from 'utils';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import lifecycle from 'recompose/lifecycle';
-import withProps from 'recompose/withProps';
 import Link from 'AsyncLink';
 
 type SessionExtendedT = SessionT & {
@@ -20,8 +21,8 @@ type SessionExtendedT = SessionT & {
 
 const withLogic = compose(
   withState('sessions', 'setSessions', ({ sessions }) => sessions),
-  withState('skillLevel', 'setSkillLevel', null),
-  withState('track', 'setTrack', null),
+  withState('skillLevelSelected', 'setSkillLevel', null),
+  withState('trackSelected', 'setTrack', null),
   withState('textSearchInput', 'setSearchText', ''),
   withHandlers({
     filterBySkillLevel: ({
@@ -79,19 +80,6 @@ const withLogic = compose(
       setSearchText('');
     },
   }),
-  withProps(() => ({
-    tracks: [
-      'Coding and Development',
-      'Devops',
-      'Frontend',
-      'Horizons',
-      'PHP',
-      'Project Management',
-      'Site Building',
-      'UX and Content Strategy',
-    ],
-    skillLevels: ['Beginner', 'Intermediate', 'Advanced'],
-  })),
   lifecycle({
     componentWillMount() {
       const { sessions, setSessions } = this.props;
@@ -109,6 +97,8 @@ type SessionsListProps = {
   tracks: Array<TrackT>,
   skillLevels: Array<SkillLevelT>,
   textSearchInput: string,
+  skillLevelSelected: SkillLevelT,
+  trackSelected: TrackT,
 };
 
 const SessionsList = withLogic((props: SessionsListProps) => {
@@ -121,18 +111,28 @@ const SessionsList = withLogic((props: SessionsListProps) => {
     resetAllFilters,
     filterByText,
     textSearchInput,
+    skillLevelSelected,
+    trackSelected,
   } = props;
   return (
     <div className={styles.sessionsContainer}>
       <h2>Skill Level Filters:</h2>
       {skillLevels.map(eachLevel =>
-        (<button key={eachLevel} onClick={() => filterBySkillLevel(eachLevel)}>
+        (<button
+          className={eachLevel === skillLevelSelected && styles.btnSelected}
+          key={eachLevel}
+          onClick={() => filterBySkillLevel(eachLevel)}
+        >
           {`${eachLevel}`}
         </button>),
       )}
       <h2>Track Filters:</h2>
       {tracks.map(eachTrack =>
-        (<button key={eachTrack} onClick={() => filterByTrack(eachTrack)}>
+        (<button
+          className={eachTrack === trackSelected && styles.btnSelected}
+          key={eachTrack}
+          onClick={() => filterByTrack(eachTrack)}
+        >
           {`${eachTrack}`}
         </button>),
       )}
@@ -141,7 +141,7 @@ const SessionsList = withLogic((props: SessionsListProps) => {
         <input type="text" value={textSearchInput} onChange={filterByText} />
       </div>
       <h2>Reset All:</h2>
-      <button onClick={() => resetAllFilters()}>Reset All Filters</button>
+      <button onClick={resetAllFilters}>Reset All Filters</button>
       <hr />
       {sessions
         .filter(({ visibility }) => visibility === true)
@@ -188,13 +188,18 @@ const SessionsList = withLogic((props: SessionsListProps) => {
 });
 
 type SessionPageProps = {
-  sessions: Array<SessionT>,
+  sessions: SessionT[],
+  skillLevels: SkillLevelT[],
+  tracks: TrackT[],
 };
-const SessionPage = ({ sessions }: SessionPageProps) =>
-  (<div>
-    <Helmet title="Sessions" />
-    <Header heading="Sessions" />
-    <SessionsList sessions={sessions} />
-  </div>);
+const SessionPage = (props: SessionPageProps) => {
+  return (
+    <div>
+      <Helmet title="Sessions" />
+      <Header heading="Sessions" />
+      <SessionsList {...props} />
+    </div>
+  );
+};
 
-export default compose(withSessionQuery)(SessionPage);
+export default compose(withSessionQuery, withTaxonomyQuery)(SessionPage);

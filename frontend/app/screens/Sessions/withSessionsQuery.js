@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import type { SessionT } from 'types';
 
-export const EVENT_QUERY = gql`
+export const SESSION_QUERY = gql`
   {
     nodeQuery(offset: 0, limit: 999, filter: { type: "session" }) {
       entities {
@@ -41,7 +41,7 @@ const sessionMapper = (entities: Array<Object>): Array<SessionT> =>
     title: entity.title,
   }));
 
-const withSessionsQuery = graphql(EVENT_QUERY, {
+const withSessionsQuery = graphql(SESSION_QUERY, {
   props: ({
     data: { nodeQuery: { entities } = {}, loading },
   }: {

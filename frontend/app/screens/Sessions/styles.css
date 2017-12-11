@@ -17,3 +17,8 @@
 .descriptionContainer p:not(:first-child) {
   display: none;
 }
+
+.btnSelected {
+  background-color: green;
+  color: white;
+}
