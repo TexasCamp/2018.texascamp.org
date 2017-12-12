@@ -10,7 +10,7 @@ import Sessions from 'Sessions';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
-import NotFound from 'NotFound';
+import SplatRouter from 'SplatRouter';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
 
@@ -26,7 +26,7 @@ const App = (): React.Element<any> =>
       <Route exact path="/sessions" component={Sessions} />
       <Route exact path={Humans} />
       <Route exact path="/news/:page?/" component={NewsOverview} />
-      <Route path="*" component={NotFound} />
+      <Route exact path="*" component={SplatRouter} />
     </Switch>
   </div>);
 
