@@ -24,6 +24,12 @@
   width: 50vw;
   z-index: 999;
 }
+.menuOverlay.inactive {
+  display: none;
+}
+.menuOverlay.active {
+  display: block;
+}
 
 /* Menu */
 .menu {
