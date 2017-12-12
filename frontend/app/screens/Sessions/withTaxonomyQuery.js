@@ -7,10 +7,14 @@ const TAXONOMY_TERM_QUERY = gql`
   {
     taxonomyTermQuery(offset: 0) {
       entities {
-        entityLabel
-        entityBundle
+        ...TaxonomyTermFragment
       }
     }
+  }
+
+  fragment TaxonomyTermFragment on Entity {
+    entityLabel
+    entityBundle
   }
 `;
 
