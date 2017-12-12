@@ -1,5 +1,19 @@
+/* Toggle Button */
+.menuButton {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+.menuButton.active {
+  background: blue;
+}
+.menuButton.inactive {
+  background: red;
+}
 
-.overlayMenu {
+/* Expanding/Collapsing Overlay */
+.menuOverlay {
   background-color: $navy;
   color: $almostWhite;
   height: 100vh;
@@ -10,6 +24,8 @@
   width: 50vw;
   z-index: 999;
 }
+
+/* Menu */
 .menu {
   list-style: none;
   margin: 0;
@@ -20,10 +36,4 @@
   a {
     color: $almostWhite;
   }
-}
-.menuItem {
-
-}
-.menuItemSmall {
-
 }

@@ -3,7 +3,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Header from 'Header';
-import OverlayToggle from 'Menu/components/OverlayToggle';
 import Menu from 'Menu';
 import Logo from 'Logo';
 import NewsletterForm from 'NewsletterForm';
@@ -34,7 +33,6 @@ const Home = (): React.Element<any> =>
     </Helmet>
     <BackgroundImage />
     <Header />
-    <OverlayToggle />
     <Menu />
     <Logo />
     <NewsletterForm />
