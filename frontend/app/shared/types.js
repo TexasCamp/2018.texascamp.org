@@ -22,4 +22,5 @@ export type SessionT = {
   title: string,
   title: string,
   track: TrackT,
+  urlString: string,
 };

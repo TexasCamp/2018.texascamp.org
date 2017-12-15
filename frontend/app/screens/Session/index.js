@@ -1,15 +1,13 @@
 // @flow
 
 import React from 'react';
-import type { SessionT, SkillLevelT, TrackT } from 'types';
+import type { SessionT } from 'types';
 import { compose } from 'recompose';
 import SessionIndividual from 'SessionIndividual';
 import withSessionsQuery from 'Sessions/withSessionsQuery';
 
 type SessionPageProps = {
   sessions: SessionT[],
-  skillLevels: SkillLevelT[],
-  tracks: TrackT[],
 };
 const SessionPage = (props: SessionPageProps) => {
   return (
