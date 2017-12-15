@@ -13,7 +13,16 @@ const SessionIndividual = (props: SessionIndividualProps) => {
     // redirect to sessions if there is no associated associated session name.
     return <Redirect to="/sessions" />;
   }
-  const { body, skillLevel, timeslot, title, track, speakers } = props.session;
+  const {
+    body,
+    skillLevel,
+    timeslot,
+    title,
+    track,
+    speakers,
+    room,
+    speakersBio,
+  } = props.session;
   return (
     <div>
       <h2>
@@ -39,6 +48,13 @@ const SessionIndividual = (props: SessionIndividualProps) => {
       </p>
       <p>
         {`Track: ${track}`}
+      </p>
+      <p>
+        {`Room: ${room}`}
+      </p>
+      <p>
+        {'Speakers Bio:'}
+        {cleanHtml(speakersBio)}
       </p>
     </div>
   );

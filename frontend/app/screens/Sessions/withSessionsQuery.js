@@ -16,12 +16,16 @@ export const SESSION_QUERY = gql`
 
   fragment SessionFragment on NodeSession {
     body
+    entityPublished
     fieldSessionContactCompany
     fieldSessionContactEmail
     fieldSessionContactName
+    fieldSessionNotes
     fieldSessionSkillLevel
+    fieldSessionRoom
     fieldSessionSpeakers
     fieldSessionSpeakersBio
+    fieldSessionStatus
     fieldSessionTimeslot
     fieldSessionTrack
     title
@@ -34,6 +38,10 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     contactCompany: entity.fieldSessionContactCompany,
     contactEmail: entity.fieldSessionContactEmail,
     contactName: entity.fieldSessionContactName,
+    room: entity.fieldSessionRoom,
+    status: entity.fieldSessionStatus,
+    notes: entity.fieldSessionNotes,
+    isPublished: entity.entityPublished,
     skillLevel: entity.fieldSessionSkillLevel,
     speakers: entity.fieldSessionSpeakers,
     speakersBio: entity.fieldSessionSpeakersBio,
