@@ -2,12 +2,17 @@
 import React from 'react';
 import { cleanHtml } from 'utils';
 import type { SessionT } from 'types';
+import { Redirect } from 'react-router-dom';
 import withLogic from './logic';
 
 type SessionIndividualProps = {
-  session: SessionT,
+  session?: SessionT,
 };
 const SessionIndividual = (props: SessionIndividualProps) => {
+  if (!props.session) {
+    // redirect to sessions if there is no associated associated session name.
+    return <Redirect to="/sessions" />;
+  }
   const { body, skillLevel, timeslot, title, track, speakers } = props.session;
   return (
     <div>
