@@ -9,12 +9,12 @@ import type { SessionT, SkillLevelT, TrackT } from 'types';
 import withSessionQuery from './withSessionsQuery';
 import withTaxonomyQuery from './withTaxonomyQuery';
 
-type SessionPageProps = {
+type SessionsPageProps = {
   sessions: SessionT[],
   skillLevels: SkillLevelT[],
   tracks: TrackT[],
 };
-const SessionPage = (props: SessionPageProps) => {
+const SessionsPage = (props: SessionsPageProps) => {
   return (
     <div>
       <Helmet title="Sessions" />
@@ -24,4 +24,4 @@ const SessionPage = (props: SessionPageProps) => {
   );
 };
 
-export default compose(withSessionQuery, withTaxonomyQuery)(SessionPage);
+export default compose(withSessionQuery, withTaxonomyQuery)(SessionsPage);
