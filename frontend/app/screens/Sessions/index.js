@@ -6,7 +6,7 @@ import Header from 'Header';
 import SessionsList from 'SessionsList';
 import compose from 'recompose/compose';
 import type { SessionT, SkillLevelT, TrackT } from 'types';
-import withSessionQuery from './withSessionsQuery';
+import withSessionsQuery from './withSessionsQuery';
 import withTaxonomyQuery from './withTaxonomyQuery';
 
 type SessionsPageProps = {
@@ -24,4 +24,4 @@ const SessionsPage = (props: SessionsPageProps) => {
   );
 };
 
-export default compose(withSessionQuery, withTaxonomyQuery)(SessionsPage);
+export default compose(withSessionsQuery, withTaxonomyQuery)(SessionsPage);
