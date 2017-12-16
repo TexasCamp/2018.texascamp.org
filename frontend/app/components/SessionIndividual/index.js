@@ -2,7 +2,7 @@
 import React from 'react';
 import { cleanHtml } from 'utils';
 import type { SessionT } from 'types';
-import { Redirect } from 'react-router-dom';
+import NotFound from 'NotFound';
 import withLogic from './logic';
 
 type SessionIndividualProps = {
@@ -11,7 +11,7 @@ type SessionIndividualProps = {
 const SessionIndividual = (props: SessionIndividualProps) => {
   if (!props.session) {
     // redirect to sessions if there is no associated associated session name.
-    return <Redirect to="/sessions" />;
+    return <NotFound />;
   }
   const {
     body,
