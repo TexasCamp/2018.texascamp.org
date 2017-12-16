@@ -8,7 +8,6 @@ import { Switch, Route } from 'react-router';
 import Home from 'Home';
 import Sessions from 'Sessions';
 import Session from 'Session';
-// eslint-disable-next-line import/no-webpack-loader-syntax
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
 import SplatRouter from 'SplatRouter';
