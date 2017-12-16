@@ -49,13 +49,15 @@ const SessionIndividual = (props: SessionIndividualProps) => {
       <p>
         {`Track: ${track}`}
       </p>
-      <p>
-        {`Room: ${room}`}
-      </p>
-      <p>
-        {'Speakers Bio:'}
-        {cleanHtml(speakersBio)}
-      </p>
+      {room &&
+        <p>
+          {`Room: ${room}`}
+        </p>}
+      {speakersBio &&
+        <p>
+          {'Speakers Bio:'}
+          {cleanHtml(speakersBio)}
+        </p>}
     </div>
   );
 };
