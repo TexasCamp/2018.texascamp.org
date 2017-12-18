@@ -64,8 +64,9 @@ const withLogic = compose(
       setTrack(null);
       setSkillLevel(null);
       setSearchText(value);
-      if (!value) {
-        showAllSessions(sessions);
+      // don't allow leading spaces
+      if (!value.trim()) {
+        setSearchText('');
       }
       const sessionsFilteredBySearchResults = searchArr(
         value,
@@ -92,7 +93,7 @@ const withLogic = compose(
   lifecycle({
     componentWillMount() {
       const { sessions, setSessions } = this.props;
-      setSessions(sessions.map(el => ({ ...el, visibility: true })));
+      setSessions(showAllSessions(sessions));
     },
   }),
 );
