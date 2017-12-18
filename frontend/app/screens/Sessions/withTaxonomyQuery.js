@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 import type { TrackT, SkillLevelT } from 'types';
 
 const TAXONOMY_TERM_QUERY = gql`
-  {
+  query sessionFilterTerms {
     taxonomyTermQuery(offset: 0) {
       entities {
         ...TaxonomyTermFragment
