@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.session.field_session_contact_company
     - field.field.node.session.field_session_contact_email
     - field.field.node.session.field_session_contact_name
-    - field.field.node.session.field_session_notes
     - field.field.node.session.field_session_room
     - field.field.node.session.field_session_skill_level
     - field.field.node.session.field_session_speakers
@@ -54,13 +53,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_session_notes:
-    weight: 7
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_session_room:
     weight: 12
