@@ -1,21 +1,81 @@
 
 /* Menu Toggle Button */
 .menuButton {
+  background-color: $navy;
+  border: 0 none;
+  color: $almostWhite;
+  cursor: pointer;
+  height: 56px;
   position: fixed;
   right: 0;
   top: 0;
+  width: 56px;
   z-index: 1000;
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Menu Button Animation */
+.menuButton {
+  &:before,
+  &:after {
+    background-color: $navy;
+    display: block;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: bottom 0.1s linear;
+    width: 100%;
+  }
+  &:before {
+    bottom: -4px;
+  }
+  &:after {
+    bottom: -8px;
+  }
+  &:hover {
+    &:before {
+      bottom: -8px;
+    }
+    &:after {
+      bottom: -16px;
+    }
+  }
 }
 .menuButton.active {
-  background: blue;
+  overflow: hidden;
+  &:before,
+  &:after {
+    left: -50%;
+    right: 0;
+    transition: all 2s linear;
+    transform: rotate(-45deg);
+    transform-origin: 100% 0;
+    width: auto;
+  }
+  &:before {
+    background-color: $almostWhite;
+    top: -3px;
+  }
+  &:after {
+    height: 3px;
+    top: 0;
+  }
 }
 .menuButton.inactive {
-  background: red;
+  &:before {
+
+  }
+  &:after {
+
+  }
 }
 
 /* Expanding / Collapsing Overlay */
 .menuOverlay {
-  background-color: $navy;
+  background-color: yellow;
   color: $almostWhite;
   position: fixed;
   right: 0;
@@ -24,9 +84,9 @@
   z-index: 999;
 }
 .menuOverlay.inactive {
-  height: 0;
+  height: 56px;
   transition: width 0.5s linear, height 0.5s linear 0.5s;
-  width: 50px;
+  width: 56px;
 }
 .menuOverlay.active {
   height: 100vh;
