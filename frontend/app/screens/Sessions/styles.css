@@ -1,0 +1,24 @@
+.sessionsContainer {
+  background-color: white;
+  text-align: left;
+}
+
+/* only show first 3 lines max, with an ellipses */
+.descriptionContainer p {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+/* hide all but the first paragraph */
+.descriptionContainer p:not(:first-child) {
+  display: none;
+}
+
+.btnSelected {
+  background-color: green;
+  color: white;
+}

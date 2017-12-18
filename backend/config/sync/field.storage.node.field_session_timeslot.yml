@@ -1,15 +1,17 @@
-uuid: f2c05331-e88f-4f41-aaa0-bafdcd370398
+uuid: 947e9ef2-7e5b-4b67-a7ff-045da888d31a
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
 id: node.field_session_timeslot
 field_name: field_session_timeslot
 entity_type: node
-type: timestamp
-settings: {  }
-module: core
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.session.field_session_contact_company
     - field.field.node.session.field_session_contact_email
     - field.field.node.session.field_session_contact_name
-    - field.field.node.session.field_session_notes
     - field.field.node.session.field_session_room
     - field.field.node.session.field_session_skill_level
     - field.field.node.session.field_session_speakers
@@ -17,6 +16,7 @@ dependencies:
     - field.field.node.session.field_session_track
     - node.type.session
   module:
+    - datetime
     - path
     - text
 id: node.session.default
@@ -63,16 +63,8 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_session_notes:
-    weight: 15
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_session_room:
-    weight: 27
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -108,10 +100,10 @@ content:
     type: options_buttons
     region: content
   field_session_timeslot:
-    weight: 26
+    weight: 16
     settings: {  }
     third_party_settings: {  }
-    type: datetime_timestamp
+    type: datetime_default
     region: content
   field_session_track:
     weight: 6
