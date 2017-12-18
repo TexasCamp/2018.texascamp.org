@@ -31,12 +31,7 @@ Location: Austin, TX.
 
 Web Developer: Kristy Moon
 Contact: kristy@amazeelabs.com
-Location: Austin, TX.
-
-Marketing: Lucy Weinmeister
-Contact: lucy@fourkitchens.com
-Twitter: stardlc
-Location: Austin, TX.
+Location: Austin, TX. 
 
 /* THANKS */
 Name: All of our sponsors
