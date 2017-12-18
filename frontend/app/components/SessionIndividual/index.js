@@ -10,7 +10,6 @@ type SessionIndividualProps = {
 };
 const SessionIndividual = (props: SessionIndividualProps) => {
   if (!props.session) {
-    // redirect to sessions if there is no associated associated session name.
     return <NotFound />;
   }
   const {
