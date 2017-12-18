@@ -17,19 +17,21 @@
 .menuOverlay {
   background-color: $navy;
   color: $almostWhite;
-  height: 100vh;
   position: fixed;
   right: 0;
   text-align: left;
   top: 0;
-  width: 50vw;
   z-index: 999;
 }
 .menuOverlay.inactive {
-  display: none;
+  height: 0;
+  transition: width 0.5s linear, height 0.5s linear 0.5s;
+  width: 50px;
 }
 .menuOverlay.active {
-  display: block;
+  height: 100vh;
+  transition: height 0.5s linear, width 0.5s linear 0.5s;
+  width: 50vw;
 }
 
 /* Menu Items */
