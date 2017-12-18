@@ -43,7 +43,8 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     skillLevel: entity.fieldSessionSkillLevel,
     speakers: entity.fieldSessionSpeakers,
     speakersBio: entity.fieldSessionSpeakersBio,
-    timeslot: entity.fieldSessionTimeslot,
+    timeslot:
+      entity.fieldSessionTimeslot && new Date(entity.fieldSessionTimeslot),
     track: entity.fieldSessionTrack,
     title: entity.title,
     urlString: titleToLink(entity.title),

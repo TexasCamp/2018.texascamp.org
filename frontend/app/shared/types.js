@@ -22,7 +22,7 @@ export type SessionT = {
   speakers: string[],
   speakersBio?: string,
   status?: 'selected' | 'not selected',
-  timeslot: Date,
+  timeslot?: Date,
   title: string,
   title: string,
   track: TrackT,

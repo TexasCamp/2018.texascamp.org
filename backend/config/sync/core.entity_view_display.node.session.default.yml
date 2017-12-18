@@ -97,10 +97,9 @@ content:
     weight: 11
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_plain
     region: content
   field_session_track:
     weight: 2
