@@ -1,4 +1,5 @@
-/* Toggle Button */
+
+/* Menu Toggle Button */
 .menuButton {
   position: fixed;
   right: 0;
@@ -12,7 +13,7 @@
   background: red;
 }
 
-/* Expanding/Collapsing Overlay */
+/* Expanding / Collapsing Overlay */
 .menuOverlay {
   background-color: $navy;
   color: $almostWhite;
@@ -31,7 +32,7 @@
   display: block;
 }
 
-/* Menu */
+/* Menu Items */
 .menu {
   list-style: none;
   margin: 0;
