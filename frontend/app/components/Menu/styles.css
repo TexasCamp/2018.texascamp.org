@@ -26,7 +26,6 @@
     height: 2px;
     left: 0;
     position: absolute;
-    transition: bottom 0.1s linear;
     width: 100%;
   }
   &:before {
@@ -50,18 +49,17 @@
   &:after {
     left: -50%;
     right: 0;
-    transition: all 2s linear;
     transform: rotate(-45deg);
     transform-origin: 100% 0;
     width: auto;
   }
   &:before {
     background-color: $almostWhite;
-    top: -3px;
+    bottom: 58px;
   }
   &:after {
     height: 3px;
-    top: 0;
+    bottom: 54px;
   }
 }
 .menuButton.inactive {
