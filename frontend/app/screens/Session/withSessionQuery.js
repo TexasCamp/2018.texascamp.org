@@ -9,11 +9,14 @@ const withSessionsQuery = graphql(SESSION_QUERY, {
       data: { nodeQuery: { entities } = {}, loading },
       ownProps: { match: { params: { sessionName } } },
     } = props;
-    const session = sessionsListMapper(entities).find(
-      ({ urlString }) => urlString === sessionName,
-    );
+
+    const session = loading
+      ? []
+      : sessionsListMapper(entities).find(
+          ({ urlString }) => urlString === sessionName,
+        );
     return {
-      session: loading ? [] : session,
+      session,
     };
   },
 });
