@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 import { Switch, Route } from 'react-router';
 import Home from 'Home';
 import Sessions from 'Sessions';
-// eslint-disable-next-line import/no-webpack-loader-syntax
+import Session from 'Session';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
 import SplatRouter from 'SplatRouter';
@@ -24,9 +24,10 @@ const App = (): React.Element<any> =>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/sessions" component={Sessions} />
+      <Route exact path="/sessions/:sessionName/" component={Session} />
       <Route exact path={Humans} />
       <Route exact path="/news/:page?/" component={NewsOverview} />
-      <Route exact path="*" component={SplatRouter} />
+      <Route component={SplatRouter} />
     </Switch>
   </div>);
 

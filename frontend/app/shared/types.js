@@ -16,10 +16,15 @@ export type TrackT =
 
 export type SessionT = {
   body: string,
+  isPublished: boolean,
+  room?: string,
   skillLevel: SkillLevelT,
   speakers: string[],
-  timeslot: Date,
+  speakersBio?: string,
+  status?: 'selected' | 'not selected',
+  timeslot?: Date,
   title: string,
   title: string,
   track: TrackT,
+  urlString: string,
 };

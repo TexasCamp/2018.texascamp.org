@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { cleanHtml, titleToLink } from 'utils';
+import { cleanHtml } from 'utils';
 import type { SessionT, SkillLevelT, TrackT } from 'types';
 import styles from 'Sessions/styles.css';
 import Link from 'AsyncLink';
@@ -75,7 +75,7 @@ const SessionsList = (props: SessionsListProps) => {
               </li>
               <li>
                 <u>
-                  <Link to={titleToLink(eachSession.title)}>
+                  <Link to={`/sessions/${eachSession.urlString}`}>
                     Link to session page
                   </Link>
                 </u>
