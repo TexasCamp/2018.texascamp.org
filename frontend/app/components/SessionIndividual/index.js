@@ -2,17 +2,12 @@
 import React from 'react';
 import { cleanHtml } from 'utils';
 import type { SessionT } from 'types';
-import NotFound from 'NotFound';
-import withLogic from './logic';
 
 type SessionIndividualProps = {
-  session?: SessionT,
+  session: SessionT,
 };
-const SessionIndividual = (props: SessionIndividualProps) => {
-  if (!props.session) {
-    return <NotFound />;
-  }
-  const {
+const SessionIndividual = ({
+  session: {
     body,
     skillLevel,
     timeslot,
@@ -21,7 +16,8 @@ const SessionIndividual = (props: SessionIndividualProps) => {
     speakers,
     room,
     speakersBio,
-  } = props.session;
+  },
+}: SessionIndividualProps) => {
   return (
     <div>
       <h2>
@@ -42,9 +38,10 @@ const SessionIndividual = (props: SessionIndividualProps) => {
           </span>),
         )}
       </p>
-      <p>
-        {`Timeslot: ${timeslot}`}
-      </p>
+      {timeslot &&
+        <p>
+          {`Timeslot: ${timeslot.toLocaleString()}`}
+        </p>}
       <p>
         {`Track: ${track}`}
       </p>
@@ -60,4 +57,4 @@ const SessionIndividual = (props: SessionIndividualProps) => {
     </div>
   );
 };
-export default withLogic(SessionIndividual);
+export default SessionIndividual;

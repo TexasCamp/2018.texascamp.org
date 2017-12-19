@@ -75,7 +75,7 @@ const SessionsList = (props: SessionsListProps) => {
               </li>
               <li>
                 <u>
-                  <Link to={`sessions/${eachSession.urlString}`}>
+                  <Link to={`/sessions/${eachSession.urlString}`}>
                     Link to session page
                   </Link>
                 </u>

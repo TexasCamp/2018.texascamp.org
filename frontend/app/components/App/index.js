@@ -24,7 +24,7 @@ const App = (): React.Element<any> =>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/sessions" component={Sessions} />
-      <Route exact path="/sessions/:sessionName?/" component={Session} />
+      <Route exact path="/sessions/:sessionName/" component={Session} />
       <Route exact path={Humans} />
       <Route exact path="/news/:page?/" component={NewsOverview} />
       <Route component={SplatRouter} />

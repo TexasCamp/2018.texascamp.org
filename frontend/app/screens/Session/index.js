@@ -2,20 +2,19 @@
 
 import React from 'react';
 import type { SessionT } from 'types';
-import { compose } from 'recompose';
+import NotFound from 'NotFound';
 import SessionIndividual from 'SessionIndividual';
-import withSessionsQuery from 'Sessions/withSessionsQuery';
+import withSessionQuery from './withSessionQuery';
 
-type SessionPageProps = {
-  sessions: SessionT[],
-};
-const SessionPage = (props: SessionPageProps) => {
-  return (
-    <div>
-      <h1>Individual Session Page</h1>
-      <SessionIndividual {...props} />
-    </div>
-  );
+type SessionProps = {
+  session: SessionT,
 };
 
-export default compose(withSessionsQuery)(SessionPage);
+const Session = ({ session }: SessionProps) =>
+  (<div>
+    {session
+      ? <SessionIndividual session={session} />
+      : <NotFound msg="No session matches that URL." />}
+  </div>);
+
+export default withSessionQuery(Session);
