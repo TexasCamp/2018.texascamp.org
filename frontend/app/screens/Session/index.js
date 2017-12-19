@@ -2,6 +2,7 @@
 
 import React from 'react';
 import type { SessionT } from 'types';
+import NotFound from 'NotFound';
 import SessionIndividual from 'SessionIndividual';
 import withSessionQuery from './withSessionQuery';
 
@@ -11,8 +12,9 @@ type SessionProps = {
 
 const Session = ({ session }: SessionProps) =>
   (<div>
-    <h1>Individual Session Page</h1>
-    <SessionIndividual session={session} />
+    {session
+      ? <SessionIndividual session={session} />
+      : <NotFound msg="No session matches that URL." />}
   </div>);
 
 export default withSessionQuery(Session);
