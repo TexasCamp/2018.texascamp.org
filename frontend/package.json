@@ -63,6 +63,8 @@
     "@storybook/addon-links": "^3.1.6",
     "@storybook/addon-storyshots": "^3.1.7",
     "@storybook/react": "^3.1.7",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "flow-bin": "^0.51.0",
     "jssha": "^2.3.1",
     "lint-staged": "^4.0.2",
