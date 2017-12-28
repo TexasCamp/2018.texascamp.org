@@ -6,15 +6,6 @@ import mapProps from 'recompose/mapProps';
 import type { SessionT, SkillLevelT, TrackT } from 'types';
 import { searchArr, multiFilter } from 'utils';
 
-const filterByAll = (sessions, filters, textSearchInput) => {
-  const sessionsFilteredbyProperties = multiFilter(sessions, filters);
-  const sessionsFilteredBySearchTerm = searchArr(
-    sessionsFilteredbyProperties,
-    textSearchInput,
-  );
-  return sessionsFilteredBySearchTerm;
-};
-
 type FiltersT = {
   skillLevel: SkillLevelT[],
   track: TrackT[],
@@ -42,10 +33,24 @@ type PropsWithStateWithHandlersT = PropsWithStateT & {
   resetAllFilters: Function,
 };
 
+const filterByAll = (
+  sessions: SessionT[],
+  filters: FiltersT,
+  textSearchInput: string,
+): SessionT[] => {
+  const sessionsFilteredbyProperties = multiFilter(sessions, filters);
+  const sessionsFilteredBySearchTerm = searchArr(
+    sessionsFilteredbyProperties,
+    textSearchInput,
+  );
+  return sessionsFilteredBySearchTerm;
+};
+
 const initialFilters: FiltersT = {
   skillLevel: [],
   track: [],
 };
+
 const withLogic = compose(
   withState('filters', 'setFilters', initialFilters),
   withState('textSearchInput', 'setSearchText', ''),
