@@ -12,10 +12,10 @@ type SessionExtendedT = SessionT & {
 
 type SessionsListProps = {
   sessions: Array<SessionExtendedT>,
-  filterBySkillLevel: Function,
+  changeSkillLevelFilters: Function,
   resetAllFilters: Function,
-  filterByText: Function,
-  filterByTrack: Function,
+  changeTextFilter: Function,
+  changeTrackFilters: Function,
   tracks: Array<TrackT>,
   skillLevels: Array<SkillLevelT>,
   textSearchInput: string,
@@ -26,12 +26,12 @@ type SessionsListProps = {
 const SessionsList = (props: SessionsListProps) => {
   const {
     sessions,
-    filterBySkillLevel,
+    changeSkillLevelFilters,
     skillLevels,
     tracks,
-    filterByTrack,
+    changeTrackFilters,
     resetAllFilters,
-    filterByText,
+    changeTextFilter,
     textSearchInput,
     skillLevelSelected,
     trackSelected,
@@ -43,7 +43,7 @@ const SessionsList = (props: SessionsListProps) => {
         (<button
           className={eachLevel === skillLevelSelected && styles.btnSelected}
           key={eachLevel}
-          onClick={() => filterBySkillLevel(eachLevel)}
+          onClick={() => changeSkillLevelFilters(eachLevel)}
         >
           {`${eachLevel}`}
         </button>),
@@ -53,58 +53,60 @@ const SessionsList = (props: SessionsListProps) => {
         (<button
           className={eachTrack === trackSelected && styles.btnSelected}
           key={eachTrack}
-          onClick={() => filterByTrack(eachTrack)}
+          onClick={() => changeTrackFilters(eachTrack)}
         >
           {`${eachTrack}`}
         </button>),
       )}
       <div>
         <h2>Session Search</h2>
-        <input type="text" value={textSearchInput} onChange={filterByText} />
+        <input
+          type="text"
+          value={textSearchInput}
+          onChange={changeTextFilter}
+        />
       </div>
       <h2>Reset All:</h2>
       <button onClick={resetAllFilters}>Reset All Filters</button>
       <hr />
-      {sessions
-        .filter(({ visibility }) => visibility === true)
-        .map(eachSession =>
-          (<div key={eachSession.title}>
-            <ul>
-              <li>
-                {`Title: ${eachSession.title}`}
-              </li>
-              <li>
-                <u>
-                  <Link to={`/sessions/${eachSession.urlString}`}>
-                    Link to session page
-                  </Link>
-                </u>
-              </li>
-              <li className={styles.descriptionContainer}>
-                {'Description:'}
-                {cleanHtml(eachSession.body)}
-              </li>
-              <li>
-                {`Experience Level: ${eachSession.skillLevel}`}
-              </li>
-              <li>
-                <span>Speakers:</span>
-                {eachSession.speakers.map(eachName =>
-                  (<span key={eachName}>
-                    {` ${eachName} `}
-                  </span>),
-                )}
-              </li>
-              <li>
-                {`Timeslot: ${eachSession.timeslot}`}
-              </li>
-              <li>
-                {`Track: ${eachSession.track}`}
-              </li>
-            </ul>
-            <hr />
-          </div>),
-        )}
+      {sessions.map(eachSession =>
+        (<div key={eachSession.title}>
+          <ul>
+            <li>
+              {`Title: ${eachSession.title}`}
+            </li>
+            <li>
+              <u>
+                <Link to={`/sessions/${eachSession.urlString}`}>
+                  Link to session page
+                </Link>
+              </u>
+            </li>
+            <li className={styles.descriptionContainer}>
+              {'Description:'}
+              {cleanHtml(eachSession.body)}
+            </li>
+            <li>
+              {`Experience Level: ${eachSession.skillLevel}`}
+            </li>
+            <li>
+              <span>Speakers:</span>
+              {eachSession.speakers.map(eachName =>
+                (<span key={eachName}>
+                  {` ${eachName} `}
+                </span>),
+              )}
+            </li>
+            <li>
+              {`Timeslot: ${eachSession.timeslot}`}
+            </li>
+            <li>
+              {`Track: ${eachSession.track}`}
+            </li>
+          </ul>
+          <hr />
+        </div>),
+      )}
     </div>
   );
 };

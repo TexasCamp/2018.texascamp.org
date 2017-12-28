@@ -1,100 +1,80 @@
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
-import lifecycle from 'recompose/lifecycle';
-import { searchArr } from 'utils';
+import withProps from 'recompose/withProps';
 
-const createSessionVisibilityFilter = filterProp => (
-  sessions,
-  selectedFilter,
-) =>
-  sessions.map(el => {
-    if (el[filterProp] === selectedFilter) {
-      return { ...el, visibility: true };
-    }
-    return { ...el, visibility: false };
-  });
+import { searchArr, multiFilter } from 'utils';
 
-const filterBySkillLevel = createSessionVisibilityFilter('skillLevel');
-const filterByTrack = createSessionVisibilityFilter('track');
+const filterByAll = (sessions, filters, textSearchInput) => {
+  const sessionsFilteredbyProperties = multiFilter(sessions, filters);
+  const sessionsFilteredBySearchTerm = searchArr(
+    sessionsFilteredbyProperties,
+    textSearchInput,
+  );
+  return sessionsFilteredBySearchTerm;
+};
 
-const showAllSessions = sessions =>
-  sessions.map(el => ({ ...el, visibility: true }));
+const initialFilters = {
+  skillLevel: [],
+  track: [],
+};
+
+const initialSessions = ({ sessions }) => sessions;
 
 const withLogic = compose(
-  withState('sessions', 'setSessions', ({ sessions }) => sessions),
-  withState('skillLevelSelected', 'setSkillLevel', null),
-  withState('trackSelected', 'setTrack', null),
+  withState('sessions', 'setSessions', initialSessions),
+  withState('filters', 'setFilters', initialFilters),
   withState('textSearchInput', 'setSearchText', ''),
   withHandlers({
-    filterBySkillLevel: props => skillLevel => {
-      const {
-        setSessions,
-        sessions,
-        setSkillLevel,
-        setTrack,
-        setSearchText,
-      } = props;
-      setTrack(null);
-      setSearchText('');
-      setSessions(filterBySkillLevel(sessions, skillLevel));
-      setSkillLevel(skillLevel);
+    changeSkillLevelFilters: ({
+      filters,
+      setFilters,
+    }) => selectedSkillLevel => {
+      // if filter is already applied, cancel filtere.
+      const userIsRemovingFilter = filters.skillLevel.includes(
+        selectedSkillLevel,
+      );
+      if (userIsRemovingFilter) {
+        setFilters({
+          ...filters,
+          skillLevel: filters.skillLevel.filter(
+            eachSkillLevel => eachSkillLevel !== selectedSkillLevel,
+          ),
+        });
+      } else {
+        setFilters({
+          ...filters,
+          skillLevel: [...filters.skillLevel, selectedSkillLevel],
+        });
+      }
     },
-    filterByTrack: props => track => {
-      const {
-        setSessions,
-        sessions,
-        setTrack,
-        setSkillLevel,
-        setSearchText,
-      } = props;
-      setSkillLevel(null);
-      setSearchText('');
-      setSessions(filterByTrack(sessions, track));
-      setTrack(track);
+    changeTrackFilters: ({ filters, setFilters }) => selectedTrack => {
+      const userIsRemovingFilter = filters.track.includes(selectedTrack);
+      if (userIsRemovingFilter) {
+        setFilters({
+          ...filters,
+          track: filters.track.filter(eachTrack => eachTrack !== selectedTrack),
+        });
+      } else {
+        setFilters({
+          ...filters,
+          track: [...filters.track, selectedTrack],
+        });
+      }
     },
-    filterByText: props => ({ target: { value } }) => {
-      const {
-        setSessions,
-        sessions,
-        setSearchText,
-        setTrack,
-        setSkillLevel,
-      } = props;
-      setTrack(null);
-      setSkillLevel(null);
-      setSearchText(value);
+    changeTextFilter: props => ({ target: { value } }) => {
+      props.setSearchText(value);
       // don't allow leading spaces
       if (!value.trim()) {
-        setSearchText('');
+        props.setSearchText('');
       }
-      const sessionsFilteredBySearchResults = searchArr(
-        value,
-        sessions,
-      ).map((isMatch, eachInd) => ({
-        ...sessions[eachInd],
-        visibility: isMatch,
-      }));
-      setSessions(sessionsFilteredBySearchResults);
     },
-    resetAllFilters: ({
-      sessions,
-      setSessions,
-      setSkillLevel,
-      setTrack,
-      setSearchText,
-    }) => () => {
-      setSkillLevel(null);
-      setTrack(null);
-      setSearchText('');
-      setSessions(sessions.map(el => ({ ...el, visibility: true })));
-    },
+    resetAllFilters: props => () => props.setFilters(initialFilters),
   }),
-  lifecycle({
-    componentWillMount() {
-      const { sessions, setSessions } = this.props;
-      setSessions(showAllSessions(sessions));
-    },
+  withProps(({ sessions, filters, textSearchInput }) => {
+    return {
+      sessions: filterByAll(sessions, filters, textSearchInput),
+    };
   }),
 );
 

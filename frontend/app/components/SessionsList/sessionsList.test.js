@@ -88,7 +88,7 @@ it('SessionList should render', () => {
   const wrapper = shallow(<SessionsList />);
   expect(wrapper).toExist;
 });
-it('Multi-filters should work', () => {
+it('filters should work', () => {
   const filtered = multiFilter(sessions, {
     skillLevel: ['Intermediate'],
     track: ['Coding and Development'],
@@ -98,7 +98,7 @@ it('Multi-filters should work', () => {
 });
 it('passing an empty filter means that filter is ignored', () => {
   const filtered = multiFilter(sessions, {
-    skillLevel: [],
+    skillLevel: 12345,
     track: ['Coding and Development'],
   });
   expect(filtered.length).toBe(2);

@@ -11,23 +11,26 @@ export const cleanHtml = (rawHTML: string): React.Element<any> =>
 
 /**
  * Searches an array for a text term
- * @param {Any} term - needle
  * @param {Array} arr - haystack
- * @returns {boolean[]}
+ * @param {Any} term - needle
+ * @returns {Array}
  *  returns an array of booleans, with the same number of elements as the
  *  search array. Each element corresponds to a match (or lack thereof)
  *  inside the array. e.g [false, true, false] would mean that was one match
  *  in the search array: on index 1.
  */
-export const searchArr = (term: string, arr: Array<any>): Array<boolean> => {
+export const searchArr = (arr: any[], term: string): Object[] => {
+  if (term === '') {
+    return arr;
+  }
   // term should modify the regex.
   // gotcha: need to (double) escape the backslash since it's in a string.
   const re = new RegExp(`\\b${term}`, 'i');
-  const boolMatches = arr.map(el => {
+  const matches = arr.filter(el => {
     const str = typeof el === 'object' ? JSON.stringify(el) : el.toString();
     return re.test(str);
   });
-  return boolMatches;
+  return matches;
 };
 
 // e.g "Hello World: How are you" -> 'hello-world-how-are-you'
@@ -54,7 +57,7 @@ export const titleToLink = (titleStr: string): string =>
 export const multiFilter = (
   arr: Object[],
   filters: {
-    [key: string]: Array<any>,
+    [key: string]: any[],
   },
 ): Object[] => {
   const filterKeys = Object.keys(filters);
