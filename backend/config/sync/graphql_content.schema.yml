@@ -11,9 +11,6 @@ types:
       session:
         exposed: true
         view_mode: node.default
-      news:
-        exposed: false
-        view_mode: node.default
       sponsor:
         exposed: false
         view_mode: '0'

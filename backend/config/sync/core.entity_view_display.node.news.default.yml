@@ -24,7 +24,7 @@ content:
     region: content
   field_news_date:
     weight: 102
-    label: hidden 
+    label: hidden
     settings:
       timezone_override: ''
     third_party_settings: {  }
