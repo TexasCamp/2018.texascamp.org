@@ -1,61 +1,55 @@
 // @flow
 import React from 'react';
 import { cleanHtml } from 'utils';
-import type { SessionT, SkillLevelT, TrackT } from 'types';
+import type { SessionT } from 'types';
 import styles from 'Sessions/styles.css';
 import Link from 'AsyncLink';
 import withLogic from './logic';
 
-type SessionExtendedT = SessionT & {
-  visibility: boolean,
+type ButtonT = {
+  onClick: Function,
+  isSelected: boolean,
+  name: string,
 };
 
 type SessionsListProps = {
-  sessions: Array<SessionExtendedT>,
-  changeSkillLevelFilters: Function,
+  sessions: Array<SessionT>,
   resetAllFilters: Function,
   changeTextFilter: Function,
-  changeTrackFilters: Function,
-  tracks: Array<TrackT>,
-  skillLevels: Array<SkillLevelT>,
   textSearchInput: string,
-  skillLevelSelected: SkillLevelT,
-  trackSelected: TrackT,
+  trackButtons: Array<ButtonT>,
+  skillLevelButtons: Array<ButtonT>,
 };
 
 const SessionsList = (props: SessionsListProps) => {
   const {
     sessions,
-    changeSkillLevelFilters,
-    skillLevels,
-    tracks,
-    changeTrackFilters,
     resetAllFilters,
     changeTextFilter,
     textSearchInput,
-    skillLevelSelected,
-    trackSelected,
+    trackButtons,
+    skillLevelButtons,
   } = props;
   return (
     <div className={styles.sessionsContainer}>
       <h2>Skill Level Filters:</h2>
-      {skillLevels.map(eachLevel =>
+      {skillLevelButtons.map(eachBtn =>
         (<button
-          className={eachLevel === skillLevelSelected && styles.btnSelected}
-          key={eachLevel}
-          onClick={() => changeSkillLevelFilters(eachLevel)}
+          className={eachBtn.isSelected && styles.btnSelected}
+          key={eachBtn.name}
+          onClick={eachBtn.onClick}
         >
-          {`${eachLevel}`}
+          {`${eachBtn.name}`}
         </button>),
       )}
       <h2>Track Filters:</h2>
-      {tracks.map(eachTrack =>
+      {trackButtons.map(eachBtn =>
         (<button
-          className={eachTrack === trackSelected && styles.btnSelected}
-          key={eachTrack}
-          onClick={() => changeTrackFilters(eachTrack)}
+          className={eachBtn.isSelected && styles.btnSelected}
+          key={eachBtn.name}
+          onClick={eachBtn.onClick}
         >
-          {`${eachTrack}`}
+          {`${eachBtn.name}`}
         </button>),
       )}
       <div>
