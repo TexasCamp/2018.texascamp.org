@@ -20,7 +20,7 @@ export const cleanHtml = (rawHTML: string): React.Element<any> =>
  *  in the search array: on index 1.
  */
 export const searchArr = (arr: any[], term: string): Object[] => {
-  if (term === '') {
+  if (!term) {
     return arr;
   }
   // term should modify the regex.
