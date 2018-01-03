@@ -18,11 +18,4 @@ shared:
   production:
     - src: files
       dst: backend/web/sites/default/files
-services:
-  node:
-    amazeeio:
-      type: node:8
-      template: frontend/.amazeeio.node.yml
-    build:
-      context: frontend
-      dockerfile: Dockerfile
+

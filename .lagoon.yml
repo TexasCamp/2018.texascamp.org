@@ -1,0 +1,5 @@
+docker-compose-yaml: docker-compose.yml
+
+project: 2018-texascamp
+endpoint: api-lagoon-master.lagoon.ch.amazee.io:31472
+api: api-lagoon-master.lagoon.ch.amazee.io:80
