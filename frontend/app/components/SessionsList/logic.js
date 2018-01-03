@@ -1,101 +1,141 @@
+// @flow
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
-import lifecycle from 'recompose/lifecycle';
-import { searchArr } from 'utils';
+import mapProps from 'recompose/mapProps';
+import type { SessionT, SkillLevelT, TrackT } from 'types';
+import { searchArr, multiFilter } from 'utils';
 
-const createSessionVisibilityFilter = filterProp => (
-  sessions,
-  selectedFilter,
-) =>
-  sessions.map(el => {
-    if (el[filterProp] === selectedFilter) {
-      return { ...el, visibility: true };
-    }
-    return { ...el, visibility: false };
-  });
+type FiltersT = {
+  skillLevel: SkillLevelT[],
+  track: TrackT[],
+};
 
-const filterBySkillLevel = createSessionVisibilityFilter('skillLevel');
-const filterByTrack = createSessionVisibilityFilter('track');
+type InitialPropsT = {
+  sessions: SessionT[],
+  skillLevels: SkillLevelT[],
+  tracks: TrackT[],
+};
 
-const showAllSessions = sessions =>
-  sessions.map(el => ({ ...el, visibility: true }));
+type InitialStateT = {
+  filters: FiltersT,
+  setFilters: Function,
+  textSearchInput: string,
+  setSearchText: Function,
+};
+
+type PropsWithStateT = InitialPropsT & InitialStateT;
+
+type PropsWithStateWithHandlersT = PropsWithStateT & {
+  changeSkillLevelFilters: Function,
+  changeTrackFilters: Function,
+  changeTextFilter: Function,
+  resetAllFilters: Function,
+};
+
+const filterByAll = (
+  sessions: SessionT[],
+  filters: FiltersT,
+  textSearchInput: string,
+): SessionT[] => {
+  const sessionsFilteredbyProperties = multiFilter(sessions, filters);
+  const sessionsFilteredBySearchTerm = searchArr(
+    sessionsFilteredbyProperties,
+    textSearchInput,
+  );
+  return sessionsFilteredBySearchTerm;
+};
+
+const initialFilters: FiltersT = {
+  skillLevel: [],
+  track: [],
+};
 
 const withLogic = compose(
-  withState('sessions', 'setSessions', ({ sessions }) => sessions),
-  withState('skillLevelSelected', 'setSkillLevel', null),
-  withState('trackSelected', 'setTrack', null),
+  withState('filters', 'setFilters', initialFilters),
   withState('textSearchInput', 'setSearchText', ''),
   withHandlers({
-    filterBySkillLevel: props => skillLevel => {
-      const {
-        setSessions,
-        sessions,
-        setSkillLevel,
-        setTrack,
-        setSearchText,
-      } = props;
-      setTrack(null);
-      setSearchText('');
-      setSessions(filterBySkillLevel(sessions, skillLevel));
-      setSkillLevel(skillLevel);
+    changeSkillLevelFilters: ({
+      filters,
+      setFilters,
+    }: PropsWithStateT) => selectedSkillLevel => {
+      // if filter is already applied, cancel filtere.
+      const userIsRemovingFilter = filters.skillLevel.includes(
+        selectedSkillLevel,
+      );
+      if (userIsRemovingFilter) {
+        setFilters({
+          ...filters,
+          skillLevel: filters.skillLevel.filter(
+            eachSkillLevel => eachSkillLevel !== selectedSkillLevel,
+          ),
+        });
+      } else {
+        setFilters({
+          ...filters,
+          skillLevel: [...filters.skillLevel, selectedSkillLevel],
+        });
+      }
     },
-    filterByTrack: props => track => {
-      const {
-        setSessions,
-        sessions,
-        setTrack,
-        setSkillLevel,
-        setSearchText,
-      } = props;
-      setSkillLevel(null);
-      setSearchText('');
-      setSessions(filterByTrack(sessions, track));
-      setTrack(track);
+    changeTrackFilters: ({
+      filters,
+      setFilters,
+    }: PropsWithStateT) => selectedTrack => {
+      const userIsRemovingFilter = filters.track.includes(selectedTrack);
+      if (userIsRemovingFilter) {
+        setFilters({
+          ...filters,
+          track: filters.track.filter(eachTrack => eachTrack !== selectedTrack),
+        });
+      } else {
+        setFilters({
+          ...filters,
+          track: [...filters.track, selectedTrack],
+        });
+      }
     },
-    filterByText: props => ({ target: { value } }) => {
-      const {
-        setSessions,
-        sessions,
-        setSearchText,
-        setTrack,
-        setSkillLevel,
-      } = props;
-      setTrack(null);
-      setSkillLevel(null);
+    changeTextFilter: ({ setSearchText }: PropsWithStateT) => ({
+      target: { value },
+    }) => {
       setSearchText(value);
       // don't allow leading spaces
       if (!value.trim()) {
         setSearchText('');
       }
-      const sessionsFilteredBySearchResults = searchArr(
-        value,
-        sessions,
-      ).map((isMatch, eachInd) => ({
-        ...sessions[eachInd],
-        visibility: isMatch,
-      }));
-      setSessions(sessionsFilteredBySearchResults);
     },
-    resetAllFilters: ({
+    resetAllFilters: ({ setFilters }: PropsWithStateT) => () =>
+      setFilters(initialFilters),
+  }),
+  mapProps(
+    ({
       sessions,
-      setSessions,
-      setSkillLevel,
-      setTrack,
-      setSearchText,
-    }) => () => {
-      setSkillLevel(null);
-      setTrack(null);
-      setSearchText('');
-      setSessions(sessions.map(el => ({ ...el, visibility: true })));
+      filters,
+      textSearchInput,
+      skillLevels,
+      changeSkillLevelFilters,
+      tracks,
+      changeTrackFilters,
+      changeTextFilter,
+      resetAllFilters,
+    }: PropsWithStateWithHandlersT) => {
+      return {
+        sessions: filterByAll(sessions, filters, textSearchInput),
+        skillLevelButtons: skillLevels.map(eachLevel => ({
+          isSelected: filters.skillLevel.includes(eachLevel),
+          onClick: () => changeSkillLevelFilters(eachLevel),
+          name: eachLevel,
+        })),
+        trackButtons: tracks.map(eachTrack => ({
+          isSelected: filters.track.includes(eachTrack),
+          onClick: () => changeTrackFilters(eachTrack),
+          name: eachTrack,
+        })),
+        changeTextFilter,
+        resetAllFilters,
+        textSearchInput,
+      };
     },
-  }),
-  lifecycle({
-    componentWillMount() {
-      const { sessions, setSessions } = this.props;
-      setSessions(showAllSessions(sessions));
-    },
-  }),
+  ),
 );
 
 export default withLogic;
