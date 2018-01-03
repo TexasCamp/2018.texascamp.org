@@ -23,20 +23,18 @@ const SessionIndividual = ({
   },
 }: SessionIndividualProps) => {
   // Format date/time
-  const formattedTimeslotDay = new Date(timeslot.value).toLocaleString(
-    'en-US',
-    { weekday: 'long' },
-  );
-  const formattedTimeslotDate = new Date(timeslot.value).toLocaleString(
-    'en-US',
-    {
+  const formattedTimeslotDay = timeslot
+    ? new Date(timeslot.value).toLocaleString('en-US', { weekday: 'long' })
+    : '';
+  const formattedTimeslotDate = timeslot
+    ? new Date(timeslot.value).toLocaleString('en-US', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-    },
-  );
+    })
+    : '';
 
   return (
     <div>
@@ -44,7 +42,9 @@ const SessionIndividual = ({
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 className={styles.title}>
+            {title}
+          </h2>
           <div className={styles.detail}>
             <div className={styles.section}>
               <div className={styles.field}>
@@ -52,48 +52,57 @@ const SessionIndividual = ({
                   Presenter<span>(s)</span>
                 </div>
                 <div>
-                  {speakers.map(eachName => (
-                    <div key={eachName}>{eachName}</div>
-                  ))}
+                  {speakers.map(eachName =>
+                    (<div key={eachName}>
+                      {eachName}
+                    </div>),
+                  )}
                 </div>
               </div>
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Track</div>
-                <div>{track}</div>
+                <div>
+                  {track}
+                </div>
               </div>
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Skill Level</div>
-                <div>{skillLevel}</div>
+                <div>
+                  {skillLevel}
+                </div>
               </div>
-              {timeslot && (
+              {timeslot &&
                 <div className={styles.field}>
                   <div className={styles.fieldLabel}>Timeslot</div>
-                  <div>{formattedTimeslotDay}</div>
-                  <div>{formattedTimeslotDate}</div>
-                </div>
-              )}
-              {room && (
+                  <div>
+                    {formattedTimeslotDay}
+                  </div>
+                  <div>
+                    {formattedTimeslotDate}
+                  </div>
+                </div>}
+              {room &&
                 <div className={styles.field}>
                   <div className={styles.fieldLabel}>Room</div>
-                  <div>{room}</div>
-                </div>
-              )}
+                  <div>
+                    {room}
+                  </div>
+                </div>}
             </div>
             <div className={styles.mainContent}>
               {cleanHtml(body)}
 
-              {speakersBio && (
+              {speakersBio &&
                 <div className={styles.bio}>
                   <div className={styles.bioNames}>
-                    {speakers.map(eachName => (
-                      <div key={eachName} className={styles.bioName}>
+                    {speakers.map(eachName =>
+                      (<div key={eachName} className={styles.bioName}>
                         {eachName}
-                      </div>
-                    ))}
+                      </div>),
+                    )}
                   </div>
                   {cleanHtml(speakersBio)}
-                </div>
-              )}
+                </div>}
             </div>
           </div>
           <Footer />
