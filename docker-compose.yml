@@ -40,3 +40,30 @@ services:
     network_mode: bridge
     ports:
       - "3306"
+    labels:
+      # disable deployment of this service
+      lagoon.type: none
+  frontend:
+    networks:
+      - amazeeio-network
+      - default
+    command: yarn run dev
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    labels:
+      lagoon.type: node
+    volumes:
+      - ./frontend/app:/app/app:delegated
+    expose:
+      - "3000"
+    environment:
+      - AMAZEEIO=AMAZEEIO
+      - AMAZEEIO_URL=frontend.2018.texascamp.org.docker.amazee.io
+      - AMAZEEIO_HTTP_PORT=3000
+      - API=http://2018.texascamp.org.docker.amazee.io/graphql
+    extra_hosts:
+      - "2018.texascamp.org.docker.amazee.io:172.17.0.1"
+networks:
+  amazeeio-network:
+    external: true
