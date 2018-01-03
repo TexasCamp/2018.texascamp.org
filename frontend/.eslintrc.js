@@ -2,14 +2,12 @@ module.exports = {
   env: {
     jest: true,
   },
-  extends: [
-    '@amazee/eslint-config-amazee',
-    'plugin:jsx-a11y/recommended',
-  ],
+  extends: ['@amazee/eslint-config-amazee', 'plugin:jsx-a11y/recommended'],
   globals: {
     fixture: true,
   },
   rules: {
+    curly: [2, 'all'], // make braces with if statements mandatory.
     'arrow-body-style': 0, // makes debugging easier
     'no-unused-expressions': 0, // allowing ternary function calls makes calling action methods nicer
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
