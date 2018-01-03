@@ -26,6 +26,7 @@
     height: 2px;
     left: 0;
     position: absolute;
+    transition: all 0.1s linear;
     width: 100%;
   }
   &:before {
@@ -36,39 +37,64 @@
   }
   &:hover {
     &:before {
-      bottom: -8px;
+      bottom: -7px;
     }
     &:after {
-      bottom: -16px;
+      bottom: -14px;
     }
   }
+
 }
+
 .menuButton.active {
-  overflow: hidden;
   &:before,
   &:after {
-    left: -50%;
-    right: 0;
-    transform: rotate(-45deg);
-    transform-origin: 100% 0;
-    width: auto;
   }
   &:before {
-    background-color: $almostWhite;
-    bottom: 58px;
+    animation:
+      changeTopLineColor 1s 1s linear forwards,
+      moveTopLineUp 1s 1s linear forwards;
   }
   &:after {
-    height: 3px;
-    bottom: 54px;
+    animation:
+      moveBottomLineUp 2s linear forwards,
+      increaseBottomLineHeight 1s 1s linear forwards,
+      deleteMe 1s 1s linear forwards;
   }
 }
+
+/* Inactive to Active Animation */
+@keyframes moveBottomLineUp {
+  50% {
+    bottom: -8px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+@keyframes changeTopLineColor {
+  to {
+    background-color: white;
+  }
+}
+@keyframes deleteMe {
+  to {
+    background-color: grey;
+  }
+}
+@keyframes moveTopLineUp {
+  to {
+    bottom: 3px;
+  }
+}
+@keyframes increaseBottomLineHeight {
+  to {
+    height: 3px;
+  }
+}
+
 .menuButton.inactive {
-  &:before {
 
-  }
-  &:after {
-
-  }
 }
 
 /* Expanding / Collapsing Overlay */
