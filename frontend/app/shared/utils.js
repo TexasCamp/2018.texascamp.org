@@ -35,11 +35,7 @@ export const searchArr = (arr: any[], term: string): Object[] => {
 
 // e.g "Hello World: How are you" -> 'hello-world-how-are-you'
 export const titleToLink = (titleStr: string): string =>
-  titleStr
-    .toLowerCase()
-    .replace(/[^a-zA-Z ]/g, '')
-    .split(' ')
-    .join('-');
+  titleStr.toLowerCase().replace(/[^a-zA-Z ]/g, '').split(' ').join('-');
 
 /**
  * Use multiple filters on an array of object

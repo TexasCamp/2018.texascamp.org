@@ -1,0 +1,34 @@
+.wrapper {
+  padding: 2em;
+  @media all and (min-width: 1000px) {
+    padding: 72px 2em;
+  }
+  @media all and (min-width: 1350px) {
+    padding: 72px 0;
+  }  
+}
+.prospectus {
+  composes: calderDark from '../../shared/css/fonts.css';
+  font-size: 17px;
+  line-height: 1.5rem;
+  margin: 2em auto 0;
+  width: 200px;
+  @media all and (min-width: 1000px) {
+    margin-top: 444px;
+  }
+  @media all and (min-width: 1200px) {
+    margin-top: 560px;
+  }
+  img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 22px;
+  }
+  a:hover {
+    .border {
+      border-bottom: 2px solid;
+      margin: 5px auto 0;
+      width: 90px;
+    }
+  }
+}

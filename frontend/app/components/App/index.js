@@ -13,10 +13,9 @@ import NewsOverview from 'NewsOverview';
 import SplatRouter from 'SplatRouter';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
-import '../../shared/css/global.css';
 
-const App = (): React.Element<any> => (
-  <div className={styles.wrapper}>
+const App = (): React.Element<any> =>
+  (<div className={styles.wrapper}>
     <Helmet
       titleTemplate="Texas Camp 2018 - %s"
       defaultTitle="Texas Camp 2018"
@@ -30,7 +29,6 @@ const App = (): React.Element<any> => (
       <Route exact path="/news/:page?/" component={NewsOverview} />
       <Route component={SplatRouter} />
     </Switch>
-  </div>
-);
+  </div>);
 
 export default App;

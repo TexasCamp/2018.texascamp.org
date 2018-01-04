@@ -2,40 +2,24 @@ import React from 'react';
 import styles from './styles.css';
 import twitter from '../../shared/images/twitter.png';
 import facebook from '../../shared/images/facebook.png';
-import logo from '../../shared/images/texas-camp-logo.png';
-import backgroundImage from '../../shared/images/truck.png';
 
 function Header() {
   return (
-    <div className={styles.header}>
-      <div className={styles.backgroundImageWrapper}>
-        <img src={backgroundImage} alt="" />
-      </div>
-      <section className={styles.info}>
-        <div>
-          May 31-June 2, 2018<span className={styles.separator}>
-            &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-          </span>Austin, TX
-        </div>
-        <div>Norris Conference Center</div>
-        <div>
-          <span className={styles.social}>
-            <Twitter />
-          </span>
-          <span className={styles.separator}>
-            &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-          </span>
-          <span className={styles.social}>
-            <Facebook />
-          </span>
-        </div>
-      </section>
-      <div className={styles.logo}>
-        <a href="/">
-          <img src={logo} alt="Texas Camp 2018" />
-        </a>
-      </div>
-    </div>
+    <section className={styles.info}>
+      <span className={styles.date}>May 31-June 2, 2018</span>
+      <span className={styles.separator}>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span className={styles.location}>Austin TX</span>
+      <span className={styles.separator}>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span className={styles.venue}>Norris Conference Center</span>
+      <span className={styles.separator}>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span className={styles.social}>
+        <Twitter />
+      </span>
+      <span className={styles.separator}>&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>
+      <span className={styles.social}>
+        <Facebook />
+      </span>
+    </section>
   );
 }
 
