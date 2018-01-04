@@ -6,13 +6,15 @@ import styles from './styles.css';
 const Menu = ({ isActive, toggleOverlay }) => {
   const activeClass = isActive ? styles.active : styles.inactive;
   return (
-    <div className={styles.menu}>
-      <button
+    <div>
+      <div
         className={`${styles.menuButton} ${activeClass}`}
         onClick={toggleOverlay}
+        role="button"
+        tabIndex="0"
       >
-        Menu
-      </button>
+        Me<wbr />nu
+      </div>
 
       <div className={`${styles.menuOverlay} ${activeClass}`}>
         <div className={styles.menuOverlayContainer}>

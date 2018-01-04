@@ -1,15 +1,22 @@
 
 /* Menu Toggle Button */
 .menuButton {
+  composes: calderDark from '../../shared/css/fonts.css';
+  align-items: center;
   background-color: $navy;
   border: 0 none;
   color: $almostWhite;
   cursor: pointer;
+  display: flex;
+  font-size: 20px;
   height: 56px;
+  line-height: 18px;
   position: fixed;
   right: 0;
+  text-transform: uppercase;
   top: 0;
   width: 56px;
+  word-wrap: break-word;
   z-index: 1000;
   &:focus {
     outline: none;
@@ -134,7 +141,10 @@
 .menuOverlay.active {
   height: 100vh;
   transition: height 0.2s linear, width 0.2s linear 0.2s;
-  width: 50vw;
+  width: 100vw;
+  @media screen and (min-width: 769px) {
+    width: 50vw;
+  }
 }
 .menuOverlayContainer {
   box-sizing: border-box;
