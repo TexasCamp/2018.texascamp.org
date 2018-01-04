@@ -1,4 +1,5 @@
 // Breakpoints in px
+const BP_XS = 400;
 const BP_TABLET = 768;
 const BP_DESKTOP = 1400;
 
@@ -11,7 +12,10 @@ module.exports = {
   lighterGrey: '#e2dcd6',
   yellow: '#f0c26d',
 
-  mobileOnly: `all and (max-width: ${(BP_TABLET - 1) / 16}em)`,
+  xs_small: `all and (min-width: ${BP_XS / 16}em) and (max-width: ${(BP_TABLET -
+    1) /
+    16}em)`,
+  smallOnly: `all and (max-width: ${(BP_TABLET - 1) / 16}em)`,
   tablet: `all and (min-width: ${BP_TABLET / 16}em)`,
   tabletOnly: `all and (min-width: ${BP_TABLET /
     16}em) and (max-width: ${(BP_DESKTOP - 1) / 16}em)`,
