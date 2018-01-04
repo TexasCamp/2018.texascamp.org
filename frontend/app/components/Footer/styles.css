@@ -1,6 +1,6 @@
 .footer {
   margin-top: 60px;
-  @media all and (min-width: 768px) {
+  @media $tablet {
     margin-top: 100px;
   }
 }
@@ -9,7 +9,7 @@
   margin-bottom: 2px;
   padding: 20px;
   text-align: center;
-  @media all and (min-width: 768px) {
+  @media $tablet {
     margin-bottom: 5px;
     padding: 30px 20px;
   }
@@ -19,7 +19,7 @@
   background: $lightGrey;
   padding: 20px;
   text-align: center;
-  @media all and (min-width: 768px) {
+  @media $tablet {
     padding: 30px 20px;
   }
 }

@@ -1,13 +1,13 @@
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
-  @media all and (min-width: 1400px) {
+  @media $desktop {
     margin-left: 50%;
     width: 50%;
   }
 }
 .title {
   margin: 55px 20px 75px;
-  @media all and (min-width: 768px) {
+  @media $tablet {
     margin: 60px 40px 1.5rem;
     max-width: calc(75% - 100px);
   }
@@ -16,7 +16,7 @@
   composes: contentArea from '../../shared/css/global.css';
   .section {
     min-width: 25%;
-    @media all and (max-width: 767px) {
+    @media $mobileOnly {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -29,14 +29,14 @@
     }
   }
   .mainContent {
-    @media all and (min-width: 768px) {
+    @media $tablet {
       margin-right: 40px;
     }
     .bio {
       background: $yellow;
       margin-top: 40px;
       padding: 20px;
-      @media all and (min-width: 768px) {
+      @media $tablet {
         margin-top: 60px;
         padding: 30px;
       }

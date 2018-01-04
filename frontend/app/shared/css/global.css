@@ -18,10 +18,13 @@ body {
     border-bottom: 1px solid;
     font-weight: normal;
   }
+  em {
+    font-style: normal;
+  }
   h1 {
     line-height: 2.75rem;
     margin-top: 55px;
-    @media all and (min-width: 768px) {
+    @media $tablet {
       margin-top: 60px;
     }
   }
@@ -71,7 +74,7 @@ h4 {
 .contentArea {
   flex: 1 0 auto;
   margin: 0 20px;
-  @media all and (min-width: 768px) {
+  @media $tablet {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;

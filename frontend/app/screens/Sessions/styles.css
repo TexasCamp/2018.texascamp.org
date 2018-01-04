@@ -1,7 +1,7 @@
 
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
-  @media all and (min-width: 1400px) {
+  @media $desktop {
     margin-left: 50%;
     width: 50%;
   }
@@ -13,7 +13,7 @@
 }
 
 .detail {
-  @media all and (min-width: 768px) {
+  @media $tablet {
     width: calc(75% - 40px);
   }
 }
