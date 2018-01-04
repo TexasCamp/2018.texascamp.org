@@ -122,23 +122,19 @@
   text-align: left;
   top: 0;
   z-index: 999;
-  nav {
-    opacity: 0;
-  }
 }
 .menuOverlay.inactive {
   height: 56px;
-  transition: width 0.5s linear, height 0.5s linear 0.5s;
+  transition: width 0.2s linear, height 0.2s linear 0.2s;
   width: 56px;
+  nav {
+    opacity: 0;
+  }
 }
 .menuOverlay.active {
   height: 100vh;
-  transition: height 0.5s linear, width 0.5s linear 0.5s;
+  transition: height 0.2s linear, width 0.2s linear 0.2s;
   width: 50vw;
-  nav {
-    opacity: 0;
-    animation: fadeInNav 0.5s 1s ease-in both;
-  }
 }
 .menuOverlayContainer {
   box-sizing: border-box;
@@ -188,13 +184,37 @@
       color: $orange;
     }
   }
+  .menuOverlay.active & {
+    opacity: 0;
+    &:nth-child(1) {
+      animation: fadeInMenuItem 0.1s 0.4s ease-in both;
+    }
+    &:nth-child(2) {
+      animation: fadeInMenuItem 0.1s 0.5s ease-in both;
+    }
+    &:nth-child(3) {
+      animation: fadeInMenuItem 0.1s 0.6s ease-in both;
+    }
+    &:nth-child(4) {
+      animation: fadeInMenuItem 0.1s 0.7s ease-in both;
+    }
+    &:nth-child(5) {
+      animation: fadeInMenuItem 0.1s 0.8s ease-in both;
+    }
+    &:nth-child(6) {
+      animation: fadeInMenuItem 0.1s 0.9s ease-in both;
+    }
+    &:nth-child(7) {
+      animation: fadeInMenuItem 0.1s 1s ease-in both;
+    }
+  }
 }
 
 /* Menu Content Animations */
-@keyframes fadeInNav {
+@keyframes fadeInMenuItem {
   from {
     opacity: 0;
-    transform: translate3d(0, -2%, 0);
+    transform: translate3d(0, -10%, 0);
   }
   to {
     opacity: 1;
@@ -241,7 +261,7 @@
     opacity: 0;
   }
   .menuOverlay.active & {
-    animation: growLine 0.5s 1s ease-in both;
+    animation: growLine 0.7s 0.4s ease-in both;
   }
 }
 .newsletterForm {
@@ -249,6 +269,6 @@
     opacity: 0;
   }
   .menuOverlay.active & {
-    animation: fadeInForm 0.5s 1.5s ease-in both;
+    animation: fadeInForm 0.2s 1.2s ease-in both;
   }
 }
