@@ -3,6 +3,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Header from 'Header';
+import Menu from 'Menu';
 import Logo from 'Logo';
 import NewsletterForm from 'NewsletterForm';
 import BackgroundImage from 'BackgroundImage';
@@ -30,6 +31,7 @@ const Home = (): React.Element<any> =>
     </Helmet>
     <BackgroundImage />
     <Header />
+    <Menu />
     <Logo />
     <NewsletterForm />
     <div className={styles.prospectus}>
