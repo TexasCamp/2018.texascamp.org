@@ -11,6 +11,9 @@ import { graphql } from 'react-apollo';
 import { filter } from 'graphql-anywhere';
 import NewsTeaser from 'NewsTeaser';
 import type { NewsTeaserProps } from 'NewsTeaser';
+import Header from 'Header';
+import Menu from 'Menu';
+import Footer from 'Footer';
 import styles from './styles.css';
 
 type NewsOverviewItem = NewsTeaserProps & {
@@ -38,20 +41,29 @@ const NewsOverview = ({
   nextPagePath,
 }: NewsOverviewProps): React.Element<any> | null =>
   (!loading &&
-    <div className={styles.Wrapper}>
+    <div>
+      <Menu />
       <Helmet title="News" />
-      <h1>News</h1>
-      <ul>
-        {newsList.map(newsItem =>
-          (<NewsTeaser
-            key={newsItem.id}
-            {...filter(NewsTeaser.fragments.NewsTeaserFragment, newsItem)}
-          />),
-        )}
-      </ul>
-      <div>
-        {hasPreviousPage && <Link to={previousPagePath}>Previous</Link>}
-        {hasNextPage && <Link to={nextPagePath}>Next</Link>}
+      <Header />
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}>
+          <div className={styles.detail}>
+            <h1>News</h1>
+            <ul>
+              {newsList.map(newsItem =>
+                (<NewsTeaser
+                  key={newsItem.id}
+                  {...filter(NewsTeaser.fragments.NewsTeaserFragment, newsItem)}
+                />),
+              )}
+            </ul>
+            <div>
+              {hasPreviousPage && <Link to={previousPagePath}>Previous</Link>}
+              {hasNextPage && <Link to={nextPagePath}>Next</Link>}
+            </div>
+          </div>
+        </div>
+        <Footer />
       </div>
     </div>) ||
   null;

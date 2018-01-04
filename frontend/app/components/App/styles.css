@@ -1,17 +1,16 @@
-body {
-  background-color: $orange;
-  color: $navy;
-  height: 100%;
-  overflow-x: hidden;
-  a {
-    color: $navy;
-    text-decoration: none;
-  }
-}
+
 .wrapper {
-  margin: 0 auto;
-  max-width: 1248px;
-  overflow-x: hidden;
-  position: relative;
-  text-align: center;
+  composes: calderLC from '../../shared/css/fonts.css';
+  &::before {
+    @media all and (max-width: 1399px) {
+      background: $orange;
+      display: block;
+      content: " ";
+      height: 26px;
+      width: 100%;
+    }
+    @media all and (min-width: 768px) {
+      height: 20px;
+    }
+  }
 }
