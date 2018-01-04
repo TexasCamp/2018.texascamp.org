@@ -1,6 +1,7 @@
 .header {
-  @media all and (min-width: 1400px) {
+  @media $desktop {
     background: $orange;
+    border-right: 2px solid;
     height: 100%;
     overflow: hidden;
     position: fixed;
@@ -9,7 +10,7 @@
   }
   .backgroundImageWrapper {
     display: none;
-    @media all and (min-width: 1400px) {
+    @media $desktop {
       display: block;
       left: 50%;
       margin-top: 315px;
@@ -28,10 +29,10 @@
   margin-top: 30px;
   text-align: center;
 
-  @media all and (max-width: 768px) {
+  @media $mobileOnly {
     display: none;
   }
-  @media all and (min-width: 1400px) {
+  @media $desktop {
     margin-top: 50px;
   }
   .social {
@@ -50,24 +51,16 @@
       padding-top: 8px;
     }
   }
-  @media all and (min-width: 1000px) and (max-width: 1200px) {
-    .venue {
-      display: block;
-      + .separator {
-        display: none;
-      }
-    }
-  }
 }
 .logo {
-  @media all and (max-width: 767px) {
+  @media $mobileOnly {
     margin: -8px 0 0 8px;
     text-align: left;
     img {
       width: 110px;
     }
   }
-  @media all and (min-width: 768px) and (max-width: 1399px) {
+  @media $tabletOnly {
     margin: -12px 0 0 24px;
     position: absolute;
     top: 26px;
@@ -75,7 +68,7 @@
       width: 126px;
     }
   }
-  @media all and (min-width: 1400px) {
+  @media $desktop {
     text-align: center;
     img {
       margin-top: 30px;

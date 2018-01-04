@@ -2,14 +2,14 @@
 .wrapper {
   composes: calderLC from '../../shared/css/fonts.css';
   &::before {
-    @media all and (max-width: 1399px) {
+    @media $tabletDown {
       background: $orange;
       display: block;
       content: " ";
       height: 26px;
       width: 100%;
     }
-    @media all and (min-width: 768px) {
+    @media $tablet {
       height: 20px;
     }
   }
