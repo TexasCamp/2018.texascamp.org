@@ -15,7 +15,7 @@ const App = (): React.Element<any> =>
       titleTemplate="Texas Camp 2018 - %s"
       defaultTitle="Texas Camp 2018"
     />
-    <Typekit kitId="yde7xbz" />
+    <Typekit kitId="rgi7wxl" />
     <Switch>
       <Route exact path="/" component={Home} />
     </Switch>

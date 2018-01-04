@@ -5,7 +5,6 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import Menu from 'Menu';
 import Logo from 'Logo';
-import NewsletterForm from 'NewsletterForm';
 import BackgroundImage from 'BackgroundImage';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
@@ -35,7 +34,6 @@ const Home = (): React.Element<any> =>
     <Header />
     <Menu />
     <Logo />
-    <NewsletterForm />
     <div className={styles.prospectus}>
       <a href={prospectus}>
         <img src={download} alt="Download the Sponsor Prospectus" />

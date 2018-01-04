@@ -1,6 +1,8 @@
 .newsletter {
   composes: calderLC from '../../shared/css/fonts.css';
-  margin: 340px auto 0;
+  max-width: 210px;
+  padding: 55px 0 100px;
+  /*margin: 340px auto 0;
   width: 214px;
   @media all and (min-width: 501px) {
     margin-top: 440px;
@@ -12,10 +14,13 @@
   }
   @media all and (min-width: 1200px) {
     margin-top: 386px;
-  }
+  }*/
   img {
-    margin-bottom: 20px;
-    width: 165px;
+    display: block;
+    height: auto;
+    margin: 0 auto 26px;
+    max-width: 100%;
+    width: 168px;
   }
   .visuallyhidden {
     border: 0;
@@ -30,15 +35,15 @@
   input[type=email], input[type=text], textarea {
     font-size: 12px;
     font-family: "calder-lc", sans-serif;
-    background: $orange;
-    border: 1px solid $navy;
+    background: $navy;
+    border: 1px solid $almostWhite;
     box-sizing: border-box;
-    color: $navy;
+    color: $almostWhite;
     padding: 15px;
     margin: 0 0 16px;
     width: 100%;
     &::placeholder {
-      color: $navy;
+      color: $almostWhite;
     }
     &:focus {
       outline: none;
@@ -46,12 +51,12 @@
   }
   .submit {
     input {
-      background-color: $navy;
-      border: 1px solid $navy;
+      background-color: $orange;
+      border: 1px solid $orange;
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
-      color: $orange;
+      color: $almostWhite;
       font-family: "calder-lc", sans-serif;
       font-size: 13px;
       font-style: normal;
