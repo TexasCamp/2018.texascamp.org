@@ -16,7 +16,7 @@
   composes: contentArea from '../../shared/css/global.css';
   .section {
     min-width: 25%;
-    @media $mobileOnly {
+    @media $xs_small {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;

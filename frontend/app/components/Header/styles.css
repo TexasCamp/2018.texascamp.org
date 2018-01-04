@@ -29,7 +29,7 @@
   margin-top: 30px;
   text-align: center;
 
-  @media $mobileOnly {
+  @media $smallOnly {
     display: none;
   }
   @media $desktop {
@@ -53,7 +53,7 @@
   }
 }
 .logo {
-  @media $mobileOnly {
+  @media $smallOnly {
     margin: -8px 0 0 8px;
     text-align: left;
     img {
