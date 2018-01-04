@@ -13,6 +13,7 @@ import NewsOverview from 'NewsOverview';
 import SplatRouter from 'SplatRouter';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
+import '../../shared/css/global.css';
 
 const App = (): React.Element<any> =>
   (<div className={styles.wrapper}>

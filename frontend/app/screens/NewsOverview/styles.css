@@ -1,3 +1,18 @@
-.Wrapper {
+.contentWrapper {
+  composes: contentWrapper from '../../shared/css/global.css';
+  @media all and (min-width: 1400px) {
+    margin-left: 50%;
+    width: 50%;
+  }
+}
 
+.content {
+  composes: contentArea from '../../shared/css/global.css';
+  flex-direction: unset;
+}
+
+.detail {
+  @media all and (min-width: 768px) {
+    width: calc(75% - 40px);
+  }
 }
