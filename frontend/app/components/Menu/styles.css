@@ -52,14 +52,16 @@
   }
   &:before {
     animation:
-      changeTopLineColor 1s 1s linear forwards,
-      moveTopLineUp 1s 1s linear forwards;
+      changeTopLineColor 1s linear forwards,
+      moveTopLineUp 1s linear forwards,
+      rotateTopLine 1s 2s linear forwards;
   }
   &:after {
     animation:
       moveBottomLineUp 2s linear forwards,
       increaseBottomLineHeight 1s 1s linear forwards,
-      deleteMe 1s 1s linear forwards;
+      deleteMe 1s 1s linear forwards,
+      rotateBottomLine 1s 2s linear forwards;
   }
 }
 
@@ -69,7 +71,7 @@
     bottom: -8px;
   }
   100% {
-    bottom: 0px;
+    bottom: -3px;
   }
 }
 @keyframes changeTopLineColor {
@@ -84,12 +86,26 @@
 }
 @keyframes moveTopLineUp {
   to {
-    bottom: 3px;
+    bottom: 0px;
   }
 }
 @keyframes increaseBottomLineHeight {
   to {
     height: 3px;
+  }
+}
+@keyframes rotateTopLine {
+  to {
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+    width: 200%;
+  }
+}
+@keyframes rotateBottomLine {
+  to {
+    transform-origin: left top;
+    transform: rotate(-45deg);
+    width: 200%;
   }
 }
 
@@ -99,7 +115,7 @@
 
 /* Expanding / Collapsing Overlay */
 .menuOverlay {
-  background-color: yellow;
+  background-color: $navy;
   color: $almostWhite;
   position: fixed;
   right: 0;
