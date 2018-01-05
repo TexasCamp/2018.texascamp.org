@@ -8,8 +8,11 @@ body {
   line-height: 1.5rem;
   overflow-x: hidden;
   a {
-    color: $navy;
+    color: $orange;
     text-decoration: none;
+    &:hover {
+      border-bottom: 1px solid $navy;
+    }
   }
   p {
     margin: 0 0 1.5rem;
