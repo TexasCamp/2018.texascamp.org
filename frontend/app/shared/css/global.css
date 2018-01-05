@@ -8,14 +8,17 @@ body {
   line-height: 1.5rem;
   overflow-x: hidden;
   a {
-    color: $orange;
+    color: $navy;
     text-decoration: none;
-    &:hover {
-      border-bottom: 1px solid $navy;
-    }
   }
   p {
     margin: 0 0 1.5rem;
+    a {
+      color: $orange;
+      &:hover {
+        border-bottom: 1px solid $navy;
+      }
+    }
   }
   strong {
     border-bottom: 1px solid;
@@ -51,6 +54,12 @@ body {
       background-size: 8px;
       margin-bottom: 1.5rem;
       padding-left: 20px;
+      a {
+        color: $orange;
+        &:hover {
+          border-bottom: 1px solid $navy;
+        }
+      }
     }
   }
   ol {
@@ -58,6 +67,12 @@ body {
     padding-left: 20px;
     li {
       margin-bottom: 1.5rem;
+      a {
+        color: $orange;
+        &:hover {
+          border-bottom: 1px solid $navy;
+        }
+      }
     }
   }
 }
