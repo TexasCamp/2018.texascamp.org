@@ -1,4 +1,25 @@
-.Wrapper {
-  background-color: turquoise;
-  padding: 10px;
+.content {
+  composes: contentWrapper from '../../../../shared/css/global.css';
+  @media $desktop {
+    margin-left: 50%;
+    width: 50%;
+  }
+}
+.title {
+  margin: 55px 20px 75px;
+  @media $tablet {
+    margin: 60px 40px 1.5rem;
+    max-width: calc(75% - 100px); 
+  }
+}
+.detail {
+  composes: contentArea from '../../../../shared/css/global.css';
+  @media $tablet {
+    width: calc(75% - 40px);
+  }
+  .mainContent {
+    @media $tablet {
+      margin-right: 40px;
+    }
+  }
 }
