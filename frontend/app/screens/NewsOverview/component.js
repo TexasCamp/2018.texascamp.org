@@ -3,10 +3,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import compose from 'recompose/compose';
-import defaultProps from 'recompose/defaultProps';
-import withPropsOnChange from 'recompose/withPropsOnChange';
 import gql from 'graphql-tag';
-import Link from 'AsyncLink';
 import { graphql } from 'react-apollo';
 import { filter } from 'graphql-anywhere';
 import NewsTeaser from 'NewsTeaser';
@@ -22,23 +19,12 @@ type NewsOverviewItem = NewsTeaserProps & {
 
 type NewsOverviewProps = {
   loading: boolean,
-  page: number,
-  count: number,
   newsList: Array<NewsOverviewItem>,
-  pageSize: number,
-  hasPreviousPage?: boolean,
-  hasNextPage?: boolean,
-  previousPagePath?: string,
-  nextPagePath?: string,
 };
 
 const NewsOverview = ({
   loading,
   newsList,
-  hasPreviousPage,
-  hasNextPage,
-  previousPagePath,
-  nextPagePath,
 }: NewsOverviewProps): React.Element<any> | null =>
   (!loading &&
     <div>
@@ -57,10 +43,6 @@ const NewsOverview = ({
                 />),
               )}
             </ul>
-            <div>
-              {hasPreviousPage && <Link to={previousPagePath}>Previous</Link>}
-              {hasNextPage && <Link to={nextPagePath}>Next</Link>}
-            </div>
           </div>
         </div>
         <Footer />
@@ -83,37 +65,10 @@ const query = gql`
 `;
 
 const withQuery = graphql(query, {
-  options: ({ pageSize, match: { params: { page = 0 } } }) => ({
-    variables: {
-      offset: page * pageSize,
-      limit: pageSize,
-    },
-  }),
-  props: ({
-    ownProps: { match: { params: { page = 0 } } },
-    data: { nodeQuery: { entities, count } = {}, loading },
-  }) => ({
+  props: ({ data: { nodeQuery: { entities } = {}, loading } }) => ({
     loading,
-    page: parseInt(page, 10),
-    count,
     newsList: entities,
   }),
 });
 
-const withDefaultProps = defaultProps({
-  pageSize: 5,
-});
-
-const withPagination = withPropsOnChange(
-  ['count', 'page'],
-  (props: NewsOverviewProps) => ({
-    hasPreviousPage: props.page > 0,
-    hasNextPage: props.page + 1 < props.count / props.pageSize,
-    previousPagePath: props.page - 1 > 0 ? `/news/${props.page - 1}` : '/news',
-    nextPagePath: `/news/${props.page + 1}`,
-  }),
-);
-
-export default compose(withDefaultProps, withQuery, withPagination)(
-  NewsOverview,
-);
+export default compose(withQuery)(NewsOverview);
