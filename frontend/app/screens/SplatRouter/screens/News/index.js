@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
-import Html from 'Html';
+import { cleanHtml } from 'utils';
 import styles from './styles.css';
 
 type NewsProps = {
@@ -26,7 +26,7 @@ const News = ({
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',
-        'src="http://2018.texascamp.org.docker.amazee.io/sites/default/files/inline-images/',
+        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
 
@@ -58,9 +58,7 @@ const News = ({
               </div>
             </div>
             <div className={styles.mainContent}>
-              <Html>
-                {formattedBody}
-              </Html>
+              {cleanHtml(formattedBody)}
             </div>
           </div>
           <Footer />

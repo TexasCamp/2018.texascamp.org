@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
-import Html from 'Html';
+import { cleanHtml } from 'utils';
 import styles from './styles.css';
 
 type BasicPageProps = {
@@ -21,7 +21,7 @@ const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',
-        'src="http://2018.texascamp.org.docker.amazee.io/sites/default/files/inline-images/',
+        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
 
@@ -37,9 +37,7 @@ const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
           </h1>
           <div className={styles.detail}>
             <div className={styles.mainContent}>
-              <Html>
-                {formattedBody}
-              </Html>
+              {cleanHtml(formattedBody)}
             </div>
           </div>
           <Footer />
