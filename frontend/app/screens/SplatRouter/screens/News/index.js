@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
+import { cleanHtml } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
-import { cleanHtml } from 'utils';
 import styles from './styles.css';
 
 type NewsProps = {
