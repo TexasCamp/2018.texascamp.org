@@ -37,6 +37,16 @@ const SessionIndividual = ({
     })
     : '';
 
+  // Format body to:
+  // - Update inline image src to include full url
+  // - Remove all links
+  let formattedBody = body;
+  formattedBody = formattedBody
+    ? formattedBody.replace(
+        'src="/sites/default/files/inline-images/',
+        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
+      )
+    : '';
   return (
     <div>
       <Helmet title={`Session: ${title}`} />
@@ -92,7 +102,7 @@ const SessionIndividual = ({
                 </div>}
             </div>
             <div className={styles.mainContent}>
-              {cleanHtml(body)}
+              {cleanHtml(formattedBody)}
 
               {speakersBio &&
                 <div className={styles.bio}>
