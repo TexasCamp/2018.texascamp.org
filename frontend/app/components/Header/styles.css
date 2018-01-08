@@ -75,8 +75,11 @@
 }
 .logo {
   position: relative;
+  .desktopLogo {
+    display: none;
+  }
   @media $smallOnly {
-    margin: -8px 0 0 8px;
+    margin: -5px 0 0 8px;
     text-align: left;
     img {
       width: 110px;
@@ -91,6 +94,12 @@
     }
   }
   @media $desktop {
+    .mobileLogo {
+      display: none;
+    }
+    .desktopLogo {
+      display: inherit;
+    }
     text-align: center;
     img {
       margin-top: 20px;
