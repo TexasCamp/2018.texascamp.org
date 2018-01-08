@@ -1,9 +1,12 @@
-
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
-    margin-left: 50%;
-    width: 50%;
+    min-width: 50%;
   }
 }
 
