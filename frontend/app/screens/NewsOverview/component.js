@@ -30,11 +30,11 @@ const NewsOverview = ({
     <div>
       <Menu />
       <Helmet title="News" />
-      <Header />
       <div className={styles.contentWrapper}>
+        <Header />
         <div className={styles.content}>
+          <h1 className={styles.title}>News</h1>
           <div className={styles.detail}>
-            <h1>News</h1>
             <ul>
               {newsList.map(newsItem =>
                 (<NewsTeaser
@@ -44,8 +44,8 @@ const NewsOverview = ({
               )}
             </ul>
           </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </div>) ||
   null;

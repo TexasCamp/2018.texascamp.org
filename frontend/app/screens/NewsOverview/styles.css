@@ -1,17 +1,25 @@
 .contentWrapper {
-  composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
-    margin-left: 50%;
-    width: 50%;
+    display: flex;
   }
 }
-
 .content {
+  composes: contentWrapper from '../../shared/css/global.css';
+  @media $desktop {
+    min-width: 50%;
+  }
+  .title {
+    margin-left: 20px;
+    margin-right: 20px;
+    @media $desktop {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+  }
+}
+.detail {
   composes: contentArea from '../../shared/css/global.css';
   flex-direction: unset;
-}
-
-.detail {
   @media $tablet {
     width: calc(75% - 40px);
   }

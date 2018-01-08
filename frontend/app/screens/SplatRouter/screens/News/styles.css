@@ -1,8 +1,12 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
 .content {
   composes: contentWrapper from '../../../../shared/css/global.css';
   @media $desktop {
-    margin-left: 50%;
-    width: 50%;
+    min-width: 50%;
   }
 }
 .title {
@@ -13,7 +17,7 @@
   }
 }
 .detail {
-  composes: contentArea from '../../../../shared/css/global.css';  
+  composes: contentArea from '../../../../shared/css/global.css';
   flex-direction: row-reverse;
   .section {
     margin-bottom: 40px;

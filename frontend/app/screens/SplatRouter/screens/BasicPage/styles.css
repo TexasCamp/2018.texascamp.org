@@ -1,15 +1,19 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
 .content {
   composes: contentWrapper from '../../../../shared/css/global.css';
   @media $desktop {
-    margin-left: 50%;
-    width: 50%;
+    min-width: 50%;
   }
 }
 .title {
   margin: 55px 20px 75px;
   @media $tablet {
     margin: 60px 40px 1.5rem;
-    max-width: calc(75% - 100px); 
+    max-width: calc(75% - 100px);
   }
 }
 .detail {
