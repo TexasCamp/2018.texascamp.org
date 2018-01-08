@@ -1,7 +1,9 @@
 // Breakpoints in px
 const BP_XS = 400;
 const BP_TABLET = 768;
-const BP_DESKTOP = 1400;
+const BP_DESKTOP = 960;
+const BP_WIDE = 1200;
+const BP_EXTRAWIDE = 1500;
 
 module.exports = {
   almostWhite: '#f2ece6',
@@ -21,4 +23,6 @@ module.exports = {
     16}em) and (max-width: ${(BP_DESKTOP - 1) / 16}em)`,
   tabletDown: `all and (max-width: ${(BP_DESKTOP - 1) / 16}em)`,
   desktop: `all and (min-width: ${BP_DESKTOP / 16}em)`,
+  wide: `all and (min-width: ${BP_WIDE / 16}em)`,
+  extraWide: `all and (min-width: ${BP_EXTRAWIDE / 16}em)`,
 };
