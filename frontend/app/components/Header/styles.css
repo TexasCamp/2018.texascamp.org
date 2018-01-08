@@ -1,24 +1,45 @@
-.header {
+.headerWrapper {
   @media $desktop {
-    background: $orange;
-    border-right: 2px solid;
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 50%;
+    min-width: 330px;
   }
-  .backgroundImageWrapper {
-    display: none;
+  @media $wide {
+    min-width: 40%;
+  }
+  @media $extraWide {
+    min-width: 50%;
+  }
+  .header {
     @media $desktop {
-      display: block;
-      left: 50%;
-      margin-top: 315px;
-      position: absolute;
-      img {
-        left: -50%;
-        position: relative;
-        width: 720px;
+      background: $orange;
+      border-right: 2px solid;
+      height: 100%;
+      min-width: 330px;
+      max-width: 50%;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+    }
+    @media $wide {
+      min-width: 40%;
+    }
+    @media $extraWide {
+      min-width: 50%;
+    }
+    .backgroundImageWrapper {
+      display: none;
+      @media $desktop {
+        display: block;
+        left: 50%;
+        margin-top: 295px;
+        position: absolute;
+        img {
+          left: -50%;
+          position: relative;
+          width: 720px;
+        }
+      }
+      @media $wide {
+        margin-top: 315px;
       }
     }
   }
@@ -53,6 +74,7 @@
   }
 }
 .logo {
+  position: relative;
   @media $smallOnly {
     margin: -8px 0 0 8px;
     text-align: left;
@@ -69,6 +91,13 @@
     }
   }
   @media $desktop {
+    text-align: center;
+    img {
+      margin-top: 20px;
+      width: 275px;
+    }
+  }
+  @media $wide {
     text-align: center;
     img {
       margin-top: 30px;
