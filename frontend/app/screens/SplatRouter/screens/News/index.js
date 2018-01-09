@@ -8,12 +8,6 @@ import Menu from 'Menu';
 import Footer from 'Footer';
 import styles from './styles.css';
 
-type NewsProps = {
-  title: string,
-  body: string,
-  fieldNewsDate: string,
-};
-
 const News = ({
   title,
   body,
@@ -22,9 +16,8 @@ const News = ({
   // Format body to:
   // - Update inline image src to include full url
   // - Remove all links
-  let formattedBody = body;
-  formattedBody = formattedBody
-    ? formattedBody.replace(
+  const formattedBody = body.value
+    ? body.value.replace(
         'src="/sites/default/files/inline-images/',
         'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )

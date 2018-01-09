@@ -7,6 +7,7 @@
   composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
     min-width: 50%;
+    width: 100%;
   }
 }
 .title {
@@ -36,6 +37,7 @@
   .mainContent {
     @media $tablet {
       margin-right: 40px;
+      width: 100%;
     }
     .bio {
       background: $yellow;

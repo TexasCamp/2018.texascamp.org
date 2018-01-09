@@ -3,15 +3,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import compose from 'recompose/compose';
-import gql from 'graphql-tag';
-import { graphql } from 'react-apollo';
 import { filter } from 'graphql-anywhere';
-import NewsTeaser from 'NewsTeaser';
-import type { NewsTeaserProps } from 'NewsTeaser';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
-import styles from './styles.css';
+import NewsTeaser from 'NewsTeaser';
+import type { NewsTeaserProps } from 'NewsTeaser';
+import withNewsQuery from 'NewsOverview/withNewsQuery';
+import styles from 'NewsOverview/styles.css';
 
 type NewsOverviewItem = NewsTeaserProps & {
   id: number,
@@ -50,25 +49,4 @@ const NewsOverview = ({
     </div>) ||
   null;
 
-const query = gql`
-  query NewsOverviewQuery($offset: Int, $limit: Int) {
-    nodeQuery(offset: $offset, limit: $limit, filter: {type: "news" }) {
-      count,
-      entities {
-        id:entityId
-        ...NewsTeaserFragment
-      }
-    }
-  }
-
-  ${NewsTeaser.fragments.NewsTeaserFragment}
-`;
-
-const withQuery = graphql(query, {
-  props: ({ data: { nodeQuery: { entities } = {}, loading } }) => ({
-    loading,
-    newsList: entities,
-  }),
-});
-
-export default compose(withQuery)(NewsOverview);
+export default compose(withNewsQuery)(NewsOverview);

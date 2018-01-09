@@ -10,12 +10,10 @@
     width: 100%;
   }
 }
-
 .detail {
+  composes: contentArea from '../../shared/css/global.css';
+  flex-direction: unset;
   @media $tablet {
     width: calc(75% - 40px);
   }
-}
-.newsTeaser {
-  background: red;
 }

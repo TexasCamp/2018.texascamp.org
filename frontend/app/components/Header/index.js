@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.css';
 import twitter from '../../shared/images/twitter.png';
 import facebook from '../../shared/images/facebook.png';
+import mobileLogo from '../../shared/images/texas-camp-logo-orange.svg';
 import logo from '../../shared/images/texas-camp-logo.svg';
 import backgroundImage from '../../shared/images/truck.png';
 
@@ -33,7 +34,16 @@ function Header() {
         </section>
         <div className={styles.logo}>
           <a href="/">
-            <img src={logo} alt="Texas Camp 2018" />
+            <img
+              src={mobileLogo}
+              alt="Texas Camp 2018"
+              className={styles.mobileLogo}
+            />
+            <img
+              src={logo}
+              alt="Texas Camp 2018"
+              className={styles.desktopLogo}
+            />
           </a>
         </div>
       </div>
