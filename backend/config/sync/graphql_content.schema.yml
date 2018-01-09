@@ -12,14 +12,32 @@ types:
         exposed: true
         view_mode: node.default
       sponsor:
-        exposed: false
-        view_mode: '0'
+        exposed: true
+        view_mode: node.default
+  taxonomy_term:
+    exposed: true
+    bundles:
+      session_status:
+        exposed: true
+        view_mode: taxonomy_term.default
+      skill_level:
+        exposed: true
+        view_mode: taxonomy_term.default
+      sponsor_level:
+        exposed: true
+        view_mode: taxonomy_term.default
+      tags:
+        exposed: true
+        view_mode: taxonomy_term.default
+      track:
+        exposed: true
+        view_mode: taxonomy_term.default
   block_content:
     exposed: false
     bundles:
       basic:
         exposed: false
-        view_mode: __none__
+        view_mode: block_content.default
   file:
     exposed: false
     bundles:
@@ -30,24 +48,6 @@ types:
     exposed: false
     bundles:
       default:
-        exposed: false
-        view_mode: '0'
-  taxonomy_term:
-    exposed: false
-    bundles:
-      session_status:
-        exposed: false
-        view_mode: '0'
-      skill_level:
-        exposed: false
-        view_mode: '0'
-      sponsor_level:
-        exposed: false
-        view_mode: '0'
-      tags:
-        exposed: false
-        view_mode: '0'
-      track:
         exposed: false
         view_mode: '0'
   user:

@@ -28,3 +28,15 @@ export type SessionT = {
   track: TrackT,
   urlString: string,
 };
+
+export type SponsorT = {
+  id: number,
+  title: string,
+  body: string,
+  sponsorLevel: string,
+  sponsorUrl: string,
+  image: {
+    alt?: string,
+    url?: string,
+  },
+};
