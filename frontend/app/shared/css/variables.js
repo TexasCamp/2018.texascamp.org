@@ -8,6 +8,7 @@ const BP_EXTRAWIDE = 1500;
 module.exports = {
   almostWhite: '#f2ece6',
   orange: '#ef5a47',
+  orange_darken10: '#d6412e',
   navy: '#10363f',
   grey: '#b2aeaa',
   lightGrey: '#d4cec9',
