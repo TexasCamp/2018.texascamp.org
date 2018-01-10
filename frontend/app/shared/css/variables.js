@@ -26,4 +26,10 @@ module.exports = {
   desktop: `all and (min-width: ${BP_DESKTOP / 16}em)`,
   wide: `all and (min-width: ${BP_WIDE / 16}em)`,
   extraWide: `all and (min-width: ${BP_EXTRAWIDE / 16}em)`,
+
+  // Media Queries with both a MIN and a MAX width (for targeting a specific range)
+  desktop_wide: `all and (min-width: ${BP_DESKTOP /
+    16}em) and (max-width: ${(BP_WIDE - 1) / 16}em)`,
+  wide_extraWide: `all and (min-width: ${BP_WIDE /
+    16}em) and (max-width: ${(BP_EXTRAWIDE - 1) / 16}em)`,
 };
