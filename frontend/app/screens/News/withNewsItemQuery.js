@@ -3,7 +3,7 @@
 import { graphql } from 'react-apollo';
 import { NEWS_QUERY, newsListMapper } from 'NewsOverview/withNewsQuery';
 
-const withNewsQuery = graphql(NEWS_QUERY, {
+const withNewsItemQuery = graphql(NEWS_QUERY, {
   props: props => {
     const {
       data: { nodeQuery: { entities } = {}, loading },
@@ -21,4 +21,4 @@ const withNewsQuery = graphql(NEWS_QUERY, {
   },
 });
 
-export default withNewsQuery;
+export default withNewsItemQuery;

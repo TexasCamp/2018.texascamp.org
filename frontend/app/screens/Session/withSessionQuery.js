@@ -3,7 +3,7 @@
 import { graphql } from 'react-apollo';
 import { SESSION_QUERY, sessionsListMapper } from 'Sessions/withSessionsQuery';
 
-const withSessionsQuery = graphql(SESSION_QUERY, {
+const withSessionQuery = graphql(SESSION_QUERY, {
   props: props => {
     const {
       data: { nodeQuery: { entities } = {}, loading },
@@ -21,4 +21,4 @@ const withSessionsQuery = graphql(SESSION_QUERY, {
   },
 });
 
-export default withSessionsQuery;
+export default withSessionQuery;
