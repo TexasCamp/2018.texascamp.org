@@ -142,23 +142,33 @@
   height: 100vh;
   transition: height 0.2s linear, width 0.2s linear 0.2s;
   width: 100vw;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 400px) and (max-width: 699px) {
+    max-width: 400px;
+  }
+  @media screen and (min-width: 700px) and (max-width: 1399px) {
+    max-width: 700px;
+  }
+  @media screen and (min-width: 1400px) {
     width: 50vw;
   }
 }
 .menuOverlayContainer {
   box-sizing: border-box;
-  display: flex;
   height: 100%;
   justify-content: center;
   padding: 0 56px;
   width: 100%;
+  @media screen and (min-width: 700px) {
+    display: flex;
+  }
 }
 
 /* Menu Items */
 .siteNavigation {
-  max-width: 210px;
-  width: 50%;
+  @media screen and (min-width: 700px) {
+    max-width: 210px;
+    width: 50%;
+  }
 }
 .menu {
   list-style: none;
@@ -249,23 +259,28 @@
 }
 
 .newsletterContainer {
-  display: flex;
-  flex-direction: column;
-  min-width: 210px;
-  width: 50%;
+  display: none;
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 210px;
+    width: 50%;
+  }
 }
 .newsletterLine {
-  flex: 1;
-  max-height: 700px;
-  position: relative;
-  &:after {
-    background-color: $orange;
-    border-radius: 0 0 2px 2px;
-    content: '';
-    height: 100%;
-    left: 104px;
-    position: absolute;
-    width: 2px;
+  @media screen and (min-width: 700px) {
+    flex: 1;
+    max-height: 700px;
+    position: relative;
+    &:after {
+      background-color: $orange;
+      border-radius: 0 0 2px 2px;
+      content: '';
+      height: 100%;
+      left: 104px;
+      position: absolute;
+      width: 2px;
+    }
   }
   .menuOverlay.inactive & {
     opacity: 0;
