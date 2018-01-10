@@ -14,12 +14,10 @@ const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
   // Use body summary if available
   // If not trim to 400 characters
   const trimmedBody =
-    newsTeaser.body.value.length > 400
-      ? `${newsTeaser.body.value.substr(0, 400)}...`
-      : newsTeaser.body.value;
-  let formattedBody = newsTeaser.body.summary
-    ? newsTeaser.body.summary
-    : trimmedBody;
+    newsTeaser.body.length > 400
+      ? `${newsTeaser.body.substr(0, 400)}...`
+      : newsTeaser.body;
+  let formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
   // Format body to remove all images
   formattedBody = formattedBody ? formattedBody.replace(/<img[^>]*>/g, '') : '';
 

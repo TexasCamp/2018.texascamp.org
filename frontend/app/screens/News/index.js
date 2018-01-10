@@ -13,12 +13,10 @@ import styles from './styles.css';
 type NewsProps = {
   newsTeaser: NewsT,
 };
-
-const News = ({ newsTeaser }: NewsProps) => {
+const News = ({ newsTeaser }: NewsProps): React.Element<any> | null => {
   // Format body to:
   // - Update inline image src to include full url
-  // - Remove all links
-  let formattedBody = newsTeaser.body.value;
+  let formattedBody = newsTeaser.body;
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',
