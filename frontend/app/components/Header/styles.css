@@ -1,6 +1,6 @@
 .headerWrapper {
   @media $desktop {
-    min-width: 330px;
+    min-width: 35%;
   }
   @media $wide {
     min-width: 40%;
@@ -13,7 +13,7 @@
       background: $orange;
       border-right: 2px solid;
       height: 100%;
-      min-width: 330px;
+      min-width: 35%;
       max-width: 50%;
       overflow: hidden;
       position: fixed;
@@ -39,7 +39,7 @@
         }
       }
       @media $wide {
-        margin-top: 315px;
+        margin-top: 304px;
       }
     }
   }
@@ -47,19 +47,19 @@
 .info {
   font-size: 13px;
   line-height: 1.25rem;
-  margin-top: 30px;
+  margin-top: 26px;
   text-align: center;
 
   @media $smallOnly {
     display: none;
   }
   @media $desktop {
-    margin-top: 50px;
+    margin-top: 46px;
   }
   .social {
     img {
       height: 14px;
-      margin-top: 5px;
+      margin-top: 4px;
       width: auto;
     }
   }
@@ -109,7 +109,7 @@
   @media $wide {
     text-align: center;
     img {
-      margin-top: 30px;
+      margin-top: 24px;
       width: 310px;
     }
   }

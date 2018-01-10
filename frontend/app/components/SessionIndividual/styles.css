@@ -11,11 +11,7 @@
   }
 }
 .title {
-  margin: 55px 20px 75px;
-  @media $tablet {
-    margin: 60px 40px 1.5rem;
-    max-width: calc(75% - 100px); 
-  }
+  composes: title from '../../shared/css/global.css';
 }
 .detail {
   composes: contentArea from '../../shared/css/global.css';
@@ -28,15 +24,11 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .field {
-      border-top: 2px dashed $grey;
-      min-width: calc(50% - 10px);
-      padding: 10px 0 20px;
-    }
   }
   .mainContent {
     @media $tablet {
       margin-right: 40px;
+      margin-top: 8px;
       width: 100%;
     }
     .bio {
@@ -44,14 +36,17 @@
       margin-top: 40px;
       padding: 20px;
       @media $tablet {
-        margin-top: 60px;
-        padding: 30px;
+        margin-top: 74px;
+        padding: 26px 30px 14px;
       }
       .bioNames {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
       }
     }
   }
+}
+.field {
+  composes: field from '../../shared/css/global.css';
 }
 .fieldLabel,
 .bioName {
