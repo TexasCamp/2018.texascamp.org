@@ -17,9 +17,11 @@ const Menu = ({ isActive, toggleOverlay }) => {
         <img
           className={styles.menuButtonImage}
           src={menuButton}
-          alt=""
+          alt="Menu"
           id="menu"
         />
+        <span className={styles.diagonalTopLine} />
+        <span className={styles.diagonalBottomLine} />
       </div>
 
       <div className={`${styles.menuOverlay} ${activeClass}`}>
