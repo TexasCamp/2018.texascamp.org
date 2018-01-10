@@ -51,7 +51,6 @@
       bottom: -14px;
     }
   }
-
 }
 
 /*.menuButton.active {
@@ -119,6 +118,12 @@
 
 .menuButton.inactive {
 
+}
+
+.menuButtonImage {
+  display: block;
+  margin: 0 auto;
+  width: 32px;
 }
 
 /* Expanding / Collapsing Overlay */

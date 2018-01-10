@@ -2,6 +2,7 @@ import React from 'react';
 import NewsletterForm from 'NewsletterForm';
 import withLogic from 'Menu/logic';
 import styles from './styles.css';
+import menuButton from '../../shared/images/menu.png';
 
 const Menu = ({ isActive, toggleOverlay }) => {
   const activeClass = isActive ? styles.active : styles.inactive;
@@ -13,7 +14,12 @@ const Menu = ({ isActive, toggleOverlay }) => {
         role="button"
         tabIndex="0"
       >
-        Me<wbr />nu
+        <img
+          className={styles.menuButtonImage}
+          src={menuButton}
+          alt=""
+          id="menu"
+        />
       </div>
 
       <div className={`${styles.menuOverlay} ${activeClass}`}>
