@@ -8,10 +8,9 @@ const Menu = ({ isActive, toggleOverlay }) => {
   const activeClass = isActive ? styles.active : styles.inactive;
   return (
     <div>
-      <div
+      <button
         className={`${styles.menuButton} ${activeClass}`}
         onClick={toggleOverlay}
-        role="button"
         tabIndex="0"
       >
         <img
@@ -22,7 +21,7 @@ const Menu = ({ isActive, toggleOverlay }) => {
         />
         <span className={styles.diagonalTopLine} />
         <span className={styles.diagonalBottomLine} />
-      </div>
+      </button>
 
       <div className={`${styles.menuOverlay} ${activeClass}`}>
         <div className={styles.menuOverlayContainer}>
