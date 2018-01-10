@@ -28,3 +28,14 @@ export type SessionT = {
   track: TrackT,
   urlString: string,
 };
+
+export type NewsT = {
+  title: string,
+  body: {
+    value: string,
+    summary: string,
+  },
+  publishedDate: Date,
+  urlString: string,
+  id: number,
+};

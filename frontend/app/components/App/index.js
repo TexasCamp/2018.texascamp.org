@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router';
 import Home from 'Home';
 import Sessions from 'Sessions';
 import Session from 'Session';
+import News from 'News';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
 import SplatRouter from 'SplatRouter';
@@ -28,6 +29,7 @@ const App = (): React.Element<any> =>
       <Route exact path="/sessions/:sessionName/" component={Session} />
       <Route exact path={Humans} />
       <Route exact path="/news" component={NewsOverview} />
+      <Route exact path="/news/:newsTitle/" component={News} />
       <Route exact path="*" component={SplatRouter} />
     </Switch>
   </div>);

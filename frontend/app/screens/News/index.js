@@ -6,23 +6,19 @@ import { cleanHtml } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
+import type { NewsT } from 'types';
+import withNewsItemQuery from './withNewsItemQuery';
 import styles from './styles.css';
 
 type NewsProps = {
-  title: string,
-  body: string,
-  fieldNewsDate: string,
+  newsTeaser: NewsT,
 };
 
-const News = ({
-  title,
-  body,
-  fieldNewsDate,
-}: NewsProps): React.Element<any> => {
+const News = ({ newsTeaser }: NewsProps) => {
   // Format body to:
   // - Update inline image src to include full url
   // - Remove all links
-  let formattedBody = body;
+  let formattedBody = newsTeaser.body.value;
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',
@@ -30,8 +26,8 @@ const News = ({
       )
     : '';
 
-  const formattedDate = fieldNewsDate
-    ? new Date(fieldNewsDate).toLocaleString('en-US', {
+  const formattedDate = newsTeaser.publishedDate
+    ? newsTeaser.publishedDate.toLocaleString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -40,13 +36,13 @@ const News = ({
 
   return (
     <div>
-      <Helmet title={title} />
+      <Helmet title={newsTeaser.title} />
       <Menu />
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
           <h1 className={styles.title}>
-            {title}
+            {newsTeaser.title}
           </h1>
           <div className={styles.detail}>
             <div className={styles.section}>
@@ -68,4 +64,4 @@ const News = ({
   );
 };
 
-export default News;
+export default withNewsItemQuery(News);

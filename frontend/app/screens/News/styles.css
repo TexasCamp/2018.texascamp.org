@@ -4,7 +4,7 @@
   }
 }
 .content {
-  composes: contentWrapper from '../../../../shared/css/global.css';
+  composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
     min-width: 50%;
     width: 100%;
@@ -18,7 +18,7 @@
   }
 }
 .detail {
-  composes: contentArea from '../../../../shared/css/global.css';
+  composes: contentArea from '../../shared/css/global.css';
   flex-direction: row-reverse;
   .section {
     margin-bottom: 40px;
@@ -41,5 +41,5 @@
   }
 }
 .fieldLabel {
-  composes: calderDark from '../../../../shared/css/fonts.css';
+  composes: calderDark from '../../shared/css/fonts.css';
 }
