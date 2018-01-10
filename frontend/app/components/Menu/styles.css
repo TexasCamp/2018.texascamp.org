@@ -46,6 +46,7 @@
   }
 }
 .menuButton.active {
+  overflow: hidden;
   span {
     transform: rotate(-45deg);
   }
