@@ -10,8 +10,14 @@ import styles from './styles.css';
 
 type NotFoundProps = {
   msg: string,
+  linkText: string,
+  linkUrl: string,
 };
-const NotFound = ({ msg }: NotFoundProps): React.Element<any> =>
+const NotFound = ({
+  msg,
+  linkText,
+  linkUrl,
+}: NotFoundProps): React.Element<any> =>
   (<div className={styles.Wrapper}>
     <Helmet title="Page not found" />
     <Menu />
@@ -25,7 +31,9 @@ const NotFound = ({ msg }: NotFoundProps): React.Element<any> =>
               {msg}
             </p>
             <p>
-              <Link to="/">Back to the front page</Link>
+              <Link to={linkUrl}>
+                {linkText}
+              </Link>
             </p>
           </div>
         </div>
@@ -35,6 +43,8 @@ const NotFound = ({ msg }: NotFoundProps): React.Element<any> =>
   </div>);
 NotFound.defaultProps = {
   msg: "These aren't the droids you're looking for.",
+  linkUrl: '/',
+  linkText: 'Back to the front page',
 };
 
 export default NotFound;

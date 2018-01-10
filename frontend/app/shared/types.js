@@ -24,7 +24,6 @@ export type SessionT = {
   status?: 'selected' | 'not selected',
   timeslot?: Date,
   title: string,
-  title: string,
   track: TrackT,
   urlString: string,
 };

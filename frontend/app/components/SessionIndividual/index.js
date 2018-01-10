@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-scroll';
 import { cleanHtml } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
@@ -66,7 +67,16 @@ const SessionIndividual = ({
                 <div>
                   {speakers.map(eachName =>
                     (<div key={eachName}>
-                      {eachName}
+                      <Link
+                        activeClass="active"
+                        to="bio"
+                        spy
+                        smooth
+                        offset={50}
+                        duration={500}
+                      >
+                        {eachName}
+                      </Link>
                     </div>),
                   )}
                 </div>
@@ -105,7 +115,7 @@ const SessionIndividual = ({
               {cleanHtml(formattedBody)}
 
               {speakersBio &&
-                <div className={styles.bio}>
+                <div className={styles.bio} name="bio">
                   <div className={styles.bioNames}>
                     {speakers.map(eachName =>
                       (<div key={eachName} className={styles.bioName}>

@@ -10,13 +10,13 @@ const withNewsItemQuery = graphql(NEWS_QUERY, {
       ownProps: { match: { params: { newsTitle } } },
     } = props;
 
-    const newsTeaser = loading
+    const newsItem = loading
       ? []
       : newsListMapper(entities).find(
           ({ urlString }) => urlString === newsTitle,
         );
     return {
-      newsTeaser,
+      newsItem,
     };
   },
 });
