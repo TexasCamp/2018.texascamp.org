@@ -11,7 +11,6 @@ import NewsTeaser from 'NewsTeaser';
 import withNewsQuery from 'NewsOverview/withNewsQuery';
 import Sponsor from 'Sponsor';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
-import { filter } from 'graphql-anywhere';
 import favicon from '!file-loader?name=favicon.ico!favicons/favicon.ico';
 import styles from 'Home/styles.css';
 import appleTouchIcon from 'favicons/apple-touch-icon.png';
@@ -52,11 +51,8 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null =>
           <div className={styles.latestNews}>
             {newsList
               .slice(0, 1)
-              .map(newsItem =>
-                (<NewsTeaser
-                  key={newsItem.id}
-                  {...filter(NewsTeaser.fragments.NewsTeaserFragment, newsItem)}
-                />),
+              .map(newsTeaser =>
+                <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
               )}
           </div>
           <div className={styles.sponsors}>
@@ -85,11 +81,8 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null =>
           </div>
           {newsList
             .slice(1)
-            .map(newsItem =>
-              (<NewsTeaser
-                key={newsItem.id}
-                {...filter(NewsTeaser.fragments.NewsTeaserFragment, newsItem)}
-              />),
+            .map(newsTeaser =>
+              <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
             )}
         </div>
         <Footer />
