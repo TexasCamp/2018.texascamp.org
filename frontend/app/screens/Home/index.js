@@ -84,7 +84,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null =>
             </Link>
           </div>
           {newsList
-            .slice(1, 4)
+            .slice(1)
             .map(newsItem =>
               (<NewsTeaser
                 key={newsItem.id}
