@@ -2,19 +2,6 @@
   composes: calderLC from '../../shared/css/fonts.css';
   max-width: 210px;
   padding: 55px 0 100px;
-  /*margin: 340px auto 0;
-  width: 214px;
-  @media all and (min-width: 501px) {
-    margin-top: 440px;
-  }
-  @media all and (min-width: 1000px) {
-    float: right;
-    margin-top: 290px;
-    position: relative;
-  }
-  @media all and (min-width: 1200px) {
-    margin-top: 386px;
-  }*/
   img {
     display: block;
     height: auto;
@@ -33,13 +20,14 @@
     width: 1px;
   }
   input[type=email], input[type=text], textarea {
-    font-size: 12px;
+    font-size: 13px;
     font-family: "calder-lc", sans-serif;
     background: $navy;
     border: 1px solid $almostWhite;
+    border-radius: 2px;
     box-sizing: border-box;
     color: $almostWhite;
-    padding: 15px;
+    padding: 17px 15px;
     margin: 0 0 16px;
     width: 100%;
     &::placeholder {
@@ -50,6 +38,8 @@
     }
   }
   .submit {
+    margin: 8px 0 0;
+    text-align: center;
     input {
       background-color: $orange;
       border: 1px solid $orange;
@@ -57,25 +47,21 @@
       cursor: pointer;
       display: inline-block;
       color: $almostWhite;
-      font-family: "calder-lc", sans-serif;
+      font-family: "calder-dark", sans-serif;
       font-size: 13px;
-      font-style: normal;
-      margin-top: 4px;
-      padding: 9px 27px 5px;
+      padding: 5px 27px 4px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      transition: background 0.1s ease-out;
+      transition: all 0.1s ease-out;
+      &:active,
+      &:focus,
       &:hover {
-        background: $orange;
-        color: $navy;
+        background: $orange_darken10;
+        border-color: $orange_darken10;
+        color: $almostWhite;
+        outline: none;
       }
     }
-  }
-  .imperfectOne {
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  }
-  .imperfectTwo {
-    border-radius: 15px 15px 15px 225px/225px 255px 225px 15px;
   }
 }
