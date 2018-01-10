@@ -54,9 +54,9 @@ const SessionIndividual = ({
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
-          <h2 className={styles.title}>
+          <h1 className={styles.title}>
             {title}
-          </h2>
+          </h1>
           <div className={styles.detail}>
             <div className={styles.section}>
               <div className={styles.field}>
