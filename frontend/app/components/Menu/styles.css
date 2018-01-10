@@ -152,7 +152,7 @@
   line-height: 30px;
   margin: 0 0 20px;
   &:hover {
-    font-family: "calder-dark-outline", sans-serif;
+    font-family: "calder-dark-outline", "calder-dark", sans-serif;
   }
 }
 .menuItemSmall {
@@ -163,7 +163,9 @@
 }
 .menuItem,
 .menuItemSmall {
+  background: none;
   display: inline-block;
+  padding: 0;
   width: 100%;
   a {
     color: $almostWhite;
