@@ -163,7 +163,9 @@
 }
 .menuItem,
 .menuItemSmall {
+  background: none;
   display: inline-block;
+  padding: 0;
   width: 100%;
   a {
     color: $almostWhite;
