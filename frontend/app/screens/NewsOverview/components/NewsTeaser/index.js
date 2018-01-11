@@ -29,10 +29,10 @@ const NewsTeaser = ({
       </Link>
     </h2>
     <h4>
-      {fieldNewsDate}
+      {fieldNewsDate.value}
     </h4>
     <Html>
-      {body.length > 600 ? `${body.substr(0, 600)}...` : body}
+      {body.value.length > 600 ? `${body.value.substr(0, 600)}...` : body.value}
     </Html>
   </div>);
 
@@ -43,8 +43,12 @@ NewsTeaser.fragments = {
         alias
       }
       title
-      body
-      fieldNewsDate
+      body {
+        value
+      }
+      fieldNewsDate {
+        value
+      }
     }
   `,
 };

@@ -15,37 +15,57 @@ export const SESSION_QUERY = gql`
   }
 
   fragment SessionFragment on NodeSession {
-    body
+    body {
+      value
+    }
     entityPublished
     fieldSessionContactCompany
     fieldSessionContactEmail
     fieldSessionContactName
-    fieldSessionSkillLevel
+    fieldSessionSkillLevel {
+      entity {
+        entityLabel
+      }
+    }
     fieldSessionRoom
     fieldSessionSpeakers
-    fieldSessionSpeakersBio
-    fieldSessionStatus
-    fieldSessionTimeslot
-    fieldSessionTrack
+    fieldSessionSpeakersBio {
+      value
+    }
+    fieldSessionStatus {
+      entity {
+        entityLabel
+      }
+    }
+    fieldSessionTimeslot {
+      value
+    }
+    fieldSessionTrack {
+      entity {
+        entityLabel
+      }
+    }
     title
   }
 `;
 
 export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
   entities.map(entity => ({
-    body: entity.body,
+    body: entity.body.value,
     contactCompany: entity.fieldSessionContactCompany,
     contactEmail: entity.fieldSessionContactEmail,
     contactName: entity.fieldSessionContactName,
     room: entity.fieldSessionRoom,
-    status: entity.fieldSessionStatus,
+    status:
+      entity.fieldSessionStatus && entity.fieldSessionStatus.entity.entityLabel,
     isPublished: entity.entityPublished,
-    skillLevel: entity.fieldSessionSkillLevel,
+    skillLevel: entity.fieldSessionSkillLevel.entity.entityLabel,
     speakers: entity.fieldSessionSpeakers,
-    speakersBio: entity.fieldSessionSpeakersBio,
+    speakersBio: entity.fieldSessionSpeakersBio.value,
     timeslot:
-      entity.fieldSessionTimeslot && new Date(entity.fieldSessionTimeslot),
-    track: entity.fieldSessionTrack,
+      entity.fieldSessionTimeslot &&
+      new Date(entity.fieldSessionTimeslot.value),
+    track: entity.fieldSessionTrack.entity.entityLabel,
     title: entity.title,
     urlString: titleToLink(entity.title),
   }));
