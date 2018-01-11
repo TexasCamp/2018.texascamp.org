@@ -9,10 +9,7 @@ import Footer from 'Footer';
 import type { NewsT } from 'types';
 import styles from './styles.css';
 
-type NewsItemProps = {
-  newsItem: NewsT,
-};
-const NewsItem = ({ newsItem }: NewsItemProps): React.Element<any> | null => {
+const NewsItem = ({ newsItem }: { newsItem: NewsT }) => {
   // Format body to:
   // - Update inline image src to include full url
   let formattedBody = newsItem.body;

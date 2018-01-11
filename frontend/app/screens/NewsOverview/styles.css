@@ -8,14 +8,9 @@
   @media $desktop {
     min-width: 50%;
   }
-  .title {
-    margin-left: 20px;
-    margin-right: 20px;
-    @media $desktop {
-      margin-left: 40px;
-      margin-right: 40px;
-    }
-  }
+}
+.title {
+  composes: title from '../../shared/css/global.css';
 }
 .detail {
   composes: contentArea from '../../shared/css/global.css';
