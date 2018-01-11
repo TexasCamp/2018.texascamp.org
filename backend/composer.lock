@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8eee44e11c3d94ae3c4dd362b51849f7",
+    "content-hash": "4d6579e58da94537da05ecf2b25c8e59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1255,7 +1255,7 @@
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
-                }
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1713,21 +1713,21 @@
         },
         {
             "name": "drupal/graphql",
-            "version": "dev-3.x",
+            "version": "3.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/graphql",
-                "reference": "ba631687d8572c3453c16a787aef67319a85bb63"
+                "reference": "8.x-3.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/graphql-8.x-3.0-beta2.zip",
+                "reference": "8.x-3.0-beta2",
+                "shasum": "082a42aafc2d27f18f7dfc7b22e4a2a260ff013b"
             },
             "require": {
                 "drupal/core": "~8.0",
                 "youshido/graphql": "~1.5"
-            },
-            "require-dev": {
-                "drupal/graphql_content": "*",
-                "drupal/graphql_core": "*",
-                "drupal/graphql_file": "*",
-                "drupal/graphql_mutation": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -1735,11 +1735,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha5+15-dev",
-                    "datestamp": "1504180444",
+                    "version": "8.x-3.0-beta2",
+                    "datestamp": "1513314785",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -1761,8 +1761,7 @@
             "homepage": "http://drupal.org/project/graphql",
             "support": {
                 "source": "http://cgit.drupalcode.org/graphql"
-            },
-            "time": "2017-09-01 14:37:11"
+            }
         },
         {
             "name": "drush/drush",
@@ -6219,9 +6218,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "drupal/graphql": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
