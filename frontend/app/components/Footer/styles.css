@@ -30,10 +30,12 @@
   .sponsorsContainer {
     display: flex;
     justify-content: center;
+    line-height: 28px;
     img {
-      height: 28px;
+      max-height: 28px;
       margin: 0 0 0 20px;
-      width: auto;
+      max-width: 80px;
+      vertical-align: middle;
     }
   }
 }
