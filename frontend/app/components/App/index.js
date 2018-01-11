@@ -10,6 +10,7 @@ import Sessions from 'Sessions';
 import Session from 'Session';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
+import SubmitSession from 'SubmitSession';
 import SplatRouter from 'SplatRouter';
 import Typekit from 'react-typekit';
 import styles from './styles.css';
@@ -27,6 +28,7 @@ const App = (): React.Element<any> =>
       <Route exact path="/sessions/:sessionName/" component={Session} />
       <Route exact path={Humans} />
       <Route exact path="/news/:page?/" component={NewsOverview} />
+      <Route exact path="/session-form" component={SubmitSession} />
       <Route component={SplatRouter} />
     </Switch>
   </div>);

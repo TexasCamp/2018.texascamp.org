@@ -1,7 +1,7 @@
 // @flow
 
-export const apiVersion = 'ee748faa8754f6bf2eea1600500a0bb21a670520';
+export const apiVersion = '03bbbea0ff03a309ecf0209a090da6721502f818';
 
 export {
   default as queryMap,
-} from 'queries/ee748faa8754f6bf2eea1600500a0bb21a670520.json';
+} from 'queries/03bbbea0ff03a309ecf0209a090da6721502f818.json';
