@@ -4,28 +4,35 @@ import withHandlers from 'recompose/withHandlers';
 import withStateHandlers from 'recompose/withStateHandlers';
 import compose from 'recompose/compose';
 
+const getInitialFormValues = speakerCount => {
+  const initialFormValues = {
+    title: '',
+    track: '',
+    skillLevel: '',
+    desc: '',
+    bio: '',
+    name: '',
+    email: '',
+    company: '',
+  };
+
+  for (let i = 1; i <= speakerCount; i++) {
+    initialFormValues[`speakerName${i}`] = '';
+  }
+
+  return initialFormValues;
+};
+
 const withFormState = withStateHandlers(
   ({ speakerCount = 2 }) => {
-    const initialFormValues = {
-      title: '',
-      track: '',
-      skillLevel: '',
-      desc: '',
-      bio: '',
-      name: '',
-      email: '',
-      company: '',
-    };
-
-    for (let i = 1; i <= speakerCount; i++) {
-      initialFormValues[`speakerName${i}`] = '';
-    }
+    const initialFormValues = getInitialFormValues(speakerCount);
 
     return {
       speakerCount,
       formValues: initialFormValues,
       saving: false,
       error: '',
+      submitted: false,
     };
   },
   {
@@ -51,18 +58,31 @@ const withFormState = withStateHandlers(
       return {
         saving: true,
         error: '',
+        submitted: false,
       };
     },
     setSubmitted: () => () => {
       return {
         saving: false,
         error: '',
+        submitted: true,
       };
     },
     setSubmissionFailed: () => error => {
       return {
         saving: false,
         error,
+        submitted: false,
+      };
+    },
+    resetForm: () => () => {
+      const intialForm = getInitialFormValues(2);
+      return {
+        speakerCount: 2,
+        formValues: intialForm,
+        saving: false,
+        error: '',
+        submitted: false,
       };
     },
   },
