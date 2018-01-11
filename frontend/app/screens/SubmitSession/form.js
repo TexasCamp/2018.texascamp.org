@@ -28,10 +28,14 @@ const SessionForm = ({
       </div>
       <div>
         <label htmlFor="track">Track</label>
-        <select id="track" value={formValues.track} onBlur={saveValue} required>
+        <select id="track" onBlur={saveValue} required>
           <option value="">-- Select track --</option>
           {tracks.map(track =>
-            (<option key={track.id}>
+            (<option
+              key={track.id}
+              value={track.id}
+              selected={formValues.track === track.id}
+            >
               {track.name}
             </option>),
           )}
@@ -39,15 +43,14 @@ const SessionForm = ({
       </div>
       <div>
         <label htmlFor="skillLevel">Skill level</label>
-        <select
-          id="skillLevel"
-          value={formValues.skillLevel}
-          onBlur={saveValue}
-          required
-        >
+        <select id="skillLevel" onBlur={saveValue} required>
           <option value="">-- Select skill level --</option>
           {skillLevels.map(skillLevel =>
-            (<option key={skillLevel.id}>
+            (<option
+              key={skillLevel.id}
+              value={skillLevel.id}
+              selected={formValues.skillLevel === skillLevel.id}
+            >
               {skillLevel.name}
             </option>),
           )}
