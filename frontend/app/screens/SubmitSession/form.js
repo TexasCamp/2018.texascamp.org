@@ -9,13 +9,16 @@ const SessionForm = ({
   speakerCount,
   addSpeaker,
   removeSpeaker,
+  saving,
+  error,
+  onSubmit,
 }) => {
   const saveValue = event => {
     setFormValue(event.target.id, event.target.value);
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div>
         <label htmlFor="title">Title</label>
         <input
@@ -28,14 +31,15 @@ const SessionForm = ({
       </div>
       <div>
         <label htmlFor="track">Track</label>
-        <select id="track" onBlur={saveValue} required>
+        <select
+          id="track"
+          value={formValues.track}
+          onChange={saveValue}
+          required
+        >
           <option value="">-- Select track --</option>
           {tracks.map(track =>
-            (<option
-              key={track.id}
-              value={track.id}
-              selected={formValues.track === track.id}
-            >
+            (<option key={track.id} value={track.id}>
               {track.name}
             </option>),
           )}
@@ -43,14 +47,15 @@ const SessionForm = ({
       </div>
       <div>
         <label htmlFor="skillLevel">Skill level</label>
-        <select id="skillLevel" onBlur={saveValue} required>
+        <select
+          id="skillLevel"
+          value={formValues.skillLevel}
+          onChange={saveValue}
+          required
+        >
           <option value="">-- Select skill level --</option>
           {skillLevels.map(skillLevel =>
-            (<option
-              key={skillLevel.id}
-              value={skillLevel.id}
-              selected={formValues.skillLevel === skillLevel.id}
-            >
+            (<option key={skillLevel.id} value={skillLevel.id}>
               {skillLevel.name}
             </option>),
           )}
@@ -127,7 +132,14 @@ const SessionForm = ({
           />
         </div>
       </fieldset>
-      <input type="submit" value="Submit" />
+      <div>
+        <input type="submit" value="Submit" disabled={saving} />
+        {saving && <span>Submitting your session!</span>}
+        {error &&
+          <span>
+            {error}
+          </span>}
+      </div>
     </form>
   );
 };
