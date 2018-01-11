@@ -9,6 +9,7 @@ module:
   color: 0
   config: 0
   contextual: 0
+  csv_serialization: 0
   datetime: 0
   dblog: 0
   editor: 0
@@ -27,6 +28,8 @@ module:
   options: 0
   path: 0
   quickedit: 0
+  rest: 0
+  serialization: 0
   shortcut: 0
   simpletest: 0
   system: 0
@@ -35,6 +38,7 @@ module:
   toolbar: 0
   txc_graphql: 0
   user: 0
+  views_data_export: 0
   views_ui: 0
   menu_link_content: 1
   views: 10
