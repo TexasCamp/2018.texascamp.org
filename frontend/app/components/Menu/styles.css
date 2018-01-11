@@ -110,7 +110,7 @@
 }
 .menuOverlay.active {
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   transition: height 0.2s linear, width 0.2s linear 0.2s;
   width: 100vw;
   @media screen and (min-width: 400px) and (max-width: 699px) {
