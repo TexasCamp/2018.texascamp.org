@@ -3,7 +3,7 @@ const BP_XS = 400;
 const BP_TABLET = 668;
 const BP_DESKTOP = 960;
 const BP_WIDE = 1200;
-const BP_EXTRAWIDE = 1500;
+const BP_EXTRAWIDE = 1400;
 
 module.exports = {
   almostWhite: '#f2ece6',
