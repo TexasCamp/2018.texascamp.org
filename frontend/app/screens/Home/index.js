@@ -59,6 +59,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null =>
             <h5>- Platinum -</h5>
             <h4>Sponsors</h4>
             {sponsors
+              .sort(() => Math.random() - 0.5)
               .filter(sponsor => sponsor.sponsorLevel === 'Platinum')
               .map(sponsor => <Sponsor key={sponsor.id} sponsor={sponsor} />)}
             <Link to="/sponsor" className={styles.button}>
