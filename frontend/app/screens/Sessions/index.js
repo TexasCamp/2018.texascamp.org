@@ -26,8 +26,8 @@ const SessionsPage = (props: SessionsPageProps) => {
         <Header />
         <div className={styles.content}>
           <SessionsList {...props} />
-          <Footer />
         </div>
+        <Footer />
       </div>
     </div>
   );

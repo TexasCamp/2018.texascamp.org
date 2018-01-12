@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
-import { cleanHtml } from 'utils';
 import type { SessionT } from 'types';
+import SessionTeaser from 'SessionTeaser';
 import styles from 'Sessions/styles.css';
-import Link from 'AsyncLink';
 import withLogic from './logic';
 
 type ButtonT = {
@@ -30,6 +29,7 @@ const SessionsList = (props: SessionsListProps) => {
     trackButtons,
     skillLevelButtons,
   } = props;
+
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
@@ -64,34 +64,11 @@ const SessionsList = (props: SessionsListProps) => {
         </div>
         <h2>Reset All:</h2>
         <button onClick={resetAllFilters}>Reset All Filters</button>
-        <hr />
-        {sessions.map(eachSession =>
-          (<div key={eachSession.title}>
-            <ul>
-              <li>{`Title: ${eachSession.title}`}</li>
-              <li>
-                <u>
-                  <Link to={`/sessions/${eachSession.urlString}`}>
-                    Link to session page
-                  </Link>
-                </u>
-              </li>
-              <li className={styles.descriptionContainer}>
-                {'Description:'}
-                {cleanHtml(eachSession.body)}
-              </li>
-              <li>{`Experience Level: ${eachSession.skillLevel}`}</li>
-              <li>
-                <span>Speakers:</span>
-                {eachSession.speakers.map(eachName =>
-                  <span key={eachName}>{` ${eachName} `}</span>,
-                )}
-              </li>
-              <li>{`Timeslot: ${eachSession.timeslot}`}</li>
-              <li>{`Track: ${eachSession.track}`}</li>
-            </ul>
-            <hr />
-          </div>),
+        {sessions.map(sessionTeaser =>
+          (<SessionTeaser
+            key={sessionTeaser.title}
+            sessionTeaser={sessionTeaser}
+          />),
         )}
       </div>
     </div>

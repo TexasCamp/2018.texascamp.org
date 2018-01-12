@@ -16,6 +16,7 @@ export type TrackT =
 
 export type SessionT = {
   body: string,
+  summary: string,
   isPublished: boolean,
   room?: string,
   skillLevel: SkillLevelT,
