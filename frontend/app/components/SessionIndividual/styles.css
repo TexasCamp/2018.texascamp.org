@@ -52,3 +52,7 @@
 .bioName {
   composes: calderDark from '../../shared/css/fonts.css';
 }
+.lightText {
+  composes: calderLC from '../../shared/css/fonts.css';
+  text-transform: uppercase;
+}

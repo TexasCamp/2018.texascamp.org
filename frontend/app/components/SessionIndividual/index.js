@@ -49,7 +49,7 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                 <div className={styles.section}>
                   <div className={styles.field}>
                     <div className={styles.fieldLabel}>
-                      Presenter<span>(s)</span>
+                      Presenter<span className={styles.lightText}>(s)</span>
                     </div>
                     <div>
                       {session.speakers.map(eachName =>
