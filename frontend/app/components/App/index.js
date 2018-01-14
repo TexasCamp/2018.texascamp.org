@@ -26,15 +26,21 @@ const App = (): React.Element<any> =>
     <Typekit kitId="rgi7wxl" />
     <Switch>
       <Route exact path="/" component={SplashPage} />
-      <div className={styles.wrapper}>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/sessions" component={Sessions} />
-        <Route exact path="/sessions/:sessionName/" component={Session} />
-        <Route exact path={Humans} />
-        <Route exact path="/news" component={NewsOverview} />
-        <Route exact path="/news/:newsTitle/" component={News} />
-        <Route path="*" component={SplatRouter} />
-      </div>
+      <Route
+        path="*"
+        render={() =>
+          (<div className={styles.wrapper}>
+            <Switch>
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/sessions" component={Sessions} />
+              <Route exact path="/sessions/:sessionName/" component={Session} />
+              <Route exact path={Humans} />
+              <Route exact path="/news" component={NewsOverview} />
+              <Route exact path="/news/:newsTitle/" component={News} />
+              <Route path="*" component={SplatRouter} />
+            </Switch>
+          </div>)}
+      />
     </Switch>
   </div>);
 
