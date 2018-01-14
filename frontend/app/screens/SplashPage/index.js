@@ -4,7 +4,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Header from 'Header';
 import Logo from 'Logo';
-import NewsletterForm from 'NewsletterForm';
 import BackgroundImage from 'BackgroundImage';
 import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
 import favicon from '!file-loader?name=favicon.ico!favicons/favicon.ico';
@@ -13,6 +12,7 @@ import appleTouchIcon from 'favicons/apple-touch-icon.png';
 import favicon32x32 from 'favicons/favicon-32x32.png';
 import favicon16x16 from 'favicons/favicon-16x16.png';
 import safariPinnedTab from 'favicons/safari-pinned-tab.svg';
+import NewsletterForm from './components/NewsletterForm';
 import styles from './styles.css';
 
 const Home = (): React.Element<any> =>
