@@ -17,6 +17,7 @@ dependencies:
     - node.type.session
   module:
     - datetime
+    - graphql_content
     - text
     - user
 id: node.session.default
@@ -26,7 +27,7 @@ mode: default
 content:
   body:
     label: hidden
-    type: text_default
+    type: graphql_raw_value
     weight: 1
     settings: {  }
     third_party_settings: {  }
