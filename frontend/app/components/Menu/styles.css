@@ -238,6 +238,7 @@
 
 /* Newsletter Form */
 .newsletterContainer {
+  display: none;
   @media screen and (min-width: 700px) {
     display: flex;
     flex-direction: column;
@@ -246,9 +247,7 @@
   }
 }
 .newsletterLine {
-  display: none;
   @media screen and (min-width: 700px) {
-    display: block;
     flex: 1;
     max-height: 700px;
     position: relative;
