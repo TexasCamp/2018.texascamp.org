@@ -1,7 +1,10 @@
 .newsletter {
   composes: calderLC from '../../shared/css/fonts.css';
   max-width: 210px;
-  padding: 55px 0 100px;
+  padding: 0 0 100px;
+  @media screen and (min-width: 700px) {
+    padding: 55px 0 100px;
+  }
   img {
     display: block;
     height: auto;
