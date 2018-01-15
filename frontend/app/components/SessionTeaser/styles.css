@@ -1,0 +1,20 @@
+.body {
+  color: red;
+  p {
+    display: inline;
+  }
+}
+.field {
+  div {
+    display: inline;
+  }
+}
+.fieldLabel {
+  composes: calderDark from '../../shared/css/fonts.css';
+  margin-right: 10px;
+}
+
+.lightText {
+  composes: calderLC from '../../shared/css/fonts.css';
+  text-transform: uppercase;
+}
