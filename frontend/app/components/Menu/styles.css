@@ -158,9 +158,6 @@
   font-size: 30px;
   line-height: 30px;
   margin: 0 0 20px;
-  &:hover {
-    font-family: "calder-dark-outline", "calder-dark", sans-serif;
-  }
 }
 .menuItemSmall {
   composes: calderDark from '../../shared/css/fonts.css';
