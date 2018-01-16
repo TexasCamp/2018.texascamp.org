@@ -52,32 +52,31 @@
   background: $lighterGrey;
   margin: 0;
   padding: 18px 20px;
-  .openFiltersButton {
-    background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
-    background-size: 12px;
-    border: none;
-    color: $lighterGrey;
-    content: "";
-    font-size: 0;
-    height: 52px;
-    margin-top: -18px;
-    outline: none;
-    position: absolute;
-    right: 20px;
-    width: 52px;
-    @media $tablet {
-      right: 40px;
-    }
-    &.filtersOpen {
-      background-color: $yellow;
-      background-image: url('../../shared/images/uparrow.png');
-      color: $yellow;
-    }
-    &:hover {
-      cursor: pointer;
-    }
+}
+.openFiltersButton {
+  background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
+  background-size: 12px;
+  border: none;
+  color: $lighterGrey;
+  content: "";
+  font-size: 0;
+  height: 52px;
+  margin-top: -52px;
+  outline: none;
+  position: absolute;
+  right: 20px;
+  width: 52px;
+  @media $tablet {
+    right: 40px;
   }
-
+  &.filtersOpen {
+    background-color: $yellow;
+    background-image: url('../../shared/images/uparrow.png');
+    color: $yellow;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 .filterButton {
   background: $yellow;
