@@ -2,7 +2,7 @@
   @media $desktop {
     display: flex;
   }
-}
+} 
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
@@ -11,11 +11,18 @@
 }
 .title {
   composes: title from '../../shared/css/global.css';
+  margin-bottom: 16px;
+  @media $tablet {
+    margin-bottom: 15px;
+  }
 }
 .detail {
   composes: contentArea from '../../shared/css/global.css';
   flex-direction: unset;
   @media $tablet {
     width: calc(75% - 40px);
+  }
+  h3 {
+    margin-top: 18px;
   }
 }

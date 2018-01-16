@@ -13,13 +13,12 @@ type NewsTeaserProps = {
 const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
   // Use body summary if available
   // If not trim to 400 characters
+  const strippedBody = newsTeaser.body.replace(/(<([^>]+)>)/gi, '');
   const trimmedBody =
-    newsTeaser.body.length > 400
-      ? `${newsTeaser.body.substr(0, 400)}...`
-      : newsTeaser.body;
-  let formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
-  // Format body to remove all images
-  formattedBody = formattedBody ? formattedBody.replace(/<img[^>]*>/g, '') : '';
+    strippedBody.length > 400
+      ? `${strippedBody.substr(0, 400)}...`
+      : strippedBody;
+  const formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
 
   const formattedDate = newsTeaser.publishedDate
     ? new Date(newsTeaser.publishedDate).toLocaleString('en-US', {
@@ -30,22 +29,18 @@ const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
     : '';
 
   return (
-    <div>
-      <p className={styles.date}>
-        {formattedDate}
-      </p>
-      <h2>
-        <Link to={`/news/${newsTeaser.urlString}`}>
+    <div className={styles.teaserWrapper}>
+      <Link to={`/news/${newsTeaser.urlString}`}>
+        <div className={styles.date}>
+          {formattedDate}
+        </div>
+        <h3>
           {newsTeaser.title}
-        </Link>
-      </h2>
-      <Html>
-        {formattedBody.length > 400
-          ? `${formattedBody.substr(0, 400)}...`
-          : formattedBody}
-      </Html>
-      <Link to={`/news/${newsTeaser.urlString}`} className={styles.moreLink}>
-        More
+        </h3>
+        <Html>
+          {formattedBody}
+        </Html>
+        <div className={styles.moreLink}>More</div>
       </Link>
     </div>
   );
