@@ -17,6 +17,7 @@
   composes: contentArea from '../../../../shared/css/global.css';
   margin-top: 6px;
   @media $tablet {
+    margin-top: 8px;
     width: calc(75% - 40px);
   }
   .mainContent {
