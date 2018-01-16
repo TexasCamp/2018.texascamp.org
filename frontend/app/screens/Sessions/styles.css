@@ -101,6 +101,7 @@
   border-radius: 20px;
   color: $beige;
   composes: calderDark from '../../shared/css/fonts.css';
+  line-height: 100%;
   margin-top: 1.25rem;
   outline: none;
   padding: 0.5rem 20px;
