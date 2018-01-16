@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: $almostWhite;
+  background-color: $beige;
   color: $navy;
   font-size: 13px;
   height: 100%;
@@ -34,9 +34,9 @@ body {
     font-family: "calder-dark", sans-serif;
     font-size: 30px;
     line-height: 40px;
-    margin-top: 55px;
+    margin-top: 50px;
     @media $tablet {
-      margin-top: 60px;
+      margin-top: 58px;
     }
   }
   h2 {

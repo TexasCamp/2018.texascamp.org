@@ -33,37 +33,49 @@ const SessionsList = (props: SessionsListProps) => {
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
-        <h1>Sessions</h1>
-        <h2>Skill Level Filters:</h2>
-        {skillLevelButtons.map(eachBtn =>
-          (<button
-            className={eachBtn.isSelected && styles.btnSelected}
-            key={eachBtn.name}
-            onClick={eachBtn.onClick}
-          >
-            {`${eachBtn.name}`}
-          </button>),
-        )}
-        <h2>Track Filters:</h2>
-        {trackButtons.map(eachBtn =>
-          (<button
-            className={eachBtn.isSelected && styles.btnSelected}
-            key={eachBtn.name}
-            onClick={eachBtn.onClick}
-          >
-            {`${eachBtn.name}`}
-          </button>),
-        )}
-        <div>
-          <h2>Session Search</h2>
-          <input
-            type="text"
-            value={textSearchInput}
-            onChange={changeTextFilter}
-          />
+        <h1 className={styles.title}>Sessions</h1>
+        <h4 className={styles.filterTitle}>Filter By</h4>
+        <div className={styles.filterWrapper}>
+          <div className={styles.filters}>
+            <h4 className={styles.searchLabel}>Search</h4>
+            <input
+              className={styles.searchTextInput}
+              type="text"
+              value={textSearchInput}
+              onChange={changeTextFilter}
+              placeholder="Search"
+            />
+            <div className={styles.filter}>
+              <h4>Track</h4>
+              {trackButtons.map(eachBtn =>
+                (<button
+                  className={`${styles.filterButton} ${eachBtn.isSelected &&
+                    styles.filterButtonSelected}`}
+                  key={eachBtn.name}
+                  onClick={eachBtn.onClick}
+                >
+                  {`${eachBtn.name}`}
+                </button>),
+              )}
+            </div>
+            <div className={styles.filter}>
+              <h4>Skill Level</h4>
+              {skillLevelButtons.map(eachBtn =>
+                (<button
+                  className={`${styles.filterButton} ${eachBtn.isSelected &&
+                    styles.filterButtonSelected}`}
+                  key={eachBtn.name}
+                  onClick={eachBtn.onClick}
+                >
+                  {`${eachBtn.name}`}
+                </button>),
+              )}
+            </div>
+            <button onClick={resetAllFilters} className={styles.resetButton}>
+              Reset All
+            </button>
+          </div>
         </div>
-        <h2>Reset All:</h2>
-        <button onClick={resetAllFilters}>Reset All Filters</button>
         {sessions.map(sessionTeaser =>
           (<SessionTeaser
             key={sessionTeaser.title}
