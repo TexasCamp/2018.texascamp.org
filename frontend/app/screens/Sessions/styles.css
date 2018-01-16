@@ -28,9 +28,13 @@
   padding-bottom: 20px;
   .filters {
     background: $yellow;
+    display: none;
     padding: 2rem 20px 1.75rem;
     @media $tablet {
       padding: 2rem 40px 50px;
+    }
+    &.filtersOpen {
+      display: block;
     }
     .filter {
       margin: 26px 0 0;
@@ -48,22 +52,32 @@
   background: $lighterGrey;
   margin: 0;
   padding: 18px 20px;
-  &:after {
+  .openFiltersButton {
     background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
     background-size: 12px;
+    border: none;
+    color: $lighterGrey;
     content: "";
+    font-size: 0;
     height: 52px;
     margin-top: -18px;
+    outline: none;
     position: absolute;
     right: 20px;
     width: 52px;
-    &.open {
-      background: url('../../shared/images/uparrow.png') center center no-repeat $yellow;
-    }
     @media $tablet {
       right: 40px;
     }
+    &.filtersOpen {
+      background-color: $yellow;
+      background-image: url('../../shared/images/uparrow.png');
+      color: $yellow;
+    }
+    &:hover {
+      cursor: pointer;
+    }
   }
+
 }
 .filterButton {
   background: $yellow;
@@ -75,6 +89,9 @@
   margin-right: 15px;
   outline: none;
   padding: 0.5rem 10px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .filterButtonSelected {
   background: $navy;
@@ -109,6 +126,7 @@
   transition: background .3s ease-out;
   &:hover {
     background: $navy;
+    cursor: pointer;
   }
 }
 .body {

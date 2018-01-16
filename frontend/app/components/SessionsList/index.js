@@ -2,7 +2,7 @@
 import React from 'react';
 import type { SessionT } from 'types';
 import Link from 'AsyncLink';
-import Html from 'Html';
+import { cleanHtml } from 'utils';
 import styles from 'Sessions/styles.css';
 import withLogic from './logic';
 
@@ -19,6 +19,8 @@ type SessionsListProps = {
   textSearchInput: string,
   trackButtons: Array<ButtonT>,
   skillLevelButtons: Array<ButtonT>,
+  openFilters: Function,
+  filtersOpen: boolean,
 };
 
 const SessionsList = (props: SessionsListProps) => {
@@ -29,15 +31,32 @@ const SessionsList = (props: SessionsListProps) => {
     textSearchInput,
     trackButtons,
     skillLevelButtons,
+    openFilters,
+    filtersOpen,
   } = props;
 
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
         <h1 className={styles.title}>Sessions</h1>
-        <h4 className={styles.filterTitle}>Filter By</h4>
+
+        <h4 className={styles.filterTitle}>
+          Filter By
+          <button
+            onClick={openFilters}
+            className={`${styles.openFiltersButton} ${filtersOpen
+              ? styles.filtersOpen
+              : ''}`}
+          >
+            Open Filters
+          </button>
+        </h4>
         <div className={styles.filterWrapper}>
-          <div className={styles.filters}>
+          <div
+            className={`${styles.filters} ${filtersOpen
+              ? styles.filtersOpen
+              : ''}`}
+          >
             <h4 className={styles.searchLabel}>Search</h4>
             <input
               className={styles.searchTextInput}
@@ -90,15 +109,13 @@ const SessionsList = (props: SessionsListProps) => {
             : trimmedBody;
 
           return (
-            <div className={styles.teaserWrapper}>
+            <div key={sessionTeaser.title} className={styles.teaserWrapper}>
               <Link to={`/sessions/${sessionTeaser.urlString}`}>
                 <h3>
                   {sessionTeaser.title}
                 </h3>
-                <p>
-                  <Html className={styles.body}>
-                    {formattedBody}
-                  </Html>
+                <p className={styles.body}>
+                  {cleanHtml(formattedBody)}
                 </p>
                 <div className={styles.details}>
                   {sessionTeaser.speakers &&

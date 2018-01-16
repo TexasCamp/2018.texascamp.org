@@ -22,6 +22,8 @@ type InitialStateT = {
   setFilters: Function,
   textSearchInput: string,
   setSearchText: Function,
+  filtersOpen: boolean,
+  setFiltersOpen: Function,
 };
 
 type PropsWithStateT = InitialPropsT & InitialStateT;
@@ -31,6 +33,7 @@ type PropsWithStateWithHandlersT = PropsWithStateT & {
   changeTrackFilters: Function,
   changeTextFilter: Function,
   resetAllFilters: Function,
+  openFilters: Function,
 };
 
 const filterByAll = (
@@ -54,6 +57,7 @@ const initialFilters: FiltersT = {
 const withLogic = compose(
   withState('filters', 'setFilters', initialFilters),
   withState('textSearchInput', 'setSearchText', ''),
+  withState('filtersOpen', 'setFiltersOpen', false),
   withHandlers({
     changeSkillLevelFilters: ({
       filters,
@@ -107,6 +111,9 @@ const withLogic = compose(
       setFilters(initialFilters);
       setSearchText('');
     },
+    openFilters: ({ setFiltersOpen, filtersOpen }: PropsWithStateT) => () => {
+      setFiltersOpen(!filtersOpen);
+    },
   }),
   mapProps(
     ({
@@ -119,6 +126,8 @@ const withLogic = compose(
       changeTrackFilters,
       changeTextFilter,
       resetAllFilters,
+      openFilters,
+      filtersOpen,
     }: PropsWithStateWithHandlersT) => {
       return {
         sessions: filterByAll(sessions, filters, textSearchInput),
@@ -135,6 +144,8 @@ const withLogic = compose(
         changeTextFilter,
         resetAllFilters,
         textSearchInput,
+        openFilters,
+        filtersOpen,
       };
     },
   ),
