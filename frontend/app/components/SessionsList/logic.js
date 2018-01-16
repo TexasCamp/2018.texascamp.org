@@ -103,8 +103,10 @@ const withLogic = compose(
         setSearchText('');
       }
     },
-    resetAllFilters: ({ setFilters }: PropsWithStateT) => () =>
-      setFilters(initialFilters),
+    resetAllFilters: ({ setFilters, setSearchText }: PropsWithStateT) => () => {
+      setFilters(initialFilters);
+      setSearchText('');
+    },
   }),
   mapProps(
     ({
