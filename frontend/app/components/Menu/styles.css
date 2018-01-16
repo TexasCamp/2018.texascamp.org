@@ -270,9 +270,11 @@
 }
 .newsletterForm {
   .menuOverlay.inactive & {
+    display: none;
     opacity: 0;
   }
   .menuOverlay.active & {
     animation: fadeInForm 0.2s 1.2s ease-in both;
+    display: block;
   }
 }
