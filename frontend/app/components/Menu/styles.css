@@ -5,7 +5,7 @@
   align-items: center;
   background-color: $navy;
   border: 0 none;
-  color: $almostWhite;
+  color: $beige;
   cursor: pointer;
   display: flex;
   font-size: 20px;
@@ -38,7 +38,7 @@
   }
   .diagonalTopLine {
     bottom: -2px;
-    border-top: 2px solid $almostWhite;
+    border-top: 2px solid $beige;
     z-index: 1;
   }
   .diagonalBottomLine {
@@ -93,7 +93,7 @@
 /* Expanding / Collapsing Overlay */
 .menuOverlay {
   background-color: $navy;
-  color: $almostWhite;
+  color: $beige;
   position: fixed;
   right: 0;
   text-align: left;
@@ -173,7 +173,7 @@
   width: 100%;
   a {
     box-shadow: none;
-    color: $almostWhite;
+    color: $beige;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: color 0.1s ease;

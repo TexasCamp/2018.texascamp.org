@@ -1,5 +1,4 @@
 .body {
-  color: red;
   p {
     display: inline;
   }
@@ -7,6 +6,20 @@
 .field {
   div {
     display: inline;
+  }
+}
+.teaserWrapper {
+  border-bottom: 1px dashed $grey;
+  padding: 42px 20px 34px;
+  @media $tablet {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  h3 {
+    margin-top: 0;
+  }
+  &:hover {
+    background: $almostWhite;
   }
 }
 .fieldLabel {

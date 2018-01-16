@@ -23,15 +23,15 @@
     font-size: 13px;
     font-family: "calder-lc", sans-serif;
     background: $navy;
-    border: 1px solid $almostWhite;
+    border: 1px solid $beige;
     border-radius: 2px;
     box-sizing: border-box;
-    color: $almostWhite;
+    color: $beige;
     padding: 17px 15px;
     margin: 0 0 16px;
     width: 100%;
     &::placeholder {
-      color: $almostWhite;
+      color: $beige;
     }
     &:focus {
       outline: none;
@@ -46,7 +46,7 @@
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
-      color: $almostWhite;
+      color: $beige;
       font-family: "calder-dark", sans-serif;
       font-size: 13px;
       padding: 5px 27px 4px;
@@ -59,7 +59,7 @@
       &:hover {
         background: $orange_darken10;
         border-color: $orange_darken10;
-        color: $almostWhite;
+        color: $beige;
         outline: none;
       }
     }
