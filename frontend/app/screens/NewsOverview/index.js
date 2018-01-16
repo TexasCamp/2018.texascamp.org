@@ -23,9 +23,11 @@ const NewsOverview = ({
           <h1 className={styles.title}>News</h1>
           <div className={styles.detail}>
             <ul>
-              {newsList.map(newsTeaser =>
-                <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
-              )}
+              {newsList
+                .sort((a, b) => b.publishedDate - a.publishedDate)
+                .map(newsTeaser =>
+                  <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
+                )}
             </ul>
           </div>
           <Footer />
