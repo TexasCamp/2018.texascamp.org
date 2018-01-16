@@ -40,17 +40,15 @@ const SessionsList = (props: SessionsListProps) => {
       <div className={styles.detail}>
         <h1 className={styles.title}>Sessions</h1>
 
-        <h4 className={styles.filterTitle}>
-          Filter By
-          <button
-            onClick={openFilters}
-            className={`${styles.openFiltersButton} ${filtersOpen
-              ? styles.filtersOpen
-              : ''}`}
-          >
-            Open Filters
-          </button>
-        </h4>
+        <h4 className={styles.filterTitle}>Filter By</h4>
+        <button
+          onClick={openFilters}
+          className={`${styles.openFiltersButton} ${filtersOpen
+            ? styles.filtersOpen
+            : ''}`}
+        >
+          Open Filters
+        </button>
         <div className={styles.filterWrapper}>
           <div
             className={`${styles.filters} ${filtersOpen
