@@ -101,7 +101,8 @@
   z-index: 999;
 }
 .menuOverlay.inactive {
-  height: 56px;
+  height: 56px;  
+  overflow: hidden;
   transition: width 0.2s linear, height 0.2s linear 0.2s;
   width: 56px;
   nav {
