@@ -39,8 +39,6 @@ const SessionsList = (props: SessionsListProps) => {
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
         <h1 className={styles.title}>Sessions</h1>
-
-        <h4 className={styles.filterTitle}>Filter By</h4>
         <button
           onClick={openFilters}
           className={`${styles.openFiltersButton} ${filtersOpen
@@ -49,6 +47,7 @@ const SessionsList = (props: SessionsListProps) => {
         >
           Open Filters
         </button>
+        <h4 className={styles.filterTitle}>Filter By</h4>
         <div className={styles.filterWrapper}>
           <div
             className={`${styles.filters} ${filtersOpen
