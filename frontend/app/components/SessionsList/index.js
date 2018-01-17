@@ -41,18 +41,18 @@ const SessionsList = (props: SessionsListProps) => {
         <h1 className={styles.title}>Sessions</h1>
         <button
           onClick={openFilters}
-          className={`${styles.openFiltersButton} ${filtersOpen
-            ? styles.filtersOpen
-            : ''}`}
+          className={`${styles.openFiltersButton} ${
+            filtersOpen ? styles.filtersOpen : ''
+          }`}
         >
           Open Filters
         </button>
         <h4 className={styles.filterTitle}>Filter By</h4>
         <div className={styles.filterWrapper}>
           <div
-            className={`${styles.filters} ${filtersOpen
-              ? styles.filtersOpen
-              : ''}`}
+            className={`${styles.filters} ${
+              filtersOpen ? styles.filtersOpen : styles.filtersClosed
+            }`}
           >
             <h4 className={styles.searchLabel}>Search</h4>
             <input
@@ -64,29 +64,29 @@ const SessionsList = (props: SessionsListProps) => {
             />
             <div className={styles.filter}>
               <h4>Track</h4>
-              {trackButtons.map(eachBtn =>
-                (<button
+              {trackButtons.map(eachBtn => (
+                <button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
                 >
                   {`${eachBtn.name}`}
-                </button>),
-              )}
+                </button>
+              ))}
             </div>
             <div className={styles.filter}>
               <h4>Skill Level</h4>
-              {skillLevelButtons.map(eachBtn =>
-                (<button
+              {skillLevelButtons.map(eachBtn => (
+                <button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
                 >
                   {`${eachBtn.name}`}
-                </button>),
-              )}
+                </button>
+              ))}
             </div>
             <button onClick={resetAllFilters} className={styles.resetButton}>
               Reset All
@@ -108,40 +108,33 @@ const SessionsList = (props: SessionsListProps) => {
           return (
             <div key={sessionTeaser.title} className={styles.teaserWrapper}>
               <Link to={`/sessions/${sessionTeaser.urlString}`}>
-                <h3>
-                  {sessionTeaser.title}
-                </h3>
-                <p className={styles.body}>
-                  {cleanHtml(formattedBody)}
-                </p>
+                <h3>{sessionTeaser.title}</h3>
+                <p className={styles.body}>{cleanHtml(formattedBody)}</p>
                 <div className={styles.details}>
-                  {sessionTeaser.speakers &&
+                  {sessionTeaser.speakers && (
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>
                         Presenter<span className={styles.lightText}>(s)</span>
                       </div>
                       <div>
-                        {sessionTeaser.speakers.map(eachName =>
-                          (<span key={eachName}>
-                            {eachName}
-                          </span>),
-                        )}
+                        {sessionTeaser.speakers.map(eachName => (
+                          <span key={eachName}>{eachName}</span>
+                        ))}
                       </div>
-                    </div>}
-                  {sessionTeaser.track &&
+                    </div>
+                  )}
+                  {sessionTeaser.track && (
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Track</div>
-                      <div>
-                        {sessionTeaser.track}
-                      </div>
-                    </div>}
-                  {sessionTeaser.skillLevel &&
+                      <div>{sessionTeaser.track}</div>
+                    </div>
+                  )}
+                  {sessionTeaser.skillLevel && (
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Skill Level</div>
-                      <div>
-                        {sessionTeaser.skillLevel}
-                      </div>
-                    </div>}
+                      <div>{sessionTeaser.skillLevel}</div>
+                    </div>
+                  )}
                 </div>
               </Link>
             </div>

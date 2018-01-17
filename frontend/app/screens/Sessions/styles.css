@@ -25,10 +25,21 @@
   padding-bottom: 20px;
   .filters {
     background: $yellow;
-    display: none;
-    padding: 2rem 20px 52px;
+    padding: 0 20px;
+    @media $tablet {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
     &.filtersOpen {
-      display: block;
+      height: 100%;
+      padding-bottom: 52px;
+      padding-top: 2rem;
+      transition: height 0.2s linear, padding 0.2s ease;
+    }
+    &.filtersClosed {
+      height: 0px;
+      overflow: hidden;
+      transition: height 0.2s linear, padding 0.2s ease 0.2s;
     }
     .filter {
       margin: 25px 0 0;
@@ -61,6 +72,7 @@
   outline: none;
   position: absolute;
   right: 20px;
+  transition: 0.2s all ease 0.2s;
   width: 50px;
   @media $tablet {
     right: 40px;
@@ -69,6 +81,7 @@
     background-color: $yellow;
     background-image: url('../../shared/images/uparrow.png');
     color: $yellow;
+    transition: 0.2s all ease;
   }
   &:hover {
     cursor: pointer;
