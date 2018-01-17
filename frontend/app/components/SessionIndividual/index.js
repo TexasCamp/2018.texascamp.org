@@ -52,17 +52,17 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                       Presenter<span>(s)</span>
                     </div>
                     <div>
-                      {session.speakers.map(eachName =>
-                        (<div key={eachName}>
+                      {session.speakers.map(eachSpeaker =>
+                        (<div key={eachSpeaker.fieldSessionPresenter}>
                           <Link
                             activeClass="active"
-                            to="bio"
+                            to={eachSpeaker.fieldSessionPresenter}
                             spy
                             smooth
                             offset={50}
                             duration={500}
                           >
-                            {eachName}
+                            {eachSpeaker.fieldSessionPresenter}
                           </Link>
                         </div>),
                       )}
@@ -100,18 +100,24 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                 </div>
                 <div className={styles.mainContent}>
                   {cleanHtml(formattedBody)}
-
-                  {session.speakersBio &&
-                    <div className={styles.bio} name="bio">
-                      <div className={styles.bioNames}>
-                        {session.speakers.map(eachName =>
-                          (<div key={eachName} className={styles.bioName}>
-                            {eachName}
-                          </div>),
-                        )}
-                      </div>
-                      {cleanHtml(session.speakersBio)}
-                    </div>}
+                  <div className={styles.bios}>
+                    {session.speakers.map(eachSpeaker =>
+                      (<div
+                        className={styles.bio}
+                        name={eachSpeaker.fieldSessionPresenter}
+                      >
+                        <div className={styles.bioNames}>
+                          <div
+                            key={eachSpeaker.fieldSessionPresenter}
+                            className={styles.bioName}
+                          >
+                            {eachSpeaker.fieldSessionPresenter}
+                          </div>
+                        </div>
+                        {cleanHtml(eachSpeaker.fieldSessionBio)}
+                      </div>),
+                    )}
+                  </div>
                 </div>
               </div>
               <Footer />

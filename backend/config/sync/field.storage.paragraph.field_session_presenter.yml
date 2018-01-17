@@ -1,12 +1,12 @@
-uuid: 076e41ca-3657-43c9-9ced-938b957ef651
+uuid: 22a89672-5beb-4357-9f12-097998de89c8
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: node.field_session_speakers
-field_name: field_session_speakers
-entity_type: node
+    - paragraphs
+id: paragraph.field_session_presenter
+field_name: field_session_presenter
+entity_type: paragraph
 type: string
 settings:
   max_length: 255
@@ -14,7 +14,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
