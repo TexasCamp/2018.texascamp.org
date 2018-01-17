@@ -101,7 +101,8 @@
   z-index: 999;
 }
 .menuOverlay.inactive {
-  height: 56px;
+  height: 56px;  
+  overflow: hidden;
   transition: width 0.2s linear, height 0.2s linear 0.2s;
   width: 56px;
   nav {
@@ -158,9 +159,6 @@
   font-size: 30px;
   line-height: 30px;
   margin: 0 0 20px;
-  &:hover {
-    font-family: "calder-dark-outline", "calder-dark", sans-serif;
-  }
 }
 .menuItemSmall {
   composes: calderDark from '../../shared/css/fonts.css';
@@ -239,6 +237,7 @@
   }
 }
 
+/* Newsletter Form */
 .newsletterContainer {
   display: none;
   @media screen and (min-width: 700px) {
@@ -272,9 +271,11 @@
 }
 .newsletterForm {
   .menuOverlay.inactive & {
+    display: none;
     opacity: 0;
   }
   .menuOverlay.active & {
     animation: fadeInForm 0.2s 1.2s ease-in both;
+    display: block;
   }
 }
