@@ -1,13 +1,13 @@
-uuid: 7519aa22-c97d-4ebb-9dd2-3825ea06b518
+uuid: 0c44f4bd-f051-4c58-81cb-8f4a23dad0a6
 langcode: en
 status: true
 dependencies:
   module:
-    - node
+    - paragraphs
     - text
-id: node.field_session_speakers_bio
-field_name: field_session_speakers_bio
-entity_type: node
+id: paragraph.field_session_bio
+field_name: field_session_bio
+entity_type: paragraph
 type: text_long
 settings: {  }
 module: text

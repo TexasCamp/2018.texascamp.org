@@ -25,8 +25,10 @@ export const SESSION_QUERY = gql`
     fieldSessionContactName
     fieldSessionSkillLevel
     fieldSessionRoom
-    fieldSessionSpeakers
-    fieldSessionSpeakersBio
+    fieldSessionPresenters {
+      fieldSessionPresenter
+      fieldSessionBio
+    }
     fieldSessionStatus
     fieldSessionTimeslot
     fieldSessionTrack
@@ -45,8 +47,7 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     status: entity.fieldSessionStatus,
     isPublished: entity.entityPublished,
     skillLevel: entity.fieldSessionSkillLevel,
-    speakers: entity.fieldSessionSpeakers,
-    speakersBio: entity.fieldSessionSpeakersBio,
+    speakers: entity.fieldSessionPresenters,
     timeslot:
       entity.fieldSessionTimeslot && new Date(entity.fieldSessionTimeslot),
     track: entity.fieldSessionTrack,
