@@ -21,13 +21,18 @@ function NewsletterForm() {
           <label htmlFor="mce-NAME" className={styles.visuallyhidden}>
             Name
           </label>
-          <input type="text" name="NAME" placeholder="Name" />
+          <input type="text" name="NAME" id="mce-NAME" placeholder="Name" />
         </div>
         <div>
           <label htmlFor="mce-EMAIL" className={styles.visuallyhidden}>
             Email address
           </label>
-          <input type="email" name="EMAIL" placeholder="Email address" />
+          <input
+            type="email"
+            name="EMAIL"
+            id="mce-EMAIL"
+            placeholder="Email address"
+          />
         </div>
         <div className="clear">
           <div className="response" style={{ display: 'none' }} />
