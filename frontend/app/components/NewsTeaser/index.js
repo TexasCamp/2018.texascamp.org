@@ -34,9 +34,9 @@ const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
         <div className={styles.date}>
           {formattedDate}
         </div>
-        <h3>
+        <h2>
           {newsTeaser.title}
-        </h3>
+        </h2>
         <Html>
           {formattedBody}
         </Html>
