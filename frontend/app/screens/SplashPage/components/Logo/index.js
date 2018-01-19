@@ -1,6 +1,6 @@
 import React from 'react';
+import logo from 'images/texas-camp-logo.png';
 import styles from './styles.css';
-import logo from '../../shared/images/texas-camp-logo.png';
 
 function Logo() {
   return (

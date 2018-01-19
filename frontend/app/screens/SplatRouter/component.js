@@ -4,9 +4,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { basicPageFragment } from 'BasicPage/fragments';
-import { articleFragment } from 'Article/fragments';
 import BasicPage from 'BasicPage';
-import Article from 'Article';
 import NotFound from 'NotFound';
 
 type SplatRouterProps = {
@@ -26,9 +24,6 @@ const SplatRouter = ({
     case 'NodePage':
       return <BasicPage {...entity} />;
 
-    case 'NodeArticle':
-      return <Article {...entity} />;
-
     default:
       return <NotFound />;
   }
@@ -39,13 +34,11 @@ const query = gql`
     route(path: $path) {
       entity {
         ...BasicPageFragment
-        ...ArticleFragment
       }
     }
   }
 
   ${basicPageFragment}
-  ${articleFragment}
 `;
 
 const withQuery = graphql(query, {

@@ -1,0 +1,25 @@
+.footer {
+  margin-top: 60px;
+  @media $tablet {
+    margin-top: 100px;
+  }
+}
+.sponsors {
+  background: $lighterGrey;
+  margin-bottom: 2px;
+  padding: 20px;
+  text-align: center;
+  @media $tablet {
+    margin-bottom: 5px;
+    padding: 30px 20px;
+  }
+}
+
+.credits {
+  background: $lightGrey;
+  padding: 20px;
+  text-align: center;
+  @media $tablet {
+    padding: 30px 20px;
+  }
+}

@@ -1,20 +1,67 @@
-
+.headerWrapper {
+  @media $desktop {
+    min-width: 330px;
+  }
+  @media $wide {
+    min-width: 40%;
+  }
+  @media $extraWide {
+    min-width: 50%;
+  }
+  .header {
+    @media $desktop {
+      background: $orange;
+      border-right: 2px solid;
+      height: 100%;
+      min-width: 330px;
+      max-width: 50%;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+    }
+    @media $wide {
+      min-width: 40%;
+    }
+    @media $extraWide {
+      min-width: 50%;
+    }
+    .backgroundImageWrapper {
+      display: none;
+      @media $desktop {
+        display: block;
+        left: 50%;
+        margin-top: 295px;
+        position: absolute;
+        img {
+          left: -50%;
+          position: relative;
+          width: 720px;
+        }
+      }
+      @media $wide {
+        margin-top: 315px;
+      }
+    }
+  }
+}
 .info {
-  composes: calderLC from '../../shared/css/fonts.css';
   font-size: 13px;
-  line-height: 1.7rem;
+  line-height: 1.25rem;
+  margin-top: 30px;
+  text-align: center;
+
+  @media $smallOnly {
+    display: none;
+  }
+  @media $desktop {
+    margin-top: 50px;
+  }
   .social {
     img {
       height: 14px;
+      margin-top: 5px;
       width: auto;
     }
-  }
-  .separator {
-    display: none;
-  }
-  .location,
-  .venue {
-    display: block;
   }
   .social {
     + .separator {
@@ -25,30 +72,45 @@
       padding-top: 8px;
     }
   }
-  @media all and (min-width: 360px) {
-    .date {
-      + .separator {
-        display: inline;
-      }
-    }
-    .location {
-      display: inline;
+}
+.logo {
+  position: relative;
+  .desktopLogo {
+    display: none;
+  }
+  @media $smallOnly {
+    margin: -5px 0 0 8px;
+    text-align: left;
+    img {
+      width: 110px;
     }
   }
-  @media all and (min-width: 667px) {
-    .separator {
-      display: inline;
-    }
-    .venue {
-      display: inline;
+  @media $tabletOnly {
+    margin: -12px 0 0 24px;
+    position: absolute;
+    top: 26px;
+    img {
+      width: 126px;
     }
   }
-  @media all and (min-width: 1000px) and (max-width: 1200px) {
-    .venue {
-      display: block;
-      + .separator {
-        display: none;
-      }
+  @media $desktop {
+    .mobileLogo {
+      display: none;
+    }
+    .desktopLogo {
+      display: inherit;
+    }
+    text-align: center;
+    img {
+      margin-top: 20px;
+      width: 275px;
+    }
+  }
+  @media $wide {
+    text-align: center;
+    img {
+      margin-top: 30px;
+      width: 310px;
     }
   }
 }

@@ -9,8 +9,8 @@ dependencies:
     - field.field.node.sponsor.field_sponsor_url
     - node.type.sponsor
   module:
-    - image
-    - link
+    - graphql_content
+    - graphql_image
     - text
     - user
 id: node.sponsor.default
@@ -27,34 +27,28 @@ content:
     region: content
   field_sponsor_image:
     weight: 102
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: image
+    type: graphql_image
     region: content
   field_sponsor_level:
     weight: 104
-    label: above
-    settings:
-      link: true
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: graphql_raw_value
     region: content
   field_sponsor_url:
     weight: 103
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: link
+    type: graphql_raw_value
     region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

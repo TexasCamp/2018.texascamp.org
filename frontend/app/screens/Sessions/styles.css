@@ -1,6 +1,25 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
+.content {
+  composes: contentWrapper from '../../shared/css/global.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
+
 .sessionsContainer {
-  background-color: white;
-  text-align: left;
+  composes: contentArea from '../../shared/css/global.css';
+  flex-direction: unset;
+}
+
+.detail {
+  @media $tablet {
+    width: calc(75% - 40px);
+  }
 }
 
 /* only show first 3 lines max, with an ellipses */

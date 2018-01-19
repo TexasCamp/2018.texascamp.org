@@ -28,3 +28,26 @@ export type SessionT = {
   track: TrackT,
   urlString: string,
 };
+
+export type SponsorT = {
+  id: number,
+  title: string,
+  body: string,
+  sponsorLevel: string,
+  sponsorUrl: string,
+  image: {
+    alt?: string,
+    url?: string,
+  },
+};
+
+export type NewsT = {
+  title: string,
+  body: {
+    value: string,
+    summary: string,
+  },
+  publishedDate: Date,
+  urlString: string,
+  id: number,
+};

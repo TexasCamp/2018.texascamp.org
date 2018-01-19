@@ -1,8 +1,8 @@
 import React from 'react';
+import horizon from 'images/horizon.png';
+import van from 'images/van.png';
+import cow from 'images/cow.png';
 import styles from './styles.css';
-import horizon from '../../shared/images/horizon.png';
-import van from '../../shared/images/van.png';
-import cow from '../../shared/images/cow.png';
 
 class BackgroundImage extends React.Component {
   componentDidMount() {

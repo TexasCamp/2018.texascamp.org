@@ -1,0 +1,148 @@
+
+/* Menu Toggle Button */
+.menuButton {
+  background-color: $navy;
+  border: 0 none;
+  color: $almostWhite;
+  cursor: pointer;
+  height: 56px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 56px;
+  z-index: 1000;
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Menu Button Animation */
+.menuButton {
+  &:before,
+  &:after {
+    background-color: $navy;
+    display: block;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.1s linear;
+    width: 100%;
+  }
+  &:before {
+    bottom: -4px;
+  }
+  &:after {
+    bottom: -8px;
+  }
+  &:hover {
+    &:before {
+      bottom: -7px;
+    }
+    &:after {
+      bottom: -14px;
+    }
+  }
+
+}
+
+.menuButton.active {
+  &:before,
+  &:after {
+  }
+  &:before {
+    animation:
+      changeTopLineColor 1s linear forwards,
+      moveTopLineUp 1s linear forwards,
+      rotateTopLine 1s 2s linear forwards;
+  }
+  &:after {
+    animation:
+      moveBottomLineUp 2s linear forwards,
+      increaseBottomLineHeight 1s 1s linear forwards,
+      deleteMe 1s 1s linear forwards,
+      rotateBottomLine 1s 2s linear forwards;
+  }
+}
+
+/* Inactive to Active Animation */
+@keyframes moveBottomLineUp {
+  50% {
+    bottom: -8px;
+  }
+  100% {
+    bottom: -3px;
+  }
+}
+@keyframes changeTopLineColor {
+  to {
+    background-color: white;
+  }
+}
+@keyframes deleteMe {
+  to {
+    background-color: grey;
+  }
+}
+@keyframes moveTopLineUp {
+  to {
+    bottom: 0px;
+  }
+}
+@keyframes increaseBottomLineHeight {
+  to {
+    height: 3px;
+  }
+}
+@keyframes rotateTopLine {
+  to {
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+    width: 200%;
+  }
+}
+@keyframes rotateBottomLine {
+  to {
+    transform-origin: left top;
+    transform: rotate(-45deg);
+    width: 200%;
+  }
+}
+
+.menuButton.inactive {
+
+}
+
+/* Expanding / Collapsing Overlay */
+.menuOverlay {
+  background-color: $navy;
+  color: $almostWhite;
+  position: fixed;
+  right: 0;
+  text-align: left;
+  top: 0;
+  z-index: 999;
+}
+.menuOverlay.inactive {
+  height: 56px;
+  transition: width 0.5s linear, height 0.5s linear 0.5s;
+  width: 56px;
+}
+.menuOverlay.active {
+  height: 100vh;
+  transition: height 0.5s linear, width 0.5s linear 0.5s;
+  width: 50vw;
+}
+
+/* Menu Items */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menuItem,
+.menuItemSmall {
+  a {
+    color: $almostWhite;
+  }
+}

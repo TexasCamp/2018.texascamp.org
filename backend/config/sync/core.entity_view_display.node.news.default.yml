@@ -8,7 +8,7 @@ dependencies:
     - node.type.news
   module:
     - datetime
-    - text
+    - graphql_content
     - user
 id: node.news.default
 targetEntityType: node
@@ -17,7 +17,7 @@ mode: default
 content:
   body:
     label: hidden
-    type: text_default
+    type: graphql_raw_value
     weight: 101
     settings: {  }
     third_party_settings: {  }
