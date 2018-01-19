@@ -1,3 +1,10 @@
+.title {
+  margin: 55px 20px 75px;
+  @media $tablet {
+    margin: 60px 40px 1.5rem;
+    max-width: calc(75% - 100px);
+  }
+}
 .contentWrapper {
   @media $desktop {
     display: flex;

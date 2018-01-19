@@ -9,6 +9,7 @@ import SplashPage from 'SplashPage';
 import Home from 'Home';
 import Sessions from 'Sessions';
 import Session from 'Session';
+import Sponsors from 'Sponsors';
 import News from 'News';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
@@ -37,6 +38,7 @@ const App = (): React.Element<any> =>
               <Route exact path={Humans} />
               <Route exact path="/news" component={NewsOverview} />
               <Route exact path="/news/:newsTitle/" component={News} />
+              <Route exact path="/sponsors" component={Sponsors} />
               <Route path="*" component={SplatRouter} />
             </Switch>
           </div>)}
