@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NewsletterForm from 'NewsletterForm';
-import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
 import withLogic from 'Menu/logic';
 import styles from './styles.css';
 import menuButton from '../../shared/images/menu.png';
@@ -30,27 +28,25 @@ const Menu = ({ isActive, toggleOverlay }) => {
           <nav className={styles.siteNavigation}>
             <ul className={styles.menu}>
               <li className={styles.menuItem}>
-                <Link to="/home">Home</Link>
+                <a href="">Home</a>
               </li>
               <li className={styles.menuItem}>
-                <Link to="/session-form">Speak</Link>
+                <a href="">Speak</a>
               </li>
               <li className={styles.menuItem}>
-                <a href={prospectus}>Sponsor</a>
+                <a href="">Sponsor</a>
               </li>
               <li className={styles.menuItem}>
-                <Link to="/news/the-norris-conference-centers-north-austin">
-                  Venue
-                </Link>
+                <a href="">Venue</a>
               </li>
               <li className={styles.menuItem}>
-                <Link to="/news">News</Link>
+                <a href="">News</a>
               </li>
               <li className={styles.menuItemSmall}>
-                <Link to="/code-of-conduct">Code of Conduct</Link>
+                <a href="">Code of Conduct</a>
               </li>
               <li className={styles.menuItemSmall}>
-                <Link to="/contact">Contact</Link>
+                <a href="">Contact</a>
               </li>
             </ul>
           </nav>
