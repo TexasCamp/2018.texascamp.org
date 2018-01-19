@@ -44,9 +44,10 @@
     .filter {
       margin: 25px 0 0;
       width: calc(100% + 15px);
-      h4 {
-        font-size: 13px;
-        margin-bottom: 19px;
+      .fieldLabel {
+        line-height: 1rem;
+        margin-bottom: 18px;
+        margin-top: 1rem;
       }
     }
     .searchLabel {
@@ -56,7 +57,7 @@
 }
 .filterTitle {
   background: $lighterGrey;
-  font-size: 13px;
+  composes: calderDark from '../../shared/css/fonts.css';
   line-height: 13px;
   margin: 0;
   padding: 19px 20px 18px;
@@ -98,6 +99,8 @@
   outline: none;
   padding: 5px 10px 4px;
   &:hover {
+    background: $navy;
+    color: $yellow;
     cursor: pointer;
   }
 }

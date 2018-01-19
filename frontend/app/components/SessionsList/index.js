@@ -47,15 +47,18 @@ const SessionsList = (props: SessionsListProps) => {
         >
           Open Filters
         </button>
-        <h4 className={styles.filterTitle}>Filter By</h4>
+        <div className={styles.filterTitle}>Filter By</div>
         <div className={styles.filterWrapper}>
           <div
             className={`${styles.filters} ${filtersOpen
               ? styles.filtersOpen
               : styles.filtersClosed}`}
           >
-            <h4 className={styles.searchLabel}>Search</h4>
+            <div id="search" className={styles.searchLabel}>
+              Search
+            </div>
             <input
+              aria-labelledby="search"
               className={styles.searchTextInput}
               type="text"
               value={textSearchInput}
@@ -63,32 +66,38 @@ const SessionsList = (props: SessionsListProps) => {
               placeholder="Search"
             />
             <div className={styles.filter}>
-              <h4>Track</h4>
+              <div className={styles.fieldLabel}>Track</div>
               {trackButtons.map(eachBtn =>
                 (<button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
+                  tabIndex="0"
                 >
                   {`${eachBtn.name}`}
                 </button>),
               )}
             </div>
             <div className={styles.filter}>
-              <h4>Skill Level</h4>
+              <div className={styles.fieldLabel}>Skill Level</div>
               {skillLevelButtons.map(eachBtn =>
                 (<button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
+                  tabIndex="0"
                 >
                   {`${eachBtn.name}`}
                 </button>),
               )}
             </div>
-            <button onClick={resetAllFilters} className={styles.resetButton}>
+            <button
+              className={styles.resetButton}
+              onClick={resetAllFilters}
+              tabIndex="0"
+            >
               Reset All
             </button>
           </div>
@@ -108,9 +117,9 @@ const SessionsList = (props: SessionsListProps) => {
           return (
             <div key={sessionTeaser.title} className={styles.teaserWrapper}>
               <Link to={`/sessions/${sessionTeaser.urlString}`}>
-                <h3>
+                <h2>
                   {sessionTeaser.title}
-                </h3>
+                </h2>
                 <p className={styles.body}>
                   {cleanHtml(formattedBody)}
                 </p>

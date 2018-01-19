@@ -66,7 +66,7 @@ const doRender = (
   });
 
   res.send(`<!doctype html>
-<html ${htmlAttributes}>
+<html ${htmlAttributes} lang="en" >
   <head>
     ${htmlHead}
     ${styles}
@@ -123,7 +123,7 @@ const doRenderError = (clientStats: Object) => (
         left: 10px;
         right: 10px;
         bottom: 10px;
-        font-family: Arial, Helvetica, sans-serif; 
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
         border: 1px solid;
         padding: 15px 10px;
