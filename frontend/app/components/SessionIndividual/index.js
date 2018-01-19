@@ -105,12 +105,10 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                       (<div
                         className={styles.bio}
                         name={eachSpeaker.fieldSessionPresenter}
+                        key={eachSpeaker.fieldSessionPresenter}
                       >
                         <div className={styles.bioNames}>
-                          <div
-                            key={eachSpeaker.fieldSessionPresenter}
-                            className={styles.bioName}
-                          >
+                          <div className={styles.bioName}>
                             {eachSpeaker.fieldSessionPresenter}
                           </div>
                         </div>
