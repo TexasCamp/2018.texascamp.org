@@ -1,30 +1,68 @@
 
 /* Menu Toggle Button */
 .menuButton {
+  composes: calderDark from '../../shared/css/fonts.css';
+  align-items: center;
   background-color: $navy;
   border: 0 none;
-  color: $almostWhite;
+  color: $beige;
   cursor: pointer;
+  display: flex;
+  font-size: 20px;
   height: 56px;
+  line-height: 18px;
+  padding: 0;
   position: fixed;
   right: 0;
+  user-select: none;
+  text-transform: uppercase;
   top: 0;
   width: 56px;
+  word-wrap: break-word;
   z-index: 1000;
   &:focus {
     outline: none;
   }
 }
 
-/* Menu Button Animation */
+/* Menu Button Diagonal Line Animation */
 .menuButton {
+  span {
+    content: "";
+    left: 0;
+    position: absolute;
+    transform: rotate(0deg);
+    transform-origin: 0% 0%;
+    transition: transform 0.2s linear;
+    width: 80px;
+  }
+  .diagonalTopLine {
+    bottom: -2px;
+    border-top: 2px solid $beige;
+    z-index: 1;
+  }
+  .diagonalBottomLine {
+    bottom: -5px;
+    border-top: 3px solid $navy;
+  }
+}
+.menuButton.active {
+  overflow: hidden;
+  span {
+    transform: rotate(-45deg);
+  }
+}
+
+/* Menu Button Horizontal Line Animation */
+.menuButton.inactive {
+  span {
+    border-color: transparent;
+  }
   &:before,
   &:after {
-    background-color: $navy;
-    display: block;
+    border-top: 2px solid $navy;
     content: "";
-    height: 2px;
-    left: 0;
+    display: block;
     position: absolute;
     transition: all 0.1s linear;
     width: 100%;
@@ -43,80 +81,19 @@
       bottom: -14px;
     }
   }
-
 }
 
-.menuButton.active {
-  &:before,
-  &:after {
-  }
-  &:before {
-    animation:
-      changeTopLineColor 1s linear forwards,
-      moveTopLineUp 1s linear forwards,
-      rotateTopLine 1s 2s linear forwards;
-  }
-  &:after {
-    animation:
-      moveBottomLineUp 2s linear forwards,
-      increaseBottomLineHeight 1s 1s linear forwards,
-      deleteMe 1s 1s linear forwards,
-      rotateBottomLine 1s 2s linear forwards;
-  }
-}
-
-/* Inactive to Active Animation */
-@keyframes moveBottomLineUp {
-  50% {
-    bottom: -8px;
-  }
-  100% {
-    bottom: -3px;
-  }
-}
-@keyframes changeTopLineColor {
-  to {
-    background-color: white;
-  }
-}
-@keyframes deleteMe {
-  to {
-    background-color: grey;
-  }
-}
-@keyframes moveTopLineUp {
-  to {
-    bottom: 0px;
-  }
-}
-@keyframes increaseBottomLineHeight {
-  to {
-    height: 3px;
-  }
-}
-@keyframes rotateTopLine {
-  to {
-    transform-origin: left bottom;
-    transform: rotate(-45deg);
-    width: 200%;
-  }
-}
-@keyframes rotateBottomLine {
-  to {
-    transform-origin: left top;
-    transform: rotate(-45deg);
-    width: 200%;
-  }
-}
-
-.menuButton.inactive {
-
+/* Print the word "MENU" as an image for cross-browser consistency */
+.menuButtonImage {
+  display: block;
+  margin: 0 auto;
+  width: 32px;
 }
 
 /* Expanding / Collapsing Overlay */
 .menuOverlay {
   background-color: $navy;
-  color: $almostWhite;
+  color: $beige;
   position: fixed;
   right: 0;
   text-align: left;
@@ -124,25 +101,181 @@
   z-index: 999;
 }
 .menuOverlay.inactive {
-  height: 56px;
-  transition: width 0.5s linear, height 0.5s linear 0.5s;
+  height: 56px;  
+  overflow: hidden;
+  transition: width 0.2s linear, height 0.2s linear 0.2s;
   width: 56px;
+  nav {
+    opacity: 0;
+  }
 }
 .menuOverlay.active {
   height: 100vh;
-  transition: height 0.5s linear, width 0.5s linear 0.5s;
-  width: 50vw;
+  overflow-y: auto;
+  transition: height 0.2s linear, width 0.2s linear 0.2s;
+  width: 100vw;
+  @media screen and (min-width: 400px) and (max-width: 699px) {
+    max-width: 400px;
+  }
+  @media screen and (min-width: 700px) and (max-width: 959px) {
+    max-width: 700px;
+  }
+  @media $desktop_wide {
+    width: 65%;
+  }
+  @media $wide_extraWide {
+    width: 60%;
+  }
+  @media $extraWide {
+    width: 50vw;
+  }
+}
+.menuOverlayContainer {
+  box-sizing: border-box;
+  height: 100%;
+  justify-content: center;
+  padding: 0 56px;
+  width: 100%;
+  @media screen and (min-width: 700px) {
+    display: flex;
+  }
 }
 
 /* Menu Items */
+.siteNavigation {
+  @media screen and (min-width: 700px) {
+    max-width: 210px;
+    width: 50%;
+  }
+}
 .menu {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 100px 0 55px;
+}
+.menuItem {
+  composes: calderDark from '../../shared/css/fonts.css';
+  font-size: 1.875em;
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0 0 20px;
+}
+.menuItemSmall {
+  composes: calderDark from '../../shared/css/fonts.css';
+  font-size: 12px;
+  line-height: 12px;
+  margin: 12px 0 0;
 }
 .menuItem,
 .menuItemSmall {
+  background: none;
+  display: inline-block;
+  padding: 0;
+  width: 100%;
   a {
-    color: $almostWhite;
+    box-shadow: none;
+    color: $beige;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.1s ease;
+    &:hover {
+      background: none;
+      color: $orange;
+    }
+  }
+  .menuOverlay.active & {
+    opacity: 0;
+    &:nth-child(1) {
+      animation: fadeInMenuItem 0.1s 0.4s ease-in both;
+    }
+    &:nth-child(2) {
+      animation: fadeInMenuItem 0.1s 0.5s ease-in both;
+    }
+    &:nth-child(3) {
+      animation: fadeInMenuItem 0.1s 0.6s ease-in both;
+    }
+    &:nth-child(4) {
+      animation: fadeInMenuItem 0.1s 0.7s ease-in both;
+    }
+    &:nth-child(5) {
+      animation: fadeInMenuItem 0.1s 0.8s ease-in both;
+    }
+    &:nth-child(6) {
+      animation: fadeInMenuItem 0.1s 0.9s ease-in both;
+    }
+    &:nth-child(7) {
+      animation: fadeInMenuItem 0.1s 1s ease-in both;
+    }
+  }
+}
+
+/* Menu Content Animations */
+@keyframes fadeInMenuItem {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes growLine {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Newsletter Form */
+.newsletterContainer {
+  display: none;
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 210px;
+    width: 50%;
+  }
+}
+.newsletterLine {
+  @media screen and (min-width: 700px) {
+    flex: 1;
+    max-height: 700px;
+    position: relative;
+    &:after {
+      background-color: $orange;
+      border-radius: 0 0 2px 2px;
+      content: '';
+      height: 100%;
+      left: 104px;
+      position: absolute;
+      width: 2px;
+    }
+  }
+  .menuOverlay.inactive & {
+    opacity: 0;
+  }
+  .menuOverlay.active & {
+    animation: growLine 0.7s 0.4s ease-in both;
+  }
+}
+.newsletterForm {
+  .menuOverlay.inactive & {
+    display: none;
+    opacity: 0;
+  }
+  .menuOverlay.active & {
+    animation: fadeInForm 0.2s 1.2s ease-in both;
+    display: block;
   }
 }

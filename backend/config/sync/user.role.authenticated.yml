@@ -11,9 +11,11 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access files overview'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'create session content'
+  - 'execute graphql requests'
   - 'execute persisted graphql requests'
   - 'post comments'
   - 'search content'

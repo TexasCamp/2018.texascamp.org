@@ -15,7 +15,10 @@ export const SESSION_QUERY = gql`
   }
 
   fragment SessionFragment on NodeSession {
-    body
+    body {
+      value
+      summary
+    }
     entityPublished
     fieldSessionContactCompany
     fieldSessionContactEmail
@@ -33,7 +36,8 @@ export const SESSION_QUERY = gql`
 
 export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
   entities.map(entity => ({
-    body: entity.body,
+    body: entity.body.value,
+    summary: entity.body.summary,
     contactCompany: entity.fieldSessionContactCompany,
     contactEmail: entity.fieldSessionContactEmail,
     contactName: entity.fieldSessionContactName,

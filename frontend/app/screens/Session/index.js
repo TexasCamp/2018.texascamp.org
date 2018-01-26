@@ -14,7 +14,11 @@ const Session = ({ session }: SessionProps) =>
   (<div>
     {session
       ? <SessionIndividual session={session} />
-      : <NotFound msg="No session matches that URL." />}
+      : <NotFound
+        msg="No session matches that URL."
+        linkText="Back to sessions"
+        linkUrl="/sessions"
+      />}
   </div>);
 
 export default withSessionQuery(Session);

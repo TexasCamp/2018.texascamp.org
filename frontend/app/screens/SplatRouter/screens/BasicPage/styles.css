@@ -11,15 +11,13 @@
   }
 }
 .title {
-  margin: 55px 20px 75px;
-  @media $tablet {
-    margin: 60px 40px 1.5rem;
-    max-width: calc(75% - 100px);
-  }
+  composes: title from '../../../../shared/css/global.css';
 }
 .detail {
   composes: contentArea from '../../../../shared/css/global.css';
+  margin-top: 6px;
   @media $tablet {
+    margin-top: 8px;
     width: calc(75% - 40px);
   }
   .mainContent {

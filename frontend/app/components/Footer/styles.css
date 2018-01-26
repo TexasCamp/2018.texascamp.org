@@ -1,17 +1,42 @@
 .footer {
-  margin-top: 60px;
-  @media $tablet {
-    margin-top: 100px;
-  }
+  margin-top: 100px;
 }
-.sponsors {
+.sponsorsWrapper {
   background: $lighterGrey;
   margin-bottom: 2px;
-  padding: 20px;
+  padding: 10px 20px;
   text-align: center;
   @media $tablet {
     margin-bottom: 5px;
-    padding: 30px 20px;
+    padding: 22px 20px 20px;
+    text-align: left;
+  }
+  .sponsors {
+    @media $tablet {
+      display: flex;
+      height: 28px;
+      margin: 0 auto;
+      width: 438px;
+    }
+    p {
+      margin-bottom: 10px;
+      @media $tablet {
+        flex-grow: 1;
+        margin: 0;
+        padding: 4px 0px;
+      }
+    }
+  }
+  .sponsorsContainer {
+    display: flex;
+    justify-content: center;
+    line-height: 28px;
+    img {
+      max-height: 28px;
+      margin: 0 0 0 20px;
+      max-width: 80px;
+      vertical-align: middle;
+    }
   }
 }
 
@@ -20,6 +45,6 @@
   padding: 20px;
   text-align: center;
   @media $tablet {
-    padding: 30px 20px;
+    padding: 26px 20px 24px;
   }
 }
