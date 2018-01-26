@@ -25,7 +25,9 @@ const Sponsors = ({
   const bronzeSponsors = sponsors.filter(
     sponsor => sponsor.sponsorLevel === 'Bronze',
   );
-
+  const individualSponsors = sponsors.filter(
+    sponsor => sponsor.sponsorLevel === 'Individual',
+  );
   return (
     (!loading &&
       <div>
@@ -64,6 +66,14 @@ const Sponsors = ({
                 <div className={styles.sponsors}>
                   <h2>Bronze</h2>
                   {bronzeSponsors.map(sponsor =>
+                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
+                  )}
+                </div>) ||
+                null}
+              {(individualSponsors.length &&
+                <div className={styles.sponsors}>
+                  <h2>Individual</h2>
+                  {individualSponsors.map(sponsor =>
                     <Sponsor key={sponsor.id} sponsor={sponsor} />,
                   )}
                 </div>) ||
