@@ -29,7 +29,8 @@ export const NEWS_QUERY = gql`
 export const newsListMapper = (entities: Array<Object>): Array<NewsT> =>
   entities.map(entity => ({
     title: entity.title,
-    body: entity.body,
+    body: entity.body.value,
+    summary: entity.body.summary,
     publishedDate: entity.fieldNewsDate && new Date(entity.fieldNewsDate),
     urlString: titleToLink(entity.title),
     id: entity.entityId,

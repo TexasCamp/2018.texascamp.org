@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import { cleanHtml } from 'utils';
 import type { SessionT } from 'types';
-import styles from 'Sessions/styles.css';
 import Link from 'AsyncLink';
+import Html from 'Html';
+import styles from 'Sessions/styles.css';
 import withLogic from './logic';
 
 type ButtonT = {
@@ -30,69 +30,109 @@ const SessionsList = (props: SessionsListProps) => {
     trackButtons,
     skillLevelButtons,
   } = props;
+
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
-        <h1>Sessions</h1>
-        <h2>Skill Level Filters:</h2>
-        {skillLevelButtons.map(eachBtn =>
-          (<button
-            className={eachBtn.isSelected && styles.btnSelected}
-            key={eachBtn.name}
-            onClick={eachBtn.onClick}
-          >
-            {`${eachBtn.name}`}
-          </button>),
-        )}
-        <h2>Track Filters:</h2>
-        {trackButtons.map(eachBtn =>
-          (<button
-            className={eachBtn.isSelected && styles.btnSelected}
-            key={eachBtn.name}
-            onClick={eachBtn.onClick}
-          >
-            {`${eachBtn.name}`}
-          </button>),
-        )}
-        <div>
-          <h2>Session Search</h2>
-          <input
-            type="text"
-            value={textSearchInput}
-            onChange={changeTextFilter}
-          />
+        <h1 className={styles.title}>Sessions</h1>
+        <h4 className={styles.filterTitle}>Filter By</h4>
+        <div className={styles.filterWrapper}>
+          <div className={styles.filters}>
+            <h4 className={styles.searchLabel}>Search</h4>
+            <input
+              className={styles.searchTextInput}
+              type="text"
+              value={textSearchInput}
+              onChange={changeTextFilter}
+              placeholder="Search"
+            />
+            <div className={styles.filter}>
+              <h4>Track</h4>
+              {trackButtons.map(eachBtn =>
+                (<button
+                  className={`${styles.filterButton} ${eachBtn.isSelected &&
+                    styles.filterButtonSelected}`}
+                  key={eachBtn.name}
+                  onClick={eachBtn.onClick}
+                >
+                  {`${eachBtn.name}`}
+                </button>),
+              )}
+            </div>
+            <div className={styles.filter}>
+              <h4>Skill Level</h4>
+              {skillLevelButtons.map(eachBtn =>
+                (<button
+                  className={`${styles.filterButton} ${eachBtn.isSelected &&
+                    styles.filterButtonSelected}`}
+                  key={eachBtn.name}
+                  onClick={eachBtn.onClick}
+                >
+                  {`${eachBtn.name}`}
+                </button>),
+              )}
+            </div>
+            <button onClick={resetAllFilters} className={styles.resetButton}>
+              Reset All
+            </button>
+          </div>
         </div>
-        <h2>Reset All:</h2>
-        <button onClick={resetAllFilters}>Reset All Filters</button>
-        <hr />
-        {sessions.map(eachSession =>
-          (<div key={eachSession.title}>
-            <ul>
-              <li>{`Title: ${eachSession.title}`}</li>
-              <li>
-                <u>
-                  <Link to={`/sessions/${eachSession.urlString}`}>
-                    Link to session page
-                  </Link>
-                </u>
-              </li>
-              <li className={styles.descriptionContainer}>
-                {'Description:'}
-                {cleanHtml(eachSession.body)}
-              </li>
-              <li>{`Experience Level: ${eachSession.skillLevel}`}</li>
-              <li>
-                <span>Speakers:</span>
-                {eachSession.speakers.map(eachName =>
-                  <span key={eachName}>{` ${eachName} `}</span>,
-                )}
-              </li>
-              <li>{`Timeslot: ${eachSession.timeslot}`}</li>
-              <li>{`Track: ${eachSession.track}`}</li>
-            </ul>
-            <hr />
-          </div>),
-        )}
+        {sessions.map(sessionTeaser => {
+          // Use body summary if available
+          // If not trim to 400 characters
+          const strippedBody = sessionTeaser.body.replace(/(<([^>]+)>)/gi, '');
+          const trimmedBody =
+            strippedBody.length > 400
+              ? `${strippedBody.substr(0, 400)}...`
+              : strippedBody;
+          const formattedBody = sessionTeaser.summary
+            ? sessionTeaser.summary
+            : trimmedBody;
+
+          return (
+            <div className={styles.teaserWrapper}>
+              <Link to={`/sessions/${sessionTeaser.urlString}`}>
+                <h3>
+                  {sessionTeaser.title}
+                </h3>
+                <p>
+                  <Html className={styles.body}>
+                    {formattedBody}
+                  </Html>
+                </p>
+                <div className={styles.details}>
+                  {sessionTeaser.speakers &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>
+                        Presenter<span className={styles.lightText}>(s)</span>
+                      </div>
+                      <div>
+                        {sessionTeaser.speakers.map(eachName =>
+                          (<span key={eachName}>
+                            {eachName}
+                          </span>),
+                        )}
+                      </div>
+                    </div>}
+                  {sessionTeaser.track &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Track</div>
+                      <div>
+                        {sessionTeaser.track}
+                      </div>
+                    </div>}
+                  {sessionTeaser.skillLevel &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Skill Level</div>
+                      <div>
+                        {sessionTeaser.skillLevel}
+                      </div>
+                    </div>}
+                </div>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -2,19 +2,18 @@
   @media $desktop {
     display: flex;
   }
-}
+} 
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
   @media $desktop {
     min-width: 50%;
   }
-  .title {
-    margin-left: 20px;
-    margin-right: 20px;
-    @media $desktop {
-      margin-left: 40px;
-      margin-right: 40px;
-    }
+}
+.title {
+  composes: title from '../../shared/css/global.css';
+  margin-bottom: 16px;
+  @media $tablet {
+    margin-bottom: 15px;
   }
 }
 .detail {
@@ -22,5 +21,8 @@
   flex-direction: unset;
   @media $tablet {
     width: calc(75% - 40px);
+  }
+  h3 {
+    margin-top: 18px;
   }
 }

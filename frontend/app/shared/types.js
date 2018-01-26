@@ -16,6 +16,7 @@ export type TrackT =
 
 export type SessionT = {
   body: string,
+  summary: string,
   isPublished: boolean,
   room?: string,
   skillLevel: SkillLevelT,
@@ -23,7 +24,6 @@ export type SessionT = {
   speakersBio?: string,
   status?: 'selected' | 'not selected',
   timeslot?: Date,
-  title: string,
   title: string,
   track: TrackT,
   urlString: string,
@@ -43,10 +43,8 @@ export type SponsorT = {
 
 export type NewsT = {
   title: string,
-  body: {
-    value: string,
-    summary: string,
-  },
+  body: string,
+  summary: string,
   publishedDate: Date,
   urlString: string,
   id: number,

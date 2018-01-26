@@ -3,22 +3,22 @@
 import { graphql } from 'react-apollo';
 import { NEWS_QUERY, newsListMapper } from 'NewsOverview/withNewsQuery';
 
-const withNewsQuery = graphql(NEWS_QUERY, {
+const withNewsItemQuery = graphql(NEWS_QUERY, {
   props: props => {
     const {
       data: { nodeQuery: { entities } = {}, loading },
       ownProps: { match: { params: { newsTitle } } },
     } = props;
 
-    const newsTeaser = loading
+    const newsItem = loading
       ? []
       : newsListMapper(entities).find(
           ({ urlString }) => urlString === newsTitle,
         );
     return {
-      newsTeaser,
+      newsItem,
     };
   },
 });
 
-export default withNewsQuery;
+export default withNewsItemQuery;

@@ -1,0 +1,20 @@
+.teaserWrapper {
+  border-bottom: 1px dashed $grey;
+  padding: 25px 0 33px;
+  &:first-child {
+    padding-top: 0; 
+  }
+}
+.date {
+  border-bottom: 1px dashed $grey;
+  color: $grey;
+  display: initial;
+  font-size: 12px;
+}
+.moreLink {
+  background: url('../../shared/images/plus.svg') left 5px no-repeat;
+  background-size: 8px;
+  margin-top: 20px;
+  padding-left: 15px;
+  text-transform: uppercase;
+}

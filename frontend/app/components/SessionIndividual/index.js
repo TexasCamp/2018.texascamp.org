@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-scroll';
 import { cleanHtml } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
@@ -8,27 +9,13 @@ import Footer from 'Footer';
 import type { SessionT } from 'types';
 import styles from './styles.css';
 
-type SessionIndividualProps = {
-  session: SessionT,
-};
-const SessionIndividual = ({
-  session: {
-    body,
-    skillLevel,
-    timeslot,
-    title,
-    track,
-    speakers,
-    room,
-    speakersBio,
-  },
-}: SessionIndividualProps) => {
+const SessionIndividual = ({ session }: { session: SessionT }) => {
   // Format date/time
-  const formattedTimeslotDay = timeslot
-    ? timeslot.toLocaleString('en-US', { weekday: 'long' })
+  const formattedTimeslotDay = session.timeslot
+    ? session.timeslot.toLocaleString('en-US', { weekday: 'long' })
     : '';
-  const formattedTimeslotDate = timeslot
-    ? timeslot.toLocaleString('en-US', {
+  const formattedTimeslotDate = session.timeslot
+    ? session.timeslot.toLocaleString('en-US', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
@@ -39,8 +26,7 @@ const SessionIndividual = ({
 
   // Format body to:
   // - Update inline image src to include full url
-  // - Remove all links
-  let formattedBody = body;
+  let formattedBody = session.body;
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',
@@ -49,78 +35,91 @@ const SessionIndividual = ({
     : '';
   return (
     <div>
-      <Helmet title={`Session: ${title}`} />
-      <Menu />
-      <div className={styles.contentWrapper}>
-        <Header />
-        <div className={styles.content}>
-          <h2 className={styles.title}>
-            {title}
-          </h2>
-          <div className={styles.detail}>
-            <div className={styles.section}>
-              <div className={styles.field}>
-                <div className={styles.fieldLabel}>
-                  Presenter<span>(s)</span>
-                </div>
-                <div>
-                  {speakers.map(eachName =>
-                    (<div key={eachName}>
-                      {eachName}
-                    </div>),
-                  )}
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.fieldLabel}>Track</div>
-                <div>
-                  {track}
-                </div>
-              </div>
-              <div className={styles.field}>
-                <div className={styles.fieldLabel}>Skill Level</div>
-                <div>
-                  {skillLevel}
-                </div>
-              </div>
-              {timeslot &&
-                <div className={styles.field}>
-                  <div className={styles.fieldLabel}>Timeslot</div>
-                  <div>
-                    {formattedTimeslotDay}
+      {session.title &&
+        <div>
+          <Helmet title={`Session: ${session.title}`} />
+          <Menu />
+          <div className={styles.contentWrapper}>
+            <Header />
+            <div className={styles.content}>
+              <h1 className={styles.title}>
+                {session.title}
+              </h1>
+              <div className={styles.detail}>
+                <div className={styles.section}>
+                  <div className={styles.field}>
+                    <div className={styles.fieldLabel}>
+                      Presenter<span className={styles.lightText}>(s)</span>
+                    </div>
+                    <div>
+                      {session.speakers.map(eachName =>
+                        (<div key={eachName}>
+                          <Link
+                            activeClass="active"
+                            to="bio"
+                            spy
+                            smooth
+                            offset={50}
+                            duration={500}
+                          >
+                            {eachName}
+                          </Link>
+                        </div>),
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    {formattedTimeslotDate}
+                  <div className={styles.field}>
+                    <div className={styles.fieldLabel}>Track</div>
+                    <div>
+                      {session.track}
+                    </div>
                   </div>
-                </div>}
-              {room &&
-                <div className={styles.field}>
-                  <div className={styles.fieldLabel}>Room</div>
-                  <div>
-                    {room}
+                  <div className={styles.field}>
+                    <div className={styles.fieldLabel}>Skill Level</div>
+                    <div>
+                      {session.skillLevel}
+                    </div>
                   </div>
-                </div>}
-            </div>
-            <div className={styles.mainContent}>
-              {cleanHtml(formattedBody)}
+                  {session.timeslot &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Timeslot</div>
+                      <div>
+                        {formattedTimeslotDay}
+                      </div>
+                      <div>
+                        {formattedTimeslotDate}
+                      </div>
+                    </div>}
+                  {session.room &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Room</div>
+                      <div>
+                        {session.room}
+                      </div>
+                    </div>}
+                </div>
+                <div className={styles.mainContent}>
+                  {cleanHtml(formattedBody)}
 
-              {speakersBio &&
-                <div className={styles.bio}>
-                  <div className={styles.bioNames}>
-                    {speakers.map(eachName =>
-                      (<div key={eachName} className={styles.bioName}>
-                        {eachName}
-                      </div>),
-                    )}
-                  </div>
-                  {cleanHtml(speakersBio)}
-                </div>}
+                  {session.speakersBio &&
+                    <div className={styles.bio} name="bio">
+                      <div className={styles.bioNames}>
+                        {session.speakers.map(eachName =>
+                          (<div key={eachName} className={styles.bioName}>
+                            {eachName}
+                          </div>),
+                        )}
+                      </div>
+                      {cleanHtml(session.speakersBio)}
+                    </div>}
+                </div>
+              </div>
+              <Footer />
             </div>
           </div>
-          <Footer />
-        </div>
-      </div>
+        </div>}
     </div>
   );
 };
+
 export default SessionIndividual;
