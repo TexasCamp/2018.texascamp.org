@@ -48,8 +48,8 @@ body {
     font-family: "calder-dark", sans-serif;
     font-size: 1rem;
     font-weight: normal;
-    line-height: 1rem;
-    margin-bottom: 0.25rem;
+    line-height: 20px;
+    margin-bottom: 0.75rem;
     margin-top: 1rem;
   }
   h4 {

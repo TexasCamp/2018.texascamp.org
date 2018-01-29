@@ -51,7 +51,7 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                     <div className={styles.fieldLabel}>
                       Presenter<span>(s)</span>
                     </div>
-                    <div>
+                    <div className={styles.presenter}>
                       {session.speakers.map(eachSpeaker =>
                         (<div key={eachSpeaker.fieldSessionPresenter}>
                           <Link
