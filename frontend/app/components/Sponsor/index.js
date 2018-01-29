@@ -12,12 +12,21 @@ type SponsorProps = {
 const Sponsor = ({ sponsor }: SponsorProps) => {
   return (
     <div className={styles.sponsorWrapper}>
-      {sponsor.sponsorUrl &&
-        <Link to={sponsor.sponsorUrl}>
-          <img src={sponsor.image.url} alt={sponsor.image.alt} />
-        </Link>}
-      {!sponsor.sponsorUrl &&
-        <img src={sponsor.image.url} alt={sponsor.image.alt} />}
+      {sponsor.sponsorUrl
+        ? <Link to={sponsor.sponsorUrl}>
+          {sponsor.sponsorLevel !== 'Individual' && sponsor.image.url
+              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
+              : <p>
+                {sponsor.title}
+              </p>}
+        </Link>
+        : <div>
+          {sponsor.sponsorLevel !== 'Individual'
+              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
+              : <p>
+                {sponsor.title}
+              </p>}
+        </div>}
     </div>
   );
 };
