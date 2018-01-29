@@ -2,6 +2,7 @@
 
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import path from 'ramda/src/path';
 import type { SponsorT } from 'types';
 
 export const SPONSOR_QUERY = gql`
@@ -37,12 +38,12 @@ export const sponsorsListMapper = (entities: Array<Object>): Array<SponsorT> =>
     id: entity.entityId,
     title: entity.title,
     body: entity.body,
-    sponsorLevel: entity.fieldSponsorLevel.entity.entityLabel,
+    sponsorLevel: path(['fieldSponsorLevel', 'entity', 'entityLabel'], entity),
     image: {
-      url: entity.fieldSponsorImage.url,
-      alt: entity.fieldSponsorImage.alt,
+      url: path(['fieldSponsorImage', 'url'], entity),
+      alt: path(['fieldSponsorImage', 'alt'], entity),
     },
-    sponsorUrl: entity.fieldSponsorUrl && entity.fieldSponsorUrl.uri,
+    sponsorUrl: path(['fieldSponsorUrl', 'uri'], entity),
   }));
 
 const withSponsorsQuery = graphql(SPONSOR_QUERY, {
