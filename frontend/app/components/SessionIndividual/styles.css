@@ -27,6 +27,9 @@
     @media $tablet {
       margin-bottom: 40px;
     }
+    .presenter {
+      cursor: pointer;
+    }
   }
   .mainContent {
     @media $tablet {
