@@ -1,0 +1,31 @@
+uuid: 5209e564-92cd-4c0a-8cf8-77aa5e9f3031
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.presenter.field_session_bio
+    - field.field.paragraph.presenter.field_session_presenter
+    - paragraphs.paragraphs_type.presenter
+  module:
+    - text
+id: paragraph.presenter.default
+targetEntityType: paragraph
+bundle: presenter
+mode: default
+content:
+  field_session_bio:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_session_presenter:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

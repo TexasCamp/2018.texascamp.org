@@ -3,9 +3,6 @@
   margin-bottom: 20px;
   margin-left: 0;
   margin-right: 0;
-  @media $tablet {
-    margin-bottom: 18px;
-  }
 }
 .contentWrapper {
   @media $desktop {
@@ -28,15 +25,29 @@
   padding-bottom: 20px;
   .filters {
     background: $yellow;
-    padding: 2rem 20px 1.75rem;
+    padding: 0 20px;
     @media $tablet {
-      padding: 2rem 40px 50px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    &.filtersOpen {
+      height: 100%;
+      padding-bottom: 52px;
+      padding-top: 2rem;
+      transition: height 0.2s linear, padding 0.2s ease;
+    }
+    &.filtersClosed {
+      height: 0px;
+      overflow: hidden;
+      transition: height 0.2s linear, padding 0.2s ease 0.2s;
     }
     .filter {
-      margin: 26px 0 0;
+      margin: 25px 0 0;
       width: calc(100% + 15px);
-      h4 {
+      .fieldLabel {
+        line-height: 1rem;
         margin-bottom: 18px;
+        margin-top: 1rem;
       }
     }
     .searchLabel {
@@ -46,23 +57,40 @@
 }
 .filterTitle {
   background: $lighterGrey;
+  border: none;
+  composes: calderDark from '../../shared/css/fonts.css';
+  cursor: pointer;
+  line-height: 13px;
   margin: 0;
-  padding: 18px 20px;
-  &:after {
-    background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
-    background-size: 12px;
-    content: "";
-    height: 52px;
-    margin-top: -18px;
-    position: absolute;
-    right: 20px;
-    width: 52px;
-    &.open {
-      background: url('../../shared/images/uparrow.png') center center no-repeat $yellow;
-    }
-    @media $tablet {
-      right: 40px;
-    }
+  outline: none;
+  padding: 19px 20px 18px;
+  text-align: left;
+  width: 100%;
+}
+.openFiltersButton {
+  background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
+  background-size: 12px;
+  border: none;
+  color: $lighterGrey;
+  content: "";
+  font-size: 0;
+  height: 50px;
+  outline: none;
+  position: absolute;
+  right: 20px;
+  transition: 0.2s all ease 0.2s;
+  width: 50px;
+  @media $tablet {
+    right: 40px;
+  }
+  &.filtersOpen {
+    background-color: $yellow;
+    background-image: url('../../shared/images/uparrow.png');
+    color: $yellow;
+    transition: 0.2s all ease;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 .filterButton {
@@ -71,14 +99,19 @@
   border-radius: 4px;
   color: $navy;
   composes: calderLC from '../../shared/css/fonts.css';
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   margin-right: 15px;
   outline: none;
-  padding: 0.5rem 10px;
+  padding: 5px 10px 4px;
+  &:hover {
+    background: $navy;
+    color: $yellow;
+    cursor: pointer;
+  }
 }
 .filterButtonSelected {
   background: $navy;
-  color: $beige;
+  color: $yellow;
 }
 .searchTextInput {
   background: $yellow;
@@ -86,6 +119,7 @@
   border-radius: 4px;
   color: $navy;
   composes: calderLC from '../../shared/css/fonts.css';
+  margin-bottom: 3px;
   padding: 1rem 20px;
   width: 100%;
   &:focus {
@@ -102,13 +136,17 @@
   color: $beige;
   composes: calderDark from '../../shared/css/fonts.css';
   line-height: 100%;
-  margin-top: 1.25rem;
+  margin-top: 20px;
   outline: none;
-  padding: 0.5rem 20px;
+  padding: 6px 20px;
   text-transform: uppercase;
   transition: background .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
   &:hover {
     background: $navy;
+    cursor: pointer;
   }
 }
 .body {
@@ -123,7 +161,7 @@
 }
 .teaserWrapper {
   border-bottom: 1px dashed $grey;
-  padding: 42px 20px 34px;
+  padding: 42px 20px 54px;
   @media $tablet {
     padding-left: 40px;
     padding-right: 40px;
@@ -143,4 +181,7 @@
 .lightText {
   composes: calderLC from '../../shared/css/fonts.css';
   text-transform: uppercase;
+}
+.presenter ~ .presenter::before {
+  content: ', ';
 }

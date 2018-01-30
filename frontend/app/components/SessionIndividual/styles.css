@@ -27,6 +27,9 @@
     @media $tablet {
       margin-bottom: 40px;
     }
+    .presenter {
+      cursor: pointer;
+    }
   }
   .mainContent {
     @media $tablet {
@@ -34,13 +37,16 @@
       margin-top: 8px;
       width: 100%;
     }
-    .bio {
+    .bios {
       background: $yellow;
       margin-top: 40px;
       padding: 20px;
       @media $tablet {
         margin-top: 74px;
         padding: 26px 30px 14px;
+      }
+      .bio ~ .bio {
+        margin-top: 40px;
       }
       .bioNames {
         margin-bottom: 1.25rem;

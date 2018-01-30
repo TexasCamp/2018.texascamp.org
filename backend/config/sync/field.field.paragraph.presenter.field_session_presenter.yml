@@ -1,0 +1,19 @@
+uuid: c6a9be72-8336-4c84-9e65-fdf042cea02f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_session_presenter
+    - paragraphs.paragraphs_type.presenter
+id: paragraph.presenter.field_session_presenter
+field_name: field_session_presenter
+entity_type: paragraph
+bundle: presenter
+label: Presenter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

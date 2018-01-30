@@ -2,7 +2,7 @@
 import React from 'react';
 import type { SessionT } from 'types';
 import Link from 'AsyncLink';
-import Html from 'Html';
+import { cleanHtml } from 'utils';
 import styles from 'Sessions/styles.css';
 import withLogic from './logic';
 
@@ -19,6 +19,8 @@ type SessionsListProps = {
   textSearchInput: string,
   trackButtons: Array<ButtonT>,
   skillLevelButtons: Array<ButtonT>,
+  openFilters: Function,
+  filtersOpen: boolean,
 };
 
 const SessionsList = (props: SessionsListProps) => {
@@ -29,17 +31,36 @@ const SessionsList = (props: SessionsListProps) => {
     textSearchInput,
     trackButtons,
     skillLevelButtons,
+    openFilters,
+    filtersOpen,
   } = props;
 
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
         <h1 className={styles.title}>Sessions</h1>
-        <h4 className={styles.filterTitle}>Filter By</h4>
+        <button
+          onClick={openFilters}
+          className={`${styles.openFiltersButton} ${filtersOpen
+            ? styles.filtersOpen
+            : ''}`}
+        >
+          Open Filters
+        </button>
+        <button className={styles.filterTitle} onClick={openFilters}>
+          Filter By
+        </button>
         <div className={styles.filterWrapper}>
-          <div className={styles.filters}>
-            <h4 className={styles.searchLabel}>Search</h4>
+          <div
+            className={`${styles.filters} ${filtersOpen
+              ? styles.filtersOpen
+              : styles.filtersClosed}`}
+          >
+            <div id="search" className={styles.searchLabel}>
+              Search
+            </div>
             <input
+              aria-labelledby="search"
               className={styles.searchTextInput}
               type="text"
               value={textSearchInput}
@@ -47,32 +68,38 @@ const SessionsList = (props: SessionsListProps) => {
               placeholder="Search"
             />
             <div className={styles.filter}>
-              <h4>Track</h4>
+              <div className={styles.fieldLabel}>Track</div>
               {trackButtons.map(eachBtn =>
                 (<button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
+                  tabIndex="0"
                 >
                   {`${eachBtn.name}`}
                 </button>),
               )}
             </div>
             <div className={styles.filter}>
-              <h4>Skill Level</h4>
+              <div className={styles.fieldLabel}>Skill Level</div>
               {skillLevelButtons.map(eachBtn =>
                 (<button
                   className={`${styles.filterButton} ${eachBtn.isSelected &&
                     styles.filterButtonSelected}`}
                   key={eachBtn.name}
                   onClick={eachBtn.onClick}
+                  tabIndex="0"
                 >
                   {`${eachBtn.name}`}
                 </button>),
               )}
             </div>
-            <button onClick={resetAllFilters} className={styles.resetButton}>
+            <button
+              className={styles.resetButton}
+              onClick={resetAllFilters}
+              tabIndex="0"
+            >
               Reset All
             </button>
           </div>
@@ -90,15 +117,13 @@ const SessionsList = (props: SessionsListProps) => {
             : trimmedBody;
 
           return (
-            <div className={styles.teaserWrapper}>
+            <div key={sessionTeaser.title} className={styles.teaserWrapper}>
               <Link to={`/sessions/${sessionTeaser.urlString}`}>
-                <h3>
+                <h2>
                   {sessionTeaser.title}
-                </h3>
-                <p>
-                  <Html className={styles.body}>
-                    {formattedBody}
-                  </Html>
+                </h2>
+                <p className={styles.body}>
+                  {cleanHtml(formattedBody)}
                 </p>
                 <div className={styles.details}>
                   {sessionTeaser.speakers &&
@@ -107,9 +132,12 @@ const SessionsList = (props: SessionsListProps) => {
                         Presenter<span className={styles.lightText}>(s)</span>
                       </div>
                       <div>
-                        {sessionTeaser.speakers.map(eachName =>
-                          (<span key={eachName}>
-                            {eachName}
+                        {sessionTeaser.speakers.map(eachSpeaker =>
+                          (<span
+                            className={styles.presenter}
+                            key={eachSpeaker.fieldSessionPresenter}
+                          >
+                            {eachSpeaker.fieldSessionPresenter}
                           </span>),
                         )}
                       </div>

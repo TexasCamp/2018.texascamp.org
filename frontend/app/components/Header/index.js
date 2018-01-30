@@ -13,7 +13,7 @@ function Header() {
         <div className={styles.backgroundImageWrapper}>
           <img src={backgroundImage} alt="" />
         </div>
-        <section className={styles.info}>
+        <div className={styles.info}>
           <div>
             May 31-June 2, 2018<span className={styles.separator}>
               &nbsp;&nbsp;&middot;&nbsp;&nbsp;
@@ -31,7 +31,7 @@ function Header() {
               <Facebook />
             </span>
           </div>
-        </section>
+        </div>
         <div className={styles.logo}>
           <a href="/">
             <img

@@ -40,18 +40,21 @@ body {
     }
   }
   h2 {
-    font-family: "calder-dark", sans-serif;
-    font-size: 26px;
-    line-height: 40px;
-  }
-  h3 {
     font-size: 20px;
+    line-height: 25px;
     margin: 2.25rem 0 23px;
   }
-  h4 {
-    line-height: 1rem;
-    margin-bottom: 0.25rem;
+  h3 {
+    font-family: "calder-dark", sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 0.75rem;
     margin-top: 1rem;
+  }
+  h4 {
+    font-family: "calder-dark", sans-serif;
+    margin: 0;
   }
   ul {
     list-style: none;
@@ -89,19 +92,6 @@ body {
       }
     }
   }
-}
-
-h3 {
-  font-family: "calder-lc", sans-serif;
-  font-size: 20px;
-  font-weight: normal;
-  margin: 2.5rem 0 1.5rem;
-}
-
-h4 {
-  font-family: "calder-dark", sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
 }
 .title {
   font-size: 30px;

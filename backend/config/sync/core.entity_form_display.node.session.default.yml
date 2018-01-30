@@ -7,16 +7,16 @@ dependencies:
     - field.field.node.session.field_session_contact_company
     - field.field.node.session.field_session_contact_email
     - field.field.node.session.field_session_contact_name
+    - field.field.node.session.field_session_presenters
     - field.field.node.session.field_session_room
     - field.field.node.session.field_session_skill_level
-    - field.field.node.session.field_session_speakers
-    - field.field.node.session.field_session_speakers_bio
     - field.field.node.session.field_session_status
     - field.field.node.session.field_session_timeslot
     - field.field.node.session.field_session_track
     - node.type.session
   module:
     - datetime
+    - paragraphs
     - path
     - text
 id: node.session.default
@@ -63,6 +63,18 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_session_presenters:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
   field_session_room:
     weight: 17
     settings:
@@ -76,22 +88,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_session_speakers:
-    weight: 8
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_session_speakers_bio:
-    weight: 10
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
     region: content
   field_session_status:
     weight: 14
