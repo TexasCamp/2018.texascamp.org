@@ -57,10 +57,15 @@
 }
 .filterTitle {
   background: $lighterGrey;
+  border: none;
   composes: calderDark from '../../shared/css/fonts.css';
+  cursor: pointer;
   line-height: 13px;
   margin: 0;
+  outline: none;
   padding: 19px 20px 18px;
+  text-align: left;
+  width: 100%;
 }
 .openFiltersButton {
   background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
