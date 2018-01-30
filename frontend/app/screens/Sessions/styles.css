@@ -161,12 +161,12 @@
 }
 .teaserWrapper {
   border-bottom: 1px dashed $grey;
-  padding: 42px 20px 54px;
+  padding: 40px 20px 55px;
   @media $tablet {
     padding-left: 40px;
     padding-right: 40px;
   }
-  h3 {
+  h2 {
     margin-top: 0;
   }
   &:hover {
