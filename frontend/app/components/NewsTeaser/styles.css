@@ -1,8 +1,10 @@
-.teaserWrapper {
-  border-bottom: 1px dashed $grey;
-  padding: 25px 0 33px;
-  &:first-child {
-    padding-top: 0; 
+.newOverview {
+  &.teaserWrapper {
+    border-bottom: 1px dashed $grey;
+    padding: 25px 0 33px;
+    &:first-child {
+      padding-top: 0;
+    }
   }
 }
 .date {
@@ -17,4 +19,22 @@
   margin-top: 20px;
   padding-left: 15px;
   text-transform: uppercase;
+}
+.hompageNews {
+  padding: 45px 20px 55px;
+  @media $tablet {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  &:nth-child(odd) {
+    background: $almostWhite;
+  }
+  &.secondColumn {
+    &:nth-child(odd) {
+      background: $beige;
+    }
+    &:nth-child(even) {
+      background: $almostWhite;
+    }
+  }
 }

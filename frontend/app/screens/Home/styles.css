@@ -5,17 +5,197 @@
 }
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
+  margin-top: 20px;
+  @media $tablet {
+    margin-top: 30px;
+  }
   @media $desktop {
+    margin-top: 0;
     min-width: 50%;
     width: 100%;
   }
 }
-
 .detail {
   @media $tablet {
-    width: calc(75% - 40px);
+    display: flex;
+    margin-bottom: -100px;
+  }
+  .column {
+    @media $tablet {
+      max-width: 50%;
+      min-width: 50%;
+    }
+  }
+  .box {
+    padding: 45px 20px 60px;
+    @media $tablet {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
   }
 }
-.newsTeaser {
+.button {
+  composes: button from '../../shared/css/global.css';
+  display: inline-block;
+  margin-top: 14px;
+}
+.smallest {
+  color: $grey;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.tickets {
+  background: $navy;
+  color: $beige;
+  position: relative;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  h3 {
+    font-size: 22px;
+    line-height: 13px;
+    margin: 0 0 15px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 108px;
+  }
+  .verticalText {
+    bottom: 50px;
+    color: $grey;
+    font-size: 11px;
+    position: absolute;
+    right: -25px;
+    transform: rotate(-90deg);
+  }
+  .button {
+    &:hover {
+      background: $yellow;
+      color: $navy;
+    }
+  }
+}
+.latestNews {
+  background: $almostWhite;
+}
+.speak {
+  background: url('../../shared/images/submit.png') 20px center $yellow no-repeat;
+  background-size: 75px 72px;
+  @media $tablet {
+    background-position: 50px center;
+  }
+  &.box {
+    padding-bottom: 40px;
+    padding-left: 115px;
+    padding-top: 25px;
+    @media $tablet {
+      padding-left: 175px;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .button {
+    margin-top: 10px;
+  }
+}
+.sponsors {
+  background: $beige;
+  overflow: hidden;
+  text-align: center;
+  .heading {
+    margin: 8px 0 30px;
+    width: 140px;
+  }
+  img {
+    margin-bottom: 6px;
+    max-width: 180px;
+  }
+  &.box {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slider {
+    margin-bottom: 8px;
+    position: relative;
+    :global .slick-track {
+      display: inline-flex;
+      .slick-slide {
+        div {
+          height: 100%;
+          &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+          }
+          img {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    ul {
+      position: absolute;
+      top: -26px;
+      width: 100%;
+      li {
+        background: none;
+        display: inline;
+        padding: 0 6px;
+        button {
+          background: $lightGrey;
+          border: none;
+          border-radius: 10px;
+          color: $lightGrey;
+          font-size: 0;
+          height: 4px;
+          outline: none;
+          padding: 0;
+          width: 4px;
+        }
+      }
+    }
+  }
+}
+:global .slick-active {
+  button {
+    background: $navy !important;
+  }
+}
+.training {
+  background: url('../../shared/images/level-up.png') 20px center $navy no-repeat;
+  background-size: 75px 65px;
+  color: $beige;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  @media $tablet {
+    background-position: 50px center;
+    grid-column: 2;
+  }
+  &.box {
+    padding-bottom: 40px;
+    padding-left: 115px;
+    padding-top: 25px;
+    @media $tablet {
+      padding-left: 175px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .button {
+    margin-top: 10px;
+    &:hover {
+      background: $yellow;
+      color: $navy;
+    }
+  }
+}
+.footer {
   background: red;
+  margin-top: 0;
 }
