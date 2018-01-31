@@ -136,3 +136,23 @@ body {
     }
   }
 }
+.button {
+  background: $orange;
+  border: none;
+  border-radius: 20px;
+  color: $beige;
+  composes: calderDark from '../../shared/css/fonts.css';
+  line-height: 100%;
+  margin-top: 20px;
+  outline: none;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  &:hover {
+    background: $navy;
+    cursor: pointer;
+  }
+}
