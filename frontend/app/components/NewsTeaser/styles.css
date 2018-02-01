@@ -11,11 +11,12 @@
   border-bottom: 1px dashed $grey;
   color: $grey;
   display: initial;
-  font-size: 12px;
+  font-size: 11px;
 }
 .moreLink {
   background: url('../../shared/images/plus.svg') left 5px no-repeat;
   background-size: 8px;
+  font-size: 11px;
   margin-top: 20px;
   padding-left: 15px;
   text-transform: uppercase;

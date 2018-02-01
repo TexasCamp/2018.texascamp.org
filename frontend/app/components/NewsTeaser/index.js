@@ -21,8 +21,8 @@ const NewsTeaser = ({
   // If not trim to 400 characters
   const strippedBody = newsTeaser.body.replace(/(<([^>]+)>)/gi, '');
   const trimmedBody =
-    strippedBody.length > 400
-      ? `${strippedBody.substr(0, 400)}...`
+    strippedBody.length > 200
+      ? `${strippedBody.substr(0, 200)}...`
       : strippedBody;
   const formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
 
@@ -38,9 +38,15 @@ const NewsTeaser = ({
   return (
     <div className={`${styles.teaserWrapper} ${newsContext} ${homepageStyles}`}>
       <Link to={`/news/${newsTeaser.urlString}`}>
-        <div className={styles.date}>{formattedDate}</div>
-        <h2>{newsTeaser.title}</h2>
-        <Html>{formattedBody}</Html>
+        <div className={styles.date}>
+          {formattedDate}
+        </div>
+        <h2>
+          {newsTeaser.title}
+        </h2>
+        <Html>
+          {formattedBody}
+        </Html>
         <div className={styles.moreLink}>More</div>
       </Link>
     </div>
