@@ -71,6 +71,7 @@
     transform: rotate(-90deg);
   }
   .button {
+    margin-top: 12px;
     &:hover {
       background: $yellow;
       color: $navy;
