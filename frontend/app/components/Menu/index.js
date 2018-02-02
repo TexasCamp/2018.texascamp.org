@@ -1,10 +1,19 @@
+// @flow
+
 import React from 'react';
+import Link from 'AsyncLink';
 import NewsletterForm from 'NewsletterForm';
 import withLogic from 'Menu/logic';
+import type { MenuT } from 'types';
 import styles from './styles.css';
 import menuButton from '../../shared/images/menu.png';
 
-const Menu = ({ isActive, toggleOverlay }) => {
+type MenuPropsT = {
+  isActive: boolean,
+  toggleOverlay: Function,
+  menuItems: MenuT[],
+};
+const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
   const activeClass = isActive ? styles.active : styles.inactive;
   return (
     <div>
@@ -27,21 +36,13 @@ const Menu = ({ isActive, toggleOverlay }) => {
         <div className={styles.menuOverlayContainer}>
           <nav className={styles.siteNavigation}>
             <ul className={styles.menu}>
-              <li className={styles.menuItem}>
-                <a href="">Home</a>
-              </li>
-              <li className={styles.menuItem}>
-                <a href="">Speak</a>
-              </li>
-              <li className={styles.menuItem}>
-                <a href="">Sponsor</a>
-              </li>
-              <li className={styles.menuItem}>
-                <a href="">Venue</a>
-              </li>
-              <li className={styles.menuItem}>
-                <a href="">News</a>
-              </li>
+              {menuItems.map(({ label, urlRoute }) =>
+                (<li key={label} className={styles.menuItem}>
+                  <Link to={urlRoute}>
+                    {label}
+                  </Link>
+                </li>),
+              )}
               <li className={styles.menuItemSmall}>
                 <a href="">Code of Conduct</a>
               </li>
