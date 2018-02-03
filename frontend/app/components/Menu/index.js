@@ -4,14 +4,14 @@ import React from 'react';
 import Link from 'AsyncLink';
 import NewsletterForm from 'NewsletterForm';
 import withLogic from 'Menu/logic';
-import type { MenuT } from 'types';
+import type { MenuItemT } from 'types';
 import styles from './styles.css';
 import menuButton from '../../shared/images/menu.png';
 
 type MenuPropsT = {
   isActive: boolean,
   toggleOverlay: Function,
-  menuItems: MenuT[],
+  menuItems: MenuItemT[],
 };
 const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
   const activeClass = isActive ? styles.active : styles.inactive;
@@ -44,10 +44,10 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
                 </li>),
               )}
               <li className={styles.menuItemSmall}>
-                <a href="">Code of Conduct</a>
+                <Link to={''}>Code of Conduct</Link>
               </li>
               <li className={styles.menuItemSmall}>
-                <a href="">Contact</a>
+                <Link to={''}>Contact</Link>
               </li>
             </ul>
           </nav>
