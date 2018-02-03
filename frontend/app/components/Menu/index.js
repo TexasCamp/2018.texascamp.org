@@ -44,10 +44,10 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
                 </li>),
               )}
               <li className={styles.menuItemSmall}>
-                <a href="">Code of Conduct</a>
+                <Link to={''}>Code of Conduct</Link>
               </li>
               <li className={styles.menuItemSmall}>
-                <a href="">Contact</a>
+                <Link to={''}>Contact</Link>
               </li>
             </ul>
           </nav>
