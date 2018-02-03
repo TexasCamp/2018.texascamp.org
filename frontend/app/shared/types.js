@@ -59,7 +59,7 @@ export type MenuByNameQueryResponseT = {
   },
 };
 
-export type MenuT = {
+export type MenuItemT = {
   label: string,
   urlRoute: string,
 };

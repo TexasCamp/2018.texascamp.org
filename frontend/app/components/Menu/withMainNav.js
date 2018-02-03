@@ -2,7 +2,7 @@
 
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import type { MenuByNameQueryResponseT, MenuT } from 'types';
+import type { MenuByNameQueryResponseT, MenuItemT } from 'types';
 
 const MAIN_NAV_QUERY = gql`
   query mainNavQuery {
@@ -19,7 +19,7 @@ const MAIN_NAV_QUERY = gql`
   }
 `;
 
-const mainNavMapper = (links: Array<Object>): MenuT[] => {
+const mainNavMapper = (links: Array<Object>): MenuItemT[] => {
   return links.map(({ label, url: { path } }) => ({
     label,
     urlRoute: path,
@@ -27,7 +27,7 @@ const mainNavMapper = (links: Array<Object>): MenuT[] => {
 };
 
 export type MenuItemsT = {
-  menuItems: MenuT[],
+  menuItems: MenuItemT[],
 };
 const withMainNavQuery = graphql(MAIN_NAV_QUERY, {
   props: ({
