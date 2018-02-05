@@ -87,7 +87,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                 </Link>
               </div>
               <MediaQuery query="(min-width: 668px)">
-                <div>
+                <div className={styles.newsList}>
                   {oddNewsList}
                 </div>
               </MediaQuery>
@@ -118,7 +118,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                 </div>
               </MediaQuery>
               <MediaQuery query="(min-width: 668px)">
-                <div>
+                <div className={styles.newsList}>
                   {evenNewsList}
                 </div>
               </MediaQuery>

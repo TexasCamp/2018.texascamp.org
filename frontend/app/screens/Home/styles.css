@@ -1,4 +1,5 @@
 .contentWrapper {
+  overflow: hidden;
   @media $desktop {
     display: flex;
   }
@@ -16,9 +17,9 @@
   }
 }
 .detail {
+  margin-bottom: -100px;
   @media $tablet {
     display: flex;
-    margin-bottom: -100px;
   }
   .column {
     @media $tablet {
@@ -195,6 +196,13 @@
       background: $yellow;
       color: $navy;
     }
+  }
+}
+.newsList {
+  @media $tablet {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
   }
 }
 .footer {
