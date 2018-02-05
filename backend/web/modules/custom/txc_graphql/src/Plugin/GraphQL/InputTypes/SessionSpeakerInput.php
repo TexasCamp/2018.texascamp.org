@@ -12,7 +12,11 @@ use Drupal\graphql\Plugin\GraphQL\InputTypes\InputTypePluginBase;
  *   name = "SessionSpeakerInput",
  *   description = "Input type for Session speaker info",
  *   fields = {
- *     "name" = "String"
+ *     "name" = "String",
+ *     "bio" = {
+ *       "type" = "String",
+ *       "nullable" = true,
+ *     }
  *   }
  * )
  */

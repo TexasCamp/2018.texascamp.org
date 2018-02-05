@@ -20,7 +20,6 @@ use Drupal\graphql\Plugin\GraphQL\InputTypes\InputTypePluginBase;
  *       "multi" = true,
  *     },
  *     "description" = "String",
- *     "speakers_bio" = "String",
  *     "contact_info" = "SessionContactInput",
  *   }
  * )

@@ -10,7 +10,6 @@ const getInitialFormValues = speakerCount => {
     track: '',
     skillLevel: '',
     desc: '',
-    bio: '',
     name: '',
     email: '',
     company: '',
@@ -18,6 +17,7 @@ const getInitialFormValues = speakerCount => {
 
   for (let i = 1; i <= speakerCount; i++) {
     initialFormValues[`speakerName${i}`] = '';
+    initialFormValues[`speakerBio${i}`] = '';
   }
 
   return initialFormValues;
@@ -49,6 +49,7 @@ const withFormState = withStateHandlers(
       formValues: {
         ...formValues,
         [`speakerName${speakerCount + 1}`]: '',
+        [`speakerBio${speakerCount + 1}`]: '',
       },
     }),
     removeSpeaker: ({ speakerCount }) => () => ({
@@ -102,6 +103,7 @@ const withSubmitForm = withHandlers({
 
     const speakers = Array(speakerCount).fill(0).map((val, index) => ({
       name: formValues[`speakerName${index + 1}`],
+      bio: formValues[`speakerBio${index + 1}`] || '',
     }));
 
     createSession(
@@ -110,7 +112,6 @@ const withSubmitForm = withHandlers({
       formValues.track,
       speakers,
       formValues.desc,
-      formValues.bio,
       formValues.name,
       formValues.email,
       formValues.company,

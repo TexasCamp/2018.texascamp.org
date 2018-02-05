@@ -3,6 +3,7 @@
 namespace Drupal\txc_graphql\Plugin\GraphQL\Mutations;
 
 use Youshido\GraphQL\Execution\ResolveInfo;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\graphql\GraphQL\Type\InputObjectType;
 use Drupal\graphql_core\Plugin\GraphQL\Mutations\Entity\CreateEntityBase;
 
@@ -40,15 +41,31 @@ class CreateSession extends CreateEntityBase {
   protected function extractEntityInput(array $inputArgs, InputObjectType $inputType, ResolveInfo $info) {
 
     $speakers = array_map(function($speaker) {
-      return $speaker['name'];
+      $paragraph = Paragraph::create([
+        'type' => 'presenter',
+        'field_session_presenter' => [
+          'value' => $speaker['name'],
+        ],
+        'field_session_bio' => [
+          'value' => $speaker["bio"],
+          'format' => 'basic_html',
+        ]
+      ]);
+
+      $paragraph->save();
+
+      return [
+        'target_id' => $paragraph->id(),
+        'target_revision_id' => $paragraph->getRevisionId(),
+      ];
+
     }, $inputArgs['speakers']);
 
     return [
       'title' => $inputArgs['title'],
       'body' => $inputArgs['description'],
       'field_session_skill_level' => $inputArgs['skill_level_id'],
-      'field_session_speakers' => $speakers,
-      'field_session_speakers_bio' => $inputArgs['speakers_bio'],
+      'field_session_presenters' => $speakers,
       'field_session_track' => $inputArgs['track_id'],
       'field_session_contact_email' => $inputArgs['contact_info']['email'],
       'field_session_contact_name' => $inputArgs['contact_info']['name'],

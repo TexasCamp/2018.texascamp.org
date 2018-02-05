@@ -26,7 +26,6 @@ export default graphql(createSession, {
       trackId,
       speakers,
       description,
-      speakersBio,
       name,
       email,
       company,
@@ -39,7 +38,6 @@ export default graphql(createSession, {
             track_id: parseInt(trackId, 10),
             speakers,
             description,
-            speakers_bio: speakersBio,
             contact_info: {
               name,
               email,

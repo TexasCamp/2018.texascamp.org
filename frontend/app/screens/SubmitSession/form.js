@@ -73,6 +73,13 @@ const SessionForm = ({
               onChange={saveValue}
               required
             />
+            <label htmlFor={`speakerBio${index + 1}`}>Bio</label>
+            <textarea
+              id={`speakerBio${index + 1}`}
+              value={formValues[`speakerBio${index + 1}`]}
+              onChange={saveValue}
+              required
+            />
           </div>),
         )}
         <button type="button" onClick={addSpeaker}>
@@ -87,15 +94,6 @@ const SessionForm = ({
         <textarea
           id="desc"
           value={formValues.desc}
-          onChange={saveValue}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="bio">Speakers bio</label>
-        <textarea
-          id="bio"
-          value={formValues.bio}
           onChange={saveValue}
           required
         />
