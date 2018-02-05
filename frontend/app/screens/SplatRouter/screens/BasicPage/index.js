@@ -10,14 +10,14 @@ import styles from './styles.css';
 
 type BasicPageProps = {
   title: string,
-  body: string,
+  body: object,
 };
 
 const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
   // Format body to:
   // - Update inline image src to include full url
   // - Remove all links
-  let formattedBody = body;
+  let formattedBody = body.value;
   formattedBody = formattedBody
     ? formattedBody.replace(
         'src="/sites/default/files/inline-images/',

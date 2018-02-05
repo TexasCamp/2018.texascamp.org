@@ -23,16 +23,39 @@ export const SESSION_QUERY = gql`
     fieldSessionContactCompany
     fieldSessionContactEmail
     fieldSessionContactName
-    fieldSessionSkillLevel
+    fieldSessionSkillLevel {
+      entity {
+        entityLabel
+      }
+    }
     fieldSessionRoom
     fieldSessionPresenters {
-      fieldSessionPresenter
-      fieldSessionBio
+      entity {
+        ...PresenterFragment
+      }
     }
-    fieldSessionStatus
-    fieldSessionTimeslot
-    fieldSessionTrack
+    fieldSessionStatus {
+      entity {
+        entityLabel
+      }
+    }
+    fieldSessionTimeslot {
+      value
+      date
+    }
+    fieldSessionTrack {
+      entity {
+        entityLabel
+      }
+    }
     title
+  }
+
+  fragment PresenterFragment on ParagraphPresenter {
+    fieldSessionPresenter
+    fieldSessionBio {
+      value
+    }
   }
 `;
 
@@ -44,13 +67,20 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     contactEmail: entity.fieldSessionContactEmail,
     contactName: entity.fieldSessionContactName,
     room: entity.fieldSessionRoom,
-    status: entity.fieldSessionStatus,
+    status:
+      entity.fieldSessionStatus && entity.fieldSessionStatus.entity.entityLabel,
     isPublished: entity.entityPublished,
-    skillLevel: entity.fieldSessionSkillLevel,
-    speakers: entity.fieldSessionPresenters,
+    skillLevel: entity.fieldSessionSkillLevel.entity.entityLabel,
+    speakers: entity.fieldSessionPresenters.map(paragraph => ({
+      fieldSessionPresenter: paragraph.entity.fieldSessionPresenter,
+      fieldSessionBio:
+        paragraph.entity.fieldSessionBio &&
+        paragraph.entity.fieldSessionBio.value,
+    })),
     timeslot:
-      entity.fieldSessionTimeslot && new Date(entity.fieldSessionTimeslot),
-    track: entity.fieldSessionTrack,
+      entity.fieldSessionTimeslot &&
+      new Date(entity.fieldSessionTimeslot.value),
+    track: entity.fieldSessionTrack.entity.entityLabel,
     title: entity.title,
     urlString: titleToLink(entity.title),
   }));
