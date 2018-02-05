@@ -17,7 +17,9 @@ export const SPONSOR_QUERY = gql`
   fragment SponsorsFragment on NodeSponsor {
     entityId
     title
-    body
+    body {
+      value
+    }
     fieldSponsorLevel {
       entity {
         entityLabel
@@ -37,7 +39,7 @@ export const sponsorsListMapper = (entities: Array<Object>): Array<SponsorT> =>
   entities.map(entity => ({
     id: entity.entityId,
     title: entity.title,
-    body: entity.body,
+    body: entity.body.value,
     sponsorLevel: R.path(
       ['fieldSponsorLevel', 'entity', 'entityLabel'],
       entity,

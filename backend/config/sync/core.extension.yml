@@ -9,6 +9,7 @@ module:
   color: 0
   config: 0
   contextual: 0
+  csv_serialization: 0
   ctools: 0
   datetime: 0
   dblog: 0
@@ -18,6 +19,8 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  graphql: 0
+  graphql_core: 0
   help: 0
   history: 0
   image: 0
@@ -27,6 +30,8 @@ module:
   options: 0
   path: 0
   quickedit: 0
+  rest: 0
+  serialization: 0
   shortcut: 0
   simpletest: 0
   system: 0
@@ -34,7 +39,9 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  txc_graphql: 0
   user: 0
+  views_data_export: 0
   views_ui: 0
   menu_link_content: 1
   pathauto: 1
