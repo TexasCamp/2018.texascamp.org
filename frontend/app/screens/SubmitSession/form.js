@@ -1,6 +1,15 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-const SessionForm = ({ tracks, skillLevels, formValues, setFormValue }) => {
+const SessionForm = ({
+  tracks,
+  skillLevels,
+  formValues,
+  setFormValue,
+  speakerCount,
+  addSpeaker,
+  removeSpeaker,
+}) => {
   const saveValue = event => {
     setFormValue(event.target.id, event.target.value);
   };
@@ -46,15 +55,24 @@ const SessionForm = ({ tracks, skillLevels, formValues, setFormValue }) => {
       </div>
       <fieldset>
         <legend>Speakers</legend>
-        <div>
-          <label htmlFor="speakerName">Name</label>
-          <input
-            type="text"
-            id="speakerName"
-            value={formValues.speakerName}
-            onChange={saveValue}
-          />
-        </div>
+        {Array(speakerCount).fill(0).map((val, index) =>
+          (<div key={index}>
+            <label htmlFor={`speakerName${index + 1}`}>Name</label>
+            <input
+              type="text"
+              id={`speakerName${index + 1}`}
+              value={formValues[`speakerName${index + 1}`]}
+              onChange={saveValue}
+              required
+            />
+          </div>),
+        )}
+        <button type="button" onClick={addSpeaker}>
+          Add speaker
+        </button>
+        <button type="button" onClick={removeSpeaker}>
+          Remove speaker
+        </button>
       </fieldset>
       <div>
         <label htmlFor="desc">Description</label>
