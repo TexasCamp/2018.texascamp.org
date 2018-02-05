@@ -14,6 +14,7 @@ module.exports = {
   grey: '#b2aeaa',
   lightGrey: '#d4cec9',
   lighterGrey: '#e2dcd6',
+  lightestGrey: '#ede7e1',
   yellow: '#f0c26d',
 
   xs_small: `all and (min-width: ${BP_XS / 16}em) and (max-width: ${(BP_TABLET -

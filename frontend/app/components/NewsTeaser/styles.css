@@ -27,15 +27,21 @@
     padding-left: 40px;
     padding-right: 40px;
   }
-  &:nth-child(odd) {
+  &:nth-child(3n+1) {
     background: $almostWhite;
   }
+  &:nth-child(3n+3) {
+    background: $lightestGrey;
+  }
   &.secondColumn {
-    &:nth-child(odd) {
-      background: $beige;
+    &:nth-child(3n+1) {
+      background: $lightestGrey;
     }
-    &:nth-child(even) {
+    &:nth-child(3n+2) {
       background: $almostWhite;
+    }
+    &:nth-child(3n+3) {
+      background: $beige;
     }
   }
 }
