@@ -26,6 +26,9 @@
   @media $tablet {
     padding-left: 40px;
     padding-right: 40px;
+    &:last-child {
+      flex: 1 1 auto;
+    }
   }
   &:nth-child(3n+1) {
     background: $almostWhite;
