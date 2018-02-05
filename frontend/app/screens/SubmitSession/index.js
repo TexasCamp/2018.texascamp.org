@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionForm from 'SubmitSession/form';
 import withTermData from 'SubmitSession/withTermData';
+import withSessionMutation from 'SubmitSession/withSessionMutation';
 import withLogic from 'SubmitSession/logic';
 import compose from 'recompose/compose';
 
@@ -12,6 +13,9 @@ const SubmitSession = ({
   speakerCount,
   addSpeaker,
   removeSpeaker,
+  saving,
+  error,
+  onSubmit,
 }) => {
   return (
     <SessionForm
@@ -22,8 +26,13 @@ const SubmitSession = ({
       speakerCount={speakerCount}
       addSpeaker={addSpeaker}
       removeSpeaker={removeSpeaker}
+      saving={saving}
+      error={error}
+      onSubmit={onSubmit}
     />
   );
 };
 
-export default compose(withTermData, withLogic)(SubmitSession);
+export default compose(withSessionMutation, withTermData, withLogic)(
+  SubmitSession,
+);

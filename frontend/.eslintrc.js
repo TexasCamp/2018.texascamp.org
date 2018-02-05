@@ -17,5 +17,6 @@ module.exports = {
     'import/no-webpack-loader-syntax': 0, // e.g. !url-loader!assets/selected.svg is allowed
     'react/require-default-props': 0, // shared error
     'react/no-danger': 0, // dangerouslySetInnerHTML - there's no need for eslint to warn us about an attribute to with 'dangerous' in the name.
+    'jsx-a11y/no-onchange': 0,
   },
 };
