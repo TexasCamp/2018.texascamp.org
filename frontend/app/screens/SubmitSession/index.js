@@ -16,20 +16,36 @@ const SubmitSession = ({
   saving,
   error,
   onSubmit,
+  submitted,
+  resetForm,
 }) => {
   return (
-    <SessionForm
-      tracks={tracks}
-      skillLevels={skillLevels}
-      formValues={formValues}
-      setFormValue={setFormValue}
-      speakerCount={speakerCount}
-      addSpeaker={addSpeaker}
-      removeSpeaker={removeSpeaker}
-      saving={saving}
-      error={error}
-      onSubmit={onSubmit}
-    />
+    <div>
+      <h1>Submit a session</h1>
+      {submitted &&
+        <div>
+          Your session has been submitted! You&apos;ll receive an email
+          confirmation and edit permalink.<button
+            type="button"
+            onClick={resetForm}
+          >
+            Submit another session
+          </button>
+        </div>}
+      {!submitted &&
+        <SessionForm
+          tracks={tracks}
+          skillLevels={skillLevels}
+          formValues={formValues}
+          setFormValue={setFormValue}
+          speakerCount={speakerCount}
+          addSpeaker={addSpeaker}
+          removeSpeaker={removeSpeaker}
+          saving={saving}
+          error={error}
+          onSubmit={onSubmit}
+        />}
+    </div>
   );
 };
 
