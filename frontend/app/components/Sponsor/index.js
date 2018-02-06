@@ -11,7 +11,9 @@ const Sponsor = ({
   sponsor: { title, image, sponsorUrl, sponsorLevel },
 }: SponsorProps) => {
   const Individual = <p>{`＋ ${title}`}</p>;
-  const Company = <img src={image.url} alt={image.alt} />;
+  const Company = (
+    <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
+  );
   let SponsorEntity = sponsorLevel === 'Individual' ? Individual : Company;
   // if sponsor has url, wrap with link
   if (sponsorUrl) {
