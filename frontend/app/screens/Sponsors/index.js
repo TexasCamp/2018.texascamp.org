@@ -15,11 +15,22 @@ type SponsorGroupPropsT = {
   sponsors: SponsorT[],
 };
 const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
-  const levels: SponsorLevelT[] = uniq(
-    sponsors.map(({ sponsorLevel: s }) => s),
-  );
   const filterBySponsor = (level: SponsorLevelT): SponsorT[] =>
     sponsors.filter(sponsor => sponsor.sponsorLevel === level);
+
+  // sort existing levels
+  const levels: SponsorLevelT[] = uniq(
+    sponsors.map(({ sponsorLevel: s }) => s),
+  ).sort((a, b) => {
+    const ranks = {
+      Platinum: 1,
+      Gold: 2,
+      Silver: 3,
+      Individual: 4,
+    };
+    return ranks[a] - ranks[b];
+  });
+
   return (
     <div className={styles.detail}>
       {levels.map(eachLevel =>
