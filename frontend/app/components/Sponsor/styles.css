@@ -1,6 +1,6 @@
 .sponsorImage {
   object-fit: scale-down;
-  background: $lightGrey;
+  background: $lighterGrey;
   width: 400px;
   height: 150px;
 }
