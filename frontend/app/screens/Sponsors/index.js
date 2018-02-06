@@ -52,11 +52,10 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
         </div>),
       )}
       <div className={styles.sponsors}>
-        {individualSponsors.map(({ title }) =>
-          (<p>
-            {title}
-          </p>),
-        )}
+        <h2>
+          {'Individual'}
+        </h2>
+        {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
       </div>,
     </div>
   );
