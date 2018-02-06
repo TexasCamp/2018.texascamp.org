@@ -20,7 +20,7 @@ export type SessionT = {
   isPublished: boolean,
   room?: string,
   skillLevel: SkillLevelT,
-  speakers: Array,
+  speakers: string[],
   status?: 'selected' | 'not selected',
   timeslot?: Date,
   title: string,
@@ -32,7 +32,7 @@ export type SponsorT = {
   id: number,
   title: string,
   body: string,
-  sponsorLevel: string,
+  sponsorLevel: 'Platinum' | 'Gold' | 'Silver' | 'Bronze' | 'Individual',
   sponsorUrl: string,
   image: {
     alt?: string,
