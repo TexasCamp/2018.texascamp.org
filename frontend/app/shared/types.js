@@ -28,11 +28,18 @@ export type SessionT = {
   urlString: string,
 };
 
+export type SponsorLevelT =
+  | 'Platinum'
+  | 'Gold'
+  | 'Silver'
+  | 'Bronze'
+  | 'Individual';
+
 export type SponsorT = {
   id: number,
   title: string,
   body: string,
-  sponsorLevel: 'Platinum' | 'Gold' | 'Silver' | 'Bronze' | 'Individual',
+  sponsorLevel: SponsorLevelT,
   sponsorUrl: string,
   image: {
     alt?: string,

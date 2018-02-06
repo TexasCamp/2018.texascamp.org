@@ -8,82 +8,56 @@ import Footer from 'Footer';
 import Sponsor from 'Sponsor';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from 'Sponsors/styles.css';
+import type { SponsorT, SponsorLevelT } from 'types';
+import uniq from 'ramda/src/uniq';
 
+type SponsorGroupPropsT = {
+  sponsors: SponsorT[],
+};
+const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
+  const levels: SponsorLevelT[] = uniq(
+    sponsors.map(({ sponsorLevel: s }) => s),
+  );
+  const filterBySponsor = (level: SponsorLevelT): SponsorT[] =>
+    sponsors.filter(sponsor => sponsor.sponsorLevel === level);
+  return (
+    <div className={styles.detail}>
+      {levels.map(eachLevel =>
+        (<div className={styles.sponsors}>
+          <h2>
+            {eachLevel}
+          </h2>
+          {filterBySponsor(eachLevel).map(sponsor =>
+            <Sponsor key={sponsor.id} sponsor={sponsor} />,
+          )}
+        </div>),
+      )}
+    </div>
+  );
+};
+
+type SponsorsPropsT = {
+  loading: boolean,
+  sponsors: SponsorT[],
+};
 const Sponsors = ({
   loading,
   sponsors,
-}: SponsorsProps): React.Element<any> | null => {
-  const platimumSponsors = sponsors.filter(
-    sponsor => sponsor.sponsorLevel === 'Platinum',
-  );
-  const goldSponsors = sponsors.filter(
-    sponsor => sponsor.sponsorLevel === 'Gold',
-  );
-  const silverSponsors = sponsors.filter(
-    sponsor => sponsor.sponsorLevel === 'Silver',
-  );
-  const bronzeSponsors = sponsors.filter(
-    sponsor => sponsor.sponsorLevel === 'Bronze',
-  );
-  const individualSponsors = sponsors.filter(
-    sponsor => sponsor.sponsorLevel === 'Individual',
-  );
+}: SponsorsPropsT): React.Element<any> | false => {
   return (
-    (!loading &&
-      <div>
-        <Helmet title="Sponsors" />
-        <Menu />
-        <div className={styles.contentWrapper}>
-          <Header />
-          <div className={styles.content}>
-            <h1 className={styles.title}>Sponsors</h1>
-            <div className={styles.detail}>
-              {(platimumSponsors.length &&
-                <div className={styles.sponsors}>
-                  <h2>Platinum</h2>
-                  {platimumSponsors.map(sponsor =>
-                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
-                  )}
-                </div>) ||
-                null}
-              {(goldSponsors.length &&
-                <div className={styles.sponsors}>
-                  <h2>Gold</h2>
-                  {goldSponsors.map(sponsor =>
-                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
-                  )}
-                </div>) ||
-                null}
-              {(silverSponsors.length &&
-                <div className={styles.sponsors}>
-                  <h2>Silver</h2>
-                  {silverSponsors.map(sponsor =>
-                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
-                  )}
-                </div>) ||
-                null}
-              {(bronzeSponsors.length &&
-                <div className={styles.sponsors}>
-                  <h2>Bronze</h2>
-                  {bronzeSponsors.map(sponsor =>
-                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
-                  )}
-                </div>) ||
-                null}
-              {(individualSponsors.length &&
-                <div className={styles.sponsors}>
-                  <h2>Individual</h2>
-                  {individualSponsors.map(sponsor =>
-                    <Sponsor key={sponsor.id} sponsor={sponsor} />,
-                  )}
-                </div>) ||
-                null}
-            </div>
-            <Footer />
-          </div>
+    !loading &&
+    <div>
+      <Helmet title="Sponsors" />
+      <Menu />
+      <div className={styles.contentWrapper}>
+        <Header />
+        <div className={styles.content}>
+          <h1 className={styles.title}>Sponsors</h1>
+          <SponsorsGrouped sponsors={sponsors} />
+          <Footer />
         </div>
-      </div>) ||
-    null
+      </div>
+    </div>
   );
 };
 export default withSponsorsQuery(Sponsors);
