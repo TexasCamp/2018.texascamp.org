@@ -15,19 +15,24 @@ type SponsorGroupPropsT = {
   sponsors: SponsorT[],
 };
 const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
-  const filterBySponsor = (level: SponsorLevelT): SponsorT[] =>
-    sponsors.filter(sponsor => sponsor.sponsorLevel === level);
+  const individualSponsors = sponsors.filter(
+    ({ sponsorLevel }) => sponsorLevel === 'Individual',
+  );
+  const companySponsors = sponsors.filter(
+    ({ sponsorLevel }) => sponsorLevel !== 'Individual',
+  );
+  const filterByCompanySponsor = (level: SponsorLevelT): SponsorT[] =>
+    companySponsors.filter(sponsor => sponsor.sponsorLevel === level);
 
   // sort existing levels
   const levels: SponsorLevelT[] = uniq(
-    sponsors.map(({ sponsorLevel: s }) => s),
+    companySponsors.map(({ sponsorLevel: s }) => s),
   ).sort((a, b) => {
     const ranks = {
       Platinum: 1,
       Gold: 2,
       Silver: 3,
       Bronze: 4,
-      Individual: 5,
     };
     return ranks[a] - ranks[b];
   });
@@ -40,12 +45,19 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
             {eachLevel}
           </h2>
           <div className={styles.sponsorCompanyContainer}>
-            {filterBySponsor(eachLevel).map(sponsor =>
+            {filterByCompanySponsor(eachLevel).map(sponsor =>
               <Sponsor key={sponsor.id} sponsor={sponsor} />,
             )}
           </div>
         </div>),
       )}
+      <div className={styles.sponsors}>
+        {individualSponsors.map(({ title }) =>
+          (<p>
+            {title}
+          </p>),
+        )}
+      </div>,
     </div>
   );
 };
