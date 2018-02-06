@@ -19,8 +19,11 @@
 }
 .detail {
   composes: contentArea from '../../shared/css/global.css';
-  flex-direction: unset;
+  flex-direction: column;
   @media $tablet {
     width: calc(75% - 40px);
   }
+}
+.sponsorCompanyContainer {
+  display: flex;
 }

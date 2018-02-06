@@ -1,31 +1,29 @@
 // @flow
 
 import React from 'react';
-import type { SponsorT } from 'types/SponsorT';
+import type { SponsorT } from 'types';
 import styles from './styles.css';
 
 type SponsorProps = {
   sponsor: SponsorT,
 };
-
-const Sponsor = ({ sponsor }: SponsorProps) => {
+const Sponsor = ({
+  sponsor: { title, image, sponsorUrl, sponsorLevel },
+}: SponsorProps) => {
+  const Individual = <p>{`＋ ${title}`}</p>;
+  const Company = <img src={image.url} alt={image.alt} />;
+  let SponsorEntity = sponsorLevel === 'Individual' ? Individual : Company;
+  // if sponsor has url, wrap with link
+  if (sponsorUrl) {
+    SponsorEntity = (
+      <a href={sponsorUrl}>
+        {SponsorEntity}
+      </a>
+    );
+  }
   return (
     <div className={styles.sponsorWrapper}>
-      {sponsor.sponsorUrl
-        ? <a href={sponsor.sponsorUrl}>
-          {sponsor.sponsorLevel !== 'Individual' && sponsor.image.url
-              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
-              : <p>
-                {sponsor.title}
-              </p>}
-        </a>
-        : <div>
-          {sponsor.sponsorLevel !== 'Individual'
-              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
-              : <p>
-                {sponsor.title}
-              </p>}
-        </div>}
+      {SponsorEntity};
     </div>
   );
 };

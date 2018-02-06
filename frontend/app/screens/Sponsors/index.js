@@ -26,7 +26,8 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
       Platinum: 1,
       Gold: 2,
       Silver: 3,
-      Individual: 4,
+      Bronze: 4,
+      Individual: 5,
     };
     return ranks[a] - ranks[b];
   });
@@ -38,9 +39,11 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
           <h2>
             {eachLevel}
           </h2>
-          {filterBySponsor(eachLevel).map(sponsor =>
-            <Sponsor key={sponsor.id} sponsor={sponsor} />,
-          )}
+          <div className={styles.sponsorCompanyContainer}>
+            {filterBySponsor(eachLevel).map(sponsor =>
+              <Sponsor key={sponsor.id} sponsor={sponsor} />,
+            )}
+          </div>
         </div>),
       )}
     </div>
