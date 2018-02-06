@@ -10,11 +10,15 @@ type SponsorProps = {
 const Sponsor = ({
   sponsor: { title, image, sponsorUrl, sponsorLevel },
 }: SponsorProps) => {
-  const Individual = <p>{`＋ ${title}`}</p>;
-  const Company = (
+  const isIndividual = sponsorLevel === 'Individual';
+  const noUrlIncluded = !image.url;
+  const SponsorWithTitleOnly = <p>{`＋ ${title}`}</p>;
+  const SponsorWithImage = (
     <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
   );
-  let SponsorEntity = sponsorLevel === 'Individual' ? Individual : Company;
+  // if sponsor is individual, or image is not included, render title only.
+  let SponsorEntity =
+    isIndividual || noUrlIncluded ? SponsorWithTitleOnly : SponsorWithImage;
   // if sponsor has url, wrap with link
   if (sponsorUrl) {
     SponsorEntity = (
