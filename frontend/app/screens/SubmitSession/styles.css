@@ -1,0 +1,19 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
+.content {
+  composes: contentWrapper from '../../shared/css/global.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
+.contentContainer {
+  composes: contentArea from '../../shared/css/global.css';
+  flex-direction: column;
+  @media $tablet {
+    justify-content: unset;
+  }
+}
