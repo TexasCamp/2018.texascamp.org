@@ -17,13 +17,29 @@
     width: 100%;
   }
 }
+
+
 .detail {
   composes: contentArea from '../../shared/css/global.css';
-  flex-direction: column;
-  @media $tablet {
-    width: calc(75% - 40px);
+  flex-direction: row;
+  .section {
+    margin-bottom: 26px;
+    min-width: 25%;
+    @media $xs_small {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media $tablet {
+      margin-bottom: 40px;
+    }
+  }
+  .mainContent {
+    @media $tablet {
+      margin-right: 40px;
+      margin-top: 8px;
+      width: 100%;
+    }
   }
 }
-.sponsorCompanyContainer {
-  display: flex;
-}
+

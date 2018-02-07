@@ -9,6 +9,7 @@ import Sponsor from 'Sponsor';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from 'Sponsors/styles.css';
 import type { SponsorT, SponsorLevelT } from 'types';
+import SidebarItem from 'SidebarItem';
 import uniq from 'ramda/src/uniq';
 
 type SponsorGroupPropsT = {
@@ -40,23 +41,39 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
 
   return (
     <div className={styles.detail}>
-      {levels.map(eachLevel =>
-        (<div className={styles.sponsors}>
+      <div className={styles.mainContent}>
+        {levels.map(eachLevel =>
+          (<div className={styles.sponsors}>
+            <h2>
+              {eachLevel}
+            </h2>
+            <div className={styles.sponsorCompanyContainer}>
+              {filterByCompanySponsor(eachLevel).map(sponsor =>
+                <Sponsor key={sponsor.id} sponsor={sponsor} />,
+              )}
+            </div>
+          </div>),
+        )}
+        <div className={styles.sponsors}>
           <h2>
-            {eachLevel}
+            {'Individual'}
           </h2>
-          <div className={styles.sponsorCompanyContainer}>
-            {filterByCompanySponsor(eachLevel).map(sponsor =>
-              <Sponsor key={sponsor.id} sponsor={sponsor} />,
-            )}
-          </div>
-        </div>),
-      )}
-      <div className={styles.sponsors}>
-        <h2>
-          {'Individual'}
-        </h2>
-        {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
+          {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
+        </div>
+      </div>
+      <div className={styles.section}>
+        <SidebarItem
+          title="sponsor"
+          subtitle="Download our sponsor prospectus to get started."
+          btnTitle="download"
+          btnLink="/download.pdf"
+        />
+        <SidebarItem
+          title="questions"
+          subtitle="Let us help you find the right fit."
+          btnTitle="contact"
+          btnLink="mailto:hello@texascamp.org"
+        />
       </div>
     </div>
   );
