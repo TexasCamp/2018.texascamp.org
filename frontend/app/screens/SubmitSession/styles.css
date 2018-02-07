@@ -15,5 +15,6 @@
   flex-direction: column;
   @media $tablet {
     justify-content: unset;
+    width: calc(75% - 40px);
   }
 }

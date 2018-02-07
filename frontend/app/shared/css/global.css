@@ -44,7 +44,8 @@ body {
     line-height: 25px;
     margin: 2.25rem 0 23px;
   }
-  h3 {
+  h3,
+  legend {
     font-family: "calder-dark", sans-serif;
     font-size: 13px;
     font-weight: normal;
