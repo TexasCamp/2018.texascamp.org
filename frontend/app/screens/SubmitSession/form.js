@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import styles from './styles.css';
 
 const SessionForm = ({
   tracks,
@@ -21,7 +22,7 @@ const SessionForm = ({
     <form onSubmit={onSubmit}>
       <fieldset>
         <legend>Session</legend>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -31,7 +32,7 @@ const SessionForm = ({
             required
           />
         </div>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="track">Track</label>
           <select
             id="track"
@@ -47,7 +48,7 @@ const SessionForm = ({
             )}
           </select>
         </div>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="skillLevel">Skill level</label>
           <select
             id="skillLevel"
@@ -63,7 +64,7 @@ const SessionForm = ({
             )}
           </select>
         </div>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="desc">Description</label>
           <textarea
             id="desc"
@@ -76,22 +77,26 @@ const SessionForm = ({
       <fieldset>
         <legend>Speaker(s)</legend>
         {Array(speakerCount).fill(0).map((val, index) =>
-          (<div key={index}>
-            <label htmlFor={`speakerName${index + 1}`}>Full name</label>
-            <input
-              type="text"
-              id={`speakerName${index + 1}`}
-              value={formValues[`speakerName${index + 1}`]}
-              onChange={saveValue}
-              required
-            />
-            <label htmlFor={`speakerBio${index + 1}`}>Bio</label>
-            <textarea
-              id={`speakerBio${index + 1}`}
-              value={formValues[`speakerBio${index + 1}`]}
-              onChange={saveValue}
-              required
-            />
+          (<div key={index} className={styles.speaker}>
+            <div className={styles.formItem}>
+              <label htmlFor={`speakerName${index + 1}`}>Full name</label>
+              <input
+                type="text"
+                id={`speakerName${index + 1}`}
+                value={formValues[`speakerName${index + 1}`]}
+                onChange={saveValue}
+                required
+              />
+            </div>
+            <div className={styles.formItem}>
+              <label htmlFor={`speakerBio${index + 1}`}>Bio</label>
+              <textarea
+                id={`speakerBio${index + 1}`}
+                value={formValues[`speakerBio${index + 1}`]}
+                onChange={saveValue}
+                required
+              />
+            </div>
           </div>),
         )}
         <button type="button" onClick={addSpeaker}>
@@ -103,7 +108,7 @@ const SessionForm = ({
       </fieldset>
       <fieldset>
         <legend>Contact information</legend>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="name">Full name</label>
           <input
             type="text"
@@ -113,7 +118,7 @@ const SessionForm = ({
             required
           />
         </div>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="company">Company (optional)</label>
           <input
             type="text"
@@ -122,7 +127,7 @@ const SessionForm = ({
             onChange={saveValue}
           />
         </div>
-        <div>
+        <div className={styles.formItem}>
           <label htmlFor="email">Email address</label>
           <input
             type="email"
