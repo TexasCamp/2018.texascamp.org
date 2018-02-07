@@ -8,17 +8,17 @@ type SponsorPropsT = {
   sponsor: SponsorT,
 };
 const Sponsor = ({ sponsor: { title, image, sponsorUrl } }: SponsorPropsT) => {
-  const noUrlIncluded = !image.url;
+  const noLogoAvailable = !image.url;
   const SponsorWithTitleOnly = (
     <p>
       {title}
     </p>
   );
-  const SponsorWithImage = (
+  const SponsorWithLogo = (
     <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
   );
   // if image is not included, render title only.
-  let SponsorEntity = noUrlIncluded ? SponsorWithTitleOnly : SponsorWithImage;
+  let SponsorEntity = noLogoAvailable ? SponsorWithTitleOnly : SponsorWithLogo;
   // if sponsor has url, wrap with link
   if (sponsorUrl) {
     SponsorEntity = (
@@ -29,7 +29,7 @@ const Sponsor = ({ sponsor: { title, image, sponsorUrl } }: SponsorPropsT) => {
   }
   return (
     <div className={styles.sponsorWrapper}>
-      {SponsorEntity};
+      {SponsorEntity}
     </div>
   );
 };

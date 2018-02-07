@@ -18,15 +18,16 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
   const individualSponsors = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel === 'Individual',
   );
-  const companySponsors = sponsors.filter(
+
+  const companySponsors: SponsorT[] = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel !== 'Individual',
   );
   const filterByCompanySponsor = (level: SponsorLevelT): SponsorT[] =>
-    companySponsors.filter(sponsor => sponsor.sponsorLevel === level);
+    companySponsors.filter(({ sponsorLevel }) => sponsorLevel === level);
 
-  // sort existing levels
+  // get list of sorted sponsor levels, with 'individual' omitted
   const levels: SponsorLevelT[] = uniq(
-    companySponsors.map(({ sponsorLevel: s }) => s),
+    companySponsors.map(({ sponsorLevel }) => sponsorLevel),
   ).sort((a, b) => {
     const ranks = {
       Platinum: 1,
