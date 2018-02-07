@@ -42,7 +42,6 @@ const SubmitSession = ({
               id dolor bibendum lobortis. Praesent laoreet cursus lorem ales.
               Proin est ispsum aliquam vel viverra velit.{' '}
             </p>
-            <h3>Session</h3>
             {submitted &&
               <div>
                 Your session has been submitted! You&apos;ll receive an email

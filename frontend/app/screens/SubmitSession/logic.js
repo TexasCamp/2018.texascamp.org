@@ -24,7 +24,7 @@ const getInitialFormValues = speakerCount => {
 };
 
 const withFormState = withStateHandlers(
-  ({ speakerCount = 2 }) => {
+  ({ speakerCount = 1 }) => {
     const initialFormValues = getInitialFormValues(speakerCount);
 
     return {
