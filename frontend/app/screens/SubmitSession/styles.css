@@ -20,15 +20,16 @@
 }
 fieldset {
   border: 0;
-  margin: 0;
+  margin: 20px 0;
   padding: 0;
 }
 .formItem {
   composes: calderLC from '../../shared/css/fonts.css';
-  margin: 1em 0;
+  margin: 20px 0;
 }
 .speaker {
   border-bottom: 1px dashed $navy;
+  margin: 0 0 20px;
 }
 input[type="text"],
 input[type="email"],
@@ -38,10 +39,11 @@ textarea {
   border-radius: 3px;
   color: $navy;
   display: block;
+  line-height: 1.25rem;
   font-family: "calder-lc", sans-serif;
   font-size: 13px;
   margin: 0;
-  padding: 17px 18px;
+  padding: 14px 18px;
   width: 100%;
   &:focus {
     background-color: $almostWhite;
@@ -49,7 +51,9 @@ textarea {
   }
 }
 textarea {
-  resize: none;
+  height: 175px;
+  min-height: 100px;
+  resize: vertical;
 }
 select {
   display: block;
