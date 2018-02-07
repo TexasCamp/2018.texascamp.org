@@ -44,10 +44,10 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
                 </li>),
               )}
               <li className={styles.menuItemSmall}>
-                <Link to={''}>Code of Conduct</Link>
+                <Link to={'code-conduct'}>Code of Conduct</Link>
               </li>
               <li className={styles.menuItemSmall}>
-                <Link to={''}>Contact</Link>
+                <a href="mailto:hello@texascamp.org">Contact</a>
               </li>
             </ul>
           </nav>
