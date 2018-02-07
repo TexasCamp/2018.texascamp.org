@@ -4,6 +4,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Header from 'Header';
 import Menu from 'Menu';
+import Footer from 'Footer';
 import SessionForm from 'SubmitSession/form';
 import withTermData from 'SubmitSession/withTermData';
 import withSessionMutation from 'SubmitSession/withSessionMutation';
@@ -34,6 +35,14 @@ const SubmitSession = ({
         <div className={styles.content}>
           <div className={styles.contentContainer}>
             <h1>Submit a session</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellent
+              venenatis est viverra, tincidunt nibh non, mollis ex. Nulla sit me
+              dui eu ipsum aliquet varius id quis felis. Aliquam placerat nunc
+              id dolor bibendum lobortis. Praesent laoreet cursus lorem ales.
+              Proin est ispsum aliquam vel viverra velit.{' '}
+            </p>
+            <h3>Session</h3>
             {submitted &&
               <div>
                 Your session has been submitted! You&apos;ll receive an email
@@ -58,6 +67,7 @@ const SubmitSession = ({
                 onSubmit={onSubmit}
               />}
           </div>
+          <Footer />
         </div>
       </div>
     </div>
