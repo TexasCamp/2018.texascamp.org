@@ -57,7 +57,7 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
           {'Individual'}
         </h2>
         {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
-      </div>,
+      </div>
     </div>
   );
 };
