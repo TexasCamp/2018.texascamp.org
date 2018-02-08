@@ -43,9 +43,9 @@ const SessionForm = ({
           >
             <option value="">-- Select track --</option>
             {tracks.map(track =>
-              (<option key={track.id} value={track.id}>
+              <option key={track.id} value={track.id}>
                 {track.name}
-              </option>),
+              </option>,
             )}
           </select>
         </div>
@@ -59,9 +59,9 @@ const SessionForm = ({
           >
             <option value="">-- Select skill level --</option>
             {skillLevels.map(skillLevel =>
-              (<option key={skillLevel.id} value={skillLevel.id}>
+              <option key={skillLevel.id} value={skillLevel.id}>
                 {skillLevel.name}
-              </option>),
+              </option>,
             )}
           </select>
         </div>
@@ -79,7 +79,7 @@ const SessionForm = ({
       <fieldset>
         <legend>Speaker(s)</legend>
         {Array(speakerCount).fill(0).map((val, index) =>
-          (<div key={index} className={styles.speaker}>
+          <div key={index} className={styles.speaker}>
             <div className={styles.formItem}>
               <FloatingLabelInput
                 type="text"
@@ -100,12 +100,20 @@ const SessionForm = ({
                 placeholder="Bio"
               />
             </div>
-          </div>),
+          </div>,
         )}
-        <button type="button" onClick={addSpeaker} className={styles.buttonSecondary}>
+        <button
+          type="button"
+          onClick={addSpeaker}
+          className={styles.buttonSecondary}
+        >
           + Add speaker
         </button>
-        <button type="button" onClick={removeSpeaker} className={styles.buttonSecondary}>
+        <button
+          type="button"
+          onClick={removeSpeaker}
+          className={styles.buttonSecondary}
+        >
           - Remove speaker
         </button>
       </fieldset>
@@ -141,9 +149,18 @@ const SessionForm = ({
           />
         </div>
       </fieldset>
-      <p className={styles.disclaimer}>We will use the above email address to communicate with you throughout the selection process. We will send you a permalink with which you can edit your submission.</p>
+      <p className={styles.disclaimer}>
+        We will use the above email address to communicate with you throughout
+        the selection process. We will send you a permalink with which you can
+        edit your submission.
+      </p>
       <div>
-        <input type="submit" value="Submit" disabled={saving} className={styles.button}/>
+        <input
+          type="submit"
+          value="Submit"
+          disabled={saving}
+          className={styles.button}
+        />
         {saving && <span>Submitting your session!</span>}
         {error &&
           <span>

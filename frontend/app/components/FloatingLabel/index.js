@@ -1,46 +1,46 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const labelStyles = {
-  boxSizing: "border-box",
-  display: "block",
-  position: "relative",
-  width: "100%"
+  boxSizing: 'border-box',
+  display: 'block',
+  position: 'relative',
+  width: '100%',
 };
 
 export const spanStyles = {
-  boxSizing: "border-box",
-  fontSize: "13px",
+  boxSizing: 'border-box',
+  fontSize: '13px',
   left: 0,
-  padding: "15px 18px",
-  pointerEvents: "none",
-  position: "absolute",
+  padding: '15px 18px',
+  pointerEvents: 'none',
+  position: 'absolute',
   top: 0,
-  transition: "font-size 200ms, padding 200ms",
-  zIndex: 1
+  transition: 'font-size 200ms, padding 200ms',
+  zIndex: 1,
 };
 
 export const floatingStyles = {
-  color: "#b2aeaa",
-  fontSize: "11px",
-  padding: "6px 18px 0 18px"
+  color: '#b2aeaa',
+  fontSize: '11px',
+  padding: '6px 18px 0 18px',
 };
 
 export const inputStyles = {
-  boxSizing: "border-box",
-  padding: "21px 18px 7px"
+  boxSizing: 'border-box',
+  padding: '21px 18px 7px',
 };
 
 export const focusStyles = {
-  outline: "none",
-  padding: "21px 18px 7px"
+  outline: 'none',
+  padding: '21px 18px 7px',
 };
 
 class FloatingLabel extends React.Component {
   state = {
     floating: false,
     focused: false,
-    value: this.props.value
+    value: this.props.value,
   };
 
   handleChange = evt => {
@@ -49,15 +49,15 @@ class FloatingLabel extends React.Component {
     this.props.onChange(evt);
 
     this.setState({
-      value
+      value,
     });
   };
 
   handleFocusChange = evt => {
-    evt.type === "focus" ? this.props.onFocus(evt) : this.props.onBlur(evt);
+    evt.type === 'focus' ? this.props.onFocus(evt) : this.props.onBlur(evt);
 
     this.setState({
-      focused: !this.state.focused
+      focused: !this.state.focused,
     });
   };
 
@@ -76,12 +76,12 @@ class FloatingLabel extends React.Component {
     const spanStyle = Object.assign(
       {},
       styles.span || spanStyles,
-      floatingStyle
+      floatingStyle,
     );
     const inputStyle = Object.assign(
       {},
       styles.input || inputStyles,
-      focusStyle
+      focusStyle,
     );
 
     return (
@@ -118,11 +118,11 @@ class FloatingLabel extends React.Component {
 }
 
 FloatingLabel.propTypes = {
-  autoCapitalize: PropTypes.oneOf(["none", "sentences", "words", "characters"]),
+  autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
   autoComplete: PropTypes.string,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
-  element: PropTypes.oneOf(["input", "textarea"]),
+  element: PropTypes.oneOf(['input', 'textarea']),
   id: PropTypes.string.isRequired,
   inputMode: PropTypes.string,
   max: PropTypes.number,
@@ -140,25 +140,25 @@ FloatingLabel.propTypes = {
   spellCheck: PropTypes.bool,
   step: PropTypes.number,
   styles: PropTypes.object,
-  type: PropTypes.oneOf(["text", "password", "url", "search", "email", "tel"]),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  type: PropTypes.oneOf(['text', 'password', 'url', 'search', 'email', 'tel']),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 FloatingLabel.defaultProps = {
   autoFocus: false,
   disabled: false,
-  element: "input",
-  name: "",
+  element: 'input',
+  name: '',
   onBlur: () => {},
   onChange: () => {},
   onFocus: () => {},
-  placeholder: "",
+  placeholder: '',
   readOnly: false,
   required: false,
   step: 1,
   styles: {},
-  type: "text",
-  value: ""
+  type: 'text',
+  value: '',
 };
 
 export default FloatingLabel;
