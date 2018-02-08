@@ -23,7 +23,7 @@ const SidebarItem = ({
       {subtitle}
     </p>
     {btnLink &&
-      <a className="button--primary" href={btnLink}>
+      <a className={styles.subtitleButton} href={btnLink}>
         {btnTitle.toUpperCase()}
       </a>}
   </div>);

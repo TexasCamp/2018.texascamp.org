@@ -20,7 +20,6 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
   const individualSponsors = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel === 'Individual',
   );
-
   const companySponsors: SponsorT[] = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel !== 'Individual',
   );
@@ -72,7 +71,7 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
         <SidebarItem
           title="questions"
           subtitle="Let us help you find the right fit."
-          btnTitle="contact"
+          btnTitle="contact us"
           btnLink="mailto:hello@texascamp.org"
         />
       </div>
