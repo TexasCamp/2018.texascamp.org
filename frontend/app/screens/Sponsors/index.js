@@ -13,6 +13,35 @@ import SidebarItem from 'SidebarItem';
 import uniq from 'ramda/src/uniq';
 import { prospectus } from 'files';
 
+const SponsorsSidebar = () =>
+  (<div className={styles.section}>
+    <SidebarItem
+      title="sponsor"
+      subtitle="Download our sponsor prospectus to get started."
+      btnTitle="download"
+      btnLink={prospectus}
+    />
+    <SidebarItem
+      title="questions?"
+      subtitle="Let us help you find the right fit."
+      btnTitle="contact us"
+      btnLink="mailto:hello@texascamp.org"
+    />
+  </div>);
+
+const SponsorsIntro = () =>
+  (<div className={styles.introWrapper}>
+    <h1 className={styles.title}>Brought to you by</h1>
+    <p className={styles.introText}>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+      fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+      sequi nesciunt.
+    </p>
+  </div>);
+
 type SponsorGroupPropsT = {
   sponsors: SponsorT[],
 };
@@ -42,8 +71,9 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
   return (
     <div className={styles.detail}>
       <div className={styles.mainContent}>
+        <SponsorsIntro />
         {levels.map(eachLevel =>
-          (<div className={styles.sponsors}>
+          (<div>
             <h2>
               {eachLevel}
             </h2>
@@ -61,20 +91,7 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
           {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
         </div>
       </div>
-      <div className={styles.section}>
-        <SidebarItem
-          title="sponsor"
-          subtitle="Download our sponsor prospectus to get started."
-          btnTitle="download"
-          btnLink={prospectus}
-        />
-        <SidebarItem
-          title="questions"
-          subtitle="Let us help you find the right fit."
-          btnTitle="contact us"
-          btnLink="mailto:hello@texascamp.org"
-        />
-      </div>
+      <SponsorsSidebar />
     </div>
   );
 };
@@ -95,7 +112,6 @@ const Sponsors = ({
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
-          <h1 className={styles.title}>Sponsors</h1>
           <SponsorsGrouped sponsors={sponsors} />
           <Footer />
         </div>

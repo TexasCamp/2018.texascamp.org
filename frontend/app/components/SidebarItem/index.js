@@ -17,14 +17,14 @@ const SidebarItem = ({
 }: SidebarItemProps) =>
   (<div className={styles.field}>
     <h2 className={styles.title}>
-      {title.toUpperCase()}
+      {title}
     </h2>
     <p className={styles.subtitleContainer}>
       {subtitle}
     </p>
     {btnLink &&
       <a className={styles.subtitleButton} href={btnLink}>
-        {btnTitle.toUpperCase()}
+        {btnTitle}
       </a>}
   </div>);
 

@@ -1,10 +1,7 @@
 .title {
-  margin: 55px 20px 75px;
-  @media $tablet {
-    margin: 60px 40px 1.5rem;
-    max-width: calc(75% - 100px);
-  }
+  margin: 0;
 }
+
 .contentWrapper {
   @media $desktop {
     display: flex;
@@ -31,15 +28,20 @@
       justify-content: space-between;
     }
     @media $tablet {
+      margin-top: 40px;
       margin-bottom: 40px;
     }
   }
   .mainContent {
     @media $tablet {
       margin-right: 40px;
-      margin-top: 8px;
+      margin-top: 40px;
       width: 100%;
     }
   }
 }
 
+.sponsorCompanyContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

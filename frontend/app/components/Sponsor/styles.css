@@ -1,9 +1,7 @@
 .sponsorImage {
-  object-fit: scale-down;
   background: $lighterGrey;
-  width: 400px;
-  height: 150px;
 }
 .sponsorWrapper {
-  margin: 0 2%;
+  width: 50%;
+  padding: 0 2% 0 0
 }
