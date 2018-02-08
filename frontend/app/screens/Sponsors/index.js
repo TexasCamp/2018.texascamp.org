@@ -11,6 +11,7 @@ import styles from 'Sponsors/styles.css';
 import type { SponsorT, SponsorLevelT } from 'types';
 import SidebarItem from 'SidebarItem';
 import uniq from 'ramda/src/uniq';
+import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
 
 type SponsorGroupPropsT = {
   sponsors: SponsorT[],
@@ -66,7 +67,7 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
           title="sponsor"
           subtitle="Download our sponsor prospectus to get started."
           btnTitle="download"
-          btnLink="/download.pdf"
+          btnLink={prospectus}
         />
         <SidebarItem
           title="questions"
