@@ -11,7 +11,7 @@ import styles from 'Sponsors/styles.css';
 import type { SponsorT, SponsorLevelT } from 'types';
 import SidebarItem from 'SidebarItem';
 import uniq from 'ramda/src/uniq';
-import prospectus from '!file-loader?name=TexasCamp_2018_Sponsor_Prospectus_[hash].[ext]!documents/prospectus.pdf';
+import { prospectus } from 'files';
 
 type SponsorGroupPropsT = {
   sponsors: SponsorT[],
