@@ -44,8 +44,7 @@ body {
     line-height: 25px;
     margin: 2.25rem 0 23px;
   }
-  h3,
-  legend {
+  h3 {
     font-family: "calder-dark", sans-serif;
     font-size: 13px;
     font-weight: normal;
@@ -135,5 +134,46 @@ body {
     &:hover {
       background: $yellow;
     }
+  }
+}
+.button {
+  background: $orange;
+  border: none;
+  border-radius: 20px;
+  color: $beige;
+  composes: calderDark from '../../shared/css/fonts.css';
+  line-height: 100%;
+  margin-top: 20px;
+  outline: none;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  &:hover {
+    background: $navy;
+    cursor: pointer;
+  }
+}
+:global .buttonLink a {
+  background: $orange;
+  border: none;
+  border-radius: 20px;
+  box-shadow: none;
+  color: $beige;
+  font-family: "calder-dark", sans-serif;
+  line-height: 100%;
+  margin-top: 20px;
+  outline: none;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  &:hover {
+    background: $navy;
+    cursor: pointer;
   }
 }

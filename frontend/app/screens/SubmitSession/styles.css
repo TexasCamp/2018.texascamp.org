@@ -18,18 +18,34 @@
     width: calc(75% - 40px);
   }
 }
+form {
+  margin-top: 16px;
+}
 fieldset {
   border: 0;
-  margin: 20px 0;
+  margin: 0 0 30px;
   padding: 0;
+}
+legend {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 20px;
+  margin: 0 0 16px;
+  text-transform: none;
 }
 .formItem {
   composes: calderLC from '../../shared/css/fonts.css';
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .speaker {
   border-bottom: 1px dashed $navy;
   margin: 0 0 20px;
+  padding: 0 0 10px;
+  &:only-of-type {
+    + button + button {
+      display: none;
+    }
+  }
 }
 input[type="text"],
 input[type="email"],
@@ -37,6 +53,7 @@ textarea {
   background-color: $beige;
   border: 1px solid $navy;
   border-radius: 3px;
+  caret-color: $orange;
   color: $navy;
   display: block;
   line-height: 1.25rem;
@@ -57,4 +74,22 @@ textarea {
 }
 select {
   display: block;
+}
+.button {
+  composes: button from '../../shared/css/global.css';
+  display: inline-block;
+  margin-top: 14px;
+}
+.buttonSecondary {
+  composes: button from '../../shared/css/global.css';
+  background-color: $lighterGrey;
+  color: $navy;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  &:hover {
+    background: $lightGrey;
+  }
+}
+.disclaimer {
+  margin: -16px 0 10px;
 }
