@@ -1,0 +1,7 @@
+.sponsorImage {
+  background: $lighterGrey;
+}
+.sponsorWrapper {
+  width: 50%;
+  padding: 0 2% 0 0
+}

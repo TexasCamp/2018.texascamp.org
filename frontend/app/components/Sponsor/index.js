@@ -1,31 +1,35 @@
 // @flow
 
 import React from 'react';
-import type { SponsorT } from 'types/SponsorT';
+import type { SponsorT } from 'types';
 import styles from './styles.css';
 
-type SponsorProps = {
+type SponsorPropsT = {
   sponsor: SponsorT,
 };
-
-const Sponsor = ({ sponsor }: SponsorProps) => {
+const Sponsor = ({ sponsor: { title, image, sponsorUrl } }: SponsorPropsT) => {
+  const noLogoAvailable = !image.url;
+  const SponsorWithTitleOnly = (
+    <p>
+      {title}
+    </p>
+  );
+  const SponsorWithLogo = (
+    <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
+  );
+  // if image is not included, render title only.
+  let SponsorEntity = noLogoAvailable ? SponsorWithTitleOnly : SponsorWithLogo;
+  // if sponsor has url, wrap with link
+  if (sponsorUrl) {
+    SponsorEntity = (
+      <a href={sponsorUrl}>
+        {SponsorEntity}
+      </a>
+    );
+  }
   return (
     <div className={styles.sponsorWrapper}>
-      {sponsor.sponsorUrl
-        ? <a href={sponsor.sponsorUrl}>
-          {sponsor.sponsorLevel !== 'Individual' && sponsor.image.url
-              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
-              : <p>
-                {sponsor.title}
-              </p>}
-        </a>
-        : <div>
-          {sponsor.sponsorLevel !== 'Individual'
-              ? <img src={sponsor.image.url} alt={sponsor.image.alt} />
-              : <p>
-                {sponsor.title}
-              </p>}
-        </div>}
+      {SponsorEntity}
     </div>
   );
 };

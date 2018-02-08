@@ -94,6 +94,33 @@ body {
     }
   }
 }
+.button {
+  background-color: $orange;
+  border: 1px solid $orange;
+  border-radius: 20px;
+  box-shadow: none !important;
+  cursor: pointer;
+  display: inline-block;
+  color: $beige;
+  font-family: "calder-dark", sans-serif;
+  font-size: 13px;
+  padding: 5px 27px 4px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.1s ease-out;
+}
+.button--orange {
+  composes: button;
+  color: $beige !important;
+  &:active,
+  &:focus,
+  &:hover {
+    background: $orange_darken10 !important;
+    border-color: $orange_darken10 !important;
+    outline: none !important;
+  }
+}
 .title {
   font-size: 30px;
   line-height: 40px;

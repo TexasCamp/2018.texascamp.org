@@ -1,10 +1,7 @@
 .title {
-  margin: 55px 20px 75px;
-  @media $tablet {
-    margin: 60px 40px 1.5rem;
-    max-width: calc(75% - 100px);
-  }
+  margin: 0;
 }
+
 .contentWrapper {
   @media $desktop {
     display: flex;
@@ -17,10 +14,34 @@
     width: 100%;
   }
 }
+
+
 .detail {
   composes: contentArea from '../../shared/css/global.css';
-  flex-direction: unset;
-  @media $tablet {
-    width: calc(75% - 40px);
+  flex-direction: row;
+  .section {
+    margin-bottom: 26px;
+    min-width: 25%;
+    @media $xs_small {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media $tablet {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
+  .mainContent {
+    @media $tablet {
+      margin-right: 40px;
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+}
+
+.sponsorCompanyContainer {
+  display: flex;
+  flex-wrap: wrap;
 }
