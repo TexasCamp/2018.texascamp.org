@@ -65,9 +65,14 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                 <div className={styles.smallest}>- Early Nerd -</div>
                 <h3>Tickets</h3>
                 <img src={price} alt="$25 USD" />
-                <Link to="tickets" className={styles.button}>
+                <a
+                  href="https://www.eventbrite.com/e/texas-camp-2018-tickets-42911508477"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.button}
+                >
                   Register
-                </Link>
+                </a>
                 <div className={styles.verticalText}>Regularly $50</div>
               </div>
               <MediaQuery query="(max-width: 667px)">
@@ -101,16 +106,21 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
               <div className={`${styles.speak} ${styles.box}`}>
                 <h4>Speak</h4>
                 <p>Gain experience and open source your expertise.</p>
-                <Link to="/session-form" className={styles.button}>
+                <Link to="/submit-session" className={styles.button}>
                   Submit
                 </Link>
               </div>
               <div className={`${styles.training} ${styles.box}`}>
-                <h4>Training / $50</h4>
+                <h4>Training / $25</h4>
                 <p>Learn from the best Drupalers this side of the Pecos.</p>
-                <Link to="/sessions/training" className={styles.button}>
+                <a
+                  href="https://www.eventbrite.com/e/texas-camp-2018-tickets-42911508477"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.button}
+                >
                   Sign Up
-                </Link>
+                </a>
               </div>
               <MediaQuery query="(max-width: 667px)">
                 <div>
