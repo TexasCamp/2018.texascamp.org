@@ -3,11 +3,11 @@
 }
 .sponsorsWrapper {
   background: $lighterGrey;
-  margin-bottom: 2px;
+  border-bottom: 2px solid $beige;
   padding: 10px 20px;
   text-align: center;
   @media $tablet {
-    margin-bottom: 5px;
+    border-bottom: 5px solid $beige;
     padding: 22px 20px 20px;
     text-align: left;
   }
