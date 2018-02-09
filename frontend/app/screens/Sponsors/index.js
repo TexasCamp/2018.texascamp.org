@@ -87,7 +87,7 @@ const Sponsors = ({
                     </div>
                   </div>),
                 )}
-                {individualSponsors &&
+                {individualSponsors.length > 0 &&
                   <div className={styles.individualSponsors}>
                     <h2>
                       {'Individual sponsors'}
