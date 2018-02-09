@@ -48,3 +48,18 @@ export type NewsT = {
   urlString: string,
   id: number,
 };
+
+export type MenuByNameQueryResponseT = {
+  data: {
+    menuByName: {
+      label: string,
+      links: Array<Object>,
+    },
+    loading: boolean,
+  },
+};
+
+export type MenuItemT = {
+  label: string,
+  urlRoute: string,
+};

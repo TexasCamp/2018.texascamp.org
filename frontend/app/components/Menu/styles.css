@@ -101,7 +101,7 @@
   z-index: 999;
 }
 .menuOverlay.inactive {
-  height: 56px;  
+  height: 56px;
   overflow: hidden;
   transition: width 0.2s linear, height 0.2s linear 0.2s;
   width: 56px;
@@ -183,6 +183,8 @@
       color: $orange;
     }
   }
+  /* Every time a nav menu gets added, we need to add another nth-child selector.
+     Otherwise, the new menu item will be hidden */
   .menuOverlay.active & {
     opacity: 0;
     &:nth-child(1) {
@@ -205,6 +207,9 @@
     }
     &:nth-child(7) {
       animation: fadeInMenuItem 0.1s 1s ease-in both;
+    }
+    &:nth-child(8) {
+      animation: fadeInMenuItem 0.1s 1.1s ease-in both;
     }
   }
 }
