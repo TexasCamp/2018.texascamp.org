@@ -16,8 +16,8 @@ dependencies:
     - node.type.session
   module:
     - datetime
-    - graphql_content
-    - graphql_entity_reference
+    - entity_reference_revisions
+    - text
     - user
 id: node.session.default
 targetEntityType: node
@@ -25,11 +25,11 @@ bundle: session
 mode: default
 content:
   body:
-    label: hidden
-    type: graphql_raw_value
-    weight: 1
+    weight: 15
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: text_default
     region: content
   field_session_contact_company:
     weight: 9
@@ -55,11 +55,13 @@ content:
     type: string
     region: content
   field_session_presenters:
-    type: graphql_entity_reference
-    weight: 13
+    weight: 14
     label: above
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
   field_session_room:
     weight: 12
