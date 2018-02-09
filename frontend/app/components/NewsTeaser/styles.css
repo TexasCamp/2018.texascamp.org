@@ -1,20 +1,50 @@
-.teaserWrapper {
-  border-bottom: 1px dashed $grey;
-  padding: 25px 0 33px;
-  &:first-child {
-    padding-top: 0; 
+.newOverview {
+  &.teaserWrapper {
+    border-bottom: 1px dashed $grey;
+    padding: 25px 0 33px;
+    &:first-child {
+      padding-top: 0;
+    }
   }
 }
 .date {
   border-bottom: 1px dashed $grey;
   color: $grey;
   display: initial;
-  font-size: 12px;
+  font-size: 11px;
 }
 .moreLink {
   background: url('../../shared/images/plus.svg') left 5px no-repeat;
   background-size: 8px;
+  font-size: 11px;
   margin-top: 20px;
   padding-left: 15px;
   text-transform: uppercase;
+}
+.hompageNews {
+  padding: 45px 20px 55px;
+  @media $tablet {
+    padding-left: 40px;
+    padding-right: 40px;
+    &:last-child {
+      flex: 1 1 auto;
+    }
+  }
+  &:nth-child(3n+1) {
+    background: $almostWhite;
+  }
+  &:nth-child(3n+3) {
+    background: $lightestGrey;
+  }
+  &.secondColumn {
+    &:nth-child(3n+1) {
+      background: $lightestGrey;
+    }
+    &:nth-child(3n+2) {
+      background: $almostWhite;
+    }
+    &:nth-child(3n+3) {
+      background: $beige;
+    }
+  }
 }

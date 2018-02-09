@@ -8,15 +8,21 @@ import styles from './styles.css';
 
 type NewsTeaserProps = {
   newsTeaser: NewsT,
+  hompageNews: boolean,
+  hompageNewsSecondColumn: boolean,
 };
 
-const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
+const NewsTeaser = ({
+  newsTeaser,
+  hompageNews,
+  hompageNewsSecondColumn,
+}: NewsTeaserProps): React.Element<any> => {
   // Use body summary if available
   // If not trim to 400 characters
   const strippedBody = newsTeaser.body.replace(/(<([^>]+)>)/gi, '');
   const trimmedBody =
-    strippedBody.length > 400
-      ? `${strippedBody.substr(0, 400)}...`
+    strippedBody.length > 200
+      ? `${strippedBody.substr(0, 200)}...`
       : strippedBody;
   const formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
 
@@ -27,9 +33,10 @@ const NewsTeaser = ({ newsTeaser }: NewsTeaserProps): React.Element<any> => {
       day: 'numeric',
     })
     : '';
-
+  const newsContext = hompageNews ? styles.hompageNews : styles.newOverview;
+  const homepageStyles = hompageNewsSecondColumn ? styles.secondColumn : null;
   return (
-    <div className={styles.teaserWrapper}>
+    <div className={`${styles.teaserWrapper} ${newsContext} ${homepageStyles}`}>
       <Link to={`/news/${newsTeaser.urlString}`}>
         <div className={styles.date}>
           {formattedDate}

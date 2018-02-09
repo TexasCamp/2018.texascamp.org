@@ -3,79 +3,132 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import compose from 'recompose/compose';
+import MediaQuery from 'react-responsive';
 import Link from 'AsyncLink';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
 import NewsTeaser from 'NewsTeaser';
 import withNewsQuery from 'NewsOverview/withNewsQuery';
-import Sponsor from 'Sponsor';
+import SponsorsSlideshow from 'SponsorsSlideshow';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from 'Home/styles.css';
+import price from '../../shared/images/price.png';
+import sponsorsHeading from '../../shared/images/sponsors-heading.png';
 
-const Home = ({ loading, newsList, sponsors }): React.Element<any> | null =>
-  !loading &&
-  <div className={styles.wrapper}>
-    <Helmet>
-      <title>Texas Camp 2018</title>
-    </Helmet>
-    <Menu />
-    <div className={styles.contentWrapper}>
-      <Header />
-      <div className={styles.content}>
-        <div className={styles.detail}>
-          <div className={styles.tickets}>
-            <h5>- Early Nerd -</h5>
-            <h4>Tickets</h4>
-            <p>$25</p>
-            <Link to="tickets" className={styles.button}>
-              Register
-            </Link>
-            <p>
-              <small>Regularly $50</small>
-            </p>
+const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
+  const latestNews = newsList
+    .sort((a, b) => b.publishedDate - a.publishedDate)
+    .slice(0, 1)
+    .map(newsTeaser =>
+      <NewsTeaser hompageNews key={newsTeaser.id} newsTeaser={newsTeaser} />,
+    );
+  const fullNewsList = newsList
+    .sort((a, b) => b.publishedDate - a.publishedDate)
+    .slice(1)
+    .map(newsTeaser =>
+      <NewsTeaser hompageNews key={newsTeaser.id} newsTeaser={newsTeaser} />,
+    );
+  const oddNewsList = newsList
+    .sort((a, b) => b.publishedDate - a.publishedDate)
+    .slice(1)
+    .filter((newsTeaser, index) => !(index % 2))
+    .map(newsTeaser =>
+      <NewsTeaser hompageNews key={newsTeaser.id} newsTeaser={newsTeaser} />,
+    );
+  const evenNewsList = newsList
+    .sort((a, b) => b.publishedDate - a.publishedDate)
+    .slice(1)
+    .filter((newsTeaser, index) => index % 2)
+    .map(newsTeaser =>
+      (<NewsTeaser
+        hompageNewsSecondColumn
+        hompageNews
+        key={newsTeaser.id}
+        newsTeaser={newsTeaser}
+      />),
+    );
+
+  return (
+    !loading &&
+    <div className={styles.wrapper}>
+      <Helmet>
+        <title>Texas Camp 2018</title>
+      </Helmet>
+      <Menu />
+      <div className={styles.contentWrapper}>
+        <Header />
+        <div className={styles.content}>
+          <div className={styles.detail}>
+            <div className={styles.column}>
+              <div className={`${styles.tickets} ${styles.box}`}>
+                <div className={styles.smallest}>- Early Nerd -</div>
+                <h3>Tickets</h3>
+                <img src={price} alt="$25 USD" />
+                <Link to="tickets" className={styles.button}>
+                  Register
+                </Link>
+                <div className={styles.verticalText}>Regularly $50</div>
+              </div>
+              <MediaQuery query="(max-width: 667px)">
+                <div className={styles.latestNews}>
+                  {latestNews}
+                </div>
+              </MediaQuery>
+              <div className={`${styles.sponsors} ${styles.box}`}>
+                <img
+                  src={sponsorsHeading}
+                  alt="Platinum Sponsors"
+                  className={styles.heading}
+                />
+                <SponsorsSlideshow sponsors={sponsors} />
+                <Link to="/sponsor" className={styles.button}>
+                  Sponsor
+                </Link>
+              </div>
+              <MediaQuery query="(min-width: 668px)">
+                <div className={styles.newsList}>
+                  {oddNewsList}
+                </div>
+              </MediaQuery>
+            </div>
+            <div className={styles.column}>
+              <MediaQuery query="(min-width: 668px)">
+                <div className={styles.latestNews}>
+                  {latestNews}
+                </div>
+              </MediaQuery>
+              <div className={`${styles.speak} ${styles.box}`}>
+                <h4>Speak</h4>
+                <p>Gain experience and open source your expertise.</p>
+                <Link to="/sessions/submit" className={styles.button}>
+                  Submit
+                </Link>
+              </div>
+              <div className={`${styles.training} ${styles.box}`}>
+                <h4>Training / $50</h4>
+                <p>Learn from the best Drupalers this side of the Pecos.</p>
+                <Link to="/sessions/training" className={styles.button}>
+                  Sign Up
+                </Link>
+              </div>
+              <MediaQuery query="(max-width: 667px)">
+                <div>
+                  {fullNewsList}
+                </div>
+              </MediaQuery>
+              <MediaQuery query="(min-width: 668px)">
+                <div className={styles.newsList}>
+                  {evenNewsList}
+                </div>
+              </MediaQuery>
+            </div>
           </div>
-          <div className={styles.latestNews}>
-            {newsList
-              .slice(0, 1)
-              .map(newsTeaser =>
-                <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
-              )}
-          </div>
-          <div className={styles.sponsors}>
-            <h5>- Platinum -</h5>
-            <h4>Sponsors</h4>
-            {sponsors
-              .sort(() => Math.random() - 0.5)
-              .filter(sponsor => sponsor.sponsorLevel === 'Platinum')
-              .map(sponsor => <Sponsor key={sponsor.id} sponsor={sponsor} />)}
-            <Link to="/sponsor" className={styles.button}>
-              Sponsor
-            </Link>
-          </div>
-          <div className={styles.speak}>
-            <h4>Speak</h4>
-            <p>Gain experience and open source your expertise.</p>
-            <Link to="/sessions/submit" className={styles.button}>
-              Submit
-            </Link>
-          </div>
-          <div className={styles.training}>
-            <h4>Training / $50</h4>
-            <p>Learn from the best Drupalers this side of the Pecos.</p>
-            <Link to="/sessions/training" className={styles.button}>
-              Sign Up
-            </Link>
-          </div>
-          {newsList
-            .slice(1)
-            .map(newsTeaser =>
-              <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
-            )}
+          <Footer currentPage="home" />
         </div>
-        <Footer />
       </div>
     </div>
-  </div>;
+  );
+};
 
 export default compose(withNewsQuery, withSponsorsQuery)(Home);
