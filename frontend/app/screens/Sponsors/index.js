@@ -54,7 +54,7 @@ const Sponsors = ({
             <div className={styles.section}>
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Sponsor</div>
-                <p>Download our sponsor prospectuc to get started.</p>
+                <p>Download our sponsor prospectus to get started.</p>
                 <a href={prospectus} className={styles.button}>
                   Download
                 </a>
