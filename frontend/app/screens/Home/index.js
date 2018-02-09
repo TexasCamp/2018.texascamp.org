@@ -82,7 +82,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                   className={styles.heading}
                 />
                 <SponsorsSlideshow sponsors={sponsors} />
-                <Link to="/sponsor" className={styles.button}>
+                <Link to="/sponsors" className={styles.button}>
                   Sponsor
                 </Link>
               </div>
@@ -101,7 +101,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
               <div className={`${styles.speak} ${styles.box}`}>
                 <h4>Speak</h4>
                 <p>Gain experience and open source your expertise.</p>
-                <Link to="/sessions/submit" className={styles.button}>
+                <Link to="/session-form" className={styles.button}>
                   Submit
                 </Link>
               </div>
