@@ -22,7 +22,9 @@ export const NEWS_QUERY = gql`
       value
       summary
     }
-    fieldNewsDate
+    fieldNewsDate {
+      value
+    }
   }
 `;
 
@@ -31,7 +33,7 @@ export const newsListMapper = (entities: Array<Object>): Array<NewsT> =>
     title: entity.title,
     body: entity.body.value,
     summary: entity.body.summary,
-    publishedDate: entity.fieldNewsDate && new Date(entity.fieldNewsDate),
+    publishedDate: entity.fieldNewsDate && new Date(entity.fieldNewsDate.value),
     urlString: titleToLink(entity.title),
     id: entity.entityId,
   }));

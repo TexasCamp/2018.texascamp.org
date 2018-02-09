@@ -1,0 +1,7 @@
+name: Custom GraphQL
+type: module
+description: GraphQL extensions for 2018.texascamp.org
+core: 8.x
+package: Custom
+dependencies:
+  - graphql_core
