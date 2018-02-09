@@ -9,43 +9,17 @@ import Sponsor from 'Sponsor';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from 'Sponsors/styles.css';
 import type { SponsorT, SponsorLevelT } from 'types';
-import SidebarItem from 'SidebarItem';
 import uniq from 'ramda/src/uniq';
 import { prospectus } from 'files';
 
-const SponsorsSidebar = () =>
-  (<div className={styles.section}>
-    <SidebarItem
-      title="sponsor"
-      subtitle="Download our sponsor prospectus to get started."
-      btnTitle="download"
-      btnLink={prospectus}
-    />
-    <SidebarItem
-      title="questions?"
-      subtitle="Let us help you find the right fit."
-      btnTitle="contact us"
-      btnLink="mailto:hello@texascamp.org"
-    />
-  </div>);
-
-const SponsorsIntro = () =>
-  (<div className={styles.introWrapper}>
-    <h1 className={styles.title}>Brought to you by</h1>
-    <p className={styles.introText}>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-      fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-      sequi nesciunt.
-    </p>
-  </div>);
-
-type SponsorGroupPropsT = {
+type SponsorsPropsT = {
+  loading: boolean,
   sponsors: SponsorT[],
 };
-const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
+const Sponsors = ({
+  loading,
+  sponsors,
+}: SponsorsPropsT): React.Element<any> | false => {
   const individualSponsors = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel === 'Individual',
   );
@@ -67,43 +41,6 @@ const SponsorsGrouped = ({ sponsors }: SponsorGroupPropsT) => {
     };
     return ranks[a] - ranks[b];
   });
-
-  return (
-    <div className={styles.detail}>
-      <div className={styles.mainContent}>
-        <SponsorsIntro />
-        {levels.map(eachLevel =>
-          (<div>
-            <h2>
-              {eachLevel}
-            </h2>
-            <div className={styles.sponsorCompanyContainer}>
-              {filterByCompanySponsor(eachLevel).map(sponsor =>
-                <Sponsor key={sponsor.id} sponsor={sponsor} />,
-              )}
-            </div>
-          </div>),
-        )}
-        <div className={styles.sponsors}>
-          <h2>
-            {'Individual'}
-          </h2>
-          {individualSponsors.map(({ title }) => <p>{`＋ ${title}`}</p>)}
-        </div>
-      </div>
-      <SponsorsSidebar />
-    </div>
-  );
-};
-
-type SponsorsPropsT = {
-  loading: boolean,
-  sponsors: SponsorT[],
-};
-const Sponsors = ({
-  loading,
-  sponsors,
-}: SponsorsPropsT): React.Element<any> | false => {
   return (
     !loading &&
     <div>
@@ -112,7 +49,66 @@ const Sponsors = ({
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
-          <SponsorsGrouped sponsors={sponsors} />
+          <h1 className={styles.title}>Brought to you by</h1>
+          <div className={styles.detail}>
+            <div className={styles.section}>
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>Sponsor</div>
+                <p>Download our sponsor prospectuc to get started.</p>
+                <a href={prospectus} className={styles.button}>
+                  Download
+                </a>
+              </div>
+              <div className={styles.field}>
+                <div className={styles.fieldLabel}>Questions?</div>
+                <p>Let us help you find the right fit.</p>
+                <a href="/sponsor" className={styles.button}>
+                  Contact us
+                </a>
+              </div>
+            </div>
+            <div className={styles.mainContent}>
+              <p className={styles.introText}>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo.
+              </p>
+              <div className={styles.sponsorContainer}>
+                {levels.map(eachLevel =>
+                  (<div>
+                    <h2>
+                      {eachLevel} sponsors
+                    </h2>
+                    <div className={styles.sponsors}>
+                      {filterByCompanySponsor(eachLevel).map(sponsor =>
+                        <Sponsor key={sponsor.id} sponsor={sponsor} />,
+                      )}
+                    </div>
+                  </div>),
+                )}
+                {individualSponsors &&
+                  <div className={styles.individualSponsors}>
+                    <h2>
+                      {'Individual sponsors'}
+                    </h2>
+                    <ul>
+                      {individualSponsors.map(({ title, sponsorUrl }) => {
+                        return sponsorUrl
+                          ? <li>
+                            <a href={sponsorUrl}>
+                              {title}
+                            </a>
+                          </li>
+                          : <li>
+                            {title}
+                          </li>;
+                      })}
+                    </ul>
+                  </div>}
+              </div>
+            </div>
+          </div>
           <Footer />
         </div>
       </div>
