@@ -1,7 +1,3 @@
-.title {
-  margin: 0;
-}
-
 .contentWrapper {
   @media $desktop {
     display: flex;
@@ -14,13 +10,14 @@
     width: 100%;
   }
 }
-
-
+.title {
+  composes: title from '../../shared/css/global.css';
+}
 .detail {
   composes: contentArea from '../../shared/css/global.css';
-  flex-direction: row;
+  flex-direction: row-reverse;
   .section {
-    margin-bottom: 26px;
+    margin-bottom: 6px;
     min-width: 25%;
     @media $xs_small {
       display: flex;
@@ -28,20 +25,70 @@
       justify-content: space-between;
     }
     @media $tablet {
-      margin-top: 40px;
       margin-bottom: 40px;
+      max-width: 135px;
     }
   }
   .mainContent {
     @media $tablet {
       margin-right: 40px;
-      margin-top: 40px;
+      margin-top: 8px;
       width: 100%;
+    }
+    h2 {
+      margin: 0 0 14px;
+    }
+    ul li a {
+      box-shadow: none;
+      &:hover {
+        background: none;
+      }
     }
   }
 }
-
-.sponsorCompanyContainer {
-  display: flex;
-  flex-wrap: wrap;
+.sponsorContainer {
+  margin-top: 35px;
+  .sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    div {
+      background-color: $lighterGrey;
+      margin-bottom: 20px;
+      &:hover {
+        background-color: $almostWhite;
+      }
+      @media $xs_small {
+        width: calc(50% - 10px);
+      }
+      @media $tablet {
+        width: calc(50% - 10px);
+      }
+    }
+  }
+  .individualSponsors {
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+}
+.field {
+  composes: field from '../../shared/css/global.css';
+  padding-bottom: 52px;
+  .button {
+    color: $beige;
+    &:hover {
+      background: $navy;
+      box-shadow: none;
+    }
+  }
+}
+.fieldLabel {
+  composes: calderDark from '../../shared/css/fonts.css';
+}
+.button {
+  composes: button from '../../shared/css/global.css';
+  margin-top: -12px;
+  position: absolute;
 }

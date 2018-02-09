@@ -14,6 +14,7 @@ const Sponsor = ({ sponsor: { title, image, sponsorUrl } }: SponsorPropsT) => {
       {title}
     </p>
   );
+  const titleOnlyClass = noLogoAvailable ? styles.noImage : '';
   const SponsorWithLogo = (
     <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
   );
@@ -28,7 +29,7 @@ const Sponsor = ({ sponsor: { title, image, sponsorUrl } }: SponsorPropsT) => {
     );
   }
   return (
-    <div className={styles.sponsorWrapper}>
+    <div className={titleOnlyClass}>
       {SponsorEntity}
     </div>
   );
