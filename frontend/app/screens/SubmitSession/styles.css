@@ -93,3 +93,6 @@ select {
 .disclaimer {
   margin: -16px 0 10px;
 }
+.submitting {
+  margin: 0 0 0 10px;
+}
