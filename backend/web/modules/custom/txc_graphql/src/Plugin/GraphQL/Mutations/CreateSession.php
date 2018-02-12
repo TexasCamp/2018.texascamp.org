@@ -3,6 +3,7 @@
 namespace Drupal\txc_graphql\Plugin\GraphQL\Mutations;
 
 use Youshido\GraphQL\Execution\ResolveInfo;
+use Drupal\Component\Utility\Crypt;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\graphql\GraphQL\Type\InputObjectType;
 use Drupal\graphql_core\Plugin\GraphQL\Mutations\Entity\CreateEntityBase;
@@ -70,6 +71,7 @@ class CreateSession extends CreateEntityBase {
       'field_session_contact_email' => $inputArgs['contact_info']['email'],
       'field_session_contact_name' => $inputArgs['contact_info']['name'],
       'field_session_contact_company' => $inputArgs['contact_info']['company'],
+      'field_session_edit_token' => Crypt::randomBytesBase64(16),
     ];
   }
 
