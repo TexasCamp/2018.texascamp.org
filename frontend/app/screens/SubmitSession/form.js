@@ -43,9 +43,9 @@ const SessionForm = ({
           >
             <option value="">-- Select track --</option>
             {tracks.map(track =>
-              <option key={track.id} value={track.id}>
+              (<option key={track.id} value={track.id}>
                 {track.name}
-              </option>,
+              </option>),
             )}
           </select>
         </div>
@@ -59,9 +59,9 @@ const SessionForm = ({
           >
             <option value="">-- Select skill level --</option>
             {skillLevels.map(skillLevel =>
-              <option key={skillLevel.id} value={skillLevel.id}>
+              (<option key={skillLevel.id} value={skillLevel.id}>
                 {skillLevel.name}
-              </option>,
+              </option>),
             )}
           </select>
         </div>
@@ -79,7 +79,7 @@ const SessionForm = ({
       <fieldset>
         <legend>Speaker(s)</legend>
         {Array(speakerCount).fill(0).map((val, index) =>
-          <div key={index} className={styles.speaker}>
+          (<div key={index} className={styles.speaker}>
             <div className={styles.formItem}>
               <FloatingLabelInput
                 type="text"
@@ -100,7 +100,7 @@ const SessionForm = ({
                 placeholder="Bio"
               />
             </div>
-          </div>,
+          </div>),
         )}
         <button
           type="button"
@@ -161,7 +161,8 @@ const SessionForm = ({
           disabled={saving}
           className={styles.button}
         />
-        {saving && <span>Submitting your session!</span>}
+        {saving &&
+          <span className={styles.submitting}>Submitting your session!</span>}
         {error &&
           <span>
             {error}
