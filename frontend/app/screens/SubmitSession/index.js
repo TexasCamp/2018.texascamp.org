@@ -34,8 +34,8 @@ const SubmitSession = ({
         <Header />
         <div className={styles.content}>
           <div className={styles.contentContainer}>
-            <h1>Submit a session</h1>
-            <p>
+            <h1 className={styles.title}>Submit a session</h1>
+            <p className={styles.intro}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellent
               venenatis est viverra, tincidunt nibh non, mollis ex. Nulla sit me
               dui eu ipsum aliquet varius id quis felis. Aliquam placerat nunc

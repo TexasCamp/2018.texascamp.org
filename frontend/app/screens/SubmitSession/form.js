@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import FloatingLabelInput from 'FloatingLabel';
+import ReactSelect from 'react-select';
 import styles from './styles.css';
 
 const SessionForm = ({
@@ -34,36 +35,60 @@ const SessionForm = ({
           />
         </div>
         <div className={styles.formItem}>
-          <label htmlFor="track">Track</label>
-          <select
-            id="track"
-            value={formValues.track}
-            onChange={saveValue}
-            required
-          >
-            <option value="">-- Select track --</option>
-            {tracks.map(track =>
-              (<option key={track.id} value={track.id}>
-                {track.name}
-              </option>),
-            )}
-          </select>
+          <div className={styles.fauxFloatingLabelContainer}>
+            <ReactSelect
+              aria-labelledby="track"
+              placeholder=""
+              name="select-track"
+              value={formValues.track}
+              onChange={newOption => {
+                setFormValue('track', newOption.value);
+              }}
+              options={tracks.map(track => ({
+                value: track.id,
+                label: track.name,
+              }))}
+              required
+            />
+            <label
+              id="track"
+              className={
+                formValues.track ? styles.selectHasValue : styles.selectEmpty
+              }
+              htmlFor="track"
+            >
+              Track
+            </label>
+          </div>
         </div>
         <div className={styles.formItem}>
-          <label htmlFor="skillLevel">Skill level</label>
-          <select
-            id="skillLevel"
-            value={formValues.skillLevel}
-            onChange={saveValue}
-            required
-          >
-            <option value="">-- Select skill level --</option>
-            {skillLevels.map(skillLevel =>
-              (<option key={skillLevel.id} value={skillLevel.id}>
-                {skillLevel.name}
-              </option>),
-            )}
-          </select>
+          <div className={styles.fauxFloatingLabelContainer}>
+            <ReactSelect
+              aria-labelledby="skillLevel"
+              placeholder=""
+              name="select-skillLevel"
+              value={formValues.skillLevel}
+              onChange={newOption => {
+                setFormValue('skillLevel', newOption.value);
+              }}
+              options={skillLevels.map(skillLevel => ({
+                value: skillLevel.id,
+                label: skillLevel.name,
+              }))}
+              required
+            />
+            <label
+              id="skillLevel"
+              className={
+                formValues.skillLevel
+                  ? styles.selectHasValue
+                  : styles.selectEmpty
+              }
+              htmlFor="skillLevel"
+            >
+              Skill level
+            </label>
+          </div>
         </div>
         <div className={styles.formItem}>
           <FloatingLabelInput
@@ -154,7 +179,7 @@ const SessionForm = ({
         the selection process. We will send you a permalink with which you can
         edit your submission.
       </p>
-      <div>
+      <div className={styles.submissionContainer}>
         <input
           type="submit"
           value="Submit"
@@ -164,7 +189,7 @@ const SessionForm = ({
         {saving &&
           <span className={styles.submitting}>Submitting your session!</span>}
         {error &&
-          <span>
+          <span className={styles.submitting}>
             {error}
           </span>}
       </div>

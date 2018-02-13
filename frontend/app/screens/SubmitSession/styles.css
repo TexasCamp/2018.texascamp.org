@@ -1,3 +1,16 @@
+.title {
+  margin: 50px 0 8px;
+  @media $tabletOnly {
+    margin: 60px 0 8px;
+  }
+}
+.intro {
+  margin-top: 8px;
+  @media $tabletDown {
+    display: inline-block;
+    width: 100%;
+  }
+}
 .contentWrapper {
   @media $desktop {
     display: flex;
@@ -78,7 +91,7 @@ select {
 .button {
   composes: button from '../../shared/css/global.css';
   display: inline-block;
-  margin-top: 14px;
+  margin-top: 0;
 }
 .buttonSecondary {
   composes: button from '../../shared/css/global.css';
@@ -91,8 +104,36 @@ select {
   }
 }
 .disclaimer {
-  margin: -16px 0 10px;
+  margin: -16px 0 34px;
+}
+.submissionContainer {
+  align-items: center;
+  display: flex;
 }
 .submitting {
   margin: 0 0 0 10px;
+}
+.fauxFloatingLabelContainer {
+  position: relative;
+  label {
+    left: 18px;
+    position: absolute;
+    z-index: 1;
+    transition: font-size 200ms, top 200ms;
+  }
+}
+.selectHasValue {
+  color: #b2aeaa;
+  font-size: 11px;
+  top: 6px;
+}
+.selectEmpty {
+  top: 15px;
+}
+:global .Select.is-focused {
+  + label {
+    color: #b2aeaa;
+    font-size: 11px;
+    top: 6px;
+  }
 }
