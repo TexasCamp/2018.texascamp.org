@@ -94,6 +94,27 @@ body {
     }
   }
 }
+.button {
+  background: $orange;
+  border: none;
+  border-radius: 20px;
+  box-shadow: none !important;
+  color: $beige;
+  composes: calderDark from '../../shared/css/fonts.css';
+  line-height: 100%;
+  margin-top: 20px;
+  outline: none;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  &:hover {
+    background: $navy;
+    cursor: pointer;
+  }
+}
 .title {
   font-size: 30px;
   line-height: 40px;
@@ -127,6 +148,9 @@ body {
   border-top: 1px dashed $grey;
   min-width: calc(50% - 10px);
   padding: 7px 0 12px;
+  @media $xs_small {
+    width: calc(50% - 10px);
+  }
   a {
     box-shadow: inset 0 -1px 0 $yellow;
     color: $navy;
