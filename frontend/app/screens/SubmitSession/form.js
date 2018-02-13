@@ -35,50 +35,60 @@ const SessionForm = ({
           />
         </div>
         <div className={styles.formItem}>
-          <label
-            id="track"
-            className={formValues.track ? styles.selectHasValue : ''}
-            htmlFor="track"
-          >
-            Track
-          </label>
-          <ReactSelect
-            aria-labelledby="track"
-            placeholder="Track"
-            name="select-track"
-            value={formValues.track}
-            onChange={newOption => {
-              setFormValue('track', newOption.value);
-            }}
-            options={tracks.map(track => ({
-              value: track.id,
-              label: track.name,
-            }))}
-            required
-          />
+          <div className={styles.fauxFloatingLabelContainer}>
+            <ReactSelect
+              aria-labelledby="track"
+              placeholder=""
+              name="select-track"
+              value={formValues.track}
+              onChange={newOption => {
+                setFormValue('track', newOption.value);
+              }}
+              options={tracks.map(track => ({
+                value: track.id,
+                label: track.name,
+              }))}
+              required
+            />
+            <label
+              id="track"
+              className={
+                formValues.track ? styles.selectHasValue : styles.selectEmpty
+              }
+              htmlFor="track"
+            >
+              Track
+            </label>
+          </div>
         </div>
         <div className={styles.formItem}>
-          <label
-            id="skillLevel"
-            className={formValues.skillLevel ? styles.selectHasValue : ''}
-            htmlFor="skillLevel"
-          >
-            Skill level
-          </label>
-          <ReactSelect
-            aria-labelledby="skillLevel"
-            placeholder="Skill level"
-            name="select-skillLevel"
-            value={formValues.skillLevel}
-            onChange={newOption => {
-              setFormValue('skillLevel', newOption.value);
-            }}
-            options={skillLevels.map(skillLevel => ({
-              value: skillLevel.id,
-              label: skillLevel.name,
-            }))}
-            required
-          />
+          <div className={styles.fauxFloatingLabelContainer}>
+            <ReactSelect
+              aria-labelledby="skillLevel"
+              placeholder=""
+              name="select-skillLevel"
+              value={formValues.skillLevel}
+              onChange={newOption => {
+                setFormValue('skillLevel', newOption.value);
+              }}
+              options={skillLevels.map(skillLevel => ({
+                value: skillLevel.id,
+                label: skillLevel.name,
+              }))}
+              required
+            />
+            <label
+              id="skillLevel"
+              className={
+                formValues.skillLevel
+                  ? styles.selectHasValue
+                  : styles.selectEmpty
+              }
+              htmlFor="skillLevel"
+            >
+              Skill level
+            </label>
+          </div>
         </div>
         <div className={styles.formItem}>
           <FloatingLabelInput
@@ -169,7 +179,7 @@ const SessionForm = ({
         the selection process. We will send you a permalink with which you can
         edit your submission.
       </p>
-      <div>
+      <div className={styles.submissionContainer}>
         <input
           type="submit"
           value="Submit"
@@ -179,7 +189,7 @@ const SessionForm = ({
         {saving &&
           <span className={styles.submitting}>Submitting your session!</span>}
         {error &&
-          <span>
+          <span className={styles.submitting}>
             {error}
           </span>}
       </div>
