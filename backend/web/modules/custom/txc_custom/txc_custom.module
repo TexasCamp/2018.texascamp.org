@@ -1,0 +1,49 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_mail().
+ */
+function txc_custom_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+
+  $msg = <<<EOM
+Thank you for submitting a session to Texas Camp 2018!
+
+The link below is your personal edit link. You can use it any time you want to make changes to your session.
+Be sure to keep this email or save the link.
+
+https://2018.texascamp.org/edit-session?id={$params['id']}&edit_token={$params['edit_token']}
+EOM;
+
+  switch ($key) {
+    case 'create_session':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Texas Camp: Manage your session (@title)', array('@title' => $params['title']), $options);
+      $message['body'][] = $msg;
+      break;
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function txc_custom_entity_insert(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'node'
+    || ($entity->getEntityTypeId() === 'node' && $entity->bundle() !== 'session')) {
+    return;
+  }
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'txc_custom';
+  $key = 'create_session';
+  $to = $entity->field_session_contact_email->value;
+  $params['id'] = $entity->id();
+  $params['title'] = $entity->label();
+  $params['edit_token'] = $entity->field_session_edit_token->value;
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $mailManager->mail($module, $key, $to, $langcode, $params, NULL, TRUE);
+}

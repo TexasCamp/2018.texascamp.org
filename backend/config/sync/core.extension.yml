@@ -39,6 +39,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  txc_custom: 0
   txc_graphql: 0
   user: 0
   views_data_export: 0
