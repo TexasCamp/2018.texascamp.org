@@ -62,21 +62,24 @@ const Sponsors = ({
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Questions?</div>
                 <p>Let us help you find the right fit.</p>
-                <a href="/sponsor" className={styles.button}>
+                <a href="mailto:hello@texascamp.org" className={styles.button}>
                   Contact us
                 </a>
               </div>
             </div>
             <div className={styles.mainContent}>
               <p className={styles.introText}>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo.
+                Thank you to our generous sponsors for helping make this event a
+                reality. We couldn&apos;t do it without you!
+              </p>
+              <p className={styles.introText}>
+                Now is your chance to support your local Drupal community,
+                recruit from a diverse Drupal talent pool, and showcase your
+                brand to the Texas Drupal community.
               </p>
               <div className={styles.sponsorContainer}>
                 {levels.map(eachLevel =>
-                  (<div>
+                  (<div key={eachLevel}>
                     <h2>
                       {eachLevel} sponsors
                     </h2>
@@ -93,14 +96,14 @@ const Sponsors = ({
                       {'Individual sponsors'}
                     </h2>
                     <ul>
-                      {individualSponsors.map(({ title, sponsorUrl }) => {
+                      {individualSponsors.map(({ id, title, sponsorUrl }) => {
                         return sponsorUrl
-                          ? <li>
+                          ? <li key={id}>
                             <a href={sponsorUrl}>
                               {title}
                             </a>
                           </li>
-                          : <li>
+                          : <li key={id}>
                             {title}
                           </li>;
                       })}
