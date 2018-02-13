@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
@@ -25,6 +26,20 @@ EOM;
       $message['subject'] = t('Texas Camp: Manage your session (@title)', array('@title' => $params['title']), $options);
       $message['body'][] = $msg;
       break;
+  }
+}
+
+/**
+ * Implements hook_entity_create().
+ */
+function txc_custom_entity_create(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'node'
+    || ($entity->getEntityTypeId() === 'node' && $entity->bundle() !== 'session')) {
+    return;
+  }
+
+  if ($entity->get('field_session_edit_token')->isEmpty()) {
+    $entity->get('field_session_edit_token')->setValue(Crypt::randomBytesBase64(16));
   }
 }
 
