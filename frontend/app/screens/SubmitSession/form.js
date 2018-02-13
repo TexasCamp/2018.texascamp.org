@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import FloatingLabelInput from 'FloatingLabel';
+import ReactSelect from 'react-select';
 import styles from './styles.css';
 
 const SessionForm = ({
@@ -34,36 +35,50 @@ const SessionForm = ({
           />
         </div>
         <div className={styles.formItem}>
-          <label htmlFor="track">Track</label>
-          <select
+          <label
             id="track"
-            value={formValues.track}
-            onChange={saveValue}
-            required
+            className={formValues.track ? styles.selectHasValue : ''}
+            htmlFor="track"
           >
-            <option value="">-- Select track --</option>
-            {tracks.map(track =>
-              (<option key={track.id} value={track.id}>
-                {track.name}
-              </option>),
-            )}
-          </select>
+            Track
+          </label>
+          <ReactSelect
+            aria-labelledby="track"
+            placeholder="Track"
+            name="select-track"
+            value={formValues.track}
+            onChange={newOption => {
+              setFormValue('track', newOption.value);
+            }}
+            options={tracks.map(track => ({
+              value: track.id,
+              label: track.name,
+            }))}
+            required
+          />
         </div>
         <div className={styles.formItem}>
-          <label htmlFor="skillLevel">Skill level</label>
-          <select
+          <label
             id="skillLevel"
-            value={formValues.skillLevel}
-            onChange={saveValue}
-            required
+            className={formValues.skillLevel ? styles.selectHasValue : ''}
+            htmlFor="skillLevel"
           >
-            <option value="">-- Select skill level --</option>
-            {skillLevels.map(skillLevel =>
-              (<option key={skillLevel.id} value={skillLevel.id}>
-                {skillLevel.name}
-              </option>),
-            )}
-          </select>
+            Skill level
+          </label>
+          <ReactSelect
+            aria-labelledby="skillLevel"
+            placeholder="Skill level"
+            name="select-skillLevel"
+            value={formValues.skillLevel}
+            onChange={newOption => {
+              setFormValue('skillLevel', newOption.value);
+            }}
+            options={skillLevels.map(skillLevel => ({
+              value: skillLevel.id,
+              label: skillLevel.name,
+            }))}
+            required
+          />
         </div>
         <div className={styles.formItem}>
           <FloatingLabelInput
