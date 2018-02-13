@@ -4,12 +4,10 @@
     margin: 60px 0 8px;
   }
 }
-.intro {
+.introText {
+  display: inline-block;
   margin-top: 8px;
-  @media $tabletDown {
-    display: inline-block;
-    width: 100%;
-  }
+  width: 100%;
 }
 .contentWrapper {
   @media $desktop {
@@ -91,7 +89,7 @@ select {
 .button {
   composes: button from '../../shared/css/global.css';
   display: inline-block;
-  margin-top: 0;
+  margin: 0 10px 10px 0;
 }
 .buttonSecondary {
   composes: button from '../../shared/css/global.css';
@@ -136,4 +134,8 @@ select {
     font-size: 11px;
     top: 6px;
   }
+}
+.confirmationText {
+  display: inline-block;
+  margin: 8px 0 34px;
 }
