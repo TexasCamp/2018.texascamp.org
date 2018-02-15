@@ -142,10 +142,12 @@ body {
   border-radius: 20px;
   color: $beige;
   composes: calderDark from '../../shared/css/fonts.css';
+  font-size: 11px;
+  letter-spacing: 1px;
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 6px 20px;
+  padding: 7px 20px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
@@ -163,10 +165,12 @@ body {
   box-shadow: none;
   color: $beige;
   font-family: "calder-dark", sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 6px 20px;
+  padding: 7px 20px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
