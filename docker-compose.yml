@@ -28,7 +28,7 @@ services:
       # for Drupal 7 and 8 and search_api module. If by any reason you need to change the solr config
       # put the config files in a folder 'docker/solr' and uncomment this line:
       #- ./docker/solr:/etc/solr/conf/drupal/conf
-      - ./.amazeeio/nginx.conf:/etc/nginx/site-configs.d/20be-drupal.conf
+      #- ./.amazeeio/nginx.conf:/etc/nginx/site-configs.d/20be-drupal.conf
 
 ################################################
 ### Do not change anything below here, unless you know what you do
