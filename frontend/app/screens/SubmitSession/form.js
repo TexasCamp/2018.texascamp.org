@@ -22,7 +22,7 @@ const SessionForm = ({
 
   return (
     <form onSubmit={onSubmit}>
-      <fieldset>
+      <fieldset className={styles.sessionFieldset}>
         <legend>Session</legend>
         <div className={styles.formItem}>
           <FloatingLabelInput
@@ -101,7 +101,7 @@ const SessionForm = ({
           />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className={styles.sessionFieldset}>
         <legend>Speaker(s)</legend>
         {Array(speakerCount).fill(0).map((val, index) =>
           (<div key={index} className={styles.speaker}>
@@ -142,7 +142,7 @@ const SessionForm = ({
           - Remove speaker
         </button>
       </fieldset>
-      <fieldset>
+      <fieldset className={styles.sessionFieldset}>
         <legend>Contact information</legend>
         <div className={styles.formItem}>
           <FloatingLabelInput
