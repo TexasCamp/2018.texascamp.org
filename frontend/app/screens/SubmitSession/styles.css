@@ -32,9 +32,9 @@
 form {
   margin-top: 16px;
 }
-fieldset {
+.sessionFieldset {
   border: 0;
-  margin: 0 0 27px;
+  margin: 0 0 33px;
   padding: 0;
 }
 legend {
@@ -56,6 +56,9 @@ legend {
     + button + button {
       display: none;
     }
+  }
+  &:last-of-type {
+    margin: 0 0 14px;
   }
 }
 input[type="text"],
@@ -79,7 +82,7 @@ textarea {
   }
 }
 textarea {
-  height: 175px;
+  height: 169px;
   min-height: 100px;
   resize: vertical;
 }
@@ -103,7 +106,7 @@ select {
   }
 }
 .disclaimer {
-  margin: -12px 0 37px;
+  margin: -18px 0 29px;
 }
 .submissionContainer {
   align-items: center;
