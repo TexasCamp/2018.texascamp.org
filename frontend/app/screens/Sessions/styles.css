@@ -172,3 +172,9 @@
 .presenter ~ .presenter::before {
   content: ', ';
 }
+.button {
+  composes: button from '../../shared/css/global.css';
+}
+.detail {
+  width: 100%;
+}
