@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Sponsor from 'Sponsor';
-import Link from 'Link';
+import { Link } from 'react-router-dom';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from './styles.css';
 
