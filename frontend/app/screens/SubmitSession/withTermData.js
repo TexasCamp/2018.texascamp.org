@@ -29,7 +29,7 @@ const loadingOptions = [{ id: 0, name: 'Loading...' }];
 
 const withTracks = graphql(TRACK_QUERY, {
   props: ({
-    data: { taxonomyTermQuery: { tracks } = {}, loading },
+    data: { taxonomyTermQuery: { tracks = [] } = {}, loading },
   }: {
     data: { taxonomyTermQuery: { tracks: Array<Object> }, loading: boolean },
   }): Object => ({
@@ -39,7 +39,7 @@ const withTracks = graphql(TRACK_QUERY, {
 
 const withSkillLevels = graphql(SKILL_LEVELS_QUERY, {
   props: ({
-    data: { taxonomyTermQuery: { skillLevels } = {}, loading },
+    data: { taxonomyTermQuery: { skillLevels = [] } = {}, loading },
   }: {
     data: {
       taxonomyTermQuery: { skillLevels: Array<Object> },

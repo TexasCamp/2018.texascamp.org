@@ -6,7 +6,7 @@ import { SESSION_QUERY, sessionsListMapper } from 'Sessions/withSessionsQuery';
 const withSessionQuery = graphql(SESSION_QUERY, {
   props: props => {
     const {
-      data: { nodeQuery: { entities } = {}, loading },
+      data: { nodeQuery: { entities = [] } = {}, loading },
       ownProps: { match: { params: { sessionName } } },
     } = props;
 

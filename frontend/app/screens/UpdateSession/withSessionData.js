@@ -3,41 +3,37 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 const getSingleSession = gql`
-  query allSessions($id: String!) {
+  query getSingleSession($id: String!) {
     nodeById(id: $id) {
-      ...SessionFragment
-    }
-  }
-
-  fragment SessionFragment on NodeSession {
-    body {
-      value
-    }
-    fieldSessionContactCompany
-    fieldSessionContactEmail
-    fieldSessionContactName
-    fieldSessionSkillLevel {
-      entity {
-        entityId
+      ... on NodeSession {
+        body {
+          value
+        }
+        fieldSessionContactCompany
+        fieldSessionContactEmail
+        fieldSessionContactName
+        fieldSessionSkillLevel {
+          entity {
+            entityId
+          }
+        }
+        fieldSessionPresenters {
+          entity {
+            ... on ParagraphPresenter {
+              fieldSessionPresenter
+              fieldSessionBio {
+                value
+              }
+            }
+          }
+        }
+        fieldSessionTrack {
+          entity {
+            entityId
+          }
+        }
+        title
       }
-    }
-    fieldSessionPresenters {
-      entity {
-        ...PresenterFragment
-      }
-    }
-    fieldSessionTrack {
-      entity {
-        entityId
-      }
-    }
-    title
-  }
-
-  fragment PresenterFragment on ParagraphPresenter {
-    fieldSessionPresenter
-    fieldSessionBio {
-      value
     }
   }
 `;

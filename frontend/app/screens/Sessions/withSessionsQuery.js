@@ -87,7 +87,7 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
 
 const withSessionsQuery = graphql(SESSION_QUERY, {
   props: ({
-    data: { nodeQuery: { entities } = {}, loading },
+    data: { nodeQuery: { entities = [] } = {}, loading },
   }: {
     data: { nodeQuery: { entities: Array<Object> }, loading: boolean },
   }) => ({ sessions: loading ? [] : sessionsListMapper(entities) }),
