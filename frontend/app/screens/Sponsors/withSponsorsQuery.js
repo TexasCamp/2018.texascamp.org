@@ -50,7 +50,7 @@ export const sponsorsListMapper = (entities: Array<Object>): Array<SponsorT> =>
 
 const withSponsorsQuery = graphql(SPONSOR_QUERY, {
   props: ({
-    data: { nodeQuery: { entities } = {}, loading },
+    data: { nodeQuery: { entities = [] } = {}, loading },
   }: {
     data: { nodeQuery: { entities: Array<Object> }, loading: boolean },
   }) => ({ sponsors: loading ? [] : sponsorsListMapper(entities) }),

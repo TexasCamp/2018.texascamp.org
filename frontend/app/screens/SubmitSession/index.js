@@ -56,12 +56,13 @@ const SubmitSession = ({
             {!submitted &&
               <div>
                 <p className={styles.introText}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellent venenatis est viverra, tincidunt nibh non, mollis ex.
-                  Nulla sit me dui eu ipsum aliquet varius id quis felis.
-                  Aliquam placerat nunc id dolor bibendum lobortis. Praesent
-                  laoreet cursus lorem ales. Proin est ispsum aliquam vel
-                  viverra velit.{' '}
+                  Now’s your chance! All you need is a big idea and enough
+                  content to fill 45 minutes.
+                  <br />
+                  Be brave, be bold. Join the ranks of{' '}
+                  <a href="https://www.youtube.com/playlist?list=PLHvSm1Lpji2Ql7VyKLbGAMcgGTpfDdb6-&disable_polymer=true">
+                    those who have gone before.
+                  </a>
                 </p>
                 <SessionForm
                   tracks={tracks}
