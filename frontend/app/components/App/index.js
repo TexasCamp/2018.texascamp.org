@@ -5,7 +5,6 @@ import 'App/normalize.css';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Switch, Route } from 'react-router';
-import SplashPage from 'SplashPage';
 import Home from 'Home';
 import Sessions from 'Sessions';
 import Session from 'Session';
@@ -42,31 +41,24 @@ const App = (): React.Element<any> =>
       <link rel="shortcut icon" href={favicon} />
     </Helmet>
     <Typekit kitId="rgi7wxl" />
-    <Switch>
-      <Route exact path="/" component={SplashPage} />
-      <Route
-        path="*"
-        render={() =>
-          (<div className={styles.wrapper}>
-            <Switch>
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/sessions" component={Sessions} />
-              <Route exact path="/sessions/:sessionName/" component={Session} />
-              <Route exact path="/session-form" component={SubmitSession} />
-              <Route
-                exact
-                path="/session-update/:id/:editToken"
-                component={UpdateSession}
-              />
-              <Route exact path={Humans} />
-              <Route exact path="/news" component={NewsOverview} />
-              <Route exact path="/news/:newsTitle/" component={News} />
-              <Route exact path="/sponsors" component={Sponsors} />
-              <Route path="*" component={SplatRouter} />
-            </Switch>
-          </div>)}
-      />
-    </Switch>
+    <div className={styles.wrapper}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/sessions" component={Sessions} />
+        <Route exact path="/sessions/:sessionName/" component={Session} />
+        <Route exact path="/session-form" component={SubmitSession} />
+        <Route
+          exact
+          path="/session-update/:id/:editToken"
+          component={UpdateSession}
+        />
+        <Route exact path={Humans} />
+        <Route exact path="/news" component={NewsOverview} />
+        <Route exact path="/news/:newsTitle/" component={News} />
+        <Route exact path="/sponsors" component={Sponsors} />
+        <Route path="*" component={SplatRouter} />
+      </Switch>
+    </div>
   </div>);
 
 export default App;
