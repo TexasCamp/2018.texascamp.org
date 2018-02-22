@@ -31,7 +31,7 @@ export type MenuItemsT = {
 };
 const withMainNavQuery = graphql(MAIN_NAV_QUERY, {
   props: ({
-    data: { menuByName: { links } = {}, loading },
+    data: { menuByName: { links = [] } = {}, loading },
   }: MenuByNameQueryResponseT): MenuItemsT => ({
     menuItems: loading ? [] : mainNavMapper(links),
   }),
