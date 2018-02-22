@@ -161,6 +161,15 @@ const SessionsList = (props: SessionsListProps) => {
             </div>
           );
         })}
+        {sessions.length === 0 &&
+          <div className={styles.teaserWrapper}>
+            <h2>No sessions submitted.</h2>
+            <p className={styles.body}>
+              <Link to="/submit-session" className={styles.button}>
+                Submit Session
+              </Link>
+            </p>
+          </div>}
       </div>
     </div>
   );

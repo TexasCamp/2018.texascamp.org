@@ -5,7 +5,7 @@ import type { TrackT, SkillLevelT } from 'types';
 
 const TAXONOMY_TERM_QUERY = gql`
   query sessionFilterTerms {
-    taxonomyTermQuery(offset: 0) {
+    taxonomyTermQuery(offset: 0, limit: 999) {
       entities {
         ...TaxonomyTermFragment
       }
