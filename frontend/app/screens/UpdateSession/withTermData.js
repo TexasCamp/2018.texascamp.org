@@ -5,7 +5,7 @@ import compose from 'recompose/compose';
 
 const TRACK_QUERY = gql`
   query sessionTracks {
-    taxonomyTermQuery(offset: 0, limit: 99, filter: { vid: "track" }) {
+    taxonomyTermQuery(offset: 0, limit: 999, filter: { vid: "track" }) {
       tracks: entities {
         name: entityLabel
         id: entityId
@@ -16,7 +16,7 @@ const TRACK_QUERY = gql`
 
 const SKILL_LEVELS_QUERY = gql`
   query sessionSkillLevels {
-    taxonomyTermQuery(offset: 0, limit: 99, filter: { vid: "skill_level" }) {
+    taxonomyTermQuery(offset: 0, limit: 999, filter: { vid: "skill_level" }) {
       skillLevels: entities {
         name: entityLabel
         id: entityId
