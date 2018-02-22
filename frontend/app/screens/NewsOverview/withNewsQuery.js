@@ -40,7 +40,7 @@ export const newsListMapper = (entities: Array<Object>): Array<NewsT> =>
 
 const withNewsQuery = graphql(NEWS_QUERY, {
   props: ({
-    data: { nodeQuery: { entities } = {}, loading },
+    data: { nodeQuery: { entities = [] } = {}, loading },
   }: {
     data: { nodeQuery: { entities: Array<Object> }, loading: boolean },
   }) => ({ newsList: loading ? [] : newsListMapper(entities) }),

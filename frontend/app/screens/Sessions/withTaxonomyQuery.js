@@ -32,7 +32,7 @@ type TaxonomiesT = {
 };
 const withTaxonomyQuery = graphql(TAXONOMY_TERM_QUERY, {
   props: ({
-    data: { taxonomyTermQuery: { entities } = {}, loading },
+    data: { taxonomyTermQuery: { entities = [] } = {}, loading },
   }: {
     data: { taxonomyTermQuery: { entities: Array<Object> }, loading: boolean },
   }): TaxonomiesT => ({
