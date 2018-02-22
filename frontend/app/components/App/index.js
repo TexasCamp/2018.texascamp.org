@@ -14,6 +14,7 @@ import News from 'News';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
 import NewsOverview from 'NewsOverview';
 import SubmitSession from 'SubmitSession';
+import UpdateSession from 'UpdateSession';
 import SplatRouter from 'SplatRouter';
 import Typekit from 'react-typekit';
 import favicon from '!file-loader?name=favicon.ico!favicons/favicon.ico';
@@ -52,6 +53,11 @@ const App = (): React.Element<any> =>
               <Route exact path="/sessions" component={Sessions} />
               <Route exact path="/sessions/:sessionName/" component={Session} />
               <Route exact path="/session-form" component={SubmitSession} />
+              <Route
+                exact
+                path="/session-update/:id/:editToken"
+                component={UpdateSession}
+              />
               <Route exact path={Humans} />
               <Route exact path="/news" component={NewsOverview} />
               <Route exact path="/news/:newsTitle/" component={News} />

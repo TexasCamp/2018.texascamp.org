@@ -17,7 +17,7 @@ Thank you for submitting a session to Texas Camp 2018!
 The link below is your personal edit link. You can use it any time you want to make changes to your session.
 Be sure to keep this email or save the link.
 
-https://2018.texascamp.org/edit-session?id={$params['id']}&edit_token={$params['edit_token']}
+https://2018.texascamp.org/session-update/{$params['id']}/{$params['edit_token']}
 EOM;
 
   switch ($key) {
