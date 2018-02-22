@@ -19,7 +19,7 @@ const Footer = ({ loading, sponsors }): React.Element<any> | null =>
       </div>
     </div>
     <div className={styles.credits}>
-      Built by <a href="https://www.amazeelabs.com" target="_blank" rel="noopener noreferrer">Amazee Labs</a> with Drupal+React and hosted on <a to="https://www.amazee.io" target="_blank" rel="noopener noreferrer">amazee.io</a>
+      Built by <a href="https://www.amazeelabs.com" target="_blank" rel="noopener noreferrer">Amazee Labs</a> with Drupal+React and hosted on <a href="https://www.amazee.io" target="_blank" rel="noopener noreferrer">amazee.io</a>
     </div>
   </div>;
 
