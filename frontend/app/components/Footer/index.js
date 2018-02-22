@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Sponsor from 'Sponsor';
-import { Link } from 'react-router-dom';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from './styles.css';
 
@@ -20,7 +19,7 @@ const Footer = ({ loading, sponsors }): React.Element<any> | null =>
       </div>
     </div>
     <div className={styles.credits}>
-      Built by <Link to="https://www.amazeelabs.com">Amazee Labs</Link> with Drupal+React and hosted on <Link to="https://www.amazee.io">amazee.io</Link>
+      Built by <a href="https://www.amazeelabs.com" target="_blank" rel="noopener noreferrer">Amazee Labs</a> with Drupal+React and hosted on <a href="https://www.amazee.io" target="_blank" rel="noopener noreferrer">amazee.io</a>
     </div>
   </div>;
 
