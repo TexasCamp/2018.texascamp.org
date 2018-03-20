@@ -211,6 +211,15 @@
     &:nth-child(8) {
       animation: fadeInMenuItem 0.1s 1.1s ease-in both;
     }
+    &:nth-child(9) {
+      animation: fadeInMenuItem 0.1s 1.2s ease-in both;
+    }
+    &:nth-child(10) {
+      animation: fadeInMenuItem 0.1s 1.3s ease-in both;
+    }
+    &:nth-child(11) {
+      animation: fadeInMenuItem 0.1s 1.4s ease-in both;
+    }
   }
 }
 

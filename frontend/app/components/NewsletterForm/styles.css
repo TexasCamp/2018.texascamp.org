@@ -22,7 +22,7 @@
   input[type=email], input[type=text], textarea {
     font-size: 13px;
     font-family: "calder-lc", sans-serif;
-    background: $navy;
+    background-color: $navy;
     border: 1px solid $beige;
     border-radius: 2px;
     box-sizing: border-box;
@@ -34,6 +34,7 @@
       color: $beige;
     }
     &:focus {
+      background-color: $navy;
       outline: none;
     }
   }
