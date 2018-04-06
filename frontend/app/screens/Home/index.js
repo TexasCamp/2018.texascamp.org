@@ -13,7 +13,7 @@ import withNewsQuery from 'NewsOverview/withNewsQuery';
 import SponsorsSlideshow from 'SponsorsSlideshow';
 import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
 import styles from 'Home/styles.css';
-import price from '../../shared/images/price.png';
+import price from '../../shared/images/regular-price.png';
 import sponsorsHeading from '../../shared/images/sponsors-heading.png';
 
 const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
@@ -64,7 +64,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
               <div className={`${styles.tickets} ${styles.box}`}>
                 <div className={styles.smallest}>- Early Nerd -</div>
                 <h3>Tickets</h3>
-                <img src={price} alt="$25 USD" />
+                <img src={price} alt="$50 USD" />
                 <a
                   href="https://www.eventbrite.com/e/texas-camp-2018-tickets-42911508477"
                   target="_blank"
