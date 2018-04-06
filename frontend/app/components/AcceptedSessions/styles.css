@@ -1,0 +1,7 @@
+.sessionsContainer {
+  composes: contentArea from '../../shared/css/global.css';
+  flex-direction: unset;
+}
+.detail {
+  width: 100%;
+}
