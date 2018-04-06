@@ -12,6 +12,7 @@ module:
   csv_serialization: 0
   ctools: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   editor: 0
   entity_reference_revisions: 0

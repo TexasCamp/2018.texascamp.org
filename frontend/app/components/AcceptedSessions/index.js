@@ -38,22 +38,10 @@ const AcceptedSessions = ({
           <div className={styles.advanced}>Advanced</div>
         </div>
         {sessions.map(sessionTimeslotGroup => {
-          // Format date/time
-          const formatTime = date => {
-            let hours = date.getHours() - date.getTimezoneOffset() / 60;
-            let minutes = date.getMinutes();
-            const ampm = hours >= 12 ? 'pm' : 'am';
-            hours %= 12;
-            hours = hours || 12; // the hour '0' should be '12'
-            minutes = minutes < 10 ? `0${minutes}` : minutes;
-            const strTime = `${hours}:${minutes} ${ampm}`;
-            return strTime;
-          };
-          const timeslot = new Date(sessionTimeslotGroup[0]);
           return (
-            <div key={timeslot.getTime()}>
+            <div key={sessionTimeslotGroup[0]}>
               <h2>
-                {formatTime(timeslot)}
+                {sessionTimeslotGroup[0]}
               </h2>
               {sessionTimeslotGroup[1].map(session => {
                 return (

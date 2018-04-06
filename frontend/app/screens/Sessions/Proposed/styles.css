@@ -1,3 +1,14 @@
+.content {
+  composes: contentWrapper from '../../../shared/css/global.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
+.sessionsContainer {
+  composes: contentArea from '../../../shared/css/global.css';
+  flex-direction: unset;
+}
 .filterWrapper {
   border-bottom: 1px dashed $grey;
   padding-bottom: 20px;
@@ -36,7 +47,7 @@
 .filterTitle {
   background: $lighterGrey;
   border: none;
-  composes: calderDark from '../../shared/css/fonts.css';
+  composes: calderDark from '../../../shared/css/fonts.css';
   cursor: pointer;
   line-height: 13px;
   margin: 0;
@@ -46,7 +57,7 @@
   width: 100%;
 }
 .openFiltersButton {
-  background: url('../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
+  background: url('../../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
   background-size: 12px;
   border: none;
   color: $lighterGrey;
@@ -63,7 +74,7 @@
   }
   &.filtersOpen {
     background-color: $yellow;
-    background-image: url('../../shared/images/uparrow.png');
+    background-image: url('../../../shared/images/uparrow.png');
     color: $yellow;
     transition: 0.2s all ease;
   }
@@ -76,7 +87,7 @@
   border: 1px solid $navy;
   border-radius: 4px;
   color: $navy;
-  composes: calderLC from '../../shared/css/fonts.css';
+  composes: calderLC from '../../../shared/css/fonts.css';
   margin-bottom: 15px;
   margin-right: 15px;
   outline: none;
@@ -96,7 +107,7 @@
   border: 1px solid $navy;
   border-radius: 4px;
   color: $navy;
-  composes: calderLC from '../../shared/css/fonts.css';
+  composes: calderLC from '../../../shared/css/fonts.css';
   margin-bottom: 3px;
   padding: 1rem 20px;
   width: 100%;
@@ -108,7 +119,7 @@
   }
 }
 .resetButton {
-  composes: button from '../../shared/css/global.css';
+  composes: button from '../../../shared/css/global.css';
   &:hover {
     background: $navy;
     cursor: pointer;
@@ -139,19 +150,19 @@
   }
 }
 .fieldLabel {
-  composes: calderDark from '../../shared/css/fonts.css';
+  composes: calderDark from '../../../shared/css/fonts.css';
   margin-right: 10px;
 }
 
 .lightText {
-  composes: calderLC from '../../shared/css/fonts.css';
+  composes: calderLC from '../../../shared/css/fonts.css';
   text-transform: uppercase;
 }
 .presenter ~ .presenter::before {
   content: ', ';
 }
 .button {
-  composes: button from '../../shared/css/global.css';
+  composes: button from '../../../shared/css/global.css';
 }
 .detail {
   width: 100%;
