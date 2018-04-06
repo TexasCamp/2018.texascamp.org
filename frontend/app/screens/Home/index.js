@@ -62,7 +62,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
           <div className={styles.detail}>
             <div className={styles.column}>
               <div className={`${styles.tickets} ${styles.box}`}>
-                <div className={styles.smallest}>- Early Nerd -</div>
+                <div className={styles.smallest}>- Admission -</div>
                 <h3>Tickets</h3>
                 <img src={price} alt="$50 USD" />
                 <a
@@ -73,7 +73,6 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                 >
                   Register
                 </a>
-                <div className={styles.verticalText}>Regularly $50</div>
               </div>
               <MediaQuery query="(max-width: 667px)">
                 <div className={styles.latestNews}>
