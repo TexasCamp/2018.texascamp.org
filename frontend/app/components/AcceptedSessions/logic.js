@@ -17,7 +17,8 @@ const withLogic = compose(
   mapProps(
     ({ sessions, setDateFilter, defaultDate }: PropsWithStateWithHandlersT) => {
       const acceptedSessions = sessions.filter(
-        ({ status }) => status === 'Selected',
+        ({ status, timeslot }) =>
+          status === 'Selected' && timeslot.start !== null,
       );
       const acceptedSessionsByDate = acceptedSessions
         .sort((a, b) => a.timeslot.start - b.timeslot.start)
