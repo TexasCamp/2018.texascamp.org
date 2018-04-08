@@ -18,10 +18,10 @@ const exitOnError = (output) => {
 };
 
 console.log('Generating introspection file.');
-exitOnError(childProcess.spawnSync('yarn', ['run', 'introspect']));
+exitOnError(childProcess.spawnSync('npm', ['run', 'introspect']));
 
 console.log('Generating query map.');
-exitOnError(childProcess.spawnSync('yarn', ['run', 'persist']));
+exitOnError(childProcess.spawnSync('npm', ['run', 'persist']));
 
 // Read the version from the api config file.
 const apiFile = path.resolve(appPath, 'shared', 'api.js');
