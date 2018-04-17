@@ -5,3 +5,85 @@
 .detail {
   width: 100%;
 }
+.button {
+  background: $lighterGrey;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none !important;
+  color: $navy;
+  line-height: 100%;
+  margin-right: 10px;
+  outline: none;
+  padding: 19px 20px;
+  transition: all .3s ease-out;
+  &:hover {
+    background: $yellow;
+    cursor: pointer;
+  }
+}
+.skillLevelKey {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+}
+
+.skillLevel {
+  div:before {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    content: "";
+    display: inline-block;
+    height: 8px;
+    margin-right: 12px;
+    width: 20px;
+  }
+}
+.beginner {
+  &:before {
+    background-image: url("data:image/svg+xml;utf8,<svg height='20' width='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='18' cy='3' r='2' fill='#ef5a47' /></svg>");
+  }
+}
+.intermediate {
+  &:before {
+    background-image: url("data:image/svg+xml;utf8,<svg height='20' width='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='10' cy='3' r='2' fill='#ef5a47' /><circle cx='18' cy='3' r='2' fill='#ef5a47' /></svg>");
+  }
+}
+.advanced {
+  &:before {
+    background-image: url("data:image/svg+xml;utf8, <svg width='20' height='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='2' cy='3' r='2' fill='#ef5a47' /><circle cx='10' cy='3' r='2' fill='#ef5a47' /><circle cx='18' cy='3' r='2' fill='#ef5a47' /></svg>");
+  }
+}
+.timeslot {
+  line-height: 12px;
+  margin: 0 0 22px;
+}
+.timeslotSessions {
+  margin-bottom: 26px;
+}
+.session {
+  border-top: 1px dashed $grey;
+  padding: 8px 0 15px;
+  .skillLevel {
+    color: $almostWhite;
+    position: absolute;
+  }
+  :global .Beginner {
+    &:before {
+      background-image: url("data:image/svg+xml;utf8,<svg height='20' width='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='2' cy='3' r='2' fill='#ef5a47' /></svg>");
+    }
+  }
+  :global .Intermediate {
+    &:before {
+      background-image: url("data:image/svg+xml;utf8,<svg height='20' width='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='2' cy='3' r='2' fill='#ef5a47' /><circle cx='10' cy='3' r='2' fill='#ef5a47' /></svg>");
+    }
+  }
+  :global .Advanced {
+    &:before {
+      background-image: url("data:image/svg+xml;utf8, <svg width='20' height='4' viewBox='0 0 20 8' version='1.1' xmlns='http://www.w3.org/2000/svg'><circle cx='2' cy='3' r='2' fill='#ef5a47' /><circle cx='10' cy='3' r='2' fill='#ef5a47' /><circle cx='18' cy='3' r='2' fill='#ef5a47' /></svg>");
+    }
+  }
+  .sessionTitle {
+    margin-bottom: 0;
+  }
+}

@@ -33,47 +33,53 @@ const AcceptedSessions = ({
           </button>
         </div>
         <div className={styles.skillLevelKey}>
-          <div className={styles.beginner}>Beginner</div>
-          <div className={styles.intermediate}>Intermediate</div>
-          <div className={styles.advanced}>Advanced</div>
+          <div className={styles.skillLevel}>
+            <div className={styles.beginner}>Beginner</div>
+            <div className={styles.intermediate}>Intermediate</div>
+            <div className={styles.advanced}>Advanced</div>
+          </div>
         </div>
         {sessions.map(sessionTimeslotGroup => {
           return (
             <div key={sessionTimeslotGroup[0]}>
-              <h2>
+              <h2 className={styles.timeslot}>
                 {sessionTimeslotGroup[0]}
               </h2>
-              {sessionTimeslotGroup[1].map(session => {
-                return (
-                  <div key={session.urlString} className={styles.session}>
-                    <Link to={`/sessions/${session.urlString}`}>
-                      {session.skillLevel &&
-                        <div className={session.skillLevel}>
-                          {session.skillLevel}
-                        </div>}
-                      <h3>
-                        {session.title}
-                      </h3>
-                      {session.speakers &&
-                        <div className={styles.speakers}>
-                          {session.speakers.map(eachSpeaker =>
-                            (<span key={eachSpeaker.fieldSessionPresenter}>
-                              {eachSpeaker.fieldSessionPresenter}
-                            </span>),
-                          )}
-                          {session.track &&
-                            <span>
-                              {' '}| {session.track}
-                            </span>}
-                        </div>}
-                      {session.room &&
-                        <div className={styles.room}>
-                          {session.room}
-                        </div>}
-                    </Link>
-                  </div>
-                );
-              })}
+              <div className={styles.timeslotSessions}>
+                {sessionTimeslotGroup[1].map(session => {
+                  return (
+                    <div key={session.urlString} className={styles.session}>
+                      <Link to={`/sessions/${session.urlString}`}>
+                        {session.skillLevel &&
+                          <div className={styles.skillLevel}>
+                            <div className={session.skillLevel}>
+                              {session.skillLevel}
+                            </div>
+                          </div>}
+                        <h3 className={styles.sessionTitle}>
+                          {session.title}
+                        </h3>
+                        {session.speakers &&
+                          <div className={styles.speakers}>
+                            {session.speakers.map(eachSpeaker =>
+                              (<span key={eachSpeaker.fieldSessionPresenter}>
+                                {eachSpeaker.fieldSessionPresenter}
+                              </span>),
+                            )}
+                            {session.track &&
+                              <span>
+                                {' '}| {session.track}
+                              </span>}
+                          </div>}
+                        {session.room &&
+                          <div className={styles.room}>
+                            {session.room}
+                          </div>}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           );
         })}

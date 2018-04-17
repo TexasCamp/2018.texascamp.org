@@ -1,3 +1,8 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
 .content {
   composes: contentWrapper from '../../../shared/css/global.css';
   @media $desktop {
