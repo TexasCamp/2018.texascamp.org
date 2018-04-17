@@ -1,4 +1,4 @@
-uuid: f2fc4ebd-6533-4414-84ed-874ae38d514f
+uuid: 37743274-3bd3-41dc-bcae-fb802c35563c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_session_timeslot
     - node.type.session
   module:
-    - datetime
+    - datetime_range
 id: node.session.field_session_timeslot
 field_name: field_session_timeslot
 entity_type: node
@@ -18,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: daterange

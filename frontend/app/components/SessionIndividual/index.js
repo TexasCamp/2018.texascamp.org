@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-scroll';
-import { cleanHtml } from 'utils';
+import { cleanHtml, formatTime } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
@@ -12,17 +12,19 @@ import styles from './styles.css';
 const SessionIndividual = ({ session }: { session: SessionT }) => {
   // Format date/time
   const formattedTimeslotDay = session.timeslot
-    ? session.timeslot.toLocaleString('en-US', { weekday: 'long' })
+    ? session.timeslot.start.toLocaleString('en-US', { weekday: 'long' })
     : '';
-  const formattedTimeslotDate = session.timeslot
-    ? session.timeslot.toLocaleString('en-US', {
+  const formattedTimeslotDate = session.timeslot.start
+    ? session.timeslot.start.toLocaleString('en-US', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
     })
     : '';
+  const formattedTimeslotTime =
+    `${formatTime(new Date(session.timeslot.start))
+    }-${
+    formatTime(new Date(session.timeslot.end))}`;
 
   // Format body to:
   // - Update inline image src to include full url
@@ -84,10 +86,10 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Timeslot</div>
                       <div>
-                        {formattedTimeslotDay}
+                        {formattedTimeslotDay} {formattedTimeslotDate}
                       </div>
                       <div>
-                        {formattedTimeslotDate}
+                        {formattedTimeslotTime}
                       </div>
                     </div>}
                   {session.room &&

@@ -70,3 +70,14 @@ export const multiFilter = (
     });
   });
 };
+
+// Format date/time
+export const formatTime = date => {
+  let hours = date.getHours() - date.getTimezoneOffset() / 60;
+  let minutes = date.getMinutes();
+  hours %= 12;
+  hours = hours || 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const strTime = `${hours}:${minutes}`;
+  return strTime;
+};
