@@ -9,6 +9,7 @@ export const SESSION_QUERY = gql`
   query allSessions {
     nodeQuery(offset: 0, limit: 999, filter: { type: "session" }) {
       entities {
+        id: entityId
         ...SessionFragment
       }
     }
