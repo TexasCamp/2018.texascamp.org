@@ -82,10 +82,10 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     timeslot: {
       start:
         entity.fieldSessionTimeslot &&
-        new Date(entity.fieldSessionTimeslot.value),
+        new Date(`${entity.fieldSessionTimeslot.value}Z`),
       end:
         entity.fieldSessionTimeslot &&
-        new Date(entity.fieldSessionTimeslot.endValue),
+        new Date(`${entity.fieldSessionTimeslot.endValue}Z`),
     },
     track: entity.fieldSessionTrack.entity.entityLabel,
     title: entity.title,

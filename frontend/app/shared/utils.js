@@ -73,7 +73,7 @@ export const multiFilter = (
 
 // Format date/time
 export const formatTime = date => {
-  let hours = date.getHours() - date.getTimezoneOffset() / 60;
+  let hours = date.getHours();
   let minutes = date.getMinutes();
   hours %= 12;
   hours = hours || 12; // the hour '0' should be '12'
