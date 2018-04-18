@@ -19,6 +19,7 @@
   }
 }
 .button {
+  composes: calderLC from '../../shared/css/fonts.css';
   background: $lighterGrey;
   border: none;
   border-radius: 4px;

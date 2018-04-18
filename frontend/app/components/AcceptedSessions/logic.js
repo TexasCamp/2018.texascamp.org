@@ -11,7 +11,6 @@ const defaultStartDate =
   now.getTime() >= startDate.getTime() && now.getTime() <= endDate.getTime()
     ? new Date(now.setHours(0, 0, 0, 0))
     : startDate;
-
 const withLogic = compose(
   withState('defaultDate', 'setDateFilter', defaultStartDate),
   mapProps(
