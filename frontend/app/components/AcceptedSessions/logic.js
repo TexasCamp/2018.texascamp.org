@@ -28,10 +28,9 @@ const withLogic = compose(
             defaultDate.toDateString().slice(0, 10),
         )
         .reduce((items, item) => {
-          const val =
-            `${formatTime(new Date(item.timeslot.start))
-            }-${
-            formatTime(new Date(item.timeslot.end))}`;
+          const val = `${formatTime(
+            new Date(item.timeslot.start),
+          )}-${formatTime(new Date(item.timeslot.end))}`;
           items[val] = items[val] || []; // eslint-disable-line no-param-reassign
           items[val].push(item);
           return items;
@@ -39,6 +38,7 @@ const withLogic = compose(
       return {
         sessions: Object.entries(acceptedSessionsByDate),
         setDateFilter,
+        defaultDate,
       };
     },
   ),

@@ -1,9 +1,22 @@
+.title {
+  composes: title from '../../shared/css/global.css';
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
 .sessionsContainer {
   composes: contentArea from '../../shared/css/global.css';
   flex-direction: unset;
 }
 .detail {
   width: 100%;
+}
+.filters {
+  @media $tablet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
 }
 .button {
   background: $lighterGrey;
@@ -14,17 +27,26 @@
   line-height: 100%;
   margin-right: 10px;
   outline: none;
-  padding: 19px 20px;
+  padding: 19px 15px;
   transition: all .3s ease-out;
+  @media $tinyUp {
+    padding: 19px 20px;
+  }
   &:hover {
     background: $yellow;
     cursor: pointer;
+  }
+  &.selected {
+    background: $yellow;
   }
 }
 .skillLevelKey {
   display: flex;
   justify-content: flex-end;
   margin-top: 26px;
+  @media $tablet    {
+    margin-top: -4px;
+  }
 }
 
 .skillLevel {
@@ -60,13 +82,32 @@
 }
 .timeslotSessions {
   margin-bottom: 26px;
+  @media $tablet {
+    margin-bottom: 6px;
+  }
+}
+.sessionWrapper {
+  @media $tablet {
+    display: flex;
+    justify-content: space-between;
+    .sessionDetails {
+      padding-right: 40px;
+    }
+  }
 }
 .session {
   border-top: 1px dashed $grey;
-  padding: 8px 0 15px;
+  padding: 0 0 15px;
+  @media $tablet {
+    padding-bottom: 34px;
+  }
   .skillLevel {
-    color: $almostWhite;
+    color: $beige;
+    margin-top: -14px;
     position: absolute;
+    @media $tablet {
+      margin-top: 10px;
+    }
   }
   :global .Beginner {
     &:before {
@@ -84,6 +125,20 @@
     }
   }
   .sessionTitle {
-    margin-bottom: 0;
+    color: $blue;
+    margin: 1.5rem 0 0;
+  }
+  .room {
+    background: url('../../shared/images/marker.png') 0 2px no-repeat;
+    background-size: 10px 15px;
+    padding-left: 20px;
+    @media $tablet {
+      background-position: center 25px;
+      border-left: 1px dashed $grey;
+      min-width: 134px;
+      padding-left: 0;
+      padding-top: 45px;
+      text-align: center;
+    }
   }
 }
