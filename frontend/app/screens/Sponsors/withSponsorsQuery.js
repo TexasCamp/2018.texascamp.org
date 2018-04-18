@@ -9,6 +9,7 @@ export const SPONSOR_QUERY = gql`
   query allSponsors {
     nodeQuery(offset: 0, limit: 999, filter: { type: "sponsor" }) {
       entities {
+        id: entityId
         ...SponsorsFragment
       }
     }
