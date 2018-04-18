@@ -1,0 +1,32 @@
+uuid: 0817da94-0ebe-4b7b-b576-a545cb7ce754
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.data_export
+    - field.field.paragraph.presenter.field_session_bio
+    - field.field.paragraph.presenter.field_session_presenter
+    - paragraphs.paragraphs_type.presenter
+  module:
+    - text
+id: paragraph.presenter.data_export
+targetEntityType: paragraph
+bundle: presenter
+mode: data_export
+content:
+  field_session_bio:
+    weight: 1
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_session_presenter:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
