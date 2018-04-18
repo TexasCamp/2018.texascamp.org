@@ -1,7 +1,153 @@
+.title {
+  composes: title from '../../shared/css/global.css';
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
 .sessionsContainer {
   composes: contentArea from '../../shared/css/global.css';
   flex-direction: unset;
 }
 .detail {
   width: 100%;
+}
+.filters {
+  @media $tablet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+}
+.button {
+  background: $lighterGrey;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none !important;
+  color: $navy;
+  line-height: 100%;
+  margin-right: 10px;
+  outline: none;
+  padding: 19px 15px;
+  transition: all .3s ease-out;
+  @media $tinyUp {
+    padding: 19px 20px;
+  }
+  &:hover {
+    background: $yellow;
+    cursor: pointer;
+  }
+  &.selected {
+    background: $yellow;
+  }
+}
+.skillLevelKey {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+  @media $tablet    {
+    margin-top: -4px;
+  }
+}
+
+.skillLevel {
+  div::before {
+    background-repeat: no-repeat;
+    background-size: 4px 4px;
+    content: "";
+    display: inline-block;
+    height: 8px;
+    margin-right: 12px;
+    width: 20px;
+  }
+}
+.beginner {
+  &::before {
+    background: url('../../shared/images/dot.png') right center;
+  }
+}
+.intermediate {
+  &::before {
+    background: url('../../shared/images/dot.png') right center,
+                url('../../shared/images/dot.png') 8px center;
+  }
+}
+.advanced {
+  &::before {
+    background: url('../../shared/images/dot.png') right center,
+                url('../../shared/images/dot.png') 8px center,
+                url('../../shared/images/dot.png') 0px center;
+  }
+}
+.timeslot {
+  line-height: 12px;
+  margin: 0 0 22px;
+}
+.timeslotSessions {
+  margin-bottom: 26px;
+  @media $tablet {
+    margin-bottom: 6px;
+  }
+}
+.sessionWrapper {
+  @media $tablet {
+    display: flex;
+    justify-content: space-between;
+    .sessionDetails {
+      padding-right: 40px;
+    }
+  }
+}
+.session {
+  border-top: 1px dashed $grey;
+  padding: 0 0 15px;
+  @media $tablet {
+    padding-bottom: 34px;
+  }
+  .skillLevel {
+    color: $beige;
+    margin-top: -16px;
+    position: absolute;
+    @media $tablet {
+      margin-top: 8px;
+    }
+    div::before {
+      background-repeat: no-repeat;
+      background-size: 4px 4px;
+    }
+  }
+  :global .Beginner {
+    &::before {
+      background: url('../../shared/images/dot.png') 0 center;
+    }
+  }
+  :global .Intermediate {
+    &::before {
+      background: url('../../shared/images/dot.png') 0 center,
+                  url('../../shared/images/dot.png') 8px center;
+    }
+  }
+  :global .Advanced {
+    &::before {
+      background: url('../../shared/images/dot.png') 0 center,
+                  url('../../shared/images/dot.png') 8px center,
+                  url('../../shared/images/dot.png') 16px center;
+    }
+  }
+  .sessionTitle {
+    color: $blue;
+    margin: 1.5rem 0 0;
+  }
+  .room {
+    background: url('../../shared/images/marker.png') 0 2px no-repeat;
+    background-size: 10px 15px;
+    padding-left: 20px;
+    @media $tablet {
+      background-position: center 25px;
+      border-left: 1px dashed $grey;
+      min-width: 134px;
+      padding-left: 0;
+      padding-top: 45px;
+      text-align: center;
+    }
+  }
 }

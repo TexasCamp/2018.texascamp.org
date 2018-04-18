@@ -1,4 +1,5 @@
 // Breakpoints in px
+const BP_TINY = 350;
 const BP_XS = 400;
 const BP_TABLET = 668;
 const BP_DESKTOP = 960;
@@ -11,12 +12,14 @@ module.exports = {
   orange: '#ef5a47',
   orange_darken10: '#d6412e',
   navy: '#10363f',
+  blue: '#35647e',
   grey: '#b2aeaa',
   lightGrey: '#d4cec9',
   lighterGrey: '#e2dcd6',
   lightestGrey: '#ede7e1',
   yellow: '#f0c26d',
 
+  tinyUp: `all and (min-width: ${BP_TINY / 16}em)`,
   xs_small: `all and (min-width: ${BP_XS / 16}em) and (max-width: ${(BP_TABLET -
     1) /
     16}em)`,
