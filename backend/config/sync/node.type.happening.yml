@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Happening
 type: happening
-description: ''
+description: 'Use to add <em>happenings</em> to the schedule that are not sessions such as ''Keynote'', ''Lunch'', ''Coffee break''.'
 help: ''
 new_revision: true
 preview_mode: 1
