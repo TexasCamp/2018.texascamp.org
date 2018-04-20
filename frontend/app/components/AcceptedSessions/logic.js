@@ -14,10 +14,19 @@ const defaultStartDate =
 const withLogic = compose(
   withState('defaultDate', 'setDateFilter', defaultStartDate),
   mapProps(
-    ({ sessions, setDateFilter, defaultDate }: PropsWithStateWithHandlersT) => {
-      const acceptedSessions = sessions.filter(
-        ({ status, timeslot }) =>
-          status === 'Selected' && timeslot.start !== null,
+    ({
+      sessions,
+      happenings,
+      setDateFilter,
+      defaultDate,
+    }: PropsWithStateWithHandlersT) => {
+      const schedule = sessions.concat(happenings);
+      const acceptedSessions = schedule.filter(
+        ({ status, timeslot, isPublished, type }) =>
+          (status === 'Selected' &&
+            timeslot.start !== null &&
+            isPublished === true) ||
+          type === 'happening',
       );
       const acceptedSessionsByDate = acceptedSessions
         .sort((a, b) => a.timeslot.start - b.timeslot.start)

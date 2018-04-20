@@ -1,0 +1,58 @@
+uuid: 8cb8d926-1af2-4797-8c90-ecf13af8e529
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.happening.body
+    - field.field.node.happening.field_session_presenters
+    - field.field.node.happening.field_session_room
+    - field.field.node.happening.field_session_timeslot
+    - node.type.happening
+  module:
+    - datetime_range
+    - entity_reference_revisions
+    - text
+    - user
+id: node.happening.default
+targetEntityType: node
+bundle: happening
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_session_presenters:
+    weight: 105
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_session_room:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_session_timeslot:
+    weight: 103
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
