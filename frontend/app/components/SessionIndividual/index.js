@@ -21,10 +21,9 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
       day: 'numeric',
     })
     : '';
-  const formattedTimeslotTime =
-    `${formatTime(new Date(session.timeslot.start))
-    }-${
-    formatTime(new Date(session.timeslot.end))}`;
+  const formattedTimeslotTime = `${formatTime(
+    new Date(session.timeslot.start),
+  )}-${formatTime(new Date(session.timeslot.end))}`;
 
   // Format body to:
   // - Update inline image src to include full url
@@ -70,18 +69,20 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                       )}
                     </div>
                   </div>
-                  <div className={styles.field}>
-                    <div className={styles.fieldLabel}>Track</div>
-                    <div>
-                      {session.track}
-                    </div>
-                  </div>
-                  <div className={styles.field}>
-                    <div className={styles.fieldLabel}>Skill Level</div>
-                    <div>
-                      {session.skillLevel}
-                    </div>
-                  </div>
+                  {session.track &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Track</div>
+                      <div>
+                        {session.track}
+                      </div>
+                    </div>}
+                  {session.skillLevel &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Skill Level</div>
+                      <div>
+                        {session.skillLevel}
+                      </div>
+                    </div>}
                   {session.timeslot &&
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Timeslot</div>

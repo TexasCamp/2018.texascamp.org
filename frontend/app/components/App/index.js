@@ -9,6 +9,7 @@ import Home from 'Home';
 import Sessions from 'Sessions';
 import ProposedSessions from 'Sessions/Proposed';
 import Session from 'Session';
+import Happening from 'Happening';
 import Sponsors from 'Sponsors';
 import News from 'News';
 import Humans from '!file-loader?name=humans.txt!./humans.txt';
@@ -49,6 +50,7 @@ const App = (): React.Element<any> =>
         <Route exact path="/sessions/proposed" component={ProposedSessions} />
         <Route exact path="/sessions/:sessionName/" component={Session} />
         <Route exact path="/session-form" component={SubmitSession} />
+        <Route exact path="/happenings/:happeningName/" component={Happening} />
         <Route
           exact
           path="/session-update/:id/:editToken"
