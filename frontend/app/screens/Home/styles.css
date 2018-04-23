@@ -84,7 +84,7 @@
   background: $almostWhite;
 }
 .speak {
-  background: url('../../shared/images/submit.png') 20px center $yellow no-repeat;
+  background: url('../../shared/images/schedule.png') 20px center $yellow no-repeat;
   background-size: 75px 72px;
   @media $tablet {
     background-position: 50px center;
