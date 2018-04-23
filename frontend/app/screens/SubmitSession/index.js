@@ -58,16 +58,13 @@ const SubmitSession = ({ submitted, resetForm }) => {
             {!submitted &&
               <div>
                 <p className={styles.introText}>
-                  Now’s your chance! All you need is a big idea and enough
-                  content to fill 45 minutes.
-                  <br />
-                  Be brave, be bold. Join the ranks of{' '}
-                  <a href="https://www.youtube.com/playlist?list=PLHvSm1Lpji2Ql7VyKLbGAMcgGTpfDdb6-&disable_polymer=true">
-                    those who have gone before.
-                  </a>
-                </p>
-                <p className={styles.closedText}>
-                  Session submissions are now closed.
+                  Thanks for your interest in speaking at Texas Camp. Session
+                  submissions for 2018 have closed. You can view{' '}
+                  <a href="/sessions">submitted sessions</a> or{' '}
+                  <a href="https://www.eventbrite.com/e/texas-camp-2018-tickets-42911508477">
+                    buy your ticket
+                  </a>{' '}
+                  for the event.
                 </p>
                 {/* <SessionForm
                   tracks={tracks}
