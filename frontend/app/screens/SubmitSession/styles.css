@@ -9,6 +9,12 @@
   margin-top: 8px;
   width: 100%;
 }
+.closedText {
+  display: inline-block;
+  margin-top: 8px;
+  width: 100%;
+  font-weight: bold;
+}
 .contentWrapper {
   @media $desktop {
     display: flex;

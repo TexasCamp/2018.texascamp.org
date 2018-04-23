@@ -6,27 +6,29 @@ import Link from 'AsyncLink';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
-import SessionForm from 'SubmitSession/form';
+// import SessionForm from 'SubmitSession/form';
 import withTermData from 'SubmitSession/withTermData';
 import withSessionMutation from 'SubmitSession/withSessionMutation';
 import withLogic from 'SubmitSession/logic';
 import compose from 'recompose/compose';
 import styles from './styles.css';
 
-const SubmitSession = ({
-  tracks,
-  skillLevels,
-  formValues,
-  setFormValue,
-  speakerCount,
-  addSpeaker,
-  removeSpeaker,
-  saving,
-  error,
-  onSubmit,
-  submitted,
-  resetForm,
-}) => {
+// const SubmitSession = ({
+//   tracks,
+//   skillLevels,
+//   formValues,
+//   setFormValue,
+//   speakerCount,
+//   addSpeaker,
+//   removeSpeaker,
+//   saving,
+//   error,
+//   onSubmit,
+//   submitted,
+//   resetForm,
+// }) => {
+
+const SubmitSession = ({ submitted, resetForm }) => {
   return (
     <div>
       <Helmet title="Submit a Session" />
@@ -64,7 +66,10 @@ const SubmitSession = ({
                     those who have gone before.
                   </a>
                 </p>
-                <SessionForm
+                <p className={styles.closedText}>
+                  Session submissions are now closed.
+                </p>
+                {/* <SessionForm
                   tracks={tracks}
                   skillLevels={skillLevels}
                   formValues={formValues}
@@ -75,7 +80,7 @@ const SubmitSession = ({
                   saving={saving}
                   error={error}
                   onSubmit={onSubmit}
-                />
+                /> */}
               </div>}
           </div>
           <Footer />
