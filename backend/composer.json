@@ -65,6 +65,11 @@
         ]
     },
     "extra": {
+      "patches": {
+          "drupal/core": {
+            "SA-CORE-2018-004 Patch for 8.x": "patches/sa-core-2018-004.patch"
+          }
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
