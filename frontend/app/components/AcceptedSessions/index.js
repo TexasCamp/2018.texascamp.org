@@ -98,14 +98,17 @@ const SessionDetails = ({ session }: { session: SessionT }) => {
         {session.speakers &&
           <div className={styles.speakers}>
             {session.speakers.map(eachSpeaker =>
-              (<span key={eachSpeaker.fieldSessionPresenter}>
+              (<span
+                key={eachSpeaker.fieldSessionPresenter}
+                className={styles.presenter}
+              >
                 {eachSpeaker.fieldSessionPresenter}
               </span>),
             )}
             {session.track &&
               session.track !== 'Keynote' &&
               <span>
-                {' '}| {session.track}
+                <span className={styles.spacer}>|</span> {session.track}
               </span>}
           </div>}
       </div>
