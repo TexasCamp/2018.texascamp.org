@@ -17,7 +17,7 @@ const Session = ({ session }: SessionProps) =>
       : <NotFound
         msg="No session matches that URL."
         linkText="Back to sessions"
-        linkUrl="/sessions"
+        linkUrl="/sessions/proposed"
       />}
   </div>);
 

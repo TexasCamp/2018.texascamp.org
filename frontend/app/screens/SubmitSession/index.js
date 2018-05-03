@@ -51,7 +51,7 @@ const SubmitSession = ({ submitted, resetForm }) => {
                 >
                   Submit another session
                 </button>
-                <Link to="/sessions" className={styles.button}>
+                <Link to="/sessions/proposed" className={styles.button}>
                   View submitted sessions
                 </Link>
               </div>}
