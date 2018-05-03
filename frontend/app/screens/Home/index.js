@@ -107,8 +107,8 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
                 <p>
                   {"Gain experience and learn from our speaker's expertise."}
                 </p>
-                <Link to="/sessions" className={styles.button}>
-                  View Schedule
+                <Link to="/sessions/proposed" className={styles.button}>
+                  View Sessions
                 </Link>
               </div>
               <div className={`${styles.training} ${styles.box}`}>
