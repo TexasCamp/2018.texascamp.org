@@ -48,39 +48,42 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
               </h1>
               <div className={styles.detail}>
                 <div className={styles.section}>
-                  <div className={styles.field}>
-                    <div className={styles.fieldLabel}>
-                      Presenter<span className={styles.lightText}>(s)</span>
-                    </div>
-                    <div className={styles.presenter}>
-                      {session.speakers.map(eachSpeaker =>
-                        (<div key={eachSpeaker.fieldSessionPresenter}>
-                          <Link
-                            activeClass="active"
-                            to={eachSpeaker.fieldSessionPresenter}
-                            spy
-                            smooth
-                            offset={50}
-                            duration={500}
-                          >
-                            {eachSpeaker.fieldSessionPresenter}
-                          </Link>
-                        </div>),
-                      )}
-                    </div>
-                  </div>
-                  <div className={styles.field}>
-                    <div className={styles.fieldLabel}>Track</div>
-                    <div>
-                      {session.track}
-                    </div>
-                  </div>
-                  <div className={styles.field}>
-                    <div className={styles.fieldLabel}>Skill Level</div>
-                    <div>
-                      {session.skillLevel}
-                    </div>
-                  </div>
+                  {session.speakers[0].fieldSessionPresenter &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>
+                        Presenter<span className={styles.lightText}>(s)</span>
+                      </div>
+                      <div className={styles.presenter}>
+                        {session.speakers.map(eachSpeaker =>
+                          (<div key={eachSpeaker.fieldSessionPresenter}>
+                            <Link
+                              activeClass="active"
+                              to={eachSpeaker.fieldSessionPresenter}
+                              spy
+                              smooth
+                              offset={50}
+                              duration={500}
+                            >
+                              {eachSpeaker.fieldSessionPresenter}
+                            </Link>
+                          </div>),
+                        )}
+                      </div>
+                    </div>}
+                  {session.track &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Track</div>
+                      <div>
+                        {session.track}
+                      </div>
+                    </div>}
+                  {session.skillLevel &&
+                    <div className={styles.field}>
+                      <div className={styles.fieldLabel}>Skill Level</div>
+                      <div>
+                        {session.skillLevel}
+                      </div>
+                    </div>}
                   {session.timeslot &&
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Timeslot</div>
@@ -101,22 +104,23 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                 </div>
                 <div className={styles.mainContent}>
                   {cleanHtml(formattedBody)}
-                  <div className={styles.bios}>
-                    {session.speakers.map(eachSpeaker =>
-                      (<div
-                        className={styles.bio}
-                        name={eachSpeaker.fieldSessionPresenter}
-                        key={eachSpeaker.fieldSessionPresenter}
-                      >
-                        <div className={styles.bioNames}>
-                          <div className={styles.bioName}>
-                            {eachSpeaker.fieldSessionPresenter}
+                  {session.speakers[0].fieldSessionPresenter &&
+                    <div className={styles.bios}>
+                      {session.speakers.map(eachSpeaker =>
+                        (<div
+                          className={styles.bio}
+                          name={eachSpeaker.fieldSessionPresenter}
+                          key={eachSpeaker.fieldSessionPresenter}
+                        >
+                          <div className={styles.bioNames}>
+                            <div className={styles.bioName}>
+                              {eachSpeaker.fieldSessionPresenter}
+                            </div>
                           </div>
-                        </div>
-                        {cleanHtml(eachSpeaker.fieldSessionBio)}
-                      </div>),
-                    )}
-                  </div>
+                          {cleanHtml(eachSpeaker.fieldSessionBio)}
+                        </div>),
+                      )}
+                    </div>}
                 </div>
               </div>
               <Footer />

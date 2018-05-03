@@ -1,9 +1,3 @@
-.title {
-  composes: title from '../../shared/css/global.css';
-  margin-bottom: 20px;
-  margin-left: 0;
-  margin-right: 0;
-}
 .contentWrapper {
   @media $desktop {
     display: flex;

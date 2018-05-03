@@ -1,0 +1,21 @@
+uuid: 1b9a8ee3-8fb4-4b26-8150-7dbb0b88f9c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_timeslot
+    - node.type.happening
+  module:
+    - datetime_range
+id: node.happening.field_session_timeslot
+field_name: field_session_timeslot
+entity_type: node
+bundle: happening
+label: Timeslot
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

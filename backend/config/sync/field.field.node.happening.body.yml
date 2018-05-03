@@ -1,0 +1,22 @@
+uuid: d269a7f0-1a30-45b9-8a95-5ad2b458bdd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.happening
+  module:
+    - text
+id: node.happening.body
+field_name: body
+entity_type: node
+bundle: happening
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

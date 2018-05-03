@@ -7,77 +7,115 @@ import withLogic from './logic';
 const AcceptedSessions = ({
   sessions,
   setDateFilter,
+  defaultDate,
 }: AcceptedSessionsProps) => {
   return (
     <div className={styles.sessionsContainer}>
       <div className={styles.detail}>
         <h1 className={styles.title}>Schedule</h1>
-        <div className={styles.dayFilters}>
-          <button
-            onClick={() => setDateFilter(new Date('05/31/2018'))}
-            className={styles.button}
-          >
-            Thursday
-          </button>
-          <button
-            onClick={() => setDateFilter(new Date('06/01/2018'))}
-            className={styles.button}
-          >
-            Friday
-          </button>
-          <button
-            onClick={() => setDateFilter(new Date('06/02/2018'))}
-            className={styles.button}
-          >
-            Saturday
-          </button>
-        </div>
-        <div className={styles.skillLevelKey}>
-          <div className={styles.beginner}>Beginner</div>
-          <div className={styles.intermediate}>Intermediate</div>
-          <div className={styles.advanced}>Advanced</div>
+        <div className={styles.filters}>
+          <div className={styles.dayFilters}>
+            <button
+              onClick={() => setDateFilter(new Date('05/31/2018'))}
+              className={`${styles.button} ${defaultDate.toDateString() ===
+              new Date('05/31/2018').toDateString()
+                ? styles.selected
+                : ''}`}
+            >
+              Thursday
+            </button>
+            <button
+              onClick={() => setDateFilter(new Date('06/01/2018'))}
+              className={`${styles.button} ${defaultDate.toDateString() ===
+              new Date('06/01/2018').toDateString()
+                ? styles.selected
+                : ''}`}
+            >
+              Friday
+            </button>
+            <button
+              onClick={() => setDateFilter(new Date('06/02/2018'))}
+              className={`${styles.button} ${defaultDate.toDateString() ===
+              new Date('06/02/2018').toDateString()
+                ? styles.selected
+                : ''}`}
+            >
+              Saturday
+            </button>
+          </div>
+          <div className={styles.skillLevelKey}>
+            <div className={styles.skillLevel}>
+              <div className={styles.beginner}>Beginner</div>
+              <div className={styles.intermediate}>Intermediate</div>
+              <div className={styles.advanced}>Advanced</div>
+            </div>
+          </div>
         </div>
         {sessions.map(sessionTimeslotGroup => {
           return (
             <div key={sessionTimeslotGroup[0]}>
-              <h2>
+              <h2 className={styles.timeslot}>
                 {sessionTimeslotGroup[0]}
               </h2>
-              {sessionTimeslotGroup[1].map(session => {
-                return (
-                  <div key={session.urlString} className={styles.session}>
-                    <Link to={`/sessions/${session.urlString}`}>
-                      {session.skillLevel &&
-                        <div className={session.skillLevel}>
-                          {session.skillLevel}
-                        </div>}
-                      <h3>
-                        {session.title}
-                      </h3>
-                      {session.speakers &&
-                        <div className={styles.speakers}>
-                          {session.speakers.map(eachSpeaker =>
-                            (<span key={eachSpeaker.fieldSessionPresenter}>
-                              {eachSpeaker.fieldSessionPresenter}
-                            </span>),
-                          )}
-                          {session.track &&
-                            <span>
-                              {' '}| {session.track}
-                            </span>}
-                        </div>}
-                      {session.room &&
-                        <div className={styles.room}>
-                          {session.room}
-                        </div>}
-                    </Link>
-                  </div>
-                );
-              })}
+              <div className={styles.timeslotSessions}>
+                {sessionTimeslotGroup[1].map(session => {
+                  return (
+                    <div key={session.urlString} className={styles.session}>
+                      {session.body !== null
+                        ? <Link
+                          to={`${session.type === 'happening'
+                              ? '/happenings/'
+                              : '/sessions/'}${session.urlString}`}
+                        >
+                          <SessionDetails session={session} />
+                        </Link>
+                        : <SessionDetails session={session} />}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           );
         })}
       </div>
+    </div>
+  );
+};
+
+const SessionDetails = ({ session }: { session: SessionT }) => {
+  return (
+    <div className={styles.sessionWrapper}>
+      <div className={styles.sessionDetails}>
+        {session.skillLevel &&
+          <div className={styles.skillLevel}>
+            <div className={session.skillLevel}>
+              {session.skillLevel}
+            </div>
+          </div>}
+        <h3 className={styles.sessionTitle}>
+          {session.title}
+        </h3>
+        {session.speakers &&
+          <div className={styles.speakers}>
+            {session.speakers.map(eachSpeaker =>
+              (<span
+                key={eachSpeaker.fieldSessionPresenter}
+                className={styles.presenter}
+              >
+                {eachSpeaker.fieldSessionPresenter}
+              </span>),
+            )}
+            {session.track &&
+              session.track !== 'Keynote' &&
+              <span>
+                <span className={styles.spacer}>|</span> {session.track}
+              </span>}
+          </div>}
+      </div>
+      {session.room &&
+        <div className={styles.room}>
+          {session.room}
+        </div>}
     </div>
   );
 };

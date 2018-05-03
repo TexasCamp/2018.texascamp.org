@@ -29,6 +29,7 @@ export type SessionT = {
   title: string,
   track: TrackT,
   urlString: string,
+  type: string,
 };
 
 export type SponsorLevelT =
