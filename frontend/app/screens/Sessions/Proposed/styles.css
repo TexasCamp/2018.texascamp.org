@@ -1,0 +1,169 @@
+.content {
+  composes: contentWrapper from '../../../shared/css/global.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
+.sessionsContainer {
+  composes: contentArea from '../../../shared/css/global.css';
+  flex-direction: unset;
+}
+.filterWrapper {
+  border-bottom: 1px dashed $grey;
+  padding-bottom: 20px;
+  .filters {
+    background: $yellow;
+    padding: 0 20px;
+    @media $tablet {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    &.filtersOpen {
+      height: 100%;
+      padding-bottom: 52px;
+      padding-top: 2rem;
+      transition: height 0.2s linear, padding 0.2s ease;
+    }
+    &.filtersClosed {
+      height: 0px;
+      overflow: hidden;
+      transition: height 0.2s linear, padding 0.2s ease 0.2s;
+    }
+    .filter {
+      margin: 25px 0 0;
+      width: calc(100% + 15px);
+      .fieldLabel {
+        line-height: 1rem;
+        margin-bottom: 18px;
+        margin-top: 1rem;
+      }
+    }
+    .searchLabel {
+      display: none;
+    }
+  }
+}
+.filterTitle {
+  background: $lighterGrey;
+  border: none;
+  composes: calderDark from '../../../shared/css/fonts.css';
+  cursor: pointer;
+  line-height: 13px;
+  margin: 0;
+  outline: none;
+  padding: 19px 20px 18px;
+  text-align: left;
+  width: 100%;
+}
+.openFiltersButton {
+  background: url('../../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
+  background-size: 12px;
+  border: none;
+  color: $lighterGrey;
+  content: "";
+  font-size: 0;
+  height: 50px;
+  outline: none;
+  position: absolute;
+  right: 20px;
+  transition: 0.2s all ease 0.2s;
+  width: 50px;
+  @media $tablet {
+    right: 40px;
+  }
+  &.filtersOpen {
+    background-color: $yellow;
+    background-image: url('../../../shared/images/uparrow.png');
+    color: $yellow;
+    transition: 0.2s all ease;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.filterButton {
+  background: $yellow;
+  border: 1px solid $navy;
+  border-radius: 4px;
+  color: $navy;
+  composes: calderLC from '../../../shared/css/fonts.css';
+  margin-bottom: 15px;
+  margin-right: 15px;
+  outline: none;
+  padding: 5px 10px 4px;
+  &:hover {
+    background: $navy;
+    color: $yellow;
+    cursor: pointer;
+  }
+}
+.filterButtonSelected {
+  background: $navy;
+  color: $yellow;
+}
+.searchTextInput {
+  background: $yellow;
+  border: 1px solid $navy;
+  border-radius: 4px;
+  color: $navy;
+  composes: calderLC from '../../../shared/css/fonts.css';
+  margin-bottom: 3px;
+  padding: 1rem 20px;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: $navy;
+  }
+}
+.resetButton {
+  composes: button from '../../../shared/css/global.css';
+  &:hover {
+    background: $navy;
+    cursor: pointer;
+  }
+}
+.body {
+  p {
+    display: inline;
+  }
+}
+.field {
+  div {
+    display: inline;
+  }
+}
+.teaserWrapper {
+  border-bottom: 1px dashed $grey;
+  padding: 40px 20px 55px;
+  @media $tablet {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  &:hover {
+    background: $almostWhite;
+  }
+}
+.fieldLabel {
+  composes: calderDark from '../../../shared/css/fonts.css';
+  margin-right: 10px;
+}
+
+.lightText {
+  composes: calderLC from '../../../shared/css/fonts.css';
+  text-transform: uppercase;
+}
+.presenter ~ .presenter::before {
+  content: ', ';
+}
+.button {
+  composes: button from '../../../shared/css/global.css';
+}
+.detail {
+  width: 100%;
+}

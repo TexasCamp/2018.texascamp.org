@@ -22,7 +22,10 @@ export type SessionT = {
   skillLevel: SkillLevelT,
   speakers: string[],
   status?: 'selected' | 'not selected',
-  timeslot?: Date,
+  timeslot: {
+    start?: Date,
+    end?: Date,
+  },
   title: string,
   track: TrackT,
   urlString: string,

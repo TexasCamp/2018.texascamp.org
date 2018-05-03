@@ -42,7 +42,9 @@ export const SESSION_QUERY = gql`
     }
     fieldSessionTimeslot {
       value
-      date
+      startDate
+      endValue
+      endDate
     }
     fieldSessionTrack {
       entity {
@@ -78,9 +80,14 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
         paragraph.entity.fieldSessionBio &&
         paragraph.entity.fieldSessionBio.value,
     })),
-    timeslot:
-      entity.fieldSessionTimeslot &&
-      new Date(entity.fieldSessionTimeslot.value),
+    timeslot: {
+      start:
+        entity.fieldSessionTimeslot &&
+        new Date(entity.fieldSessionTimeslot.value),
+      end:
+        entity.fieldSessionTimeslot &&
+        new Date(entity.fieldSessionTimeslot.endValue),
+    },
     track: entity.fieldSessionTrack.entity.entityLabel,
     title: entity.title,
     urlString: titleToLink(entity.title),

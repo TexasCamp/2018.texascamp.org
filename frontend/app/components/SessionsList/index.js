@@ -3,7 +3,7 @@ import React from 'react';
 import type { SessionT } from 'types';
 import Link from 'AsyncLink';
 import { cleanHtml } from 'utils';
-import styles from 'Sessions/styles.css';
+import styles from 'Sessions/Proposed/styles.css';
 import withLogic from './logic';
 
 type ButtonT = {
