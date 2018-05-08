@@ -145,7 +145,7 @@
     @media $tablet {
       background-position: center 25px;
       border-left: 1px dashed $grey;
-      min-width: 134px;
+      min-width: 175px;
       padding-left: 0;
       padding-top: 45px;
       text-align: center;
