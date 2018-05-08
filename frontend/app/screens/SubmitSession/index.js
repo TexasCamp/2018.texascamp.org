@@ -59,8 +59,8 @@ const SubmitSession = ({ submitted, resetForm }) => {
               <div>
                 <p className={styles.introText}>
                   Thanks for your interest in speaking at Texas Camp. Session
-                  submissions for 2018 have closed. You can view{' '}
-                  <a href="/sessions">submitted sessions</a> or{' '}
+                  submissions for 2018 have closed. You can view the{' '}
+                  <a href="/schedule">schedule</a> or{' '}
                   <a href="https://www.eventbrite.com/e/texas-camp-2018-tickets-42911508477">
                     buy your ticket
                   </a>{' '}
