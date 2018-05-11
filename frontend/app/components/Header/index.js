@@ -4,7 +4,7 @@ import twitter from '../../shared/images/twitter.png';
 import facebook from '../../shared/images/facebook.png';
 import mobileLogo from '../../shared/images/texas-camp-logo-orange.svg';
 import logo from '../../shared/images/texas-camp-logo.svg';
-import backgroundImage from '../../shared/images/truck.png';
+import backgroundImage from '../../shared/images/snake.gif';
 
 function Header() {
   return (
