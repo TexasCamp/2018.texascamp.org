@@ -19,7 +19,7 @@ const SessionsPage = (sessions: SessionsPageProps) => {
       <Helmet title="Sessions" />
       <Menu />
       <div className={styles.contentWrapper}>
-        <Header />
+        <Header image="horse" />
         <div className={styles.content}>
           <AcceptedSessions {...sessions} />
           <Footer />

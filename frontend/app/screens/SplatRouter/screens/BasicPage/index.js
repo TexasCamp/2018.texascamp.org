@@ -24,13 +24,30 @@ const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
         'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
-
+  let backgroundImage;
+  switch (title) {
+    case 'About Us':
+      backgroundImage = 'camper';
+      break;
+    case 'Code of Conduct':
+      backgroundImage = 'watertower';
+      break;
+    case 'Program':
+      backgroundImage = 'camper';
+      break;
+    case 'Visiting Austin':
+      backgroundImage = 'watertower';
+      break;
+    default:
+      backgroundImage = 'snake';
+      break;
+  }
   return (
     <div>
       <Helmet title={title} />
       <Menu />
       <div className={styles.contentWrapper}>
-        <Header />
+        <Header image={backgroundImage} />
         <div className={styles.content}>
           <h1 className={styles.title}>
             {title}
