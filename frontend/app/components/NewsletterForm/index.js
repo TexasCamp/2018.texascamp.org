@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.css';
 import newsletter from '../../shared/images/texas-camp-newsletter.png';
 
-function NewsletterForm() {
+function NewsletterForm({ closeMenuOverlay }) {
   const action =
     'https://texascamp.us14.list-manage.com/subscribe/post?u=570bd5ca3ae1bf17bce28a1ad&amp;id=076e5f40d9';
 
@@ -54,6 +54,7 @@ function NewsletterForm() {
             value="Sign Up"
             name="subscribe"
             className="button--primary"
+            onClick={closeMenuOverlay}
           />
         </div>
       </form>

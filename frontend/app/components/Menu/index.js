@@ -38,7 +38,7 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
             <ul className={styles.menu}>
               {menuItems.map(({ label, urlRoute }) =>
                 (<li key={label} className={styles.menuItem}>
-                  <Link to={urlRoute}>
+                  <Link to={urlRoute} onClick={toggleOverlay}>
                     {label}
                   </Link>
                 </li>),
@@ -54,7 +54,7 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
           <div className={styles.newsletterContainer}>
             <span className={styles.newsletterLine} />
             <div className={styles.newsletterForm}>
-              <NewsletterForm />
+              <NewsletterForm closeMenuOverlay={toggleOverlay} />
             </div>
           </div>
         </div>
