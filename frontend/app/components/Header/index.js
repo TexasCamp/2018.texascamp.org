@@ -8,7 +8,7 @@ import snake from '../../shared/images/header/snake.gif';
 import horse from '../../shared/images/header/horse.png';
 import camper from '../../shared/images/header/truck.png';
 import watertower from '../../shared/images/header/water-tower.png';
-import sponsors from '../../shared/images/header/sponsors.png';
+import sponsors from '../../shared/images/header/sponsors.gif';
 
 const Header = ({ image }) => {
   let backgroundImage = snake;
