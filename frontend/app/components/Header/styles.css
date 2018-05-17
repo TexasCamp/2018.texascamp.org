@@ -118,28 +118,36 @@
   img {
     @media $desktop {
       left: -33% !important;
-    }
-    @media $wide {
       width: 1100px !important;
     }
   }
 }
 :global .horse {
   @media $desktop {
-    margin-top: 320px !important;
+    margin-top: 330px !important;
+    img {
+      left: -56% !important;
+      width: 1000px !important;
+    }
   }
   @media $wide {
-    margin-top: 340px !important;
+    margin-top: 370px !important;
+    img {
+      left: -50% !important;
+    }
   }
   @media $extraWide {
     margin-top: 380px !important;
   }
-  img {
-    @media $desktop {
-      width: 850px !important;
-    }
-    @media $extraWide {
-      width: 1000px !important;
+}
+:global .watertower {
+  @media $desktop {
+    margin-top: 365px !important;
+  }
+  @media $wide {
+    margin-top: 385px !important;
+    img {
+      width: 800px !important;
     }
   }
 }
