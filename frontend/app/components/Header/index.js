@@ -4,13 +4,36 @@ import twitter from '../../shared/images/twitter.png';
 import facebook from '../../shared/images/facebook.png';
 import mobileLogo from '../../shared/images/texas-camp-logo-orange.svg';
 import logo from '../../shared/images/texas-camp-logo.svg';
-import backgroundImage from '../../shared/images/snake.gif';
+import snake from '../../shared/images/header/snake.gif';
+import horse from '../../shared/images/header/horse.png';
+import camper from '../../shared/images/header/truck.png';
+import watertower from '../../shared/images/header/water-tower.png';
+import sponsors from '../../shared/images/header/sponsors.gif';
 
-function Header() {
+const Header = ({ image }) => {
+  let backgroundImage = snake;
+  switch (image) {
+    case 'sponsors':
+      backgroundImage = sponsors;
+      break;
+    case 'horse':
+      backgroundImage = horse;
+      break;
+    case 'camper':
+      backgroundImage = camper;
+      break;
+    case 'watertower':
+      backgroundImage = watertower;
+      break;
+    default:
+      backgroundImage = snake;
+      break;
+  }
+
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.header}>
-        <div className={styles.backgroundImageWrapper}>
+        <div className={`${styles.backgroundImageWrapper} ${image}`}>
           <img src={backgroundImage} alt="" />
         </div>
         <div className={styles.info}>
@@ -49,7 +72,7 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 function Twitter() {
   return (

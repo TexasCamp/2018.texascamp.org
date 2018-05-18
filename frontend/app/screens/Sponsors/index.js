@@ -47,7 +47,7 @@ const Sponsors = ({
       <Helmet title="Sponsors" />
       <Menu />
       <div className={styles.contentWrapper}>
-        <Header />
+        <Header image="sponsors" />
         <div className={styles.content}>
           <h1 className={styles.title}>Brought to you by</h1>
           <div className={styles.detail}>
