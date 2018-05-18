@@ -38,23 +38,27 @@ const Menu = ({ isActive, toggleOverlay, menuItems }: MenuPropsT) => {
             <ul className={styles.menu}>
               {menuItems.map(({ label, urlRoute }) =>
                 (<li key={label} className={styles.menuItem}>
-                  <Link to={urlRoute}>
+                  <Link to={urlRoute} onClick={toggleOverlay}>
                     {label}
                   </Link>
                 </li>),
               )}
               <li className={styles.menuItemSmall}>
-                <Link to={'code-conduct'}>Code of Conduct</Link>
+                <Link to={'code-conduct'} onClick={toggleOverlay}>
+                  Code of Conduct
+                </Link>
               </li>
               <li className={styles.menuItemSmall}>
-                <a href="mailto:hello@texascamp.org">Contact</a>
+                <a href="mailto:hello@texascamp.org" onClick={toggleOverlay}>
+                  Contact
+                </a>
               </li>
             </ul>
           </nav>
           <div className={styles.newsletterContainer}>
             <span className={styles.newsletterLine} />
             <div className={styles.newsletterForm}>
-              <NewsletterForm />
+              <NewsletterForm closeMenuOverlay={toggleOverlay} />
             </div>
           </div>
         </div>
