@@ -12,3 +12,8 @@
 .yarn
 npm-debug.log
 yarn-error.log
+
+# Backstop
+bitmaps_reference
+bitmaps_test
+html_report
