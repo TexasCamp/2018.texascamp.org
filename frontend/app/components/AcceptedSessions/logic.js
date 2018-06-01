@@ -1,16 +1,14 @@
 // @flow
+import moment from 'moment';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import mapProps from 'recompose/mapProps';
 import { formatTime } from 'utils';
 
-const now = new Date();
-const startDate = new Date('05/31/2018');
-const endDate = new Date('06/02/2018');
-const defaultStartDate =
-  now.getTime() >= startDate.getTime() && now.getTime() <= endDate.getTime()
-    ? new Date(now.setHours(0, 0, 0, 0))
-    : startDate;
+const now = moment.utc();
+const startDate = moment.utc('2018-05-31');
+const endDate = moment.utc('2018-06-02');
+const defaultStartDate = now.isBetween(startDate, endDate) ? now : startDate;
 const withLogic = compose(
   withState('defaultDate', 'setDateFilter', defaultStartDate),
   mapProps(
@@ -29,16 +27,14 @@ const withLogic = compose(
           type === 'happening',
       );
       const acceptedSessionsByDate = acceptedSessions
-        .sort((a, b) => a.timeslot.start - b.timeslot.start)
-        .filter(
-          ({ timeslot }) =>
-            timeslot.start.toDateString().slice(0, 10) ===
-            defaultDate.toDateString().slice(0, 10),
+        .sort(
+          (a, b) => a.timeslot.start.format('X') - b.timeslot.start.format('X'),
         )
+        .filter(({ timeslot }) => defaultDate.isSame(timeslot.start, 'day'))
         .reduce((items, item) => {
-          const val = `${formatTime(
-            new Date(item.timeslot.start),
-          )}-${formatTime(new Date(item.timeslot.end))}`;
+          const val = `${formatTime(item.timeslot.start)}-${formatTime(
+            item.timeslot.end,
+          )}`;
           items[val] = items[val] || []; // eslint-disable-line no-param-reassign
           items[val].push(item);
           return items;

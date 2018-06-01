@@ -24,7 +24,10 @@ const NewsOverview = ({
           <div className={styles.detail}>
             <ul>
               {newsList
-                .sort((a, b) => b.publishedDate - a.publishedDate)
+                .sort(
+                  (a, b) =>
+                    b.publishedDate.format('X') - a.publishedDate.format('X'),
+                )
                 .map(newsTeaser =>
                   <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
                 )}

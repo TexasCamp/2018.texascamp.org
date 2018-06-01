@@ -3,6 +3,7 @@
 import compose from 'recompose/compose';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import moment from 'moment';
 import type { SessionT } from 'types';
 import { titleToLink } from 'utils';
 
@@ -84,10 +85,10 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
     timeslot: {
       start:
         entity.fieldSessionTimeslot &&
-        new Date(`${entity.fieldSessionTimeslot.value}Z`),
+        moment.utc(entity.fieldSessionTimeslot.value),
       end:
         entity.fieldSessionTimeslot &&
-        new Date(`${entity.fieldSessionTimeslot.endValue}Z`),
+        moment.utc(entity.fieldSessionTimeslot.endValue),
     },
     track: entity.fieldSessionTrack.entity.entityLabel,
     title: entity.title,
@@ -157,10 +158,10 @@ export const happeningsListMapper = (
     timeslot: {
       start:
         entity.fieldSessionTimeslot &&
-        new Date(`${entity.fieldSessionTimeslot.value}Z`),
+        moment.utc(entity.fieldSessionTimeslot.value),
       end:
         entity.fieldSessionTimeslot &&
-        new Date(`${entity.fieldSessionTimeslot.endValue}Z`),
+        moment.utc(entity.fieldSessionTimeslot.endValue),
     },
     title: entity.title,
     urlString: titleToLink(entity.title),

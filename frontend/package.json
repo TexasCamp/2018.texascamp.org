@@ -35,6 +35,7 @@
     "fetch-everywhere": "^1.0.5",
     "graphql-anywhere": "^3.1.0",
     "graphql-tag": "^2.4.2",
+    "moment": "^2.22.2",
     "persistgraphql": "^0.3.2",
     "prop-types": "^15.5.10",
     "ramda": "^0.25.0",

@@ -3,6 +3,7 @@
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import type { NewsT } from 'types';
+import moment from 'moment';
 import { titleToLink } from 'utils';
 
 export const NEWS_QUERY = gql`
@@ -33,7 +34,8 @@ export const newsListMapper = (entities: Array<Object>): Array<NewsT> =>
     title: entity.title,
     body: entity.body.value,
     summary: entity.body.summary,
-    publishedDate: entity.fieldNewsDate && new Date(entity.fieldNewsDate.value),
+    publishedDate:
+      entity.fieldNewsDate && moment.utc(entity.fieldNewsDate.value),
     urlString: titleToLink(entity.title),
     id: entity.entityId,
   }));
