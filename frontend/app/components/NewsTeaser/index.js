@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'AsyncLink';
 import Html from 'Html';
+import { formatDate } from 'utils';
+import moment from 'moment';
 import type { NewsT } from 'type/NewsT';
 import styles from './styles.css';
 
@@ -27,11 +29,7 @@ const NewsTeaser = ({
   const formattedBody = newsTeaser.summary ? newsTeaser.summary : trimmedBody;
 
   const formattedDate = newsTeaser.publishedDate
-    ? new Date(newsTeaser.publishedDate).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
+    ? formatDate(moment.utc(newsTeaser.publishedDate))
     : '';
   const newsContext = hompageNews ? styles.hompageNews : styles.newOverview;
   const homepageStyles = hompageNewsSecondColumn ? styles.secondColumn : null;
