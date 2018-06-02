@@ -5,10 +5,13 @@ import withState from 'recompose/withState';
 import mapProps from 'recompose/mapProps';
 import { formatTime } from 'utils';
 
-const now = moment.utc();
-const startDate = moment.utc('2018-05-31');
-const endDate = moment.utc('2018-06-02');
-const defaultStartDate = now.isBetween(startDate, endDate) ? now : startDate;
+let defaultStartDate = moment.utc();
+const startDate = moment('2018-05-31').startOf('day').utcOffset(-5);
+const endDate = moment('2018-06-02').endOf('day').utcOffset(-5);
+if (!moment.utc().utcOffset(-5).isBetween(startDate, endDate)) {
+  defaultStartDate = moment('2018-05-31');
+}
+
 const withLogic = compose(
   withState('defaultDate', 'setDateFilter', defaultStartDate),
   mapProps(
