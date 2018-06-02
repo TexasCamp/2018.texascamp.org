@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Link from 'AsyncLink';
+import moment from 'moment';
 import styles from './styles.css';
 import withLogic from './logic';
 
@@ -16,27 +17,33 @@ const AcceptedSessions = ({
         <div className={styles.filters}>
           <div className={styles.dayFilters}>
             <button
-              onClick={() => setDateFilter(new Date('05/31/2018'))}
-              className={`${styles.button} ${defaultDate.toDateString() ===
-              new Date('05/31/2018').toDateString()
+              onClick={() => setDateFilter(moment.utc('2018-05-31'))}
+              className={`${styles.button} ${defaultDate.isSame(
+                moment.utc('2018-05-31'),
+                'day',
+              )
                 ? styles.selected
                 : ''}`}
             >
               Thursday
             </button>
             <button
-              onClick={() => setDateFilter(new Date('06/01/2018'))}
-              className={`${styles.button} ${defaultDate.toDateString() ===
-              new Date('06/01/2018').toDateString()
+              onClick={() => setDateFilter(moment.utc('2018-06-01'))}
+              className={`${styles.button} ${defaultDate.isSame(
+                moment.utc('2018-06-01'),
+                'day',
+              )
                 ? styles.selected
                 : ''}`}
             >
               Friday
             </button>
             <button
-              onClick={() => setDateFilter(new Date('06/02/2018'))}
-              className={`${styles.button} ${defaultDate.toDateString() ===
-              new Date('06/02/2018').toDateString()
+              onClick={() => setDateFilter(moment.utc('2018-06-02'))}
+              className={`${styles.button} ${defaultDate.isSame(
+                moment.utc('2018-06-02'),
+                'day',
+              )
                 ? styles.selected
                 : ''}`}
             >

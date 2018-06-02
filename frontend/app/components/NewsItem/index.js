@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
-import { cleanHtml } from 'utils';
+import { cleanHtml, formatDate } from 'utils';
 import Header from 'Header';
 import Menu from 'Menu';
 import Footer from 'Footer';
@@ -21,11 +21,7 @@ const NewsItem = ({ newsItem }: { newsItem: NewsT }) => {
     : '';
 
   const formattedDate = newsItem.publishedDate
-    ? newsItem.publishedDate.toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
+    ? formatDate(newsItem.publishedDate)
     : '';
 
   return (
