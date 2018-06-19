@@ -28,6 +28,7 @@ export type SessionT = {
   },
   title: string,
   track: TrackT,
+  youtubeLink?: string,
   urlString: string,
   type: string,
 };

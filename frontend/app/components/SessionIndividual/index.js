@@ -97,6 +97,19 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                 </div>
                 <div className={styles.mainContent}>
                   {cleanHtml(formattedBody)}
+                  {session.youtubeLink &&
+                    <div className={styles.videoWrapper}>
+                      <iframe
+                        className={styles.video}
+                        width="560"
+                        height="315"
+                        src={session.youtubeLink}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        title={session.title}
+                      />
+                    </div>}
                   {session.speakers[0].fieldSessionPresenter &&
                     <div className={styles.bios}>
                       {session.speakers.map(eachSpeaker =>

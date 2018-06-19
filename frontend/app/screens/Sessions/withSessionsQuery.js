@@ -53,6 +53,9 @@ export const SESSION_QUERY = gql`
         entityLabel
       }
     }
+    fieldSessionYoutubeLink {
+      uri
+    }
     title
   }
 
@@ -91,6 +94,8 @@ export const sessionsListMapper = (entities: Array<Object>): Array<SessionT> =>
         moment.utc(entity.fieldSessionTimeslot.endValue),
     },
     track: entity.fieldSessionTrack.entity.entityLabel,
+    youtubeLink:
+      entity.fieldSessionYoutubeLink && entity.fieldSessionYoutubeLink.uri,
     title: entity.title,
     urlString: titleToLink(entity.title),
   }));
@@ -131,6 +136,9 @@ export const HAPPENINGS_QUERY = gql`
       endValue
       endDate
     }
+    fieldSessionYoutubeLink {
+      uri
+    }
   }
 
   fragment PresenterFragment on ParagraphPresenter {
@@ -163,6 +171,8 @@ export const happeningsListMapper = (
         entity.fieldSessionTimeslot &&
         moment.utc(entity.fieldSessionTimeslot.endValue),
     },
+    youtubeLink:
+      entity.fieldSessionYoutubeLink && entity.fieldSessionYoutubeLink.uri,
     title: entity.title,
     urlString: titleToLink(entity.title),
     type: 'happening',
