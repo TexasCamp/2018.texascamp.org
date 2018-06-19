@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.happening.field_session_presenters
     - field.field.node.happening.field_session_room
     - field.field.node.happening.field_session_timeslot
+    - field.field.node.happening.field_session_youtube_link
     - node.type.happening
   module:
     - datetime_range
+    - link
     - paragraphs
     - path
     - text
@@ -60,6 +62,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
+    region: content
+  field_session_youtube_link:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   path:
     type: path
