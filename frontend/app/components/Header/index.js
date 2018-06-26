@@ -42,8 +42,8 @@ const Header = ({ image }) => {
               &nbsp;&nbsp;&middot;&nbsp;&nbsp;
             </span>Austin, TX
           </div>
-          <div>Norris Conference Center</div>
-          <div>
+          <div className={styles.venue}>Norris Conference Center</div>
+          <div className={styles.socialWrapper}>
             <span className={styles.social}>
               <Twitter />
             </span>

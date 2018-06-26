@@ -6,7 +6,7 @@
 }
 .content {
   composes: contentWrapper from '../../shared/css/global.css';
-  margin-top: 20px;
+  margin-top: 14px;
   @media $tablet {
     margin-top: 30px;
   }
