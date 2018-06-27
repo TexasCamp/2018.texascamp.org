@@ -1,0 +1,23 @@
+uuid: af12b185-d014-43b0-8b4d-b7cb91686150
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_youtube_link
+    - node.type.happening
+  module:
+    - link
+id: node.happening.field_session_youtube_link
+field_name: field_session_youtube_link
+entity_type: node
+bundle: happening
+label: 'Youtube Link'
+description: 'Use youtube embed url example: https://www.youtube.com/embed/xXt3v3FSxss'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

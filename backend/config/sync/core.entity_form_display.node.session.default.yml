@@ -14,9 +14,11 @@ dependencies:
     - field.field.node.session.field_session_status
     - field.field.node.session.field_session_timeslot
     - field.field.node.session.field_session_track
+    - field.field.node.session.field_session_youtube_link
     - node.type.session
   module:
     - datetime_range
+    - link
     - paragraphs
     - path
     - text
@@ -115,6 +117,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_session_youtube_link:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   path:
     type: path

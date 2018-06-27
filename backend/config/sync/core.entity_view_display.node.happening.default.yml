@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.happening.field_session_presenters
     - field.field.node.happening.field_session_room
     - field.field.node.happening.field_session_timeslot
+    - field.field.node.happening.field_session_youtube_link
     - node.type.happening
   module:
     - datetime_range
     - entity_reference_revisions
+    - link
     - text
     - user
 id: node.happening.default
@@ -51,6 +53,18 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
+    region: content
+  field_session_youtube_link:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   links:
     weight: 100
