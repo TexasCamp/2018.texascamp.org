@@ -51,10 +51,26 @@
   text-align: center;
 
   @media $smallOnly {
-    display: none;
+    .venue {
+      display: none;
+    }
+    .separator {
+     display: table-column;
+    }
+  }
+  @media $xs_smallOnly {
+    margin-top: 72px;
+  }
+  @media $xs_small {
+    margin-top: 26px;
   }
   @media $desktop {
     margin-top: 46px;
+  }
+  .socialWrapper {
+    @media $xs_smallOnly {
+      display: none;
+    }
   }
   .social {
     img {
@@ -80,7 +96,9 @@
   }
   @media $smallOnly {
     margin: -5px 0 0 8px;
+    position: absolute;
     text-align: left;
+    top: 25px;
     img {
       width: 110px;
     }

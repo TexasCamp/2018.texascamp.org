@@ -23,6 +23,7 @@ module.exports = {
   xs_small: `all and (min-width: ${BP_XS / 16}em) and (max-width: ${(BP_TABLET -
     1) /
     16}em)`,
+  xs_smallOnly: `all and (max-width: ${(BP_XS - 1) / 16}em)`,
   smallOnly: `all and (max-width: ${(BP_TABLET - 1) / 16}em)`,
   tablet: `all and (min-width: ${BP_TABLET / 16}em)`,
   tabletOnly: `all and (min-width: ${BP_TABLET /
