@@ -131,7 +131,8 @@
             vertical-align: middle;
           }
           img {
-            vertical-align: middle;
+            transform: scale(1.65);
+            vertical-align: middle;                
           }
         }
       }
