@@ -79,8 +79,9 @@
   .button {
     color: $beige;
     &:hover {
-      background: $navy;
+      background: none;
       box-shadow: none;
+      color: $orange;
     }
   }
 }

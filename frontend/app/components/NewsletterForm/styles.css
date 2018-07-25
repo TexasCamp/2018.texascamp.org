@@ -43,24 +43,25 @@
     text-align: center;
     input {
       background-color: $orange;
-      border: 1px solid $orange;
+      border: 2px solid $orange;
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
       color: $beige;
       font-family: "calder-dark", sans-serif;
-      font-size: 13px;
       padding: 5px 27px 4px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
       transition: all 0.1s ease-out;
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: antialiased;
+      -o-font-smoothing: antialiased;
       &:active,
       &:focus,
       &:hover {
-        background: $orange_darken10;
-        border-color: $orange_darken10;
-        color: $beige;
+        background: none;
+        color: $orange;
         outline: none;
       }
     }
