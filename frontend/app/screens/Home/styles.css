@@ -74,10 +74,6 @@
   }
   .button {
     margin-top: 12px;
-    &:hover {
-      background: $yellow;
-      color: $navy;
-    }
   }
 }
 .latestNews {
@@ -192,10 +188,6 @@
   }
   .button {
     margin-top: 10px;
-    &:hover {
-      background: $yellow;
-      color: $navy;
-    }
   }
 }
 .newsList {
