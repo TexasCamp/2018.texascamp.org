@@ -145,7 +145,7 @@ body {
 }
 .button {
   background: $orange;
-  border: 2px solid $orange;
+  border: 1px solid $orange;
   border-radius: 20px;
   box-shadow: none !important;
   color: $beige;
@@ -155,7 +155,7 @@ body {
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 5px 18px;
+  padding: 6px 18px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
@@ -171,7 +171,7 @@ body {
 }
 :global .buttonLink a {
   background: $orange;
-  border: 2px solid $orange;
+  border: 1px solid $orange;
   border-radius: 20px;
   box-shadow: none;
   color: $beige;
@@ -181,7 +181,7 @@ body {
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 5px 18px;
+  padding: 6px 18px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
