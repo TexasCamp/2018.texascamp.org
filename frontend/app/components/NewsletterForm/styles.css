@@ -43,7 +43,7 @@
     text-align: center;
     input {
       background-color: $orange;
-      border: 2px solid $orange;
+      border: 1px solid $orange;
       border-radius: 20px;
       cursor: pointer;
       display: inline-block;
