@@ -7,8 +7,11 @@ import logo from '../../shared/images/texas-camp-logo.svg';
 import snake from '../../shared/images/header/snake.gif';
 import snakeMobile from '../../shared/images/header/snake.png';
 import horse from '../../shared/images/header/horse.png';
+import horseMobile from '../../shared/images/header/horse-mobile.png';
 import camper from '../../shared/images/header/truck.png';
+import camperMobile from '../../shared/images/header/truck-mobile.png';
 import watertower from '../../shared/images/header/water-tower.png';
+import watertowerMobile from '../../shared/images/header/water-tower-mobile.png';
 import sponsors from '../../shared/images/header/sponsors.gif';
 import sponsorsMobile from '../../shared/images/header/sponsors.png';
 
@@ -22,15 +25,15 @@ const Header = ({ image = 'snake', isHome }) => {
       break;
     case 'horse':
       backgroundImage = horse;
-      mobileBackgroundImage = horse;
+      mobileBackgroundImage = horseMobile;
       break;
     case 'camper':
       backgroundImage = camper;
-      mobileBackgroundImage = camper;
+      mobileBackgroundImage = camperMobile;
       break;
     case 'watertower':
       backgroundImage = watertower;
-      mobileBackgroundImage = watertower;
+      mobileBackgroundImage = watertowerMobile;
       break;
     default:
       backgroundImage = snake;
