@@ -26,7 +26,17 @@
       min-width: 50%;
     }
     .backgroundImageWrapper {
-      display: none;
+      @media $tabletDown {
+        background-color: $orange;
+        height: 140px;
+        margin-top: -26px;
+        overflow: hidden;
+        text-align: center;
+      }
+      @media $tabletOnly {
+        height: 190px;
+        margin-top: -30px;
+      }
       @media $desktop {
         display: block;
         left: 50%;
@@ -41,36 +51,31 @@
       @media $wide {
         margin-top: 304px;
       }
+
     }
   }
 }
 .info {
-  font-size: 13px;
-  line-height: 1.25rem;
-  margin-top: 26px;
   text-align: center;
-
-  @media $smallOnly {
-    .venue {
+  @media $tabletDown {
+    background: url('../../shared/images/info-tab.png') center center no-repeat;
+    background-size: auto 20px;
+    font-family: "calder-dark", sans-serif;
+    font-size: 10px;
+    height: 20px;
+    line-height: 34px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+    .venue,
+    .socialWrapper {
       display: none;
     }
-    .separator {
-     display: table-column;
-    }
-  }
-  @media $xs_smallOnly {
-    margin-top: 72px;
-  }
-  @media $xs_small {
-    margin-top: 26px;
   }
   @media $desktop {
+    font-size: 13px;
+    line-height: 1.25rem;
     margin-top: 46px;
-  }
-  .socialWrapper {
-    @media $xs_smallOnly {
-      display: none;
-    }
   }
   .social {
     img {
@@ -91,33 +96,24 @@
 }
 .logo {
   position: relative;
-  .desktopLogo {
-    display: none;
-  }
-  @media $smallOnly {
-    margin: -5px 0 0 8px;
+  @media $tabletDown {
+    margin: 0 0 0 8px;
     position: absolute;
     text-align: left;
-    top: 25px;
+    top: 16px;
     img {
       width: 110px;
     }
   }
   @media $tabletOnly {
-    margin: -12px 0 0 24px;
+    margin: 0 0 0 24px;
     position: absolute;
     top: 26px;
     img {
-      width: 126px;
+      width: 146px;
     }
   }
   @media $desktop {
-    .mobileLogo {
-      display: none;
-    }
-    .desktopLogo {
-      display: inherit;
-    }
     text-align: center;
     img {
       margin-top: 20px;
@@ -132,8 +128,33 @@
     }
   }
 }
+:global .camper {
+  img {
+    @media $tabletDown {
+      max-width: 100%;
+    }
+    @media $tiny_tablet {
+      margin-top: -6px;
+      max-width: 364px;
+    }
+    @media $tabletOnly {
+      max-width: 490px;
+    }
+  }
+}
 :global .sponsors {
   img {
+    @media $tabletDown {
+      margin-left: 70px;
+      max-width: 100%;
+    }
+    @media $xs_smallOnly {
+      margin-left: 30px;
+      max-width: 400px !important;
+    }
+    @media $tabletOnly {
+      margin-left: 140px;
+    }
     @media $desktop {
       left: -33% !important;
       width: 1100px !important;
@@ -143,19 +164,24 @@
 :global .horse {
   @media $desktop {
     margin-top: 330px !important;
-    img {
-      left: -56% !important;
-      width: 1000px !important;
-    }
   }
   @media $wide {
     margin-top: 370px !important;
-    img {
-      left: -50% !important;
-    }
   }
   @media $extraWide {
     margin-top: 380px !important;
+  }
+  img {
+    @media $tabletDown {
+      max-width: 100%;
+    }
+    @media $desktop {
+      left: -56% !important;
+      width: 1000px !important;
+    }
+    @media $wide {
+      left: -50% !important;
+    }
   }
 }
 :global .watertower {
@@ -164,8 +190,78 @@
   }
   @media $wide {
     margin-top: 385px !important;
-    img {
+  }
+  img {
+    @media $tabletDown {
+      max-width: 100%;
+    }
+    @media $tabletOnly {
+      max-width: 540px !important;
+    }
+    @media $wide {
       width: 800px !important;
+    }
+  }
+}
+
+:global .snake {
+  img {
+    @media $tabletDown {
+      margin-top: 5px;
+      max-width: 270px;
+    }
+    @media $tabletOnly {
+      margin-top: 15px;
+      max-width: 330px !important;
+    }
+    @media $wide {
+      width: 800px !important;
+    }
+  }
+}
+
+:global .home {
+  .snake {
+    @media $tabletDown {
+      height: 368px !important;
+    }
+    img {
+      @media $tabletDown {
+        margin-top: 164px;
+        max-width: 310px !important;
+      }
+      @media $tabletOnly {
+        margin-top: 90px;
+        max-width: 470px !important;
+      }
+    }
+  }
+  > div > {
+    div:nth-child(2) {
+      @media $tabletDown {
+        background: none;
+        font-family: "calder-lc", sans-serif;
+        font-size: 13px;
+        height: auto;
+        line-height: 1.25rem;
+        position: absolute;
+        top: 46px;
+        width: 100%;
+        span {
+          display: table-column;
+        }
+      }
+    }
+    div:nth-child(3) {
+      @media $smallOnly {
+        margin: 0;
+        text-align: center;
+        top: 80px;
+        width: 100%;
+      }
+      img {
+        width: 146px;
+      }
     }
   }
 }
