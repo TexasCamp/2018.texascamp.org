@@ -1,50 +1,55 @@
 .footer {
+  background: url('../../shared/images/bg_footer.png') top center no-repeat;
+  background-size: cover;
+  height: 528px;
   margin-top: 100px;
-}
-.sponsorsWrapper {
-  background: $lighterGrey;
-  border-bottom: 2px solid $beige;
-  padding: 10px 20px;
   text-align: center;
-  @media $tablet {
-    border-bottom: 5px solid $beige;
-    padding: 22px 20px 20px;
-    text-align: left;
-  }
-  .sponsors {
-    @media $tablet {
-      display: flex;
-      height: 28px;
-      margin: 0 auto;
-      width: 438px;
-    }
-    p {
-      margin-bottom: 10px;
-      @media $tablet {
-        flex-grow: 1;
-        margin: 0;
-        padding: 4px 0px;
-      }
-    }
-  }
-  .sponsorsContainer {
-    display: flex;
-    justify-content: center;
-    line-height: 28px;
+}
+.logo {
+  margin-top: 54px;
+  width: 98px;
+}
+.info {
+  color: $grey;
+  margin: 20px 0 40px;
+  .social {
     img {
-      max-height: 55px;
-      margin-top: -14px;
-      vertical-align: middle;
+      height: 14px;
+      margin-top: 4px;
       width: auto;
     }
   }
+  .social {
+    + .separator {
+      display: inline;
+    }
+    a:hover {
+      border-bottom: 1px solid;
+      padding-top: 8px;
+    }
+  }
 }
-
+.heading {
+  width: 140px;
+}
+.sponsorsContainer {
+  display: flex;
+  justify-content: center;
+  img {
+    filter: grayscale(100%) brightness(240%);
+    -webkit-filter: grayscale(100%) brightness(240%);
+    margin: 20px 10px;
+    transform: scale(1.65);
+    width: 100px;
+  }
+}
 .credits {
-  background: $lightGrey;
+  composes: calderDark from '../../shared/css/fonts.css';
+  color: $blue;
+  font-size: 10px;
   padding: 20px;
   text-align: center;
-  @media $tablet {
-    padding: 26px 20px 24px;
+  a {
+    color: $blue;
   }
 }
