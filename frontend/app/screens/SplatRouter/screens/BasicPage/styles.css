@@ -24,5 +24,11 @@
     @media $tablet {
       margin-right: 40px;
     }
+    span {
+      h2:first-child,
+      h3:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
