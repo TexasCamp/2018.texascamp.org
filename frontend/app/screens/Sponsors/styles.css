@@ -75,7 +75,10 @@
 }
 .field {
   composes: field from '../../shared/css/global.css';
-  padding-bottom: 52px;
+  padding-bottom: 42px !important;
+  p {
+    margin-bottom:10px;
+  }
   .button {
     color: $beige;
     &:hover {
@@ -90,6 +93,5 @@
 }
 .button {
   composes: button from '../../shared/css/global.css';
-  margin-top: -12px;
-  position: absolute;
+  margin-top: -2px;
 }
