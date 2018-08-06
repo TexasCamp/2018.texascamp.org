@@ -94,27 +94,6 @@ body {
     }
   }
 }
-.button {
-  background: $orange;
-  border: none;
-  border-radius: 20px;
-  box-shadow: none !important;
-  color: $beige;
-  composes: calderDark from '../../shared/css/fonts.css';
-  line-height: 100%;
-  margin-top: 20px;
-  outline: none;
-  padding: 6px 20px;
-  text-transform: uppercase;
-  transition: all .3s ease-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  &:hover {
-    background: $navy;
-    cursor: pointer;
-  }
-}
 .title {
   font-size: 30px;
   line-height: 40px;
@@ -166,8 +145,9 @@ body {
 }
 .button {
   background: $orange;
-  border: none;
+  border: 1px solid $orange;
   border-radius: 20px;
+  box-shadow: none !important;
   color: $beige;
   composes: calderDark from '../../shared/css/fonts.css';
   font-size: 11px;
@@ -175,20 +155,23 @@ body {
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 7px 20px;
+  padding: 6px 18px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
+  &:active,
+  &:focus,
   &:hover {
-    background: $navy;
+    background: none;
+    color: $orange;
     cursor: pointer;
   }
 }
 :global .buttonLink a {
   background: $orange;
-  border: none;
+  border: 1px solid $orange;
   border-radius: 20px;
   box-shadow: none;
   color: $beige;
@@ -198,14 +181,17 @@ body {
   line-height: 100%;
   margin-top: 20px;
   outline: none;
-  padding: 7px 20px;
+  padding: 6px 18px;
   text-transform: uppercase;
   transition: all .3s ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
+  &:active,
+  &:focus,
   &:hover {
-    background: $navy;
+    background: none;
+    color: $orange;
     cursor: pointer;
   }
 }

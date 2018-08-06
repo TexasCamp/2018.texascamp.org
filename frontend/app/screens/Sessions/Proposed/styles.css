@@ -125,10 +125,6 @@
 }
 .resetButton {
   composes: button from '../../../shared/css/global.css';
-  &:hover {
-    background: $navy;
-    cursor: pointer;
-  }
 }
 .body {
   p {

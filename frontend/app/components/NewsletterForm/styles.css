@@ -49,18 +49,19 @@
       display: inline-block;
       color: $beige;
       font-family: "calder-dark", sans-serif;
-      font-size: 13px;
       padding: 5px 27px 4px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
       transition: all 0.1s ease-out;
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: antialiased;
+      -o-font-smoothing: antialiased;
       &:active,
       &:focus,
       &:hover {
-        background: $orange_darken10;
-        border-color: $orange_darken10;
-        color: $beige;
+        background: none;
+        color: $orange;
         outline: none;
       }
     }
