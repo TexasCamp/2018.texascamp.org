@@ -131,6 +131,7 @@
             vertical-align: middle;
           }
           img {
+            max-width: 180px;
             transform: scale(1.65);
             vertical-align: middle;                
           }
