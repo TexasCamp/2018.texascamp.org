@@ -5,7 +5,10 @@
   }
 }
 .content {
-  composes: contentWrapper from '../../shared/css/global.css';  
+  composes: contentWrapper from '../../shared/css/global.css';
+  @media screen and (max-width: 500px) { 
+    margin-top: 342px;
+  }
   @media $desktop {
     min-width: 50%;
     width: 100%;
