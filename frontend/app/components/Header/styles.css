@@ -145,15 +145,13 @@
 :global .sponsors {
   img {
     @media $tabletDown {
-      margin-left: 70px;
-      max-width: 100%;
+      max-width: 520px !important;
     }
-    @media $xs_smallOnly {
-      margin-left: 30px;
-      max-width: 400px !important;
+    @media $xs_small {
+      max-width: 640px !important;
     }
     @media $tabletOnly {
-      margin-left: 140px;
+      max-width: 780px !important;
     }
     @media $desktop {
       left: -33% !important;
@@ -173,6 +171,7 @@
   }
   img {
     @media $tabletDown {
+      transform: scale(1.05);
       max-width: 100%;
     }
     @media $desktop {
@@ -193,9 +192,12 @@
   }
   img {
     @media $tabletDown {
+      margin-top: 10px;
       max-width: 100%;
+      transform: scale(1.05);
     }
     @media $tabletOnly {
+      margin-top: 24px;
       max-width: 540px !important;
     }
     @media $wide {
@@ -208,11 +210,11 @@
   img {
     @media $tabletDown {
       margin-top: 5px;
-      max-width: 270px;
+      max-width: 320px;
     }
     @media $tabletOnly {
       margin-top: 15px;
-      max-width: 330px !important;
+      max-width: 425px !important;
     }
     @media $wide {
       width: 800px !important;
@@ -222,17 +224,27 @@
 
 :global .home {
   .snake {
+    @media screen and (max-width: 500px) {
+      left: 50%;
+      overflow: visible !important;
+      position: absolute;
+    }
     @media $tabletDown {
       height: 368px !important;
     }
     img {
+      @media screen and (max-width: 500px) {
+        background-color: $orange;
+        left: -50%;
+        position: relative;
+      }
       @media $tabletDown {
-        margin-top: 164px;
-        max-width: 310px !important;
+        max-width: 500px !important;
+        padding-top: 156px;
       }
       @media $tabletOnly {
-        margin-top: 90px;
-        max-width: 470px !important;
+        max-width: 632px !important;
+        padding-top: 90px;
       }
     }
   }

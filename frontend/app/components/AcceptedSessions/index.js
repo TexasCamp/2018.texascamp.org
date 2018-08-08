@@ -18,10 +18,9 @@ const AcceptedSessions = ({
           <div className={styles.dayFilters}>
             <button
               onClick={() => setDateFilter(moment.utc('2018-05-31'))}
-              className={`${styles.button} ${defaultDate.isSame(
-                moment.utc('2018-05-31'),
-                'day',
-              )
+              className={`${styles.button} ${moment
+                .utc(defaultDate)
+                .isSame(moment.utc('2018-05-31'), 'day')
                 ? styles.selected
                 : ''}`}
             >
@@ -29,10 +28,9 @@ const AcceptedSessions = ({
             </button>
             <button
               onClick={() => setDateFilter(moment.utc('2018-06-01'))}
-              className={`${styles.button} ${defaultDate.isSame(
-                moment.utc('2018-06-01'),
-                'day',
-              )
+              className={`${styles.button} ${moment
+                .utc(defaultDate)
+                .isSame(moment.utc('2018-06-01'), 'day')
                 ? styles.selected
                 : ''}`}
             >
@@ -40,10 +38,9 @@ const AcceptedSessions = ({
             </button>
             <button
               onClick={() => setDateFilter(moment.utc('2018-06-02'))}
-              className={`${styles.button} ${defaultDate.isSame(
-                moment.utc('2018-06-02'),
-                'day',
-              )
+              className={`${styles.button} ${moment
+                .utc(defaultDate)
+                .isSame(moment.utc('2018-06-02'), 'day')
                 ? styles.selected
                 : ''}`}
             >
