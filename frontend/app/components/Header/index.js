@@ -1,40 +1,56 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import styles from './styles.css';
 import twitter from '../../shared/images/twitter.png';
 import facebook from '../../shared/images/facebook.png';
-import mobileLogo from '../../shared/images/texas-camp-logo-orange.svg';
 import logo from '../../shared/images/texas-camp-logo.svg';
 import snake from '../../shared/images/header/snake.gif';
+import snakeMobile from '../../shared/images/header/snake.png';
 import horse from '../../shared/images/header/horse.png';
+import horseMobile from '../../shared/images/header/horse-mobile.png';
 import camper from '../../shared/images/header/truck.png';
+import camperMobile from '../../shared/images/header/truck-mobile.png';
 import watertower from '../../shared/images/header/water-tower.png';
+import watertowerMobile from '../../shared/images/header/water-tower-mobile.png';
 import sponsors from '../../shared/images/header/sponsors.gif';
+import sponsorsMobile from '../../shared/images/header/sponsors.png';
 
-const Header = ({ image }) => {
+const Header = ({ image = 'snake', isHome }) => {
   let backgroundImage = snake;
+  let mobileBackgroundImage = snakeMobile;
   switch (image) {
     case 'sponsors':
       backgroundImage = sponsors;
+      mobileBackgroundImage = sponsorsMobile;
       break;
     case 'horse':
       backgroundImage = horse;
+      mobileBackgroundImage = horseMobile;
       break;
     case 'camper':
       backgroundImage = camper;
+      mobileBackgroundImage = camperMobile;
       break;
     case 'watertower':
       backgroundImage = watertower;
+      mobileBackgroundImage = watertowerMobile;
       break;
     default:
       backgroundImage = snake;
+      mobileBackgroundImage = snakeMobile;
       break;
   }
 
   return (
-    <div className={styles.headerWrapper}>
+    <div className={`${styles.headerWrapper} ${isHome ? 'home' : ''}`}>
       <div className={styles.header}>
         <div className={`${styles.backgroundImageWrapper} ${image}`}>
-          <img src={backgroundImage} alt="" />
+          <MediaQuery query="(max-width: 959px)">
+            <img src={mobileBackgroundImage} alt="" />
+          </MediaQuery>
+          <MediaQuery query="(min-width: 960px)">
+            <img src={backgroundImage} alt="" />
+          </MediaQuery>
         </div>
         <div className={styles.info}>
           <div>
@@ -57,11 +73,6 @@ const Header = ({ image }) => {
         </div>
         <div className={styles.logo}>
           <a href="/">
-            <img
-              src={mobileLogo}
-              alt="Texas Camp 2018"
-              className={styles.mobileLogo}
-            />
             <img
               src={logo}
               alt="Texas Camp 2018"

@@ -57,7 +57,7 @@ const Home = ({ loading, newsList, sponsors }): React.Element<any> | null => {
       </Helmet>
       <Menu />
       <div className={styles.contentWrapper}>
-        <Header />
+        <Header isHome="isHome" />
         <div className={styles.content}>
           <div className={styles.detail}>
             <div className={styles.column}>

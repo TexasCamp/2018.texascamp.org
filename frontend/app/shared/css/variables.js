@@ -20,6 +20,8 @@ module.exports = {
   yellow: '#f0c26d',
 
   tinyUp: `all and (min-width: ${BP_TINY / 16}em)`,
+  tiny_tablet: `all and (min-width: ${BP_TINY /
+    16}em) and (max-width: ${(BP_TABLET - 1) / 16}em)`,
   xs_small: `all and (min-width: ${BP_XS / 16}em) and (max-width: ${(BP_TABLET -
     1) /
     16}em)`,
