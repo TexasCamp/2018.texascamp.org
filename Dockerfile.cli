@@ -1,0 +1,13 @@
+FROM amazeeio/php:7.1-cli-drupal
+
+COPY backend/composer.json backend/composer.lock /app/
+COPY backend/scripts /app/scripts
+COPY backend/patches /app/patches
+RUN composer install --prefer-dist --no-dev --no-suggest --optimize-autoloader --apcu-autoloader
+
+COPY backend /app
+
+COPY frontend/app/shared/queries /frontend/app/shared/queries
+
+# Define where the Drupal Root is located
+ENV WEBROOT=web
