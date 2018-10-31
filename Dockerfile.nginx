@@ -4,6 +4,7 @@ FROM ${CLI_IMAGE} as cli
 FROM amazeeio/nginx-drupal
 
 COPY --from=cli /app /app
+COPY --from=cli /frontend /frontend
 
 # Define where the Drupal Root is located
 ENV WEBROOT=web
