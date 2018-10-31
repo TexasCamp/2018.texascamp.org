@@ -15,18 +15,12 @@ First, you need to clone this repository.
 git clone git@github.com:fubhy/drupal-decoupled-app
 ```
 
-Then, you need to install the dependencies.
-
-```
-cd backend && composer install
-cd frontend && yarn install
-```
-
 Then, you need to boot the backend container.
 
 ```
+docker-compose build
 docker-compose up -d
-docker-compose exec --user drupal drupal bash
+docker-compose exec cli bash
 ```
 
 Once connected to the container, you can now install Drupal.

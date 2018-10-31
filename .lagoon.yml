@@ -1,5 +1,31 @@
 docker-compose-yaml: docker-compose.yml
 
 project: 2018-texascamp
-endpoint: api-lagoon-master.lagoon.ch.amazee.io:31472
-api: api-lagoon-master.lagoon.ch.amazee.io:80
+
+tasks:
+  post-rollout:
+    - run:
+        name: drush cim
+        command: cd web && drush -y cim
+        service: cli
+    - run:
+        name: drush updb
+        command: cd web && drush -y updb --cache-clear=0
+        service: cli
+    - run:
+        name: drush cr
+        command: cd web && drush -y cr
+        service: cli
+
+environments:
+  master:
+    routes:
+      - varnish:
+        - backend2018.texascamp.org
+      - frontend:
+        - 2018.texascamp.org
+    cronjobs:
+      - name: drush cron
+        schedule: "H/15 * * * *"
+        command: drush cron
+        service: cli
