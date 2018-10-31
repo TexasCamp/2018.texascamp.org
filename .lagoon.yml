@@ -18,7 +18,7 @@ tasks:
         service: cli
 
 environments:
-  master:
+  prod:
     routes:
       - varnish:
         - backend2018.texascamp.org
