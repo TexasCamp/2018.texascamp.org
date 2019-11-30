@@ -15,7 +15,6 @@
         "drupal/admin_toolbar": "^1.21",
         "drupal/admin_toolbar_tools": "^1.21",
         "drupal/config_installer": "^1.4",
-        "drupal/console": "~1.0",
         "drupal/core": "~8.0",
         "drupal/ctools": "^3.0",
         "drupal/graphql": "^3.0",
@@ -23,7 +22,6 @@
         "drupal/pathauto": "^1.0",
         "drupal/token": "^1.1",
         "drupal/views_data_export": "^1.0",
-        "drush/drush": "~8.0",
         "webflo/drupal-finder": "^0.3.0",
         "webmozart/path-util": "^2.3"
     },
