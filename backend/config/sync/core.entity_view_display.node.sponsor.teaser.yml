@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.sponsor.body
+    - field.field.node.sponsor.field_sponsor_image
+    - field.field.node.sponsor.field_sponsor_level
+    - field.field.node.sponsor.field_sponsor_url
     - node.type.sponsor
   module:
     - text
@@ -25,6 +28,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_sponsor_image: true
   field_sponsor_level: true

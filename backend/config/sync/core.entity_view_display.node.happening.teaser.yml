@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.happening.body
+    - field.field.node.happening.field_session_presenters
+    - field.field.node.happening.field_session_room
+    - field.field.node.happening.field_session_timeslot
+    - field.field.node.happening.field_session_youtube_link
     - node.type.happening
   module:
     - text
@@ -25,4 +29,10 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_session_presenters: true
+  field_session_room: true
+  field_session_timeslot: true
+  field_session_youtube_link: true

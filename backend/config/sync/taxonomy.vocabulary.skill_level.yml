@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Skill Level'
 vid: skill_level
 description: 'Beginner, intermediate, or advanced'
-hierarchy: 0
 weight: 0

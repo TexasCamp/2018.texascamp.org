@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Session Status'
 vid: session_status
 description: 'Selected or not selected'
-hierarchy: 0
 weight: 0

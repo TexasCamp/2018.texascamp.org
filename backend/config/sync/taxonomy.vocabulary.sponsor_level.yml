@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Sponsor Level'
 vid: sponsor_level
 description: 'Bronze, Silver, Gold, or Platinum'
-hierarchy: 0
 weight: 0

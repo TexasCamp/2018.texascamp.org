@@ -5,6 +5,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.session.body
+    - field.field.node.session.field_session_contact_company
+    - field.field.node.session.field_session_contact_email
+    - field.field.node.session.field_session_contact_name
+    - field.field.node.session.field_session_edit_token
+    - field.field.node.session.field_session_presenters
+    - field.field.node.session.field_session_room
+    - field.field.node.session.field_session_skill_level
+    - field.field.node.session.field_session_status
+    - field.field.node.session.field_session_timeslot
+    - field.field.node.session.field_session_track
+    - field.field.node.session.field_session_youtube_link
     - node.type.session
   module:
     - text
@@ -25,11 +36,15 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_session_contact_company: true
   field_session_contact_email: true
   field_session_contact_name: true
+  field_session_edit_token: true
   field_session_notes: true
+  field_session_presenters: true
   field_session_room: true
   field_session_skill_level: true
   field_session_speakers: true
@@ -37,3 +52,4 @@ hidden:
   field_session_status: true
   field_session_timeslot: true
   field_session_track: true
+  field_session_youtube_link: true
