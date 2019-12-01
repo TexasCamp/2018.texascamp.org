@@ -1,0 +1,49 @@
+.slider {
+  margin-bottom: 8px;
+  position: relative;
+  :global .slick-track {
+    display: inline-flex;
+    .slick-slide {
+      div {
+        height: 100%;
+        &:before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+        img {
+          max-width: 180px;
+          transform: scale(1.65);
+          vertical-align: middle;                
+        }
+      }
+    }
+  }
+  ul {
+    position: absolute;
+    top: -26px;
+    width: 100%;
+    li {
+      background: none;
+      display: inline;
+      padding: 0 6px;
+      button {
+        background: $lightGrey;
+        border: none;
+        border-radius: 10px;
+        color: $lightGrey;
+        font-size: 0;
+        height: 4px;
+        outline: none;
+        padding: 0;
+        width: 4px;
+      }
+    }
+  }
+}
+:global .slick-active {
+  button {
+    background: $navy !important;
+  }
+}

@@ -27,7 +27,6 @@ class TXCApp extends App {
         </Head>
         <Component {...pageProps} />
         {/* <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/schedule" component={Sessions} />
           <Route exact path="/sessions/proposed" component={ProposedSessions} />
           <Route exact path="/sessions/:sessionName/" component={Session} />
