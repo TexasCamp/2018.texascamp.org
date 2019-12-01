@@ -1,0 +1,72 @@
+.title {
+  font-size: 30px;
+  line-height: 40px;
+  margin: 26px 20px 30px;
+  @media $xs_small {
+    margin-top: 50px;
+  }
+  @media $tablet {
+    margin: 50px 40px 8px;
+    max-width: calc(75% - 100px);
+  }
+}
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  img {
+    max-width: 100%;
+  }
+}
+.contentArea {
+  flex: 1 0 auto;
+  margin: 0 20px;
+  @media $tablet {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+  }
+}
+.field {
+  border-top: 1px dashed $grey;
+  min-width: calc(50% - 10px);
+  padding: 7px 0 12px;
+  @media $xs_small {
+    width: calc(50% - 10px);
+  }
+  a {
+    box-shadow: inset 0 -1px 0 $yellow;
+    color: $navy;
+    text-decoration: none;
+    transition: background .3s ease-out;
+    &:hover {
+      background: $yellow;
+    }
+  }
+}
+.button {
+  background: $orange;
+  border: 1px solid $orange;
+  border-radius: 20px;
+  box-shadow: none !important;
+  color: $beige;
+  composes: calderDark from './fonts.css';
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 100%;
+  margin-top: 20px;
+  outline: none;
+  padding: 6px 18px;
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  &:active,
+  &:focus,
+  &:hover {
+    background: none;
+    color: $orange;
+    cursor: pointer;
+  }
+}

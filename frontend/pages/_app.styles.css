@@ -1,6 +1,5 @@
-
 .wrapper {
-  composes: calderLC from '../../shared/css/fonts.css';
+  composes: calderLC from '../shared/css/fonts.css';
   &::before {
     @media $tabletDown {
       background: $orange;
