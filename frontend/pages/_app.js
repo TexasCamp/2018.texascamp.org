@@ -37,7 +37,6 @@ class TXCApp extends App {
             path="/session-update/:id/:editToken"
             component={UpdateSession}
           />
-          <Route exact path="/news" component={NewsOverview} />
           <Route exact path="/news/:newsTitle/" component={News} />
           <Route exact path="/sponsors" component={Sponsors} />
           <Route path="*" component={SplatRouter} />

@@ -1,22 +1,22 @@
-// @flow
-
 import React from 'react';
-import Helmet from 'react-helmet';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
-import NewsTeaser from 'NewsTeaser';
-import withNewsQuery from 'NewsOverview/withNewsQuery';
-import styles from 'NewsOverview/styles.css';
+import compose from 'recompose/compose';
+import { withApollo } from '../../shared/lib/withApollo';
+import HeadTitle from '../../components/HeadTitle';
+import Header from '../../components/Header';
+import Menu from '../../components/Menu';
+import Footer from '../../components/Footer';
+import NewsTeaser from '../../components/NewsTeaser';
+import withNews from '../../shared/query/withNews';
+import styles from './styles.css';
 
 const NewsOverview = ({
   loading,
   newsList,
-}: NewsOverviewProps): React.Element<any> | null =>
+}) =>
   (!loading &&
     <div>
       <Menu />
-      <Helmet title="News" />
+      <HeadTitle title="News" />
       <div className={styles.contentWrapper}>
         <Header />
         <div className={styles.content}>
@@ -39,4 +39,4 @@ const NewsOverview = ({
     </div>) ||
   null;
 
-export default withNewsQuery(NewsOverview);
+export default compose(withApollo, withNews)(NewsOverview);
