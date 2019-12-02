@@ -4,7 +4,7 @@
   }
 }
 .content {
-  composes: contentWrapper from '../../shared/css/global.css';
+  composes: contentWrapper from '../../shared/css/compose.css';
   @media $desktop {
     min-width: 50%;
     width: 100%;
@@ -12,7 +12,7 @@
 }
 
 .detail {
-  composes: contentArea from '../../shared/css/global.css';
+  composes: contentArea from '../../shared/css/compose.css';
   flex-direction: unset;
   @media $tablet {
     width: calc(75% - 40px);

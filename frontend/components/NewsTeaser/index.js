@@ -26,7 +26,7 @@ const NewsTeaser = ({
   const homepageStyles = hompageNewsSecondColumn ? styles.secondColumn : null;
   return (
     <div className={`${styles.teaserWrapper} ${newsContext} ${homepageStyles}`}>
-      <Link href={`/news/${newsTeaser.urlString}`}>
+      <Link href="/news/[newsTitle]" as={`/news/${newsTeaser.urlString}`}>
         <a>
         <div className={styles.date}>
           {formattedDate}

@@ -1,15 +1,17 @@
-// @flow
-
 import React from 'react';
-import Helmet from 'react-helmet';
-import { cleanHtml, formatDate } from 'utils';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
-import type { NewsT } from 'types';
+import compose from 'recompose/compose';
+import { withRouter } from 'next/router';
+import { withApollo } from '../../../shared/lib/withApollo';
+import HeadTitle from '../../../components/HeadTitle';
+import Header from '../../../components/Header';
+import Menu from '../../../components/Menu';
+import Footer from '../../../components/Footer';
+import NotFound from '../../../components/NotFound';
+import withNews from '../../../shared/query/withNews';
+import { cleanHtml, formatDate } from '../../../shared/utils';
 import styles from './styles.css';
 
-const NewsItem = ({ newsItem }: { newsItem: NewsT }) => {
+const NewsPage = ({ newsItem }) => {
   // Format body to:
   // - Update inline image src to include full url
   let formattedBody = newsItem.body;
@@ -26,7 +28,7 @@ const NewsItem = ({ newsItem }: { newsItem: NewsT }) => {
 
   return (
     <div>
-      <Helmet title={newsItem.title} />
+      <HeadTitle title={newsItem.title} />
       <Menu />
       <div className={styles.contentWrapper}>
         <Header />
@@ -54,4 +56,22 @@ const NewsItem = ({ newsItem }: { newsItem: NewsT }) => {
   );
 };
 
-export default NewsItem;
+const NewsLoader = ({ router, loading, newsList }) => {
+  if (!loading) {
+    const { query: { newsTitle } } = router;
+
+    const newsItem = newsList.find(
+      ({ urlString }) => urlString === newsTitle,
+    );
+
+    if (newsItem) {
+      return <NewsPage newsItem={newsItem} />;
+    } else {
+      return <NotFound linkText="Back to more news" linkUrl="/News" />;
+    }
+  }
+
+  return null;
+}
+
+export default compose(withApollo, withNews, withRouter)(NewsLoader);

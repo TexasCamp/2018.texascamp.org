@@ -1,25 +1,18 @@
-// @flow
-
 import React from 'react';
-import Helmet from 'react-helmet';
-import Link from 'AsyncLink';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
+import Link from 'next/link';
+import HeadTitle from '../../components/HeadTitle';
+import Header from '../../components/Header';
+import Menu from '../../components/Menu';
+import Footer from '../../components/Footer';
 import styles from './styles.css';
 
-type NotFoundProps = {
-  msg: string,
-  linkText: string,
-  linkUrl: string,
-};
 const NotFound = ({
   msg,
   linkText,
   linkUrl,
-}: NotFoundProps): React.Element<any> =>
+}) =>
   (<div className={styles.Wrapper}>
-    <Helmet title="Page not found" />
+    <HeadTitle title="Page not found" />
     <Menu />
     <div className={styles.contentWrapper}>
       <Header />
@@ -31,8 +24,8 @@ const NotFound = ({
               {msg}
             </p>
             <p>
-              <Link to={linkUrl}>
-                {linkText}
+              <Link href={linkUrl}>
+                <a>{linkText}</a>
               </Link>
             </p>
           </div>
@@ -41,6 +34,7 @@ const NotFound = ({
       </div>
     </div>
   </div>);
+
 NotFound.defaultProps = {
   msg: "These aren't the droids you're looking for.",
   linkUrl: '/',
