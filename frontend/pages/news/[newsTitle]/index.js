@@ -17,7 +17,7 @@ const NewsPage = ({ newsItem }) => {
   let formattedBody = newsItem.body;
   formattedBody = formattedBody
     ? formattedBody.replace(
-        'src="/sites/default/files/inline-images/',
+        /src="\/sites\/default\/files\/inline-images\//g,
         'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
