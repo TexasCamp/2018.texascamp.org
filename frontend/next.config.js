@@ -1,5 +1,21 @@
 require('dotenv-extended').load();
 const withCSS = require('@zeit/next-css');
+const ApolloClient = require('apollo-client').ApolloClient;
+const InMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
+const HttpLink = require('apollo-link-http').HttpLink;
+const fetch = require('isomorphic-unfetch');
+const gql = require('graphql-tag');
+
+const titleToLink = (titleStr) =>
+  titleStr.toLowerCase().replace(/[^a-z0-9 ]/g, '').split(' ').join('-');
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: process.env.API,
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
 
 module.exports = withCSS({
   cssModules: true,
@@ -9,5 +25,33 @@ module.exports = withCSS({
   },
   publicRuntimeConfig: {
     API: process.env.API
-  }
+  },
+  exportTrailingSlash: true,
+  exportPathMap: async function() {
+    let paths = {
+      '/': { page: '/index' },
+      '/news': { page: '/news' }
+    };
+
+    // News pages
+    try {
+      const newsQuery = await client.query({
+        query: gql`query allNews {
+          nodeQuery(offset: 0, limit: 999, filter: { type: "news" }) {
+            entities {
+              title
+            }
+          }
+        }`
+      });
+
+      newsQuery.data.nodeQuery.entities.forEach(news => {
+        paths[`/news/${titleToLink(news.title)}`] = { page: '/news/[newsTitle]', query: { newsTitle: titleToLink(news.title) } };
+      })
+    } catch (e) {
+      console.error(`Error exporting news pages: ${e.message}`);
+    }
+
+    return paths;
+  },
 })
