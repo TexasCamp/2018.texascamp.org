@@ -9,15 +9,9 @@ import styles from './styles.css';
 
 const BasicPage = ({ title, body }) => {
   // Format body to:
-  // - Update inline image src to include full url
   // - Remove all links
   let formattedBody = body.value;
-  formattedBody = formattedBody
-    ? formattedBody.replace(
-        /src="\/sites\/default\/files\/inline-images\//g,
-        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
-      )
-    : '';
+
   let backgroundImage;
   switch (title) {
     case 'About Us':

@@ -23,16 +23,6 @@ const HappeningPage = ({ happening }) => {
   )}-${formatTime(happening.timeslot.end)}`
     : '';
 
-  // Format body to:
-  // - Update inline image src to include full url
-  let formattedBody = happening.body;
-  formattedBody = formattedBody
-    ? formattedBody.replace(
-        /src="\/sites\/default\/files\/inline-images\//g,
-        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
-      )
-    : '';
-
   return (
     <div>
       {happening.title &&
@@ -102,7 +92,7 @@ const HappeningPage = ({ happening }) => {
                     </div>}
                 </div>
                 <div className={styles.mainContent}>
-                  {cleanHtml(formattedBody)}
+                  {cleanHtml(happening.body)}
                   {happening.youtubeLink &&
                     <div className={styles.videoWrapper}>
                       <iframe

@@ -12,16 +12,6 @@ import { cleanHtml, formatDate } from '../../../shared/utils';
 import styles from './styles.css';
 
 const NewsPage = ({ newsItem }) => {
-  // Format body to:
-  // - Update inline image src to include full url
-  let formattedBody = newsItem.body;
-  formattedBody = formattedBody
-    ? formattedBody.replace(
-        /src="\/sites\/default\/files\/inline-images\//g,
-        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
-      )
-    : '';
-
   const formattedDate = newsItem.publishedDate
     ? formatDate(newsItem.publishedDate)
     : '';
@@ -46,7 +36,7 @@ const NewsPage = ({ newsItem }) => {
               </div>
             </div>
             <div className={styles.mainContent}>
-              {cleanHtml(formattedBody)}
+              {cleanHtml(newsItem.body)}
             </div>
           </div>
           <Footer />

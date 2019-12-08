@@ -23,16 +23,6 @@ const SessionPage = ({ session }) => {
   )}-${formatTime(session.timeslot.end)}`
     : '';
 
-  // Format body to:
-  // - Update inline image src to include full url
-  let formattedBody = session.body;
-  formattedBody = formattedBody
-    ? formattedBody.replace(
-        /src="\/sites\/default\/files\/inline-images\//g,
-        'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
-      )
-    : '';
-
   return (
     <div>
       {session.title &&
@@ -102,7 +92,7 @@ const SessionPage = ({ session }) => {
                     </div>}
                 </div>
                 <div className={styles.mainContent}>
-                  {cleanHtml(formattedBody)}
+                  {cleanHtml(session.body)}
                   {session.youtubeLink &&
                     <div className={styles.videoWrapper}>
                       <iframe
