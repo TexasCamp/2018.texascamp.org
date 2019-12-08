@@ -19,9 +19,6 @@ export const SESSION_QUERY = gql`
       summary
     }
     entityPublished
-    fieldSessionContactCompany
-    fieldSessionContactEmail
-    fieldSessionContactName
     fieldSessionSkillLevel {
       entity {
         entityLabel
@@ -67,9 +64,6 @@ export const sessionsListMapper = (entities) =>
   entities.map(entity => ({
     body: entity.body.value,
     summary: entity.body.summary,
-    contactCompany: entity.fieldSessionContactCompany,
-    contactEmail: entity.fieldSessionContactEmail,
-    contactName: entity.fieldSessionContactName,
     room: entity.fieldSessionRoom,
     status:
       entity.fieldSessionStatus && entity.fieldSessionStatus.entity.entityLabel,
