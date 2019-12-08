@@ -74,6 +74,25 @@ module.exports = withCSS({
       console.error(`Error exporting sessions pages: ${e.message}`);
     }
 
+    // Happening pages
+    try {
+      const happeningsQuery = await client.query({
+        query: gql`query allHappenings {
+          nodeQuery(offset: 0, limit: 999, filter: { type: "happening" }) {
+            entities {
+              title
+            }
+          }
+        }`
+      });
+
+      happeningsQuery.data.nodeQuery.entities.forEach(happening => {
+        paths[`/happenings/${titleToLink(happening.title)}`] = { page: '/happenings/[happeningName]', query: { happeningName: titleToLink(happening.title) } };
+      })
+    } catch (e) {
+      console.error(`Error exporting happenings pages: ${e.message}`);
+    }
+
     return paths;
   },
 })
