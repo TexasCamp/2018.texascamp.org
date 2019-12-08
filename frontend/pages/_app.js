@@ -26,14 +26,6 @@ class TXCApp extends App {
           <Typekit kitId="rgi7wxl" />
         </Head>
         <Component {...pageProps} />
-        {/* <Switch>
-          <Route exact path="/session-form" component={SubmitSession} />
-          <Route
-            exact
-            path="/session-update/:id/:editToken"
-            component={UpdateSession}
-          />
-        </Switch> */}
       </div>
     );
   }
