@@ -33,7 +33,6 @@ class TXCApp extends App {
             path="/session-update/:id/:editToken"
             component={UpdateSession}
           />
-          <Route path="*" component={SplatRouter} />
         </Switch> */}
       </div>
     );

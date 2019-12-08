@@ -1,26 +1,20 @@
-// @flow
-
 import React from 'react';
-import Helmet from 'react-helmet';
-import { cleanHtml } from 'utils';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
+import HeadTitle from '../HeadTitle';
+import { cleanHtml } from '../../shared/utils';
+import Header from '../Header';
+import Menu from '../Menu';
+import Footer from '../Footer';
 import styles from './styles.css';
 
-type BasicPageProps = {
-  title: string,
-  body: object,
-};
 
-const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
+const BasicPage = ({ title, body }) => {
   // Format body to:
   // - Update inline image src to include full url
   // - Remove all links
   let formattedBody = body.value;
   formattedBody = formattedBody
     ? formattedBody.replace(
-        'src="/sites/default/files/inline-images/',
+        /src="\/sites\/default\/files\/inline-images\//g,
         'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
@@ -44,7 +38,7 @@ const BasicPage = ({ title, body }: BasicPageProps): React.Element<any> => {
   }
   return (
     <div>
-      <Helmet title={title} />
+      <HeadTitle title={title} />
       <Menu />
       <div className={styles.contentWrapper}>
         <Header image={backgroundImage} />

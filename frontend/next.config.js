@@ -93,6 +93,27 @@ module.exports = withCSS({
       console.error(`Error exporting happenings pages: ${e.message}`);
     }
 
+    // Basic pages
+    try {
+      const pagesQuery = await client.query({
+        query: gql`query allPages {
+          nodeQuery(offset: 0, limit: 999, filter: { type: "page" }) {
+            entities {
+              entityUrl {
+                alias
+              }
+            }
+          }
+        }`
+      });
+
+      pagesQuery.data.nodeQuery.entities.forEach(page => {
+        paths[page.entityUrl.alias] = { page: '/[slug]', query: { slug: page.entityUrl.alias } };
+      })
+    } catch (e) {
+      console.error(`Error exporting basic pages: ${e.message}`);
+    }
+
     return paths;
   },
 })
