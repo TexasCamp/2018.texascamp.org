@@ -31,7 +31,8 @@ module.exports = withCSS({
     let paths = {
       '/': { page: '/index' },
       '/news': { page: '/news' },
-      '/sponsors': { page: '/sponsors' }
+      '/sponsors': { page: '/sponsors' },
+      '/sessions/proposed': { page: '/sessions/proposed' },
     };
 
     // News pages

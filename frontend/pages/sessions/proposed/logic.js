@@ -1,46 +1,14 @@
-// @flow
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import mapProps from 'recompose/mapProps';
-import type { SessionT, SkillLevelT, TrackT } from 'types';
-import { searchArr, multiFilter } from 'utils';
-
-type FiltersT = {
-  skillLevel: SkillLevelT[],
-  track: TrackT[],
-};
-
-type InitialPropsT = {
-  sessions: SessionT[],
-  skillLevels: SkillLevelT[],
-  tracks: TrackT[],
-};
-
-type InitialStateT = {
-  filters: FiltersT,
-  setFilters: Function,
-  textSearchInput: string,
-  setSearchText: Function,
-  filtersOpen: boolean,
-  setFiltersOpen: Function,
-};
-
-type PropsWithStateT = InitialPropsT & InitialStateT;
-
-type PropsWithStateWithHandlersT = PropsWithStateT & {
-  changeSkillLevelFilters: Function,
-  changeTrackFilters: Function,
-  changeTextFilter: Function,
-  resetAllFilters: Function,
-  openFilters: Function,
-};
+import { searchArr, multiFilter } from '../../../shared/utils';
 
 const filterByAll = (
-  sessions: SessionT[],
-  filters: FiltersT,
-  textSearchInput: string,
-): SessionT[] => {
+  sessions,
+  filters,
+  textSearchInput,
+) => {
   const sessionsFilteredbyProperties = multiFilter(sessions, filters);
   const sessionsFilteredBySearchTerm = searchArr(
     sessionsFilteredbyProperties,
@@ -49,7 +17,7 @@ const filterByAll = (
   return sessionsFilteredBySearchTerm;
 };
 
-const initialFilters: FiltersT = {
+const initialFilters = {
   skillLevel: [],
   track: [],
 };
@@ -62,7 +30,7 @@ const withLogic = compose(
     changeSkillLevelFilters: ({
       filters,
       setFilters,
-    }: PropsWithStateT) => selectedSkillLevel => {
+    }) => selectedSkillLevel => {
       // if filter is already applied, cancel filtere.
       const userIsRemovingFilter = filters.skillLevel.includes(
         selectedSkillLevel,
@@ -84,7 +52,7 @@ const withLogic = compose(
     changeTrackFilters: ({
       filters,
       setFilters,
-    }: PropsWithStateT) => selectedTrack => {
+    }) => selectedTrack => {
       const userIsRemovingFilter = filters.track.includes(selectedTrack);
       if (userIsRemovingFilter) {
         setFilters({
@@ -98,7 +66,7 @@ const withLogic = compose(
         });
       }
     },
-    changeTextFilter: ({ setSearchText }: PropsWithStateT) => ({
+    changeTextFilter: ({ setSearchText }) => ({
       target: { value },
     }) => {
       setSearchText(value);
@@ -107,11 +75,11 @@ const withLogic = compose(
         setSearchText('');
       }
     },
-    resetAllFilters: ({ setFilters, setSearchText }: PropsWithStateT) => () => {
+    resetAllFilters: ({ setFilters, setSearchText }) => () => {
       setFilters(initialFilters);
       setSearchText('');
     },
-    openFilters: ({ setFiltersOpen, filtersOpen }: PropsWithStateT) => () => {
+    openFilters: ({ setFiltersOpen, filtersOpen }) => () => {
       setFiltersOpen(!filtersOpen);
     },
   }),
@@ -128,7 +96,7 @@ const withLogic = compose(
       resetAllFilters,
       openFilters,
       filtersOpen,
-    }: PropsWithStateWithHandlersT) => {
+    }) => {
       return {
         sessions: filterByAll(sessions, filters, textSearchInput),
         skillLevelButtons: skillLevels.map(eachLevel => ({

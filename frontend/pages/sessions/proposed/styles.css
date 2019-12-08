@@ -4,14 +4,14 @@
   }
 }
 .content {
-  composes: contentWrapper from '../../../shared/css/global.css';
+  composes: contentWrapper from '../../../shared/css/compose.css';
   @media $desktop {
     min-width: 50%;
     width: 100%;
   }
 }
 .sessionsContainer {
-  composes: contentArea from '../../../shared/css/global.css';
+  composes: contentArea from '../../../shared/css/compose.css';
   flex-direction: unset;
 }
 .filterWrapper {
@@ -62,7 +62,7 @@
   width: 100%;
 }
 .openFiltersButton {
-  background: url('../../../shared/images/downarrow.png') center center no-repeat $lighterGrey;
+  background: url('/images/downarrow.png') center center no-repeat $lighterGrey;
   background-size: 12px;
   border: none;
   color: $lighterGrey;
@@ -79,7 +79,7 @@
   }
   &.filtersOpen {
     background-color: $yellow;
-    background-image: url('../../../shared/images/uparrow.png');
+    background-image: url('/images/uparrow.png');
     color: $yellow;
     transition: 0.2s all ease;
   }
@@ -124,7 +124,7 @@
   }
 }
 .resetButton {
-  composes: button from '../../../shared/css/global.css';
+  composes: button from '../../../shared/css/compose.css';
 }
 .body {
   p {
@@ -163,7 +163,7 @@
   content: ', ';
 }
 .button {
-  composes: button from '../../../shared/css/global.css';
+  composes: button from '../../../shared/css/compose.css';
 }
 .detail {
   width: 100%;
