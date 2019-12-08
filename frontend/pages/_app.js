@@ -28,7 +28,6 @@ class TXCApp extends App {
         <Component {...pageProps} />
         {/* <Switch>
           <Route exact path="/session-form" component={SubmitSession} />
-          <Route exact path="/happenings/:happeningName/" component={Happening} />
           <Route
             exact
             path="/session-update/:id/:editToken"

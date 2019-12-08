@@ -81,7 +81,7 @@ const Schedule = ({
                           ? '/happenings/'
                           : '/sessions/';
                         const page = session.type === 'happening'
-                          ? '/happenings'
+                          ? '/happenings/[happeningName]'
                           : '/sessions/[sessionName]';
 
                         return (

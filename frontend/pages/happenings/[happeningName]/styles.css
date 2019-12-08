@@ -1,0 +1,81 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
+.content {
+  composes: contentWrapper from '../../../shared/css/compose.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
+.title {
+  composes: title from '../../../shared/css/compose.css';
+}
+.detail {
+  composes: contentArea from '../../../shared/css/compose.css';
+  flex-direction: row-reverse;
+  .section {
+    margin-bottom: 26px;
+    min-width: 25%;
+    @media $xs_small {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @media $tablet {
+      margin-bottom: 40px;
+    }
+    .presenter {
+      cursor: pointer;
+    }
+  }
+  .mainContent {
+    @media $tablet {
+      margin-right: 40px;
+      margin-top: 8px;
+      width: 100%;
+    }
+    .videoWrapper {
+    	position: relative;
+    	padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+    	height: 0;
+    }
+    .video {
+    	border: none;
+    	height: 100%;
+    	left: 0;
+      position: absolute;
+    	top: 0;
+    	width: 100%;
+    }
+    .bios {
+      background: $yellow;
+      margin-top: 40px;
+      padding: 20px;
+      @media $tablet {
+        margin-top: 74px;
+        padding: 26px 30px 14px;
+      }
+      .bio ~ .bio {
+        margin-top: 40px;
+      }
+      .bioNames {
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+}
+.field {
+  composes: field from '../../../shared/css/compose.css';
+}
+.fieldLabel,
+.bioName {
+  composes: calderDark from '../../../shared/css/fonts.css';
+}
+.lightText {
+  composes: calderLC from '../../../shared/css/fonts.css';
+  text-transform: uppercase;
+}
