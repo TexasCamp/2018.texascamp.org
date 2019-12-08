@@ -10,7 +10,7 @@ const Sponsor = ({ sponsor: { title, image, sponsorUrl } }) => {
   );
   const titleOnlyClass = noLogoAvailable ? styles.noImage : '';
   const SponsorWithLogo = (
-    <img className={styles.sponsorImage} src={image.url} alt={image.alt} />
+    <img className={styles.sponsorImage} src={image.url.replace(/.*?(\/sites\/default\/files\/sponsors\/.*)/, "$1")} alt={image.alt} />
   );
   // if image is not included, render title only.
   let SponsorEntity = noLogoAvailable ? SponsorWithTitleOnly : SponsorWithLogo;
