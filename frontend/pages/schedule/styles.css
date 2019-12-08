@@ -1,11 +1,23 @@
+.contentWrapper {
+  @media $desktop {
+    display: flex;
+  }
+}
+.content {
+  composes: contentWrapper from '../../shared/css/compose.css';
+  @media $desktop {
+    min-width: 50%;
+    width: 100%;
+  }
+}
 .title {
-  composes: title from '../../shared/css/global.css';
+  composes: title from '../../shared/css/compose.css';
   margin-bottom: 20px;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 .sessionsContainer {
-  composes: contentArea from '../../shared/css/global.css';
+  composes: contentArea from '../../shared/css/compose.css';
   flex-direction: unset;
 }
 .detail {
@@ -63,20 +75,20 @@
 }
 .beginner {
   &::before {
-    background: url('../../shared/images/dot.png') right center;
+    background: url('/images/dot.png') right center;
   }
 }
 .intermediate {
   &::before {
-    background: url('../../shared/images/dot.png') right center,
-                url('../../shared/images/dot.png') 8px center;
+    background: url('/images/dot.png') right center,
+                url('/images/dot.png') 8px center;
   }
 }
 .advanced {
   &::before {
-    background: url('../../shared/images/dot.png') right center,
-                url('../../shared/images/dot.png') 8px center,
-                url('../../shared/images/dot.png') 0px center;
+    background: url('/images/dot.png') right center,
+                url('/images/dot.png') 8px center,
+                url('/images/dot.png') 0px center;
   }
 }
 .timeslot {
@@ -118,20 +130,20 @@
   }
   :global .Beginner {
     &::before {
-      background: url('../../shared/images/dot.png') 0 center;
+      background: url('/images/dot.png') 0 center;
     }
   }
   :global .Intermediate {
     &::before {
-      background: url('../../shared/images/dot.png') 0 center,
-                  url('../../shared/images/dot.png') 8px center;
+      background: url('/images/dot.png') 0 center,
+                  url('/images/dot.png') 8px center;
     }
   }
   :global .Advanced {
     &::before {
-      background: url('../../shared/images/dot.png') 0 center,
-                  url('../../shared/images/dot.png') 8px center,
-                  url('../../shared/images/dot.png') 16px center;
+      background: url('/images/dot.png') 0 center,
+                  url('/images/dot.png') 8px center,
+                  url('/images/dot.png') 16px center;
     }
   }
   .sessionTitle {
@@ -139,7 +151,7 @@
     margin: 1.5rem 0 0;
   }
   .room {
-    background: url('../../shared/images/marker.png') 0 2px no-repeat;
+    background: url('/images/marker.png') 0 2px no-repeat;
     background-size: 10px 15px;
     padding-left: 20px;
     @media $tablet {

@@ -1,9 +1,8 @@
-// @flow
 import moment from 'moment';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import mapProps from 'recompose/mapProps';
-import { formatTime } from 'utils';
+import { formatTime } from '../../shared/utils';
 
 let defaultStartDate = moment.utc();
 const startDate = moment('2018-05-31').startOf('day').utcOffset(-5);
@@ -20,7 +19,7 @@ const withLogic = compose(
       happenings,
       setDateFilter,
       defaultDate,
-    }: PropsWithStateWithHandlersT) => {
+    }) => {
       const schedule = sessions.concat(happenings);
       const acceptedSessions = schedule.filter(
         ({ status, timeslot, isPublished, type }) =>

@@ -33,6 +33,7 @@ module.exports = withCSS({
       '/news': { page: '/news' },
       '/sponsors': { page: '/sponsors' },
       '/sessions/proposed': { page: '/sessions/proposed' },
+      '/schedule': { page: '/schedule' },
     };
 
     // News pages
