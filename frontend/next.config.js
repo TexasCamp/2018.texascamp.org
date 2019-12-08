@@ -54,6 +54,25 @@ module.exports = withCSS({
       console.error(`Error exporting news pages: ${e.message}`);
     }
 
+    // Sessions pages
+    try {
+      const sessionsQuery = await client.query({
+        query: gql`query allSessions {
+          nodeQuery(offset: 0, limit: 999, filter: { type: "session" }) {
+            entities {
+              title
+            }
+          }
+        }`
+      });
+
+      sessionsQuery.data.nodeQuery.entities.forEach(session => {
+        paths[`/sessions/${titleToLink(session.title)}`] = { page: '/sessions/[sessionName]', query: { sessionName: titleToLink(session.title) } };
+      })
+    } catch (e) {
+      console.error(`Error exporting sessions pages: ${e.message}`);
+    }
+
     return paths;
   },
 })
