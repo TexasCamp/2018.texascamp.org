@@ -30,7 +30,8 @@ module.exports = withCSS({
   exportPathMap: async function() {
     let paths = {
       '/': { page: '/index' },
-      '/news': { page: '/news' }
+      '/news': { page: '/news' },
+      '/sponsors': { page: '/sponsors' }
     };
 
     // News pages

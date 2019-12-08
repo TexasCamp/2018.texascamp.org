@@ -4,17 +4,17 @@
   }
 }
 .content {
-  composes: contentWrapper from '../../shared/css/global.css';
+  composes: contentWrapper from '../../shared/css/compose.css';
   @media $desktop {
     min-width: 50%;
     width: 100%;
   }
 }
 .title {
-  composes: title from '../../shared/css/global.css';
+  composes: title from '../../shared/css/compose.css';
 }
 .detail {
-  composes: contentArea from '../../shared/css/global.css';
+  composes: contentArea from '../../shared/css/compose.css';
   flex-direction: row-reverse;
   .section {
     margin-bottom: 6px;
@@ -74,7 +74,7 @@
   }
 }
 .field {
-  composes: field from '../../shared/css/global.css';
+  composes: field from '../../shared/css/compose.css';
   padding-bottom: 42px !important;
   p {
     margin-bottom:10px;
@@ -92,6 +92,6 @@
   composes: calderDark from '../../shared/css/fonts.css';
 }
 .button {
-  composes: button from '../../shared/css/global.css';
+  composes: button from '../../shared/css/compose.css';
   margin-top: -2px;
 }

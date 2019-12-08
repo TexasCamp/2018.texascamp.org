@@ -1,36 +1,31 @@
-// @flow
-
 import React from 'react';
-import Helmet from 'react-helmet';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
-import Sponsor from 'Sponsor';
-import withSponsorsQuery from 'Sponsors/withSponsorsQuery';
-import styles from 'Sponsors/styles.css';
-import type { SponsorT, SponsorLevelT } from 'types';
 import uniq from 'ramda/src/uniq';
-import { prospectus } from 'files';
+import compose from 'recompose/compose';
+import { withApollo } from '../../shared/lib/withApollo';
+import HeadTitle from '../../components/HeadTitle';
+import Header from '../../components/Header';
+import Menu from '../../components/Menu';
+import Footer from '../../components/Footer';
+import Sponsor from '../../components/Sponsor';
+import withSponsors from '../../shared/query/withSponsors';
+import styles from './styles.css';
 
-type SponsorsPropsT = {
-  loading: boolean,
-  sponsors: SponsorT[],
-};
+
 const Sponsors = ({
   loading,
   sponsors,
-}: SponsorsPropsT): React.Element<any> | false => {
+}) => {
   const individualSponsors = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel === 'Individual',
   );
-  const companySponsors: SponsorT[] = sponsors.filter(
+  const companySponsors = sponsors.filter(
     ({ sponsorLevel }) => sponsorLevel !== 'Individual',
   );
-  const filterByCompanySponsor = (level: SponsorLevelT): SponsorT[] =>
+  const filterByCompanySponsor = (level) =>
     companySponsors.filter(({ sponsorLevel }) => sponsorLevel === level);
 
   // get list of sorted sponsor levels, with 'individual' omitted
-  const levels: SponsorLevelT[] = uniq(
+  const levels = uniq(
     companySponsors.map(({ sponsorLevel }) => sponsorLevel),
   ).sort((a, b) => {
     const ranks = {
@@ -44,7 +39,7 @@ const Sponsors = ({
   return (
     !loading &&
     <div>
-      <Helmet title="Sponsors" />
+      <HeadTitle title="Sponsors" />
       <Menu />
       <div className={styles.contentWrapper}>
         <Header image="sponsors" />
@@ -55,7 +50,7 @@ const Sponsors = ({
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Sponsor</div>
                 <p>Download our sponsor prospectus to get started.</p>
-                <a href={prospectus} className={styles.button}>
+                <a href="/TexasCamp_2018_Sponsor_Prospectus.pdf" className={styles.button}>
                   Download
                 </a>
               </div>
@@ -118,4 +113,4 @@ const Sponsors = ({
     </div>
   );
 };
-export default withSponsorsQuery(Sponsors);
+export default compose(withApollo, withSponsors)(Sponsors);
