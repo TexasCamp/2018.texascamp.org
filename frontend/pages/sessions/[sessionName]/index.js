@@ -1,37 +1,43 @@
-// @flow
 import React from 'react';
-import Helmet from 'react-helmet';
+import compose from 'recompose/compose';
+import { withRouter } from 'next/router';
 import { Link } from 'react-scroll';
-import { cleanHtml, formatTime, formatSessionDate } from 'utils';
-import Header from 'Header';
-import Menu from 'Menu';
-import Footer from 'Footer';
-import type { SessionT } from 'types';
+import { withApollo } from '../../../shared/lib/withApollo';
+import withSessions from '../../../shared/query/withSessions';
+import HeadTitle from '../../../components/HeadTitle';
+import Header from '../../../components/Header';
+import Menu from '../../../components/Menu';
+import Footer from '../../../components/Footer';
+import NotFound from '../../../components/NotFound';
+import { cleanHtml, formatTime, formatSessionDate } from '../../../shared/utils';
 import styles from './styles.css';
 
-const SessionIndividual = ({ session }: { session: SessionT }) => {
+const SessionPage = ({ session }) => {
   // Format date/time
   const formattedTimeslotDate = session.timeslot.start
     ? formatSessionDate(session.timeslot.start)
     : '';
-  const formattedTimeslotTime = `${formatTime(
+  const formattedTimeslotTime = session.timeslot.start
+    ? `${formatTime(
     session.timeslot.start,
-  )}-${formatTime(session.timeslot.end)}`;
+  )}-${formatTime(session.timeslot.end)}`
+    : '';
 
   // Format body to:
   // - Update inline image src to include full url
   let formattedBody = session.body;
   formattedBody = formattedBody
     ? formattedBody.replace(
-        'src="/sites/default/files/inline-images/',
+        /src="\/sites\/default\/files\/inline-images\//g,
         'src="https://backend2018.texascamp.org/sites/default/files/inline-images/',
       )
     : '';
+
   return (
     <div>
       {session.title &&
         <div>
-          <Helmet title={`Session: ${session.title}`} />
+          <HeadTitle title={`Session: ${session.title}`} />
           <Menu />
           <div className={styles.contentWrapper}>
             <Header />
@@ -77,7 +83,7 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
                         {session.skillLevel}
                       </div>
                     </div>}
-                  {session.timeslot &&
+                  {session.timeslot.start &&
                     <div className={styles.field}>
                       <div className={styles.fieldLabel}>Timeslot</div>
                       <div>
@@ -137,4 +143,22 @@ const SessionIndividual = ({ session }: { session: SessionT }) => {
   );
 };
 
-export default SessionIndividual;
+const SessionLoader = ({ router, loading, sessions }) => {
+  if (!loading) {
+    const { query: { sessionName } } = router;
+
+    const sessionItem = sessions.find(
+      ({ urlString }) => urlString === sessionName,
+    );
+
+    if (sessionItem) {
+      return <SessionPage session={sessionItem} />;
+    } else {
+      return <NotFound msg="No session matches that URL" linkText="Back to schedule" linkUrl="/schedule" />;
+    }
+  }
+
+  return null;
+}
+
+export default compose(withApollo, withSessions, withRouter)(SessionLoader);

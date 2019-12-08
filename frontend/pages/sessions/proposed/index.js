@@ -114,7 +114,7 @@ const ProposedSessionsPage = (props) => {
 
                 return (
                   <div key={sessionTeaser.title} className={styles.teaserWrapper}>
-                    <Link href={`/sessions/${sessionTeaser.urlString}`}>
+                    <Link as={`/sessions/${sessionTeaser.urlString}`} href="/sessions/[sessionName]">
                       <a>
                         <h2>
                           {sessionTeaser.title}
