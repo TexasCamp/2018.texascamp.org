@@ -1,0 +1,37 @@
+
+/* TEAM */
+Texas Camp Lead: Stephanie El-Hajj
+Contact: stephanie[at]amazeelabs.com
+Twitter: stephelhajj
+Location: Austin, TX.
+
+Website Lead: Brandon Williams
+Contact: brandon[at]amazeelabs.com
+Twitter: rocketeerbkw
+Location: Austin, TX.
+
+Design Lead: Andrew McClintock
+Contact: andrew[at]amazeelabs.com
+Twitter: bigorangedrink
+Location: Austin, TX.
+
+Frontend Developer: Kathryn McClintock
+Contact: kathryn[at]amazeelabs.com
+Twitter: kccmcck
+Location: Austin, TX.
+
+Web Developer: Seth Silesky
+Contact: seth.silesky[at]amazeelabs.com
+Location: Austin, TX.
+
+Web Developer: Kristy Moon
+Contact: kristy[at]amazeelabs.com
+Location: Austin, TX. 
+
+/* THANKS */
+Name: All of our sponsors
+
+/* SITE */
+Standards: React, es2015
+Components: Drupal 8, React, React Router
+Hosting: AmazeeIO
