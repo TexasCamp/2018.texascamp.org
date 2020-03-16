@@ -151,4 +151,4 @@ const SessionLoader = ({ router, loading, sessions }) => {
   return null;
 }
 
-export default compose(withApollo, withSessions, withRouter)(SessionLoader);
+export default compose(withApollo(), withSessions, withRouter)(SessionLoader);

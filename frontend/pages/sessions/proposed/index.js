@@ -177,6 +177,6 @@ const ProposedSessionsPage = (props) => {
   );
 };
 
-export default compose(withApollo, withSessions, withHappenings, withTaxonomy, withLogic)(
+export default compose(withApollo(), withSessions, withHappenings, withTaxonomy, withLogic)(
   ProposedSessionsPage,
 );

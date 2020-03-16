@@ -39,4 +39,4 @@ const NewsOverview = ({
     </div>) ||
   null;
 
-export default compose(withApollo, withNews)(NewsOverview);
+export default compose(withApollo(), withNews)(NewsOverview);

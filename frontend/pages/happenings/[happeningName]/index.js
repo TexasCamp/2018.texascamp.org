@@ -151,4 +151,4 @@ const HappeningLoader = ({ router, loading, happenings }) => {
   return null;
 }
 
-export default compose(withApollo, withHappenings, withRouter)(HappeningLoader);
+export default compose(withApollo(), withHappenings, withRouter)(HappeningLoader);

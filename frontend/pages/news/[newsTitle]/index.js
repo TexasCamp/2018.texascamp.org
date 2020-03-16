@@ -64,4 +64,4 @@ const NewsLoader = ({ router, loading, newsList }) => {
   return null;
 }
 
-export default compose(withApollo, withNews, withRouter)(NewsLoader);
+export default compose(withApollo(), withNews, withRouter)(NewsLoader);
