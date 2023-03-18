@@ -149,4 +149,4 @@ const SessionDetails = ({ session }) => {
   );
 };
 
-export default compose(withApollo(), withSessions, withHappenings, withLogic)(Schedule);
+export default compose(withApollo({ ssr: true }), withSessions, withHappenings, withLogic)(Schedule);

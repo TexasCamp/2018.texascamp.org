@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export"
+    "export": "rm -rf out && next build && next export"
   },
   "dependencies": {
     "@apollo/react-ssr": "^3.1.3",

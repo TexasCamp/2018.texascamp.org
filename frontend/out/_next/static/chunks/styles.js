@@ -1,43 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./components/BasicPage/styles.css":
-/*!*****************************************!*\
-  !*** ./components/BasicPage/styles.css ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"contentWrapper":"components-BasicPage-styles__contentWrapper--34gH1","content":"components-BasicPage-styles__content--ckqd_ shared-css-compose__contentWrapper--1QUeL","title":"components-BasicPage-styles__title--2IhUF shared-css-compose__title--3jpr9","detail":"components-BasicPage-styles__detail--3NLk4 shared-css-compose__contentArea--3lHpT","mainContent":"components-BasicPage-styles__mainContent--1VXd2"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823428188");
-          });
-      }
-    }
-  
-
-/***/ }),
-
 /***/ "./components/Footer/styles.css":
 /*!**************************************!*\
   !*** ./components/Footer/styles.css ***!
@@ -68,7 +30,7 @@ module.exports = {"footer":"components-Footer-styles__footer--37FtP","logo":"com
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823395790");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337005520");
           });
       }
     }
@@ -106,7 +68,7 @@ module.exports = {"headerWrapper":"components-Header-styles__headerWrapper--3cNW
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823395328");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337004981");
           });
       }
     }
@@ -144,7 +106,45 @@ module.exports = {"menuButton":"components-Menu-styles__menuButton--hJJTT shared
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823395764");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337005510");
+          });
+      }
+    }
+  
+
+/***/ }),
+
+/***/ "./components/NewsTeaser/styles.css":
+/*!******************************************!*\
+  !*** ./components/NewsTeaser/styles.css ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"newOverview":"components-NewsTeaser-styles__newOverview--2YKJK","teaserWrapper":"components-NewsTeaser-styles__teaserWrapper--RBVqe","date":"components-NewsTeaser-styles__date--R9N4u","moreLink":"components-NewsTeaser-styles__moreLink--1QP9C","hompageNews":"components-NewsTeaser-styles__hompageNews--2ZaNb","secondColumn":"components-NewsTeaser-styles__secondColumn--Bpati"};;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1584338379292");
           });
       }
     }
@@ -182,7 +182,7 @@ module.exports = {"newsletter":"components-NewsletterForm-styles__newsletter--3o
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823396408");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337006120");
           });
       }
     }
@@ -220,7 +220,7 @@ module.exports = {"contentWrapper":"components-NotFound-styles__contentWrapper--
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823396080");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337283018");
           });
       }
     }
@@ -258,7 +258,7 @@ module.exports = {"noImage":"components-Sponsor-styles__noImage--1NlrJ"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823396203");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337005992");
           });
       }
     }
@@ -296,7 +296,7 @@ module.exports = {"wrapper":"pages-_app-styles__wrapper--1lbfw shared-css-fonts_
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823389035");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584336988911");
           });
       }
     }
@@ -304,15 +304,15 @@ module.exports = {"wrapper":"pages-_app-styles__wrapper--1lbfw shared-css-fonts_
 
 /***/ }),
 
-/***/ "./pages/sponsors/styles.css":
-/*!***********************************!*\
-  !*** ./pages/sponsors/styles.css ***!
-  \***********************************/
+/***/ "./pages/news/[newsTitle]/styles.css":
+/*!*******************************************!*\
+  !*** ./pages/news/[newsTitle]/styles.css ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"contentWrapper":"pages-sponsors-styles__contentWrapper--kE12e","content":"pages-sponsors-styles__content--f-RIb shared-css-compose__contentWrapper--1QUeL","title":"pages-sponsors-styles__title--1_QO4 shared-css-compose__title--3jpr9","detail":"pages-sponsors-styles__detail--3xhkD shared-css-compose__contentArea--3lHpT","section":"pages-sponsors-styles__section--2JoG5","mainContent":"pages-sponsors-styles__mainContent--N2QzR","sponsorContainer":"pages-sponsors-styles__sponsorContainer--DZT2G","sponsors":"pages-sponsors-styles__sponsors--1iF79","individualSponsors":"pages-sponsors-styles__individualSponsors--Y6H5z","field":"pages-sponsors-styles__field--1YCeG shared-css-compose__field--3QViE","button":"pages-sponsors-styles__button--1agzu shared-css-compose__button--2_pxt shared-css-fonts__calderDark--1bp9m","fieldLabel":"pages-sponsors-styles__fieldLabel--1zxsI shared-css-fonts__calderDark--1bp9m"};;
+module.exports = {"contentWrapper":"pages-news--newsTitle--styles__contentWrapper--3j8jK","content":"pages-news--newsTitle--styles__content--MZHij shared-css-compose__contentWrapper--1QUeL","title":"pages-news--newsTitle--styles__title--1RdXs shared-css-compose__title--3jpr9","detail":"pages-news--newsTitle--styles__detail--3Cn2V shared-css-compose__contentArea--3lHpT","section":"pages-news--newsTitle--styles__section--1YoQE","mainContent":"pages-news--newsTitle--styles__mainContent--2lzf-","field":"pages-news--newsTitle--styles__field--3x6U8 shared-css-compose__field--3QViE","fieldLabel":"pages-news--newsTitle--styles__fieldLabel--3L12c shared-css-fonts__calderDark--1bp9m"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -334,7 +334,45 @@ module.exports = {"contentWrapper":"pages-sponsors-styles__contentWrapper--kE12e
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823806019");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337282990");
+          });
+      }
+    }
+  
+
+/***/ }),
+
+/***/ "./pages/news/styles.css":
+/*!*******************************!*\
+  !*** ./pages/news/styles.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"contentWrapper":"pages-news-styles__contentWrapper--3yVrG","content":"pages-news-styles__content--2VpK0 shared-css-compose__contentWrapper--1QUeL","title":"pages-news-styles__title--1qGIX shared-css-compose__title--3jpr9","detail":"pages-news-styles__detail--31WHs shared-css-compose__contentArea--3lHpT"};;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1584337005226");
           });
       }
     }
@@ -372,7 +410,7 @@ module.exports = {"buttonLink":"shared-css-global__buttonLink--1OnUv","Select":"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823389029");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584336988908");
           });
       }
     }
@@ -409,7 +447,7 @@ module.exports = {"buttonLink":"shared-css-global__buttonLink--1OnUv","Select":"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575823389022");
+            injectCss(link, link.href.split("?")[0] + "?unix=1584336988905");
           });
       }
     }

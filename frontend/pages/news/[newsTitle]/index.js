@@ -10,6 +10,7 @@ import NotFound from '../../../components/NotFound';
 import withNews from '../../../shared/query/withNews';
 import { cleanHtml, formatDate } from '../../../shared/utils';
 import styles from './styles.css';
+import Link from 'next/link';
 
 const NewsPage = ({ newsItem }) => {
   const formattedDate = newsItem.publishedDate
@@ -27,6 +28,7 @@ const NewsPage = ({ newsItem }) => {
             {newsItem.title}
           </h1>
           <div className={styles.detail}>
+            <Link href="/news">News</Link>
             <div className={styles.section}>
               <div className={styles.field}>
                 <div className={styles.fieldLabel}>Published</div>
@@ -64,4 +66,4 @@ const NewsLoader = ({ router, loading, newsList }) => {
   return null;
 }
 
-export default compose(withApollo(), withNews, withRouter)(NewsLoader);
+export default compose(withApollo({ ssr: true }), withNews, withRouter)(NewsLoader);

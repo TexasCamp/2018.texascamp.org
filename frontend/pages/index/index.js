@@ -135,4 +135,4 @@ const Home = ({ loading, newsList, sponsors }) => {
   );
 };
 
-export default compose(withApollo(), withNews, withSponsors)(Home);
+export default compose(withApollo({ ssr: true }), withNews, withSponsors)(Home);

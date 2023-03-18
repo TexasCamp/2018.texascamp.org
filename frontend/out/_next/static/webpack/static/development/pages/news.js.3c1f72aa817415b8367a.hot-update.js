@@ -1,0 +1,135 @@
+webpackHotUpdate("static/development/pages/news.js",{
+
+/***/ "./pages/news/index.js":
+/*!*****************************!*\
+  !*** ./pages/news/index.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! recompose/compose */ "./node_modules/recompose/compose.js");
+/* harmony import */ var recompose_compose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(recompose_compose__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _shared_lib_withApollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/lib/withApollo */ "./shared/lib/withApollo.js");
+/* harmony import */ var _components_HeadTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/HeadTitle */ "./components/HeadTitle/index.js");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Header */ "./components/Header/index.js");
+/* harmony import */ var _components_Menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Menu */ "./components/Menu/index.js");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Footer */ "./components/Footer/index.js");
+/* harmony import */ var _components_NewsTeaser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/NewsTeaser */ "./components/NewsTeaser/index.js");
+/* harmony import */ var _shared_query_withNews__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../shared/query/withNews */ "./shared/query/withNews.js");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles.css */ "./pages/news/styles.css");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+var _jsxFileName = "/Users/brandon/dev/personal/2018.texascamp.org/frontend/pages/news/index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+ // const NewsOverviewOld = ({
+//   loading,
+//   newsList,
+// }) =>
+//   (!loading &&
+//     <div>
+//       <Menu />
+//       <HeadTitle title="News" />
+//       <div className={styles.contentWrapper}>
+//         <Header />
+//         <div className={styles.content}>
+//           <h1 className={styles.title}>News</h1>
+//           <div className={styles.detail}>
+//             <ul>
+//               {newsList
+//                 .sort(
+//                   (a, b) => b.publishedDate - a.publishedDate
+//                 )
+//                 .map(newsTeaser =>
+//                   <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
+//                 )}
+//             </ul>
+//           </div>
+//           <Footer />
+//         </div>
+//       </div>
+//     </div>) ||
+//   <div>loading</div>;
+
+var NewsOverview = function NewsOverview() {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: this
+  }, __jsx("div", {
+    className: _styles_css__WEBPACK_IMPORTED_MODULE_9___default.a.contentWrapper,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }, __jsx("div", {
+    className: _styles_css__WEBPACK_IMPORTED_MODULE_9___default.a.content,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, __jsx("h1", {
+    className: _styles_css__WEBPACK_IMPORTED_MODULE_9___default.a.title,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: this
+  }, "News"), __jsx("div", {
+    className: _styles_css__WEBPACK_IMPORTED_MODULE_9___default.a.detail,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: this
+  }))));
+}; // {newsList
+//   .sort(
+//     (a, b) => b.publishedDate - a.publishedDate
+//   )
+//   .map(newsTeaser =>
+//     <NewsTeaser key={newsTeaser.id} newsTeaser={newsTeaser} />,
+//   )}
+// export const getStaticProps = async (ctx) => {
+//   initOnContext(ctx)
+//   const result = await ctx.apolloClient.query({
+//     query: NEWS_QUERY
+//   });
+//   const newsList = newsListMapper(result.data.nodeQuery.entities).map(news => ({
+//     ...news,
+//     publishedDate: null,
+//   }));
+//   return {
+//     props: {}
+//     // props: {
+//     //   loading: result.loading,
+//     //   newsList: result.data.nodeQuery.entities,
+//     // }
+//   }
+// }
+
+
+/* harmony default export */ __webpack_exports__["default"] = (NewsOverview);
+
+/***/ })
+
+})
+//# sourceMappingURL=news.js.3c1f72aa817415b8367a.hot-update.js.map

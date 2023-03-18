@@ -26,14 +26,15 @@ module.exports = withCSS({
   publicRuntimeConfig: {
     API: process.env.API
   },
+  generateBuildId: () => 'const-build-id',
   exportTrailingSlash: true,
   exportPathMap: async function() {
     let paths = {
       '/': { page: '/index' },
       '/news': { page: '/news' },
-      '/sponsors': { page: '/sponsors' },
-      '/sessions/proposed': { page: '/sessions/proposed' },
-      '/schedule': { page: '/schedule' },
+      // '/sponsors': { page: '/sponsors' },
+      // '/sessions/proposed': { page: '/sessions/proposed' },
+      // '/schedule': { page: '/schedule' },
     };
 
     // News pages
@@ -55,64 +56,64 @@ module.exports = withCSS({
       console.error(`Error exporting news pages: ${e.message}`);
     }
 
-    // Sessions pages
-    try {
-      const sessionsQuery = await client.query({
-        query: gql`query allSessions {
-          nodeQuery(offset: 0, limit: 999, filter: { type: "session" }) {
-            entities {
-              title
-            }
-          }
-        }`
-      });
+    // // Sessions pages
+    // try {
+    //   const sessionsQuery = await client.query({
+    //     query: gql`query allSessions {
+    //       nodeQuery(offset: 0, limit: 999, filter: { type: "session" }) {
+    //         entities {
+    //           title
+    //         }
+    //       }
+    //     }`
+    //   });
 
-      sessionsQuery.data.nodeQuery.entities.forEach(session => {
-        paths[`/sessions/${titleToLink(session.title)}`] = { page: '/sessions/[sessionName]', query: { sessionName: titleToLink(session.title) } };
-      })
-    } catch (e) {
-      console.error(`Error exporting sessions pages: ${e.message}`);
-    }
+    //   sessionsQuery.data.nodeQuery.entities.forEach(session => {
+    //     paths[`/sessions/${titleToLink(session.title)}`] = { page: '/sessions/[sessionName]', query: { sessionName: titleToLink(session.title) } };
+    //   })
+    // } catch (e) {
+    //   console.error(`Error exporting sessions pages: ${e.message}`);
+    // }
 
-    // Happening pages
-    try {
-      const happeningsQuery = await client.query({
-        query: gql`query allHappenings {
-          nodeQuery(offset: 0, limit: 999, filter: { type: "happening" }) {
-            entities {
-              title
-            }
-          }
-        }`
-      });
+    // // Happening pages
+    // try {
+    //   const happeningsQuery = await client.query({
+    //     query: gql`query allHappenings {
+    //       nodeQuery(offset: 0, limit: 999, filter: { type: "happening" }) {
+    //         entities {
+    //           title
+    //         }
+    //       }
+    //     }`
+    //   });
 
-      happeningsQuery.data.nodeQuery.entities.forEach(happening => {
-        paths[`/happenings/${titleToLink(happening.title)}`] = { page: '/happenings/[happeningName]', query: { happeningName: titleToLink(happening.title) } };
-      })
-    } catch (e) {
-      console.error(`Error exporting happenings pages: ${e.message}`);
-    }
+    //   happeningsQuery.data.nodeQuery.entities.forEach(happening => {
+    //     paths[`/happenings/${titleToLink(happening.title)}`] = { page: '/happenings/[happeningName]', query: { happeningName: titleToLink(happening.title) } };
+    //   })
+    // } catch (e) {
+    //   console.error(`Error exporting happenings pages: ${e.message}`);
+    // }
 
-    // Basic pages
-    try {
-      const pagesQuery = await client.query({
-        query: gql`query allPages {
-          nodeQuery(offset: 0, limit: 999, filter: { type: "page" }) {
-            entities {
-              entityUrl {
-                alias
-              }
-            }
-          }
-        }`
-      });
+    // // Basic pages
+    // try {
+    //   const pagesQuery = await client.query({
+    //     query: gql`query allPages {
+    //       nodeQuery(offset: 0, limit: 999, filter: { type: "page" }) {
+    //         entities {
+    //           entityUrl {
+    //             alias
+    //           }
+    //         }
+    //       }
+    //     }`
+    //   });
 
-      pagesQuery.data.nodeQuery.entities.forEach(page => {
-        paths[page.entityUrl.alias] = { page: '/[slug]', query: { slug: page.entityUrl.alias } };
-      })
-    } catch (e) {
-      console.error(`Error exporting basic pages: ${e.message}`);
-    }
+    //   pagesQuery.data.nodeQuery.entities.forEach(page => {
+    //     paths[page.entityUrl.alias] = { page: '/[slug]', query: { slug: page.entityUrl.alias } };
+    //   })
+    // } catch (e) {
+    //   console.error(`Error exporting basic pages: ${e.message}`);
+    // }
 
     return paths;
   },

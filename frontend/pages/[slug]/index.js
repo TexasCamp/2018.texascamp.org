@@ -49,4 +49,4 @@ const withQuery = graphql(query, {
   }),
 });
 
-export default compose(withRouter, withApollo(), withQuery)(PageLoader);
+export default compose(withRouter, withApollo({ ssr: true }), withQuery)(PageLoader);

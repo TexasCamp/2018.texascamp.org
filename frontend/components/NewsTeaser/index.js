@@ -10,6 +10,8 @@ const NewsTeaser = ({
   hompageNews,
   hompageNewsSecondColumn,
 }) => {
+  return <div>teaser</div>;
+  
   // Use body summary if available
   // If not trim to 400 characters
   const strippedBody = newsTeaser.body.replace(/(<([^>]+)>)/gi, '');

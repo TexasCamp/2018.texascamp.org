@@ -113,4 +113,4 @@ const Sponsors = ({
     </div>
   );
 };
-export default compose(withApollo(), withSponsors)(Sponsors);
+export default compose(withApollo({ ssr: true }), withSponsors)(Sponsors);
